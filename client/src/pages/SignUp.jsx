@@ -101,7 +101,7 @@ export default function SignUp() {
           )}
         </div>
       </div>
-      Sign Up
+     
     </div>
   )
 }
