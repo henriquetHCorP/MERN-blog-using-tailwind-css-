@@ -1,4 +1,4 @@
-import bcryptjs from 'bcryptjs'; 
+ import bcryptjs from 'bcryptjs'; 
 import { errorHandler } from '../utils/error.js';
 import User from '../models/user.model.js';
 
@@ -30,7 +30,8 @@ export const updateUser = async(req, res, next) => {
              return next(errorHandler(400, 'Username must be lowercase')); 
         }
         if (!req.body.username.match(/^[a-zA-Z0-9]+$/)){
-            return next(errorHandler(400, 'Username can only contain letters and numbers'));
+            return next(errorHandler(400, 'Username can only contain letters and numbers')
+        );
         }
     }
         try {
