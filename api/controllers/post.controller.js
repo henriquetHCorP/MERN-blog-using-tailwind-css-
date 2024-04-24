@@ -27,3 +27,52 @@ export const create = async(req, res, next ) => {
 
     }
 }; 
+
+export const getposts = async (req, res, next ) => {
+    try {
+        //parseInt will convert to integer and if there's no start index or number use 0; 
+       const startIndex = parseInt(req.queryIndex) || 0 ;
+       //parseInt will convert the req.query.limit to an integer and if there's no integer limit use 9;
+       const limit = parseInt(req.query.limit) || 9; 
+       //sort direction , 1 is for ascending order and -1 is for descending order;
+       const sortDirection = req.query.order === 'asc'? 1 : -1; 
+       const posts = await Post.find({
+        ...(req.query.userId && { userId: req.query.userId }), 
+        ...(req.query.category && { category: req.query.category }), 
+        ...(req.query.slug && {slug: req.query.slug }), 
+        ...(req.query.postId && {_id: req.query.postId}), 
+        ...(req.query.searchTerm && {
+            $or: [
+                // i means lowercase or uppercase doesn't matter, or it's not case sensitive; 
+                { title: { $regex: req.query.searchTerm, $options: 'i' } },
+                { content: { $regex: req.query.searchTerm, $options: 'i '} },  
+            ],
+        }),
+    }).sort({ updatedAt: sortDirection })
+      .skip(startIndex)
+      .limit(limit);
+    
+      const totalPosts = await Post.countDocuments(); 
+
+      const now = new Date(); 
+
+      const oneMonthAgo = new Date(
+        now.getFullYear(), 
+        now.getMonth() - 1, 
+        now.getDate()
+      );
+
+      const lastMonthPosts = await Post.countDocuments({
+             //$gte: greater than
+        createdAt: {$gte: oneMonthAgo}
+      }); 
+
+      res.status(200).json({
+        posts, 
+        totalPosts, 
+        lastMonthPosts, 
+      })
+    }catch(error){
+       next(error); 
+    }
+}
