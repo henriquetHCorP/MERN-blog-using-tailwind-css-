@@ -1,6 +1,6 @@
 import express from 'express'; 
 import { verifyToken } from '../utils/VerifyUser.js'; 
-import { create, getposts } from '../controllers/post.controller.js';
+import { create, deletepost, getposts } from '../controllers/post.controller.js';
 
 const router = express.Router(); 
 
@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.post('/create', verifyToken, create); 
 //for the getposts, we don't need to verify the token because even if you're not signin, you can still access to see the posts. 
-router.get('/getposts', getposts)
+router.get('/getposts', getposts); 
+router.delete('/deletepost/:postId/:userId', verifyToken, deletepost); 
 
 export default router; 
