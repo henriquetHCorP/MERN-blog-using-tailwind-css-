@@ -108,6 +108,19 @@ export default function CreatePost() {
                     <option value="uncategorized ">Select a category</option>
                     <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option>
+                    <option value="PrimeMinister">Office of the Prime Minister</option>
+                    <option value="MinistryMine">Ministry of Mine</option>
+                    <option value="MinistryJustice">Ministry of Justice</option>
+                    <option value="MinistryFinances">Ministry of Finances</option>
+                    <option value="MinistryEconomy">Ministry of economy</option>
+                    <option value="MinistryEmployment">Ministry of Employment</option>
+                    <option value="MinistryNationalDefense ">Ministry of National Defense </option>
+                    <option value="MinistryCommunication">Ministry of Communication</option>
+                    <option value="MinistryHealthCare ">Ministry of Health Care </option>
+                    <option value="MinistryForeignAffairs">Ministry of Foreign Affairs</option>
+                    <option value="henriquet">KAPEMA HENRIQUET</option>
+                    <option value="henriquet">KAPEMA HENRIQUET</option>
+                    <option value="henriquet">KAPEMA HENRIQUET</option>
                     <option value="henriquet">KAPEMA HENRIQUET</option>
                 </Select>
             </div>

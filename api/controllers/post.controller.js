@@ -3,7 +3,7 @@ import  Post from '../models/post.model.js'
 
 export const create = async(req, res, next ) => {
     if (!req.user.isAdmin) {
-        return next(errorHandler(403, 'You are not allowed to create a post'))
+        return next(errorHandler(403, 'You are not allowed to create a post'));
     }
     if (!req.body.title ||!req.body.content) {
         return next(errorHandler(400, 'Please provide all required fields'))
@@ -31,7 +31,7 @@ export const create = async(req, res, next ) => {
 export const getposts = async (req, res, next ) => {
     try {
         //parseInt will convert to integer and if there's no start index or number use 0; 
-       const startIndex = parseInt(req.queryIndex) || 0 ;
+       const startIndex = parseInt(req.query.startIndex) || 0 ;
        //parseInt will convert the req.query.limit to an integer and if there's no integer limit use 9;
        const limit = parseInt(req.query.limit) || 9; 
        //sort direction , 1 is for ascending order and -1 is for descending order;
