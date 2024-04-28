@@ -114,7 +114,7 @@ export default function CreatePost() {
                     <option value="MinistryFinances">Ministry of Finances</option>
                     <option value="MinistryEconomy">Ministry of economy</option>
                     <option value="MinistryEmployment">Ministry of Employment</option>
-                    <option value="MinistryNationalDefense ">Ministry of National Defense </option>
+                    <option value="MinistryNationalDefense">Ministry of National Defense </option>
                     <option value="MinistryCommunication">Ministry of Communication</option>
                     <option value="MinistryHealthCare ">Ministry of Health Care </option>
                     <option value="MinistryForeignAffairs">Ministry of Foreign Affairs</option>
