@@ -8,7 +8,7 @@ export default function CallToAction() {
         <h2 className="text-2xl">
             Want to learn more about the war in the DRC? 
         </h2>
-        <p classNme="text-gray-500 my-2">
+        <p className="text-gray-500 my-2">
             Checkout these resources with 100 local correspondants 
         </p>
         <Button gradientDuoTone="purpleToPink" className="rounded-tl-xl rounded-bl-none">
