@@ -4,7 +4,7 @@ import { Button, Textarea } from 'flowbite-react';
 import { FaThumbsUp} from 'react-icons/fa'; 
 import { useSelector } from 'react-redux';
 
-export default function Comment({comment, onLike, onEdit}) {
+export default function Comment({comment, onLike, onEdit, onDelete}) {
     const [user, setUser ] = useState({}); 
     const [isEditing, setIsEditing] = useState(false); 
     const [editedContent, setEditedContent] = useState(comment.content); 
@@ -114,14 +114,24 @@ export default function Comment({comment, onLike, onEdit}) {
                 </p>
                 {
                   currentUser && (currentUser._id === comment.userId || currentUser.isAdmin) && (
+                    <>
                     <button
                       type='button'
-                      clasName="text-gray-400 hover: text-blue-500"
+                      className="text-gray-400 hover:text-blue-500"
                       onClick={handleEdit}
                       // we dont't need to create and handleEdit function in the CommentSection because doing so will affect all the others comments. we just need to update this comment 
                     >
                           Edit 
                     </button>
+                    <button
+                    type='button'
+                    onClick={() => onDelete(comment._id)}
+                    className="text-gray-400 hover:text-red-500"
+                    // we dont't need to create and handleEdit function in the CommentSection because doing so will affect all the others comments. we just need to update this comment 
+                  >
+                        Delete
+                  </button>
+                  </>
                   )
                 }
             </div>
