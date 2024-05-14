@@ -43,7 +43,7 @@ export const getposts = async (req, res, next ) => {
             $or: [
                 // i means lowercase or uppercase doesn't matter, or it's not case sensitive; 
                 { title: { $regex: req.query.searchTerm, $options: 'i' } },
-                { content: { $regex: req.query.searchTerm, $options: 'i '} },  
+                { content: { $regex: req.query.searchTerm, $options: 'i'} },  
             ],
         }),
     }).sort({ updatedAt: sortDirection })
