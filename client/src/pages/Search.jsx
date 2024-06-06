@@ -137,7 +137,7 @@ export default function Search() {
               value={sidebarData.category}
               id='category'
             >
-              <option value='uncategorized'>Uncategorized</option>
+              {/* <option value='uncategorized'>Uncategorized</option>
               <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option>
                     <option value="PrimeMinister">Office of the Prime Minister</option>
@@ -154,7 +154,55 @@ export default function Search() {
                     <option value="henriquet">KAPEMA HENRIQUET</option>
                     <option value="henriquet">KAPEMA HENRIQUET</option>
                     <option value="henriquet">KAPEMA HENRIQUET</option>
-            </Select>
+            </Select> */}
+            <option value="uncategorized ">Select a Minister</option>
+                    {/* <option value="javascript">JavaScript</option>
+                    <option value="reactjs">React.js</option> */}
+                    <option value="Prime Minister">Prime Minister</option>
+                    <option value="Interior">VPM Interior and Security</option>
+                    <option value="Transport">VPM Transport, CRD</option>
+                    <option value="Defense">VPM National Defense</option>
+                    <option value="Economy">VPM National Economy</option>
+                    <option value="Public Service">VPM Public Service</option>
+                    <option value="Planning">VPM Planning and Development Aid Coord</option>
+                    <option value="Agriculture">MS Minister of Agriculture</option>
+                    <option value="Foreign Affairs">MS Minister of Foreign Affairs</option>
+                    <option value="National education">MS Minister of National Educ. and NC</option>
+                    <option value="Infrastructure">MS Minister Infrastructure and PW</option>
+                    <option value="justice">MS Minister of Justice</option>
+                    <option value="Budget">MS Minister of Budget</option> 
+                    <option value="Land Affairs">MS Minister of Land Affairs</option>
+                    <option value="Rural Development">MS Minister of Rural Development</option>
+                    <option value="Land Management">MS Minister of Land Amenagement</option>
+                    <option value="Finance">Minister of Finances</option>
+                    <option value="Industry">Minister of Industry and SMEs</option>
+                    <option value="Electricity">Minister of Hydraulic Resources and Electricity</option>
+                    <option value="Mines">Minister of Mines</option>
+                    <option value="Hydrocarbons">Minister of Hydrocarbons</option>
+                    <option value="Employment">Minister of Labor, Employment, and Social Welfare</option>
+                    <option value="Urbanism">Minister of Urbanism and Housing</option>
+                    <option value="Human Rights">Minister of Human Rights</option>
+                    <option value="Health">Minister Health</option>
+                    <option value="Higher Education">Minister of Higher Education and University</option>
+                    <option value="Scientific Research">Minister of Scientifc Research and Innovation</option>
+                    <option value="Technologies">Minister of Posts, Telecom, New Tech, and Info and Com</option>
+                    <option value="Portfolio">Minister of Portfolio</option>
+                    <option value="Social Affairs">Minister of Social Affairs and Humanitarian Action</option>
+                    <option value="External Trade">Minister of External Trade</option>
+                    <option value="Regional Integration">Minister of Regional Integration</option>
+                    <option value="Communication">Minister of Communication and Medias</option>
+                    <option value="Professional Training">Minister of Professsional Training</option>
+                    <option value="Gender">Minister of Gender</option>
+                    <option value="Fisheries">Minister of Fisheries and Livestock</option>
+                    <option value="Culture and Arts">Minister of Culture and Arts</option>
+                    <option value="Tourism">Minister of Tourism</option>
+                    <option value="Sports">Minister of Sports</option>
+                     
+                    {/* <option value="henriquet">KAPEMA HENRIQUET</option>
+                    <option value="henriquet">KAPEMA HENRIQUET</option>
+                    <option value="henriquet">KAPEMA HENRIQUET</option>
+                    <option value="henriquet">KAPEMA HENRIQUET</option> */}
+                </Select>
           </div>
           <Button type='submit' outline gradientDuoTone='purpleToPink'>
                   Appy Filters 

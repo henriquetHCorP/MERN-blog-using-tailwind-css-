@@ -10,6 +10,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
     const [editedContent, setEditedContent] = useState(comment.content); 
     const {currentUser} = useSelector((state) => (state.user)); 
 
+    
     // console.log(user); 
     useEffect(() => {
          const getUser = async () => {
@@ -24,7 +25,8 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
             }
          } 
          getUser(); 
-    }, [comment])
+    }, [comment]); 
+
    
   const handleEdit = () => {
     setIsEditing(true); 
@@ -55,8 +57,18 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
   }
 
   return (
+    <>
+    {/* <div className="flex gap-1 justify-end">
+            <button type="button" onClick={() => onPostLike(post._Id)} className="text-gray-400 hover:text-blue-500">
+              <FaThumbsUp className="text-xl"/> 
+            </button>
+            <p>Like this Post</p> 
+          </div> */}
+          
     <div className="flex p-4 border-b dark:border-gray-600 text-sm">
+      
         <div className="flex-shrink-0 mr-3">
+          
             <img  className="w-10 h-10 rounded-full bg-gray-200" 
               src={user.profilePicture} 
               alt={user.username} 
@@ -142,5 +154,6 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
         </div>
      
     </div>
+    </>
   )
 }

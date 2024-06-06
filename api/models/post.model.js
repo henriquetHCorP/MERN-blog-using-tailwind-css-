@@ -27,6 +27,15 @@ import mongoose from "mongoose";
         required: true, 
         unique: true, 
     }, 
+    // henriquet add
+    likes: {
+      types: Array, 
+      default: [], 
+    },
+    numberOfLikes: {
+        type: Number, 
+        default:0,
+    },
  }, {timestamps: true}
 ); 
 

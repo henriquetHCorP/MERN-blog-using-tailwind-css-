@@ -1,7 +1,7 @@
 import { Alert, Button, Modal, Textarea } from 'flowbite-react';
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'; 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
@@ -13,7 +13,11 @@ export default function CommentSection({postId}) {
     const [showModal, setShowModal] = useState(false); 
     const [commentToDelete, setCommentToDelete] = useState(null); 
 
+    const [posts, setPosts] = useState('' || null); 
+
     const navigate = useNavigate(); 
+    const location = useLocation(); 
+     
 
     // console.log(comments); 
 
@@ -114,6 +118,31 @@ export default function CommentSection({postId}) {
 
         }
     }; 
+
+    // const handlePostLike = async (postId) => {
+    //     try {
+    //         if(!currentUser) {
+    //             navigate('/sign-in'); 
+    //             return; 
+    //         }
+    //         const res = await fetch(`/api/post/likePost/${postId}`, {
+    //             method: 'PUT', 
+    //         });
+    //         if(res.ok) {
+    //             const data = await res.json(); 
+    //             setPosts(posts.map((post) => {
+    //                 post._id === postId ? {
+    //                     ...post, 
+    //                     likes: data.likes, 
+    //                     numberOfLikes: data.likes.length, 
+    //                 }: post 
+    //             }))
+    //         }
+
+    //     }catch(error) {
+
+    //     }
+    // }
   return (
       <div className="max-w-2xl mx-auto w-full p-3">
         {currentUser ? 
@@ -174,9 +203,11 @@ export default function CommentSection({postId}) {
             </div>
             {comments.map((comment) => (
                 <Comment 
-                    key={comment._id}  
+                    key={comment._id} 
+                    
                     comment={comment} 
                     onLike={handleLike} 
+                    // onPostLike={handlePostLike}
                     onEdit={handleEdit} 
                     onDelete={(commentId) => {
                            setShowModal(true) 

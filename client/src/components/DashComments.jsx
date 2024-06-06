@@ -7,13 +7,14 @@ import { FaCheck, FaTimes } from 'react-icons/fa';
 
 export default function DashComments() {
   const { currentUser } = useSelector((state) => state.user);  
-   
+  
   const [comments, setComments] = useState([]); 
   const [showMore, setShowMore ] = useState(true); 
   const [showModal, setShowModal] = useState(false); 
   const [commentIdToDelete, setCommentIdToDelete] = useState(''); 
-//   console.log(userPosts); 
-
+  //   console.log(userPosts); 
+  console.log(comments); 
+  
   useEffect (() => {
      const fetchComments = async () => {
         try {
@@ -42,7 +43,7 @@ export default function DashComments() {
    const handleShowMore = async () => {
      const startIndex = comments.length; 
      try {
-        const res = await fetch(`/api/user/getcomments?&startIndex=${startIndex}`); 
+        const res = await fetch(`/api/comment/getcomments?&startIndex=${startIndex}`); 
         const data = await res.json(); 
         if(res.ok) {
           setComments((prev) => [...prev, ...data.comments]); 
@@ -108,10 +109,12 @@ const handleDeleteComment = async() => {
             <Table.HeadCell>numbers of likes</Table.HeadCell>
             <Table.HeadCell>PostId</Table.HeadCell>
             <Table.HeadCell>UserId</Table.HeadCell>
+            {/* <Table.HeadCell>Username</Table.HeadCell> */}
             <Table.HeadCell>Delete</Table.HeadCell>
             
            </Table.Head>
            {comments.map((comment) => (
+            
             <Table.Body className="divide-y" key={comment._id}>
               <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell>
@@ -139,6 +142,9 @@ const handleDeleteComment = async() => {
                     {/* {user.isAdmin ? (<FaCheck className="text-green-500"/>) : (<FaTimes className="text-red-500"/>)} */}
                     {comment.userId}
                     </Table.Cell>
+                    {/* <Table.Cell>
+                      {comment.username}
+                    </Table.Cell> */}
                 <Table.Cell>
                   <span 
                     onClick={() => {

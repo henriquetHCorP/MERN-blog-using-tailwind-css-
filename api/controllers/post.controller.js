@@ -133,3 +133,27 @@ export const deletepost = async (req, res, next) => {
       next(error); 
      }
   }
+ 
+  // export const likePost = async(req, res, next) => {
+  //    try {
+  //       const post = await Post.findById(req.params.postId); 
+  //       if(!post){
+  //         return next(errorHandler(404, 'Post not found')); 
+  //       }
+  //       // we wanna check if any user has already like the post 
+  //       const userIndex = post.likes.indexOf(req.user.id); 
+  //       if (userIndex === -1) {
+  //         post.numberOfLikes+= -1; 
+  //         // userIndex === -1 means the user is not found inside the user array, we will push to  add him
+  //         post.likes.push(req.user.id); 
+  //       } else {
+  //         // we will user splice to remove the user if he's found inside the array. 1 means that the user is found and has to be removed
+  //         post.numberOfLikes -=1; 
+  //         post.likes.splice(userIndex, 1); 
+  //       }
+  //       await post.save(); 
+  //       res.status(200).json(post); 
+  //    } catch(error) {
+  //       next(error); 
+  //    }
+  // }

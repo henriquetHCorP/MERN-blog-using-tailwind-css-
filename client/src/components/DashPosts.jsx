@@ -1,17 +1,20 @@
 import { Button, Modal, Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react'
+import { FaThumbsUp } from 'react-icons/fa';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { useSelector } from 'react-redux'; 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);  
   const [userPosts, setUserPosts] = useState([]); 
+  const [posts, setPosts] = useState([]); 
   const [showMore, setShowMore ] = useState(true); 
   const [showModal, setShowModal] = useState(false); 
   const [postIdToDelete, setPostIdToDelete] = useState(''); 
   console.log(userPosts); 
-
+ 
+  const navigate = useNavigate(); 
   useEffect (() => {
      const fetchPosts = async () => {
         try {
@@ -76,6 +79,32 @@ export default function DashPosts() {
     }
 
    }; 
+
+  //  const handlePostLike = async ({postId}) => {
+  //   try {
+  //     if(!currentUser) {
+  //       navigate('/sign-in'); 
+  //       return; 
+  //     }
+  //     const res = await fetch(`/api/post/likePost/${postId}`, 
+  //      {
+  //       method: 'PUT', 
+  //      }); 
+  //      if(res.ok) {
+  //       const data = await res.json(); 
+  //       setPosts(posts.map((post) => {
+  //         post._id === postId ? {
+  //           ...post,
+  //           likes: data.likes,
+  //           numberOfLikes: data.likes.length, 
+  //         } : post 
+  //       }))
+  //      }
+  //   }catch(error) {
+  //     console.log(error.message); 
+  //   }
+     
+  //  }
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
      {currentUser.isAdmin && userPosts.length > 0 ? (
@@ -85,8 +114,10 @@ export default function DashPosts() {
             <Table.HeadCell>Date updated</Table.HeadCell>
             <Table.HeadCell>Post image</Table.HeadCell>
             <Table.HeadCell>Post title</Table.HeadCell>
-            <Table.HeadCell>Category</Table.HeadCell>
+            {/* <Table.HeadCell>Category</Table.HeadCell> */}
+            <Table.HeadCell>Ministry</Table.HeadCell>
             <Table.HeadCell>Delete</Table.HeadCell>
+            {/* <Table.HeadCell>Post Like</Table.HeadCell> */}
             <Table.HeadCell>
               <span>Edit</span>
             </Table.HeadCell>
@@ -116,10 +147,20 @@ export default function DashPosts() {
                       setShowModal(true);   
                       setPostIdToDelete(post._id); 
                     }}
-                    className="font-medium text-red-500 hover:underline">
+                    className="font-medium text-red-500 hover:underline hover:cursor-pointer">
                     Delete
                     </span>
                 </Table.Cell>
+               {/* <Table.Cell> */}
+                  {/* <Link className="text-teal-500 hover:underline" to={`/update-post/${post._id}`}> */}
+                  {/* {post.numberOfLikes}
+                  <div>
+                  <button type="button" className='text-gray-400 hover:text-blue-500' onClick={()=>handlePostLike(post._id)}>
+                  <FaThumbsUp className="text-sm"/> 
+                  </button>
+                  </div> */}
+                  {/* </Link> */}
+                {/* </Table.Cell> */}
                 <Table.Cell>
                   <Link className="text-teal-500 hover:underline" to={`/update-post/${post._id}`}>
                     <span>Edit</span>
