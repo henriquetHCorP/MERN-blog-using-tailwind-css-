@@ -24,6 +24,7 @@ export default function App() {
     // <div className="text-3xl text-red-500">
     //   App
     // </div>
+    // <div className="bg-hcorp1">
     <BrowserRouter>
     <ScrollToTop />
     <Header />
@@ -47,5 +48,6 @@ export default function App() {
       </Routes>
       <Footer /> 
     </BrowserRouter>
+    // </div>
   )
 }

@@ -40,3 +40,8 @@ body{
 .dark .post-content a {
     color: red; 
 }
+
+.bg-hcorp1 {
+    /* global 94%+ browsers support */
+    background: linear-gradient(90deg, rgba(33, 150, 243, 1) 0%, rgba(249, 250, 255, 1) 100%);
+}

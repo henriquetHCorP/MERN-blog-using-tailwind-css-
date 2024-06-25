@@ -11,19 +11,19 @@ export default function About() {
             {/* Sahand's Blog is a blog that I created to share my thoughts and ideas with the world. I am a software engineer and I love to write about my experiences and things that I have learned. 
             I hope you enjoy reading my blog.  */}
             {/* Welcome to Sahand's Blog! This blog was created by Sahand Ghavidel as a personal project to share his thoughts and ideas with the world. Sahand is a passionate developper who loves to write about technology, coding, and everything in between.  */}
-            Welcome to the DRC Gov Social Media. This social Media was created by Henriquet KAPEMA, a Software Engineer, IT Programmer, Computer Scientist living in Kinshasa. He is a passionate developper who loves to work in coding, technology and everything in between. 
+            Welcome to the DRC Gov Social Media. This social Media was created by Henriquet KAPEMA, a Software Engineer, IT Programmer and Computer Scientist living in Kinshasa. He is a passionate developper who loves to work in coding, technology and everything in between. 
           </p>
            <p>Since january 2012, Henriquet is equipped with a Bachelor of Science in Computer science and Systems which has been productive all these years.</p>
            <p>Besides these brilliant distinctions in college, Henriquet has a working experience too : <br /> 
-            <a>- 2017-2019: Member of the Cabinet of the Minister of Justice and Attorney General in Kinshasa; <br/> 
-            - 2019-2020: Member of the Cabinet of the President of the Senate in Kinshasa.</a></p>
+            <a>- January 2017 – September 2019: Member of the Cabinet of the Minister of Justice and Attorney General in Kinshasa; <br/> 
+            - September 2019 – January 2021: Member of the Cabinet of the President of the Senate in Kinshasa.</a></p>
               
           {/* <p> On this blog, you'll find weekly articles and tutorials on topics such as web development, software enginneering, and programming languages. Sahand is always learning and eploring new technologies, so be sure to check back often for new content!
           </p> */}
           <p>On this Social Media, you'll find daily, and weekly articles and posts pertaining to the lastest activities of all the ministers and Government members of the Democratic Republic of Congo.</p>
 
           {/* <p>We encourage you to leave comments on our posts and engage with other readers. You can like other people's comments and reply to them as well. we believe that a community of learners can help earch other grow and improve. </p> */}
-          <p>We encourage you to leave comments on posts and engage with other readers. You can "like" other people's comments and reply to them as well just like in common social medias. we believe that a community of of active congolese through this social media, will surely encourage local authorities and government members to always do what has to be done.</p>
+          <p>We encourage you to leave comments on posts and engage with other readers. You can "like" other people's comments and reply to them as well just like in common social medias. we believe that a community of active congolese through this social media, will surely encourage local authorities and government members to always do what has to be done.</p>
 
         </div>
 
