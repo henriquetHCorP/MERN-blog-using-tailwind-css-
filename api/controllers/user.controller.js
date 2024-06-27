@@ -96,9 +96,14 @@ export const getUsers = async (req, res, next) => {
 
            const now = new Date(); 
 
-           const oneMonthAgo = new Date(
+        //    const oneMonthAgo = new Date(
+        //     now.getFullYear(), 
+        //     now.getMonth() - 1, 
+        //     now.getDate() 
+        //    )
+        const oneMonthAgo = new Date(
             now.getFullYear(), 
-            now.getMonth() - 1, 
+            now.getMonth(), 
             now.getDate() 
            )
            const lastMonthUsers = await User.countDocuments({

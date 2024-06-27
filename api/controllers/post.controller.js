@@ -52,17 +52,20 @@ export const getposts = async (req, res, next ) => {
     
       const totalPosts = await Post.countDocuments(); 
 
-      const now = new Date(); 
+      const now =  new Date(); 
+      
+      //console.log(now.getMonth()); 
 
       const oneMonthAgo = new Date(
         now.getFullYear(), 
-        now.getMonth() - 1, 
+        now.getMonth(), 
         now.getDate()
       );
-
+      //console.log(now.getMonth(), now.getDate(), now.getFullYear());
+      //console.log(oneMonthAgo); 
       const lastMonthPosts = await Post.countDocuments({
              //$gte: greater than
-        createdAt: { $gte: oneMonthAgo}
+        createdAt: { $gte: oneMonthAgo }
       }); 
 
       res.status(200).json({
