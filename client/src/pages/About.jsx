@@ -11,7 +11,7 @@ export default function About() {
             {/* Sahand's Blog is a blog that I created to share my thoughts and ideas with the world. I am a software engineer and I love to write about my experiences and things that I have learned. 
             I hope you enjoy reading my blog.  */}
             {/* Welcome to Sahand's Blog! This blog was created by Sahand Ghavidel as a personal project to share his thoughts and ideas with the world. Sahand is a passionate developper who loves to write about technology, coding, and everything in between.  */}
-            Welcome to the DRC Gov Social Media. This social Media was created by Henriquet KAPEMA, a Software Engineer, IT Programmer and Computer Scientist living in Kinshasa. He is a passionate developper who loves to work in coding, technology and everything in between. 
+            Welcome to the DRC Gov Social Media. This social Media was created by Henriquet KAPEMA, a Software Engineer, IT Programmer and Computer Scientist living in Kinshasa. He is a passionate developer who loves to work in coding, technology and everything in between. 
           </p>
            <p>Since january 2012, Henriquet is equipped with a Bachelor of Science in Computer science and Systems which has been productive all these years.</p>
            <p>Besides these brilliant distinctions in college, Henriquet has a working experience too : <br /> 
