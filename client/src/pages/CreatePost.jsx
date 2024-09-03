@@ -90,7 +90,7 @@ export default function CreatePost() {
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
         <h1 className="text-center text-3xl my-7 font-semibold">Create a post</h1>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>  
-            <div className="flex flex-col gap-4 sm:flex-row justify-between">
+            <div className="gap-4 sm:flex-row justify-between">
                 <TextInput 
                       type="text" 
                       placeholder="Title" 
@@ -100,53 +100,56 @@ export default function CreatePost() {
                         setFormData({...formData, title: e.target.value})
                     }
                       />
+                      </div>
+                      <div className="gap-4 sm:flex-row justify-between">
                 <Select
                   onChange={(e) => 
                     setFormData({...formData, category:e.target.value})
                 }
                 >
-                    <option value="uncategorized ">Select a Minister</option>
+                    <option value="...">Selectioner un Ministre</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
-                    <option value="Prime Minister">Prime Minister</option>
-                    <option value="Interior">VPM Interior and Security</option>
-                    <option value="Transport">VPM Transport, CRD</option>
-                    <option value="Defense">VPM National Defense</option>
-                    <option value="Economy">VPM National Economy</option>
-                    <option value="Public Service">VPM Public Service</option>
-                    <option value="Planning">VPM Planning and Development Aid Coord</option>
-                    <option value="Agriculture">MS Minister of Agriculture</option>
-                    <option value="Foreign Affairs">MS Minister of Foreign Affairs</option>
-                    <option value="National education">MS Minister of National Educ. and NC</option>
-                    <option value="Infrastructure">MS Minister Infrastructure and PW</option>
-                    <option value="justice">MS Minister of Justice</option>
-                    <option value="Budget">MS Minister of Budget</option> 
-                    <option value="Land Affairs">MS Minister of Land Affairs</option>
-                    <option value="Rural Development">MS Minister of Rural Development</option>
-                    <option value="Land Management">MS Minister of Land Amenagement</option>
-                    <option value="Finance">Minister of Finances</option>
-                    <option value="Industry">Minister of Industry and SMEs</option>
-                    <option value="Electricity">Minister of Hydraulic Resources and Electricity</option>
-                    <option value="Mines">Minister of Mines</option>
-                    <option value="Hydrocarbons">Minister of Hydrocarbons</option>
-                    <option value="Employment">Minister of Labor, Employment, and Social Welfare</option>
-                    <option value="Urbanism">Minister of Urbanism and Housing</option>
-                    <option value="Human Rights">Minister of Human Rights</option>
-                    <option value="Health">Minister Health</option>
-                    <option value="Higher Education">Minister of Higher Education and University</option>
-                    <option value="Scientific Research">Minister of Scientifc Research and Innovation</option>
-                    <option value="Technologies">Minister of Posts, Telecom, New Tech, and Info and Com</option>
-                    <option value="Portfolio">Minister of Portfolio</option>
-                    <option value="Social Affairs">Minister of Social Affairs and Humanitarian Action</option>
-                    <option value="External Trade">Minister of External Trade</option>
-                    <option value="Regional Integration">Minister of Regional Integration</option>
-                    <option value="Communication">Minister of Communication and Medias</option>
-                    <option value="Professional Training">Minister of Professsional Training</option>
-                    <option value="Gender">Minister of Gender</option>
-                    <option value="Fisheries">Minister of Fisheries and Livestock</option>
-                    <option value="Culture and Arts">Minister of Culture and Arts</option>
-                    <option value="Tourism">Minister of Tourism</option>
-                    <option value="Sports">Minister of Sports</option>
+                    <option value="Premier Ministre">Premier Ministre</option>
+                    <option value="Interieur">VPM Intérieur et Sécurité, Décentralisation et Affaires coutumières</option>
+                    <option value="Transport">VPM Transports et voies de communication et désenclavement</option>
+                    <option value="Défense">VPM Ministre de la Défense nationale et Anciens combattants</option>
+                    <option value="Economie">VPM Ministre de l’Economie Nationale</option>
+                    <option value="Fonction Publique">VPM Ministre de la Fonction Publique et Modernisation de l’Administration et Innovation des Services Publics</option>
+                    <option value="Plan">VPM Ministre du Plan et de la Coordination de l’Aide au Développement</option>
+                    <option value="Agriculture">MINETAT Ministre de l’Agriculture et Sécurité Alimentaire</option>
+                    <option value="Affaires Etrangères">MINETAT Ministre des Affaires Etrangères et Coopération Internationale et Francophonie</option>
+                    <option value="Éducation Nationale">MINETAT Ministre de l’Éducation Nationale et Nouvelle Citoyenneté</option>
+                    <option value="’Environnement">MINETAT Ministre de l’Environnement et Développement Durable</option>
+                    <option value="Infrastructures">MINETAT  Ministre des Infrastructures et Travaux Publics</option>
+                    <option value="Justice">MINETAT Ministre de la Justice et Garde des Sceaux</option>
+                    <option value="Budget">MINETAT Ministre du Budget</option> 
+                    <option value="Affaires Foncières">MINETAT Ministre des Affaires Foncières</option>
+                    <option value="Développement Rural">MINETAT Ministre du Développement Rural</option>
+                    <option value="Aménagement du territoire">MINETAT Ministre de l’Aménagement du territoire</option>
+                    <option value="Finance">Ministre des Finances</option>
+                    <option value="Industrie">Ministre de l’Industrie et Développement des PME</option>
+                    <option value="Electricité"> Ministre des Ressources Hydroliques et Electricité</option>
+                    <option value="Mines">Ministre des Mines</option>
+                    <option value="Hydrocarbures"> Ministre des Hydrocarbures</option>
+                    <option value="Emploi">Ministre de l’Emploi et Travail</option>
+                    <option value="Urbanisme">Ministre de l’Urbanisme et Habitat</option>
+                    <option value="Droits Humains">Ministre des Droits Humains</option>
+                    <option value="Santé Publique">Ministre de la Santé Publique et Hygiène et Prévoyance Sociale</option>
+                    <option value="Enseignement Supérieur">Ministre de l’Enseignement Supérieur et Universitaire</option>
+                    <option value="Recherche Scientifique">Ministre de la Recherche Scientifique et Innovation Technologique</option>
+                    <option value="Postes, Télécommunications et Numérique">Ministre des Postes, Télécommunications et Numérique</option>
+                    <option value="Portefeuille">Ministre du Portefeuille</option>
+                    <option value="Affaires sociales">Ministre des Affaires sociales, actions humanitaires et solidarité nationale</option>
+                    <option value="Commerce Extérieur"> Ministre du Commerce Extérieur</option>
+                    <option value="Intégration Régionale">Ministre de l’Intégration Régionale</option>
+                    <option value="Communication">Ministre de la Communication, Médias et Porte-Parole du Gouvernement</option>
+                    <option value="Formation Professionnelle">Ministre de la Formation Professionnelle</option>
+                    <option value="Genre, Famille et Enfant">Ministre du Genre, Famille et Enfant</option>
+                    <option value="Pêche et Elevage">Ministre de la Pêche et Elevage</option>
+                    <option value="Culture, Arts et Patrimoine">Ministre de la Culture, Arts et Patrimoine</option>
+                    <option value="Tourisme">Ministre du Tourisme</option>
+                    <option value="Sports">Ministre des Sports et Loisirs</option>
                      
                     {/* <option value="henriquet">KAPEMA HENRIQUET</option>
                     <option value="henriquet">KAPEMA HENRIQUET</option>
