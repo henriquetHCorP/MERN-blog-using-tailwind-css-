@@ -155,6 +155,7 @@ export default function UpdatePost() {
                     <option value="henriquet">KAPEMA HENRIQUET</option>
                 </Select> */}
                      
+                     
                     <option value="...">Selectioner un Ministre</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
@@ -197,22 +198,21 @@ export default function UpdatePost() {
                     <option value="Pêche et Elevage">Ministre de la Pêche et Elevage</option>
                     <option value="Culture, Arts et Patrimoine">Ministre de la Culture, Arts et Patrimoine</option>
                     <option value="Tourisme">Ministre du Tourisme</option>
-                    <option value="Sports">Ministre de la Jeunesse et Éveil Patriotique</option>
-                    <option value="Sports">Ministre Délégué près le Ministre des Affaires Etrangères en charge de la Coopération Internationale et Francophonie</option>
-                    <option value="Sports">Ministre Délégué près le Ministre de l’Urbanisme et Habitat en charge de la Politique de la Ville</option>
-                    <option value="Sports">Ministre Délégué près le Ministre de l’Environnement et Développement Durable en charge de la Nouvelle Economie du Climat</option>
-                    <option value="Sports">Ministre Délégué près le Ministre des Affaires Sociales en charge des Personnes vivant avec Handicap</option>
-                    <option value="Sports">Vice-Ministre de l’Intérieur, Sécurité, Décentralisation</option>
-                    <option value="Sports">Vice-Ministre des Affaires Etrangères</option>
-                    <option value="Sports">Vice-Ministre de la Justice et Contentieux International</option>
-                    <option value="Sports">Vice-Ministre du Budget</option>
-                    <option value="Sports">Vice-Ministre des Finances</option>
-                    <option value="Sports">Vice-Ministre de la Défense Nationale et Anciens Combattants</option>
-                    <option value="Sports">Vice-Ministre de l’Éducation Nationale et Nouvelle Citoyenneté</option>
-                    <option value="Sports">Vice-Ministre des Mines</option>
-                    <option value="Sports">Vice-Ministre des Hydrocarbures</option>
-                    <option value="Sports">Vice-Ministre des Affaires Coutumières</option>
-                    {/* <option value="henriquet">KAPEMA HENRIQUET</option>
+                    <option value="Jeunesse">Ministre de la Jeunesse et Éveil Patriotique</option>
+                    <option value="MD Affaires Etrangères:Coopération Internationale et Francophonie">Ministre Délégué près le Ministre des Affaires Etrangères en charge de la Coopération Internationale et Francophonie</option>
+                    <option value="MD Urbanisme et Habitat:Politique de la Ville">Ministre Délégué près le Ministre de l’Urbanisme et Habitat en charge de la Politique de la Ville</option>
+                    <option value="MD Environnement et Développement Durable:Nouvelle Economie du Climat">Ministre Délégué près le Ministre de l’Environnement et Développement Durable en charge de la Nouvelle Economie du Climat</option>
+                    <option value="MD Affaires Sociales:Personnes vivant avec Handicap">Ministre Délégué près le Ministre des Affaires Sociales en charge des Personnes vivant avec Handicap</option>
+                    <option value="VM Intérieur, Sécurité, Décentralisation">Vice-Ministre de l’Intérieur, Sécurité, Décentralisation</option>
+                    <option value="VM Affaires Etrangères">Vice-Ministre des Affaires Etrangères</option>
+                    <option value="VM Justice et Contentieux International">Vice-Ministre de la Justice et Contentieux International</option>
+                    <option value="VM Budget">Vice-Ministre du Budget</option>
+                    <option value="VM Finances">Vice-Ministre des Finances</option>
+                    <option value="VM Défense Nationale">Vice-Ministre de la Défense Nationale et Anciens Combattants</option>
+                    <option value="VM Éducation Nationale">Vice-Ministre de l’Éducation Nationale et Nouvelle Citoyenneté</option>
+                    <option value="VM Mines">Vice-Ministre des Mines</option>
+                    <option value="VM Hydrocarbures">Vice-Ministre des Hydrocarbures</option>
+                    <option value="VM Affaires Coutumières">Vice-Ministre des Affaires Coutumières</option>{/* <option value="henriquet">KAPEMA HENRIQUET</option>
                     <option value="henriquet">KAPEMA HENRIQUET</option>
                     <option value="henriquet">KAPEMA HENRIQUET</option>
                     <option value="henriquet">KAPEMA HENRIQUET</option> */}
