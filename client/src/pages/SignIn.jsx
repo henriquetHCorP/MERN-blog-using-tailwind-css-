@@ -58,7 +58,8 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
         {/* left */}
         <div className="flex-1">
-           <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Flag-map_of_the_Democratic_Republic_of_the_Congo.png" className="shadow-xl hover:shadow-md object-fit bg bg-none border border-2xl w-50 h-50"/> 
+           {/* <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Flag-map_of_the_Democratic_Republic_of_the_Congo.png" className="shadow-xl hover:shadow-md object-fit bg bg-none border border-2xl w-50 h-50"/>  */}
+           <img src="/drc-gov-social-media.png" className="shadow-xl hover:shadow-md object-fit bg bg-none w-50 h-50"/> 
           <Link
            to='/'
            className="font-bold dark:text-white text-4xl"

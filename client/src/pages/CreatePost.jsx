@@ -172,7 +172,7 @@ export default function CreatePost() {
                     <option value="henriquet">KAPEMA HENRIQUET</option> */}
                 </Select>
             </div>
-            <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
+            <div className="flex gap-4 items-center justify-between border-4 border-blue-500 border-dotted p-3">
                 <FileInput 
                    type='file' 
                    accept='image/*' 
@@ -203,9 +203,12 @@ export default function CreatePost() {
                 <img 
                   src={formData.image}
                   alt='upload'
-                  className="w-full h-72 object-cover"
+                className="w-full h-72 object-cover rounded-2xl"
+                //   className="w-full h-100 rounded-2xl object-cover"
+                  
 
                 />
+                
                 
                 )}
             <ReactQuill 
