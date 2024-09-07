@@ -18,8 +18,8 @@ export default function Home() {
   return (
     <div>
       <div className="items-center flex flex-col gap-6 lg:p-28 px-3 max-w-7xl mx-auto">
-            <h1 className="text-3xl font-bold lg:text-6xl">Welcome to the DRC Government</h1>
-            <h1 className="text-3xl font-bold lg:text-6xl">Social Media</h1>
+            <h1 className="text-center text-2xl font-bold lg:text-6xl">Welcome to the DRC Government <br/> Social Media </h1>
+            
             <div className="items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">
             <span className="px-2 py-3 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
                   DRC Gov
