@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'; 
-import { Avatar, Button, Dropdown, Navbar, TextInput } from 'flowbite-react'
+import { Avatar, Button, Dropdown, Navbar, NavbarLink, TextInput } from 'flowbite-react'
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import {AiOutlineSearch} from 'react-icons/ai'; 
 import { FaMoon, FaSun } from 'react-icons/fa'; 
@@ -70,13 +70,13 @@ export default function Header() {
              onChange={(e)=>setSearchTerm(e.target.value) }
             />
         </form>
-        <Button className="w-12 h-10 lg:hidden" color="gray" pill>
+        <Button className="w-12 h-10 lg:hidden" color="gray" pill href='/search'>
             <AiOutlineSearch /> 
         </Button>
         <div className="flex gap-2 md:order-2">
             <Button 
-            // className="w-12 h-10 sm:inline"
-            className="w-12 h-10 hidden sm:inline"
+            className="w-12 h-10 sm:inline"
+            // className="w-12 h-10 hidden sm:inline"
             
             color='gray' 
             pill
@@ -136,6 +136,7 @@ export default function Header() {
                        Projects
                     </Link>
                 </Navbar.Link>
+                
             </Navbar.Collapse>
      </Navbar>
   )

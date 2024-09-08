@@ -11,7 +11,7 @@ export default function CallToAction() {
         <p className="text-gray-500 my-2">
             Checkout these resources at the Prime Minister office website
         </p>
-        <Button gradientDuoTone="purpleToPink" className="rounded-tl-xl rounded-bl-none">
+        <Button gradientDuoTone='purpleToBlue' className="rounded-tl-xl rounded-bl-none">
             {/*here we are using achored tag instead of link because this will open an external link */}
            <a href="https://www.primature.cd" target='_blank' rel='noopener noreferrer'> Learn More</a>
             
