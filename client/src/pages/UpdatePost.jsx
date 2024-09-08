@@ -269,7 +269,7 @@ export default function UpdatePost() {
                 setFormData({...formData, content: value}); 
                }}
                />
-            <Button type='submit' gradientDuoTone='purpleToPink'>
+            <Button type='submit' gradientDuoTone='purpleToBlue'>
                  Edit post 
             </Button>
             {publishError && <Alert className="mt-5" color='failure'>{publishError}</Alert>}
