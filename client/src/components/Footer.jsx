@@ -28,7 +28,7 @@ export default function FooterCom() {
           Social Media 
         </Link>
                 </div>
-                <div className="pt-6 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-4 sm:gap-8">
+                <div className="pt-6 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-4 sm:gap-6">
                    <div>
                    <Footer.Title title='Institutions'/>
                    <Footer.LinkGroup col>
@@ -43,21 +43,21 @@ export default function FooterCom() {
                        rel='noopener no referrer'
                     > 
 
-                      La Présidence
+                      Présidence
                     </Footer.Link>
                     <Footer.Link 
                        href='https://assemblee-nationale.cd'
                        target='_blank'
                        rel='noopener no referer'
                     >
-                       L'Assemblée Nationale  
+                      Assemblée Nationale  
                     </Footer.Link>
                     <Footer.Link 
                        href='https://www.senat.cd'
                        target='_blank'
                        rel='noopener no referer'
                     >
-                       Le Sénat 
+                       Sénat 
                     </Footer.Link>
                    </Footer.LinkGroup>
                    </div>
