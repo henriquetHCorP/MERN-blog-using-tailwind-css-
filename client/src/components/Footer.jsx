@@ -28,7 +28,39 @@ export default function FooterCom() {
           Social Media 
         </Link>
                 </div>
-                <div className="pt-6 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6">
+                <div className="pt-6 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-4 sm:gap-6">
+                   <div>
+                   <Footer.Title title='Institutions'/>
+                   <Footer.LinkGroup col>
+                    {/* <Footer.Link 
+                       href='https://www.github.com/henriquetkapema'
+                       target='_blank'
+                       rel='noopener no referrer'
+                    > */}
+                     <Footer.Link 
+                       href='https://www.presidence.cd/'
+                       target='_blank'
+                       rel='noopener no referrer'
+                    > 
+
+                      La Présidence
+                    </Footer.Link>
+                    <Footer.Link 
+                       href='https://assemblee-nationale.cd'
+                       target='_blank'
+                       rel='noopener no referer'
+                    >
+                       L'Assemblée Nationale  
+                    </Footer.Link>
+                    <Footer.Link 
+                       href='https://www.senat.cd'
+                       target='_blank'
+                       rel='noopener no referer'
+                    >
+                       Le Sénat 
+                    </Footer.Link>
+                   </Footer.LinkGroup>
+                   </div>
                    <div>
                    <Footer.Title title='About'/>
                    <Footer.LinkGroup col>

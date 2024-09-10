@@ -230,7 +230,7 @@ export default function Search() {
                     <option value="henriquet">KAPEMA HENRIQUET</option> */}
                 </Select>
           </div>
-          <Button type='submit' outline gradientDuoTone='purpleToPink'>
+          <Button type='submit' outline gradientDuoTone='purpleToBlue'>
                   Appy Filters 
           </Button>
         </form>
