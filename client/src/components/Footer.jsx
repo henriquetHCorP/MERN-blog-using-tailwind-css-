@@ -28,7 +28,7 @@ export default function FooterCom() {
           Social Media 
         </Link>
                 </div>
-                <div className="pt-6 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-4 sm:gap-5">
+                <div className="pt-6 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-4 sm:gap-8">
                    <div>
                    <Footer.Title title='Institutions'/>
                    <Footer.LinkGroup col>
