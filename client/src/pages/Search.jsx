@@ -159,7 +159,7 @@ export default function Search() {
             {/* <option value="uncategorized ">Select a Minister</option> */}
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
-                     <option value="...">Selectioner un Ministre</option>
+                     {/* <option value="...">Selectioner un Ministre</option> */}
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
                      
