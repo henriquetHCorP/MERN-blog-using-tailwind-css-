@@ -31,9 +31,9 @@ export default function Home() {
               */}
              Here you will find in real time, latest news and information related to Government members. 
               </p>
-      <Link to='/search' className="text-xs sm:text-sm text-blue-700 font-bold"> 
-      <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-400 hover:text-blue-800 transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">
-      View all posts
+      <Link to='/search' className="text-xs sm:text-sm text-black font-bold"> 
+      <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">
+      View all articles
         </button>
       </Link>
       {/* drc congo wildlife image  */}
