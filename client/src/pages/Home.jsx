@@ -39,10 +39,20 @@ export default function Home() {
       {/* drc congo wildlife image  */}
      
       {/* <Link to="/search" className="items-center pl-60"> */}
-      <img
+      {/* <img
         className="opacity-50 hover:opacity-100 transition-all duration-700 shadow-2xl rounded-2xl h-1/2 w-1/2"
         src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F190122214551-okapi-tease-2.jpg"
         alt="Congo "
+       
+      /> */}
+      {/* <img
+        className="opacity-50 hover:opacity-100 transition-all duration-700 shadow-2xl rounded-2xl h-1/2 w-1/2"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd9q_RJaX9GVqQDuQ7vJNC83HS_zIterby2p6Ec-Px3fazIU7_3JJwwsjGZcaIn1WOYQGNZn0ntOlPzY3NAYWaZ8kurn1acNfZNzFZAQeer8zUBss2bwkiH-ITiCH8BjX1S3V8ULFP-x4/s0/Flag_of_the_Democratic_Republic_of_the_Congo.gif"
+       
+      /> */}
+      <img
+        className="opacity-50 hover:opacity-100 transition-all duration-700 shadow-2xl rounded-2xl h-1/2 w-1/2"
+        src="/drc-flag-animated.gif"
        
       />
       

@@ -17,9 +17,11 @@ export default function CallToAction() {
             
         </Button>
         </div>
+        {/* <div className="p-7 flex-1"> */}
         <div className="p-7 flex-1">
              {/* <img src="https://cdn.cfr.org/sites/default/files/styles/open_graph_article/public/image/2023/03/Burundi%20Soldiers%2003142023%20.jpeg"/>  */}
-             <img src = "https://media.istockphoto.com/id/497156586/photo/kinshasa-central-business-district-congo-skyline.jpg?s=612x612&w=0&k=20&c=b2U33n-K7pIp3qI9FdQVtwZZng3H7sRlxG-la7vBKLk="/> 
+             {/* <img src = "https://media.istockphoto.com/id/497156586/photo/kinshasa-central-business-district-congo-skyline.jpg?s=612x612&w=0&k=20&c=b2U33n-K7pIp3qI9FdQVtwZZng3H7sRlxG-la7vBKLk="/>   */}
+             <img src="/government suminwa.jpeg" className='opacity-100'/> 
         </div> 
     </div>
   )
