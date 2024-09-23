@@ -28,7 +28,7 @@ export default function FooterCom() {
           Social Media 
         </Link>
                 </div>
-                <div className="pt-6 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-4 sm:gap-6">
+                <div className="pt-6 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-2 sm:gap-6">
                    <div>
                    <Footer.Title title='Institutions'/>
                    <Footer.LinkGroup col>
@@ -43,21 +43,28 @@ export default function FooterCom() {
                        rel='noopener no referrer'
                     > 
 
-                      Présidence
+                      La Présidence
                     </Footer.Link>
                     <Footer.Link 
                        href='https://assemblee-nationale.cd'
                        target='_blank'
                        rel='noopener no referer'
                     >
-                      Assemblée Nationale  
+                      L'Assemblée Nationale  
                     </Footer.Link>
                     <Footer.Link 
                        href='https://www.senat.cd'
                        target='_blank'
                        rel='noopener no referer'
                     >
-                       Sénat 
+                       Le Sénat 
+                    </Footer.Link>
+                    <Footer.Link 
+                       href='https://www.primature.cd'
+                       target='_blank'
+                       rel='noopener no referer'
+                    >
+                       Le Gouvernement 
                     </Footer.Link>
                    </Footer.LinkGroup>
                    </div>
@@ -80,50 +87,7 @@ export default function FooterCom() {
                     </Footer.Link>
                    </Footer.LinkGroup>
                    </div>
-                   <div>
-                   <Footer.Title title='Follow us'/>
-                   <Footer.LinkGroup col>
-                    {/* <Footer.Link 
-                       href='https://www.github.com/henriquetkapema'
-                       target='_blank'
-                       rel='noopener no referrer'
-                    > */}
-                     <Footer.Link 
-                       href='https://www.hcorp.com/'
-                       target='_blank'
-                       rel='noopener no referrer'
-                    > 
-
-                      Software Engineering Facility 
-                    </Footer.Link>
-                    {/* <Footer.Link 
-                       href='/#'
-                    //    target='_blank'
-                    //    rel='noopener no referer'
-                    >
-                        Discord
-                    </Footer.Link> */}
-                   </Footer.LinkGroup>
-                   </div>
-                   <div>
-                   <Footer.Title title='Legal'/>
-                   <Footer.LinkGroup col>
-                    <Footer.Link 
-                       href='/privacy'
-                    //    target='_blank'
-                    //    rel='noopener no referrer'
-                    >
-                       Privacy Policy
-                    </Footer.Link>
-                    <Footer.Link 
-                       href='/#'
-                    //    target='_blank'
-                    //    rel='noopener no referer'
-                    >
-                       Terms &amp; Conditions 
-                    </Footer.Link>
-                   </Footer.LinkGroup>
-                   </div>
+                   
                 </div>
             </div>
             <Footer.Divider/> 

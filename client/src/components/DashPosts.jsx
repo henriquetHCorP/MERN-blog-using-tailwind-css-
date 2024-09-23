@@ -162,7 +162,7 @@ export default function DashPosts() {
                   {/* </Link> */}
                 {/* </Table.Cell> */}
                 <Table.Cell>
-                  <Link className="text-teal-500 hover:underline" to={`/update-post/${post._id}`}>
+                  <Link className="text-blue-500 hover:underline" to={`/update-post/${post._id}`}>
                     <span>Edit</span>
                   </Link>
                 </Table.Cell>
@@ -172,7 +172,7 @@ export default function DashPosts() {
         </Table>
         {
           showMore && (
-            <button onClick={handleShowMore} className="w-full text-teal-500 self-center text-sm py-7">
+            <button onClick={handleShowMore} className="w-full text-blue-500 self-center text-sm py-7">
               Show more 
 
             </button>

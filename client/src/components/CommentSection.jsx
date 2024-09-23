@@ -152,7 +152,8 @@ export default function CommentSection({postId}) {
                 <img className="h-5 w-5 object-cover rounded-full" src={currentUser.profilePicture}/>
                 <Link 
                   to={'/dashboard?tab=profile'}
-                  className="text-xs text-cyan-600 hover:underline" 
+                //   className="text-xs text-cyan-600 hover:underline" 
+                  className="text-xs text-blue-500 hover:underline" 
                 >
                   @{currentUser.username}
                 </Link> 
