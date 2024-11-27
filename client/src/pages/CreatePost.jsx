@@ -107,9 +107,10 @@ export default function CreatePost() {
                     setFormData({...formData, category:e.target.value})
                 }
                 >
-                    <option value="...">Selectioner un Ministre</option>
+                    <option value="...">Selectioner la Présidence/Ministre</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
+                    <option value="Premier Ministre">Présidence</option>
                     <option value="Premier Ministre">Premier Ministre</option>
                     <option value="Interieur">VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</option>
                     <option value="Transport">VPM, Ministre des Transports et Voies de Communication et Désenclavement</option>
