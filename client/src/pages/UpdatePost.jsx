@@ -176,7 +176,7 @@ export default function UpdatePost() {
                     <option value="Développement Rural">MINETAT, Ministre du Développement Rural</option>
                     <option value="Aménagement du territoire">MINETAT, Ministre de l’Aménagement du Territoire</option>
                     <option value="Justice">MINETAT, Ministre de la Justice et Garde des Sceaux</option>
-                    <option value="Finance">Ministre des Finances</option>
+                    <option value="Finances">Ministre des Finances</option>
                     <option value="Industrie et developpement des PME">Ministre de l’Industrie et developpement des Petites et Moyennes Entreprises</option>
                     <option value="Ressources Hydroliques et Electricité"> Ministre des Ressources Hydroliques et Electricité</option>
                     <option value="Mines">Ministre des Mines</option>
