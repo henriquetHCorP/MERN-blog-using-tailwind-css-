@@ -110,7 +110,7 @@ export default function CreatePost() {
                     <option value="...">Selectioner la Présidence/Ministre</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
-                    <option value="Premier Ministre">Présidence</option>
+                    <option value="Présidence">Présidence</option>
                     <option value="Premier Ministre">Premier Ministre</option>
                     <option value="Interieur">VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</option>
                     <option value="Transport">VPM, Ministre des Transports et Voies de Communication et Désenclavement</option>
