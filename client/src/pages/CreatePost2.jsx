@@ -1,8 +1,10 @@
-
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+"use client"; 
+// import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 import { Alert, Button, FileInput, Select, TextInput } from 'flowbite-react'
-import React, { useState } from 'react'
+import React, { useState } from 'react'  
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { app } from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
@@ -88,7 +90,7 @@ export default function CreatePost() {
     }
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
-        <h1 className="text-center text-3xl my-7 font-semibold">Create a post</h1>
+        <h1 className="text-center text-3xl my-7 font-semibold">Create an article</h1>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>  
             <div className="gap-4 sm:flex-row justify-between">
                 <TextInput 
