@@ -9,11 +9,12 @@ export default function CallToAction() {
             Want to learn more about the DRC? 
         </h2>
         <p className="text-gray-500 my-2">
-            Checkout these resources at the Prime Minister office website
+            Checkout these resources at the Office of the President of the Republic website
         </p>
         <Button gradientDuoTone='purpleToBlue' className="rounded-tl-xl rounded-bl-none">
             {/*here we are using achored tag instead of link because this will open an external link */}
-           <a href="https://www.primature.cd" target='_blank' rel='noopener noreferrer'> Learn More</a>
+           {/* <a href="https://www.primature.cd" target='_blank' rel='noopener noreferrer'> Learn More</a> */}
+           <a href="https://www.presidence.cd" target='_blank' rel='noopener noreferrer'> Learn More</a>
             
         </Button>
         </div>
@@ -21,7 +22,8 @@ export default function CallToAction() {
         <div className="p-7 flex-1">
              {/* <img src="https://cdn.cfr.org/sites/default/files/styles/open_graph_article/public/image/2023/03/Burundi%20Soldiers%2003142023%20.jpeg"/>  */}
              {/* <img src = "https://media.istockphoto.com/id/497156586/photo/kinshasa-central-business-district-congo-skyline.jpg?s=612x612&w=0&k=20&c=b2U33n-K7pIp3qI9FdQVtwZZng3H7sRlxG-la7vBKLk="/>   */}
-             <img src="/government suminwa.jpeg" className='opacity-100'/> 
+             {/* <img src="/government suminwa.jpeg" className='opacity-100'/>  */}
+             <img src="/cellcom1.jpg" className='opacity-100'/> 
         </div> 
     </div>
   )
