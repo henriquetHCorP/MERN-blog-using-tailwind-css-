@@ -139,8 +139,10 @@ const handleDeleteUser = async() => {
                       setShowModal(true);   
                       setUserIdToDelete(user._id); 
                     }}
-                    className="font-medium text-red-500 hover:underline">
-                    Delete
+                    // className="font-medium text-red-500 hover:underline">
+                    className="font-medium text-red-500 hover:underline hover:cursor-pointer">
+                    {/* Delete */}
+                    {user.isAdmin? null : "Delete"}
                     </span>
                 </Table.Cell>
                 {/* <Table.Cell>
