@@ -115,7 +115,7 @@ export default function DashPosts() {
             <Table.HeadCell>Post image</Table.HeadCell>
             <Table.HeadCell>Post title</Table.HeadCell>
             {/* <Table.HeadCell>Category</Table.HeadCell> */}
-            <Table.HeadCell>Ministry</Table.HeadCell>
+            <Table.HeadCell>Category</Table.HeadCell>
             <Table.HeadCell>Delete</Table.HeadCell>
             {/* <Table.HeadCell>Post Like</Table.HeadCell> */}
             <Table.HeadCell>

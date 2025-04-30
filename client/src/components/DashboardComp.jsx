@@ -216,7 +216,7 @@ export default function DashboardComp() {
                   <Table.Head>
                     <Table.HeadCell>Post image</Table.HeadCell>
                     <Table.HeadCell>Post Title</Table.HeadCell>
-                    <Table.HeadCell>Ministry</Table.HeadCell>
+                    <Table.HeadCell>Category</Table.HeadCell>
                   </Table.Head>
                   {posts && posts.map((post) => (
                     <Table.Body key={post._id} className="divide-y">
