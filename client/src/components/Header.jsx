@@ -63,7 +63,7 @@ export default function Header() {
         <form onSubmit={handleSubmit}> 
             <TextInput
              type='text'
-             placeholder='Search...'
+             placeholder='Recherche...'
              rightIcon={AiOutlineSearch}
              className="hidden lg:inline"
              value={searchTerm}
@@ -102,17 +102,17 @@ export default function Header() {
                             {currentUser.email}</span>
                     </Dropdown.Header>
                     <Link to={'/dashboard?tab=profile'}>
-                        <Dropdown.Item>Profile</Dropdown.Item>
+                        <Dropdown.Item>Profil</Dropdown.Item>
                     </Link>
                     <Dropdown.Divider /> 
-                    <Dropdown.Item onClick={handleSignout}>Sign out</Dropdown.Item>
+                    <Dropdown.Item onClick={handleSignout}>Se déconnecter</Dropdown.Item>
 
                 </Dropdown>
              ) : 
             (
                 <Link to='/sign-in'>
                     <Button gradientDuoTone="purpleToBlue" outline>
-                        Sign In
+                        Se connecter
                     </Button>
                 </Link>
 
@@ -123,17 +123,17 @@ export default function Header() {
                 
                 <Navbar.Link active={path === "/"} as={'div'}>
                     <Link to='/'>
-                        Home
+                        Acceuil
                     </Link>
                 </Navbar.Link >
                 <Navbar.Link active={path === "/about"} as={'div'}>
                     <Link to='/about'>
-                        About
+                        A propos
                     </Link>
                 </Navbar.Link>
                 <Navbar.Link active={path === "/projects"}as={'div'}>
                     <Link to='/projects'>
-                       Projects
+                       Actualités 
                     </Link>
                 </Navbar.Link>
                 

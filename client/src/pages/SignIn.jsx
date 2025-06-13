@@ -55,7 +55,7 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
  }
   return (
     <div className="min-h-screen mt-20">
-      <p className="text-center text-2xl text-pretty">Sign in page</p>
+      <p className="text-center text-4xl text-pretty">Page de connexion</p>
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
         {/* left */}
         <div className="flex-1">
@@ -71,7 +71,8 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
             Blog */}
           </Link>
           <p className="text-sm mt-5">
-            You can sign in with your email and password or with Google.
+            {/* You can sign in with your email and password or with Google. */}
+            Vous pouvez vous connecter via your adresse e-mail ou votre compte Google. 
           </p>
         </div>
         {/* Right  */}
@@ -82,11 +83,11 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
               <TextInput type='text' placeholder='Username' id='username' onChange={handleChange} /> 
             </div> */}
             <div>
-              <Label value="Your email" />
-              <TextInput type='email' placeholder='name@company.com' id='email' onChange={handleChange}/> 
+              <Label value="Votre e-mail" />
+              <TextInput type='email' placeholder='nom@compagnie.com' id='email' onChange={handleChange}/> 
             </div>
             <div>
-              <Label value="Your password" />
+              <Label value="Votre mot de passe" />
             <TextInput type='password' placeholder='**********' id='password' onChange={handleChange}/> 
             </div>
             <Button gradientDuoTone='purpleToBlue' type='submit' disabled={loading}>
@@ -94,18 +95,20 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
               loading ? (
                 <>
                 <Spinner size='sm' />
-                <span className="pl-3">Loading... </span>
+                {/* <span className="pl-3">Loading... </span> */}
+                <span className="pl-3">Chargement en cours... </span>
                 </>
-              ) : 'Sign In'
+              ) : 'Se connecter'
               }
                
             </Button>
             <OAuth /> 
           </form>
           <div className="flex gap-2 text-sm mt-5">
-            <span>Don't have an account?</span>
+            {/* <span>Don't have an account?</span> */}
+            <span>Vous n'avez pas de compte ?</span>
             <Link to='/sign-up' className='text-blue-500' >
-              Sign Up
+              S'inscrire
             </Link>
           </div>
           {errorMessage && (

@@ -18,7 +18,8 @@ export default function Home() {
   return (
     <div>
       <div className="items-center flex flex-col gap-6 lg:p-28 px-3 max-w-7xl mx-auto">
-            <h1 className="text-center text-2xl font-bold lg:text-6xl">Welcome to the DRC Government <br/> Social Media </h1>
+            {/* <h1 className="text-center text-2xl font-bold lg:text-6xl">Welcome to the DRC Government <br/> Social Media </h1> */}
+            <h1 className="text-center text-2xl font-bold lg:text-6xl">Bienvenue sur DRC Gov<br/> Social Media </h1>
             
             <div className="items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">
             <span className="px-2 py-3 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
@@ -29,11 +30,12 @@ export default function Home() {
             <p className="text-gray-500 text-xs sm:text-sm">
               {/* Here you'll find a variety of articles and tutorials on topic such as web development, software engineering, and programming languages.
               */}
-             Here you will find in real time, latest news and information related to Government members. 
+             {/* Here you will find in real time, latest news and information related to the President Office and Government members.  */}
+              Ici vous trouverez, en temps réel, les dernières informations au sujet de la Présidence de la République Démocratique du Congo et des membres du Gouvernement.  
               </p>
       <Link to='/search' className="text-xs sm:text-sm text-black font-bold"> 
       <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">
-      View all articles
+      Voir tous les articles
         </button>
       </Link>
       {/* drc congo wildlife image  */}
@@ -68,7 +70,8 @@ export default function Home() {
           posts && posts.length > 0 && (
             <div className="flex flex-col gap-6">    
               <h2 className="text-2xl font-semibold text-center">
-                  Recent Articles
+                  Articles récents   
+ 
               </h2>
               {/* <div className="flex flex-wrap gap-4"> */}
               <div className="flex flex-wrap gap-5 mt-5 justify-center">
@@ -83,7 +86,7 @@ export default function Home() {
 
 <Link to='/search' className="text-xs sm:text-sm text-black font-bold text-center"> 
 <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">
-      View all articles
+      Voir tous les articles
         </button>
       </Link>
             </div>

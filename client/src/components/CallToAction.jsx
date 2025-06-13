@@ -6,15 +6,17 @@ export default function CallToAction() {
     <div className="flex flex-col sm:flex-row p-3 border border-blue-500 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center">
       <div className="flex-1 justify-center flex flex-col">
         <h2 className="text-2xl">
-            Want to learn more about the DRC? 
+            {/* Want to learn more about the DRC?  */}
+            Voulez-vous savoir plus sur la République Démocratique du Congo ? 
         </h2>
         <p className="text-gray-500 my-2">
-            Checkout these resources at the Office of the President of the Republic website
+            {/* Checkout these resources at the Office of the President of the Republic website */}
+             Parcourez les variétés de ressources disponibles sur le site officiel de la Présidence de la République.
         </p>
         <Button gradientDuoTone='purpleToBlue' className="rounded-tl-xl rounded-bl-none">
             {/*here we are using achored tag instead of link because this will open an external link */}
            {/* <a href="https://www.primature.cd" target='_blank' rel='noopener noreferrer'> Learn More</a> */}
-           <a href="https://www.presidence.cd" target='_blank' rel='noopener noreferrer'> Learn More</a>
+           <a href="https://www.presidence.cd" target='_blank' rel='noopener noreferrer'> Savoir plus</a>
             
         </Button>
         </div>

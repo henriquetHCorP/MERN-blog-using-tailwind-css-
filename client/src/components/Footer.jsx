@@ -69,7 +69,7 @@ export default function FooterCom() {
                    </Footer.LinkGroup>
                    </div>
                    <div>
-                   <Footer.Title title='About'/>
+                   <Footer.Title title='A propos'/>
                    <Footer.LinkGroup col>
                     {/* <Footer.Link 
                        href='https://www.100jsprojects.com'
