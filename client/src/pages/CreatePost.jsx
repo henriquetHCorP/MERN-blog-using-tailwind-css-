@@ -90,12 +90,12 @@ export default function CreatePost() {
     }
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
-        <h1 className="text-center text-3xl my-7 font-semibold">Create an article</h1>
+        <h1 className="text-center text-3xl my-7 font-semibold">Créer un article</h1>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>  
             <div className="gap-4 sm:flex-row justify-between">
                 <TextInput 
                       type="text" 
-                      placeholder="Title" 
+                      placeholder="Titre" 
                       required id='title' 
                       className="flex-1"
                       onChange={(e) => 
@@ -193,7 +193,7 @@ export default function CreatePost() {
                     (<div className="w-16 h-16">
                         <CircularProgressbar value={imageUploadProgress} text={`${imageUploadProgress || 0}%`} /> 
 
-                    </div>) : ( 'Upload Image'
+                    </div>) : ( "Charger l'image"
                     )}
                     </Button>
             </div>
@@ -216,7 +216,7 @@ export default function CreatePost() {
                 )}
             <ReactQuill 
                theme="snow" 
-               placeholder='Write something...' 
+               placeholder='Saisir un texte...' 
                className="h-72 mb-12" 
                onChange={(value) => {
                 //this is the way we give the information from react quill 
@@ -224,7 +224,7 @@ export default function CreatePost() {
                }}
                />
             <Button type='submit' gradientDuoTone='purpleToBlue'>
-                  Publish
+                  Publier l'article
             </Button>
             {publishError && <Alert className="mt-5" color='failure'>{publishError}</Alert>}
         </form>

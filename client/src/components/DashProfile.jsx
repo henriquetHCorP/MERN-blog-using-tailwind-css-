@@ -176,7 +176,7 @@ export default function DashProfile() {
      }
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
-      <h1 className="my-7 text-center font-semibold text-3xl">Profile</h1>
+      <h1 className="my-7 text-center font-semibold text-3xl">Profil</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input 
         type="file" 
@@ -210,31 +210,31 @@ export default function DashProfile() {
               />
           )}
         <img src={imageFileUrl || currentUser.profilePicture} 
-        alt="user"   
+        alt="Utilisateur"   
         className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${imageFileUploadProgress && imageFileUploadProgress < 100 && 'opacity-60'}`} onClick={()=>filePickerRef.current.click()} />
         </div>
         {imageFileUploadError && <Alert color='failure'>{imageFileUploadError}</Alert>}
         <TextInput 
           type="text" 
           id="username" 
-          placeholder="username" 
+          placeholder="Nom d'utilisateur" 
           defaultValue={currentUser.username} onChange={handleChange} />
         <TextInput 
           type="email" 
           id="email" 
-          placeholder="email" 
+          placeholder="e-mail" 
           defaultValue={currentUser.email} onChange={handleChange} />
         <TextInput 
           type="password" 
           id="password"
-          placeholder="password" onChange={handleChange} />
+          placeholder="Mot de passe" onChange={handleChange} />
           <Button 
              type="submit" 
              gradientDuoTone='purpleToBlue' 
              outline
              disabled={loading || imageFileUploading}
              >
-               {loading ? 'Loading...' : 'Update'}
+               {loading ? 'Chargement en cours...' : 'Mettre à jour'}
           </Button>
           {currentUser.isAdmin && (
             <Link to={'/create-post'}> 
@@ -243,14 +243,14 @@ export default function DashProfile() {
               gradientDuoTone='purpleToBlue'
               className='w-full'
             >
-                Create a post 
+              Créer un article 
             </Button>
             </Link>
           )}
       </form>
       <div className="text-red-500 flex justify-between mt-5">
-        <span onClick ={() => setShowModal(true)} className="cursor-pointer"> Delete Account</span>
-        <span onClick={handleSignout} className="cursor-pointer">Sign Out</span>
+        <span onClick ={() => setShowModal(true)} className="cursor-pointer">Supprimer le compte</span>
+        <span onClick={handleSignout} className="cursor-pointer">Se déconnecter</span> 
       </div>
       {updateUserSuccess && (
         <Alert color='success' className="mt-5">
@@ -278,11 +278,11 @@ export default function DashProfile() {
         <Modal.Body>
           <div className="text-center">
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
-            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Are you sure you want to delete your account?
+            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Etes-vous sur de vouloir effacer ce compte?
             </h3>
              <div className="flex justify-center gap-4">
-              <Button color='failure' onClick={handleDeleteUser}>Yes, I'm sure</Button>
-              <Button color='gray' onClick={() => setShowModal(false)}>No, Cancel </Button>
+              <Button color='failure' onClick={handleDeleteUser}>Oui, je suis sûr</Button>
+              <Button color='gray' onClick={() => setShowModal(false)}>Non, annuler</Button>
              </div>
           </div>
         </Modal.Body>

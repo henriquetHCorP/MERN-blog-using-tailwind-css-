@@ -72,7 +72,7 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
           </Link>
           <p className="text-sm mt-5">
             {/* You can sign in with your email and password or with Google. */}
-            Vous pouvez vous connecter via your adresse e-mail ou votre compte Google. 
+            Vous pouvez vous connecter via votre adresse e-mail et mot de passe ou votre compte Google. 
           </p>
         </div>
         {/* Right  */}

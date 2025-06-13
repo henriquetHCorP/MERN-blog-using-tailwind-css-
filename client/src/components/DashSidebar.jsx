@@ -48,7 +48,8 @@ export default function DashSidebar() {
                                   icon={HiChartPie}
                                   as='div'
                                 >
-                                  Dashboard 
+                                  {/* Dashboard */}
+                                  Tableau de bord
                                 </Sidebar.Item>
                             
                             </Link>
@@ -62,7 +63,7 @@ export default function DashSidebar() {
                    labelColor='dark'
                    as='div'
                    >
-                    Profile
+                    Profil
                 </Sidebar.Item>
                 </Link>
                 {currentUser.isAdmin && (
@@ -72,7 +73,7 @@ export default function DashSidebar() {
                       icon={HiDocumentText}
                       as='div'
                     >
-                      Posts 
+                      Articles
                     </Sidebar.Item>
                 </Link>
                 ) }
@@ -85,7 +86,7 @@ export default function DashSidebar() {
                       icon={HiOutlineUserGroup}
                       as='div'
                     >
-                      Users
+                      Utilisateurs
                     </Sidebar.Item>
                  </Link>
 
@@ -95,14 +96,14 @@ export default function DashSidebar() {
                    icon={HiAnnotation}
                    as='div'
                  >
-                   Comments
+                   Commentaires 
                  </Sidebar.Item>
              </Link>
              </>
 
                 ) }
                 <Sidebar.Item icon={HiArrowSmRight} className="cursor-pointer" onClick={handleSignout}>
-                    Sign out
+                    Se déconnecter 
                 </Sidebar.Item>
             </Sidebar.ItemGroup>
         </Sidebar.Items>

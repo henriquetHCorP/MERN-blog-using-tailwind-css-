@@ -111,15 +111,15 @@ export default function DashPosts() {
         <>
         <Table hoverable className="shadow-md">
            <Table.Head>
-            <Table.HeadCell>Date updated</Table.HeadCell>
-            <Table.HeadCell>Post image</Table.HeadCell>
-            <Table.HeadCell>Post title</Table.HeadCell>
+            <Table.HeadCell>Date de publication</Table.HeadCell>
+            <Table.HeadCell>Image de l'article</Table.HeadCell>
+            <Table.HeadCell>Title de l'article</Table.HeadCell>
             {/* <Table.HeadCell>Category</Table.HeadCell> */}
-            <Table.HeadCell>Category</Table.HeadCell>
-            <Table.HeadCell>Delete</Table.HeadCell>
+            <Table.HeadCell>Categorie</Table.HeadCell>
+            <Table.HeadCell>Effacer</Table.HeadCell>
             {/* <Table.HeadCell>Post Like</Table.HeadCell> */}
             <Table.HeadCell>
-              <span>Edit</span>
+              <span>Editer</span>
             </Table.HeadCell>
            </Table.Head>
            {userPosts.map((post) => (
@@ -148,7 +148,7 @@ export default function DashPosts() {
                       setPostIdToDelete(post._id); 
                     }}
                     className="font-medium text-red-500 hover:underline hover:cursor-pointer">
-                    Delete
+                    Effacer
                     </span>
                 </Table.Cell>
                {/* <Table.Cell> */}
@@ -163,7 +163,7 @@ export default function DashPosts() {
                 {/* </Table.Cell> */}
                 <Table.Cell>
                   <Link className="text-blue-500 hover:underline" to={`/update-post/${post._id}`}>
-                    <span>Edit</span>
+                    <span>Editer</span>
                   </Link>
                 </Table.Cell>
               </Table.Row>
@@ -173,14 +173,14 @@ export default function DashPosts() {
         {
           showMore && (
             <button onClick={handleShowMore} className="w-full text-blue-500 self-center text-sm py-7">
-              Show more 
+              Voir plus
 
             </button>
 
           )
         }
         </>
-     ):(<p>You have no post yet</p>)}
+     ):(<p>Vous n'avez aucune publication d'article pour l'instant</p>)}
      <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
@@ -191,11 +191,11 @@ export default function DashPosts() {
         <Modal.Body>
           <div className="text-center">
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
-            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Are you sure you want to delete this post?
+            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Etes-vous sur de vouloir effacer cet article?
             </h3>
              <div className="flex justify-center gap-4">
-              <Button color='failure' onClick={handleDeletePost}>Yes, I'm sure</Button>
-              <Button color='gray' onClick={() => setShowModal(false)}>No, Cancel </Button>
+              <Button color='failure' onClick={handleDeletePost}>Oui, je suis sûr</Button>
+              <Button color='gray' onClick={() => setShowModal(false)}>Non, annuler</Button>
              </div>
           </div>
         </Modal.Body>
