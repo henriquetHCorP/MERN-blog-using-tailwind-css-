@@ -104,13 +104,13 @@ const handleDeleteComment = async() => {
         <>
         <Table hoverable className="shadow-md ">
            <Table.Head>
-            <Table.HeadCell>Date updated</Table.HeadCell>
-            <Table.HeadCell>Comment content</Table.HeadCell>
-            <Table.HeadCell>numbers of likes</Table.HeadCell>
+            <Table.HeadCell>date de mise à jour</Table.HeadCell>
+            <Table.HeadCell>Contenu du commentaire</Table.HeadCell>
+            <Table.HeadCell>nombre de likes</Table.HeadCell>
             <Table.HeadCell>PostId</Table.HeadCell>
             <Table.HeadCell>UserId</Table.HeadCell>
             {/* <Table.HeadCell>Username</Table.HeadCell> */}
-            <Table.HeadCell>Delete</Table.HeadCell>
+            <Table.HeadCell>Effacer</Table.HeadCell>
             
            </Table.Head>
            {comments.map((comment) => (
@@ -152,7 +152,7 @@ const handleDeleteComment = async() => {
                       setCommentIdToDelete(comment._id); 
                     }}
                     className="font-medium text-red-500 hover:underline">
-                    Delete
+                    Effacer
                     </span>
                 </Table.Cell>
                 {/* <Table.Cell>
@@ -167,14 +167,14 @@ const handleDeleteComment = async() => {
         {
           showMore && (
             <button onClick={handleShowMore} className="w-full text-teal-500 self-center text-sm py-7">
-              Show more 
+              Voir plus 
 
             </button>
 
           )
         }
         </>
-     ):(<p>You have no comments yet</p>)}
+     ):(<p>Vous n'avez pas encore de commentaires</p>)}
      <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
@@ -185,11 +185,11 @@ const handleDeleteComment = async() => {
         <Modal.Body>
           <div className="text-center">
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
-            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Are you sure you want to delete this comment?
+            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Etes-vous sur de vouloir effacer ce commentaire?
             </h3>
              <div className="flex justify-center gap-4">
-              <Button color='failure' onClick={handleDeleteComment}>Yes, I'm sure</Button>
-              <Button color='gray' onClick={() => setShowModal(false)}>No, Cancel </Button>
+              <Button color='failure' onClick={handleDeleteComment}>Oui, je suis sûr </Button>
+              <Button color='gray' onClick={() => setShowModal(false)}>Non, annuler </Button>
              </div>
           </div>
         </Modal.Body>

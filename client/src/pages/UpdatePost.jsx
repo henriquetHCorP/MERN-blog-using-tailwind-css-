@@ -118,12 +118,12 @@ export default function UpdatePost() {
     }
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
-        <h1 className="text-center text-3xl my-7 font-semibold">Update post</h1>
+        <h1 className="text-center text-3xl my-7 font-semibold">Modifier l'article </h1>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>  
             <div className="gap-4 sm:flex-row justify-between">
                 <TextInput 
                       type="text" 
-                      placeholder="Title" 
+                      placeholder="Titre" 
                       required 
                       id='title' 
                       className="flex-1"
@@ -231,6 +231,7 @@ export default function UpdatePost() {
             </div>
             <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
                 <FileInput 
+                   helperText="Choisir une image correspondante à l'article à publier"
                    type='file' 
                    accept='image/*' 
                    onChange={(e)=>setFile(e.target.files[0])} />
@@ -247,7 +248,7 @@ export default function UpdatePost() {
                     (<div className="w-16 h-16">
                         <CircularProgressbar value={imageUploadProgress} text={`${imageUploadProgress || 0}%`} /> 
 
-                    </div>) : ( 'Upload Image'
+                    </div>) : ( "Charger l'image"
                     )}
                     </Button>
             </div>
@@ -276,7 +277,7 @@ export default function UpdatePost() {
                }}
                />
             <Button type='submit' gradientDuoTone='purpleToBlue'>
-                 Edit post 
+                 Publier l'article modifié 
             </Button>
             {publishError && <Alert className="mt-5" color='failure'>{publishError}</Alert>}
         </form>

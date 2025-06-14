@@ -78,6 +78,7 @@ export default function DashSidebar() {
                 </Link>
                 ) }
 
+
                 {currentUser.isAdmin && (
                     <>
                     <Link to='/dashboard?tab=users'>
@@ -89,6 +90,12 @@ export default function DashSidebar() {
                       Utilisateurs
                     </Sidebar.Item>
                  </Link>
+
+
+
+                   
+                 
+
 
                  <Link to='/dashboard?tab=comments'>
                  <Sidebar.Item

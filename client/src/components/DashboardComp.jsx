@@ -92,7 +92,7 @@ export default function DashboardComp() {
      <div className="flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 w-full rounded-md shadow-md">
          <div className="flex justify-between">
            <div className="">
-              <h3 className="text-gray-500 text-md uppercase">Total Users</h3>
+              <h3 className="text-gray-500 text-md uppercase">Nombre total d'utilisateurs</h3>
               <p className="text-2xl">{totalUsers}</p>
           </div>
               <HiOutlineUserGroup className="bg-blue-600 text-white rounded-full text-5xl p-3 shadow-lg" /> 
@@ -103,14 +103,14 @@ export default function DashboardComp() {
               <HiArrowNarrowUp /> 
               {lastMonthUsers}
             </span>
-            <div className="text-gray-500">Last month </div>
+            <div className="text-gray-500">Mois précédent </div>
 
           </div>
      </div>
      <div className="flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 w-full rounded-md shadow-md">
          <div className="flex justify-between">
            <div className="">
-              <h3 className="text-gray-500 text-md uppercase">Total Comments</h3>
+              <h3 className="text-gray-500 text-md uppercase">Nombre total de commentaires</h3>
               <p className="text-2xl">{totalComments}</p>
           </div>
               <HiAnnotation className="bg-indigo-600 text-white rounded-full text-5xl p-3 shadow-lg" /> 
@@ -121,14 +121,14 @@ export default function DashboardComp() {
               <HiArrowNarrowUp /> 
               {lastMonthComments}
             </span>
-            <div className="text-gray-500">Last month </div>
+            <div className="text-gray-500">Mois précédent </div>
 
           </div>
      </div>
      <div className="flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 w-full rounded-md shadow-md">
          <div className="flex justify-between">
            <div className="">
-              <h3 className="text-gray-500 text-md uppercase">Total Posts</h3>
+              <h3 className="text-gray-500 text-md uppercase">Nombre total d'articles</h3>
               <p className="text-2xl">{totalPosts}</p>
           </div>
               <HiDocumentText className="bg-lime-600 text-white rounded-full text-5xl p-3 shadow-lg" /> 
@@ -139,22 +139,22 @@ export default function DashboardComp() {
               <HiArrowNarrowUp /> 
               {lastMonthPosts}
             </span>
-            <div className="text-gray-500">Last month </div>
+            <div className="text-gray-500">Mois précédent</div>
           </div>
           </div>
          </div>
            <div className="flex flex-wrap gap-4 py-3 mx-auto justify-center">
             <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800">
                 <div className="flex justify-between p-3 text-sm font-semibold">
-                    <h1 className="text-center p-2">Recent users</h1>
+                    <h1 className="text-center p-2">Utilisateurs récents</h1>
                     <Button outline gradientDuoTone="purpleToPink">
-                      <Link to={"/dashboard?tab=users"}>See all</Link>
+                      <Link to={"/dashboard?tab=users"}>Voir plus</Link>
                     </Button>
                 </div>
                 <Table hoverable>
                   <Table.Head>
-                    <Table.HeadCell>User image</Table.HeadCell>
-                    <Table.HeadCell>Username</Table.HeadCell>
+                    <Table.HeadCell>Image d'utilisateur</Table.HeadCell>
+                    <Table.HeadCell>Nom d'utilisateur</Table.HeadCell> 
                   </Table.Head>
                   {users && users.map((user) => (
                     <Table.Body key={user._id} className="divide-y">
@@ -176,14 +176,14 @@ export default function DashboardComp() {
             </div>
             <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800">
                 <div className="flex justify-between p-3 text-sm font-semibold">
-                    <h1 className="text-center p-2">Recent comments</h1>
+                    <h1 className="text-center p-2">Commentaires récents</h1>
                     <Button outline gradientDuoTone="purpleToPink">
-                      <Link to={"/dashboard?tab=comments"}>See all</Link>
+                      <Link to={"/dashboard?tab=comments"}>Voir plus</Link>
                     </Button>
                 </div>
                 <Table hoverable>
                   <Table.Head>
-                    <Table.HeadCell>Comment content </Table.HeadCell>
+                    <Table.HeadCell>Contenu du commentaire </Table.HeadCell>
                     <Table.HeadCell>Likes</Table.HeadCell>
                   </Table.Head>
                   {comments && comments.map((comment) => (
@@ -207,16 +207,16 @@ export default function DashboardComp() {
             </div>
             <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800">
                 <div className="flex justify-between p-3 text-sm font-semibold">
-                    <h1 className="text-center p-2">Recent posts</h1>
+                    <h1 className="text-center p-2">Articles récents</h1>
                     <Button outline gradientDuoTone="purpleToPink">
-                      <Link to={"/dashboard?tab=posts"}>See all</Link>
+                      <Link to={"/dashboard?tab=posts"}>Voir plus</Link>
                     </Button>
                 </div>
                 <Table hoverable>
                   <Table.Head>
-                    <Table.HeadCell>Post image</Table.HeadCell>
-                    <Table.HeadCell>Post Title</Table.HeadCell>
-                    <Table.HeadCell>Category</Table.HeadCell>
+                    <Table.HeadCell>Image d'article</Table.HeadCell>
+                    <Table.HeadCell>Titre d'article</Table.HeadCell>
+                    <Table.HeadCell>Categorie</Table.HeadCell>
                   </Table.Head>
                   {posts && posts.map((post) => (
                     <Table.Body key={post._id} className="divide-y">

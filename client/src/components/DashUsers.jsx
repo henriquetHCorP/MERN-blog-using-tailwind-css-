@@ -24,6 +24,7 @@ export default function DashUsers() {
               if(res.ok){
                 //setUserPosts(data.posts) cfr post.controller.js res.status(200).json({posts, totalPosts,lastMonthPosts,  
                 setUsers(data.users); 
+                
                 if(data.users.length < 9){
                   setShowMore(false); 
                 }
@@ -101,7 +102,7 @@ const handleDeleteUser = async() => {
         <>
         <Table hoverable className="shadow-md ">
            <Table.Head>
-            <Table.HeadCell>Date de création</Table.HeadCell>
+            <Table.HeadCell>Date de creation</Table.HeadCell>
             <Table.HeadCell>Image d'utilisateur</Table.HeadCell>
             <Table.HeadCell>Nom d'utilisateur</Table.HeadCell>
             <Table.HeadCell>E-mail</Table.HeadCell>
@@ -142,7 +143,7 @@ const handleDeleteUser = async() => {
                     // className="font-medium text-red-500 hover:underline">
                     className="font-medium text-red-500 hover:underline hover:cursor-pointer">
                     {/* Delete */}
-                    {user.isAdmin? null : "Delete"}
+                    {user.isAdmin? null : "Effacer"}
                     </span>
                 </Table.Cell>
                 {/* <Table.Cell>

@@ -111,9 +111,9 @@ export default function DashPosts() {
         <>
         <Table hoverable className="shadow-md">
            <Table.Head>
-            <Table.HeadCell>Date de publication</Table.HeadCell>
-            <Table.HeadCell>Image de l'article</Table.HeadCell>
-            <Table.HeadCell>Title de l'article</Table.HeadCell>
+            <Table.HeadCell>date de mise à jour</Table.HeadCell>
+            <Table.HeadCell>Image d'article</Table.HeadCell>
+            <Table.HeadCell>Titre d'article</Table.HeadCell>
             {/* <Table.HeadCell>Category</Table.HeadCell> */}
             <Table.HeadCell>Categorie</Table.HeadCell>
             <Table.HeadCell>Effacer</Table.HeadCell>

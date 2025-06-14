@@ -177,6 +177,7 @@ export default function CreatePost() {
             </div>
             <div className="flex gap-4 items-center justify-between border-4 border-blue-500 border-dotted p-3">
                 <FileInput 
+                   helperText="Choisir une image correspondante à l'article à publier"
                    type='file' 
                    accept='image/*' 
                    onChange={(e)=>setFile(e.target.files[0])} />
@@ -205,7 +206,7 @@ export default function CreatePost() {
             {formData.image && (
                 <img 
                   src={formData.image}
-                  alt='upload'
+                  alt='charger'
                 className="w-full h-72 object-cover rounded-2xl"
                 //   className="w-full h-100 rounded-2xl object-cover"
                   
