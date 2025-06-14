@@ -86,7 +86,7 @@ export default function PostPage() {
     <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs"> 
         <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>   
         {/* tofixed(0) ==> is to fixed 0 decimal */}
-        <span className="italic">{post && (post.content.length /1000).toFixed(0)} mins read</span>
+        <span className="italic">{post && (post.content.length /1000).toFixed(0)} min de lecture</span>
     </div>
     {/* for the post-content className below, go to index.css for styling  */}
     <div className="p-3 max-w-2xl mx-auto w-full post-content" dangerouslySetInnerHTML={{__html:post && post.content}}>
@@ -96,7 +96,7 @@ export default function PostPage() {
     </div>
     <CommentSection postId={post._id} /> 
     <div className="flex flex-col justify-center items-center mb-5"> 
-    <h1 className="text-xl mt-5">Recent articles</h1>
+    <h1 className="text-xl mt-5">Articles récents</h1>
     <div className="flex flex-wrap gap-5 mt-5 justify-center">
       {/* flex-wrap has the benefit of automatically changing the number of column  */}
       {

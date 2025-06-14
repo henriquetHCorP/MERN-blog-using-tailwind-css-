@@ -18,7 +18,7 @@ export default function PostCard({post}) {
                    since we are using absolute, we have to make the div that contain everthing to 'relative' 
                    left-0 right-0 to bring it completely in the center.    
                  */}
-                 Read article
+                 Lire l'article
             </Link>
 
         </div>

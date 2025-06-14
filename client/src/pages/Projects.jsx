@@ -11,8 +11,8 @@ export default function Projects() {
 
 
 <div className="min-h-screen max-w-2xl mx-auto flex justify-center items-center flex-col gap-6 p-3">
-     <h1 className="text-3xl font-semibold">Government Projects</h1>
-     <p className="text-md text-gray-500">Learn More about the DRC Government Projects by visiting the official website of the Prime Minister office</p>
+     <h1 className="text-3xl font-semibold">Actualités</h1>
+     <p className="text-md text-gray-500">Parcourez les variétés de ressources disponibles sur le site officiel de la Présidence de la République Démocratique du Congo.</p>
      <CallToAction /> 
     </div>
   )

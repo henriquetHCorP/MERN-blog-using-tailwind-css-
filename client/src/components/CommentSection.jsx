@@ -148,7 +148,7 @@ export default function CommentSection({postId}) {
         {currentUser ? 
         (
             <div className="flex items-center gap-1 my-5 text-gray-500">
-                <p>Signed in as :</p>
+                <p>Connecté en tant que :</p>
                 <img className="h-5 w-5 object-cover rounded-full" src={currentUser.profilePicture}/>
                 <Link 
                   to={'/dashboard?tab=profile'}
@@ -160,29 +160,29 @@ export default function CommentSection({postId}) {
             </div>
         ) : (
             <div className="text-sm text-blue-500 my-5 flex gap-1">
-                You must be signed in to comment.
+                Vous devez être connecté pour commenter.
                 <Link className="text-blue-500 hover:underline" to ={'/sign-in'}>
-                    Sign in 
+                    Se connecter 
                 </Link>
             </div>
         )}
         {currentUser && (
             <form onSubmit={handleSubmit} className="border border-blue-500 rounded-md p-3">
                 <Textarea
-                  placeholder='Add a comment...'
+                  placeholder='Ajouter un commentaire...'
                   rows='3'
                   maxLength='200'
                   onChange={(e) => setComment(e.target.value)}
                   value={comment}
                 /> 
                 <div className=" flex justify-between items-center mt-5">
-                    <p className="text-gray-500 text-xs">{200-comment.length} characters remaining</p>
+                    <p className="text-gray-500 text-xs">{200-comment.length} caractères restants</p>
                     <Button 
                        outline
                        gradientDuoTone='purpleToBlue'
                        type='submit'
                        >
-                        Submit 
+                        Envoyer
                     </Button>
 
                 </div>
@@ -193,11 +193,11 @@ export default function CommentSection({postId}) {
             </form>
         )}
         {comments.length === 0 ? (
-            <p className="text-sm my-5">No comments yet!</p>
+            <p className="text-sm my-5">Pas encore de commentaire!</p>
         ) : (
             <>
             <div className="tex-sm my-5 flex items-center gap-1">
-                <p>Comments</p>
+                <p>Commentaires</p>
                 <div className="border border-gray-400 py-1 px-2 rounded-sm">
                     <p>{comments.length}</p>
                 </div>
@@ -228,11 +228,11 @@ export default function CommentSection({postId}) {
         <Modal.Body>
           <div className="text-center">
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
-            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Are you sure you want to delete this comment?
+            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Etes-vous sur de vouloir effacer ce commentaire?
             </h3>
              <div className="flex justify-center gap-4">
-              <Button color='failure' onClick={() => handleDelete(commentToDelete)}>Yes, I'm sure</Button>
-              <Button color='gray' onClick={() => setShowModal(false)}>No, Cancel </Button>
+              <Button color='failure' onClick={() => handleDelete(commentToDelete)}>Oui, je suis sûr</Button>
+              <Button color='gray' onClick={() => setShowModal(false)}>Non, annuler </Button>
              </div>
           </div>
         </Modal.Body>
