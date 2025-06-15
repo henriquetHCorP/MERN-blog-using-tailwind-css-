@@ -84,7 +84,14 @@ export default function PostPage() {
        
        />
     <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs"> 
-        <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>   
+        <span>{post && new Date(post.createdAt).toLocaleDateString('fr-FR', {
+          weekday:'long',
+          year:'numeric',
+          month:'long',
+          day:'numeric',
+        }
+             
+        )}</span>   
         {/* tofixed(0) ==> is to fixed 0 decimal */}
         <span className="italic">{post && (post.content.length /1000).toFixed(0)} min de lecture</span>
     </div>

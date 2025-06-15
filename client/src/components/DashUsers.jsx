@@ -114,7 +114,7 @@ const handleDeleteUser = async() => {
             <Table.Body className="divide-y" key={user._id}>
               <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell>
-                  {new Date(user.createdAt).toLocaleDateString()}
+                  {new Date(user.createdAt).toLocaleDateString('fr-FR')}
                 </Table.Cell>
                 <Table.Cell>
                   {/* <Link to={`/post/${post.slug}`}> */}

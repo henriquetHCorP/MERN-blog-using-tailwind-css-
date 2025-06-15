@@ -6,7 +6,7 @@ export const create = async (req, res, next ) => {
         return next(errorHandler(403, 'You are not allowed to create a post'));
     }
     if (!req.body.title || !req.body.content) {
-        return next(errorHandler(400, 'Please provide all required fields'))
+        return next(errorHandler(400, 'Veuillez remplir tous les champs obligatoires'))
     }
     const slug = req.body.title
          .split(' ')
@@ -84,7 +84,7 @@ export const deletepost = async (req, res, next) => {
     }
     try {
          await Post.findByIdAndDelete(req.params.postId); 
-         res.status(200).json('The post has been deleted'); 
+         res.status(200).json("L'article a été supprimé"); 
     } catch(error) {
         next(error)
     }

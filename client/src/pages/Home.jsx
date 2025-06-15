@@ -31,7 +31,7 @@ export default function Home() {
               {/* Here you'll find a variety of articles and tutorials on topic such as web development, software engineering, and programming languages.
               */}
              {/* Here you will find in real time, latest news and information related to the President Office and Government members.  */}
-              Ici vous trouverez, en temps réel, les dernières informations au sujet de la Présidence de la République Démocratique du Congo et des membres du Gouvernement.  
+              Trouvez, en temps réel, les dernières informations au sujet de la Présidence de la République Démocratique du Congo et des membres du Gouvernement.  
               </p>
       <Link to='/search' className="text-xs sm:text-sm text-black font-bold"> 
       <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">

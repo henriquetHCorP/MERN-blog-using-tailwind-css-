@@ -4,6 +4,7 @@ import { Button, Textarea } from 'flowbite-react';
 import { FaThumbsUp} from 'react-icons/fa'; 
 import { useSelector } from 'react-redux';
 
+
 export default function Comment({comment, onLike, onEdit, onDelete}) {
     const [user, setUser ] = useState({}); 
     const [isEditing, setIsEditing] = useState(false); 
@@ -78,8 +79,10 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
             {/* <div > */}
             <div className ="flex items-center mb-1">
                 {/* below, anonymous user in case the user has been deleted  */}
-                <span className="font-bold mr-1 text-xs truncate">{user ? `@${user.username}` : 'anonymous user'}</span>
-                <span className="text-gray-500 text-xs">{moment(comment.createdAt).fromNow()}</span>
+                <span className="font-bold mr-1 text-xs truncate">{user ? `@${user.username}` : 'Utilisateur supprimé'}</span>
+                <span className="text-gray-500 text-xs">
+                  
+                  {moment(comment.createdAt).fromNow()}</span>
             </div>
             {isEditing? (
               <>
@@ -95,7 +98,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                   gradientDuoTone='purpleToBlue'
                   onClick={handleSave}
                 >
-                    Save 
+                    Enregister 
                 </Button>
                 <Button
                   type='button'
@@ -104,7 +107,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                   outline
                   onClick= {() => setIsEditing(false)}
                 >
-                    Cancel 
+                    Annuler
                 </Button>
               </div>
               </>
@@ -133,7 +136,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                       onClick={handleEdit}
                       // we dont't need to create and handleEdit function in the CommentSection because doing so will affect all the others comments. we just need to update this comment 
                     >
-                          Edit 
+                          Editer
                     </button>
                     <button
                     type='button'
@@ -141,7 +144,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                     className="text-gray-400 hover:text-red-500"
                     // we dont't need to create and handleEdit function in the CommentSection because doing so will affect all the others comments. we just need to update this comment 
                   >
-                        Delete
+                        Supprimer
                   </button>
                   </>
                   )

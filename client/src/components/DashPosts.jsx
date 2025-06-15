@@ -126,7 +126,10 @@ export default function DashPosts() {
             <Table.Body className="divide-y">
               <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell>
-                  {new Date(post.updatedAt).toLocaleDateString()}
+                  {new Date(post.updatedAt).toLocaleDateString(
+                    'fr-FR'
+
+                  )}
                 </Table.Cell>
                 <Table.Cell>
                   <Link to={`/post/${post.slug}`}>

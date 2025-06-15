@@ -24,7 +24,7 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
   e.preventDefault(); 
   if (!formData.email || !formData.password) {
       // 
-      return dispatch(signInFailure('Please fill all the fields')); 
+      return dispatch(signInFailure('Veuillez remplir tous les champs')); 
   }
   try {
     // setLoading(true); 

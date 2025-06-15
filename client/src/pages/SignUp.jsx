@@ -18,7 +18,7 @@ export default function SignUp() {
  const handleSubmit = async (e) => {
   e.preventDefault(); 
   if (!formData.username || !formData.email || !formData.password) {
-      return setErrorMessage('Please fill out all fields.'); 
+      return setErrorMessage('Veuillez remplir tous les champs.'); 
   }
   try {
 
@@ -35,7 +35,7 @@ export default function SignUp() {
      if (data.success === false) {
       // return setErrorMessage(data.message); 
       setLoading(false);
-      return setErrorMessage("Sorry, These credentials already exist, please find another e-mail address and username"); 
+      return setErrorMessage("Désolé, ces informations d'identification existent déjà, veuillez trouver une autre adresse e-mail et un autre nom d'utilisateur"); 
      }
      setLoading(false); 
      if(res.ok) {
@@ -43,7 +43,7 @@ export default function SignUp() {
      }
   } catch(error) {
       //  setErrorMessage(error.message);
-      setErrorMessage("Sorry, These credentials already exist, please find another e-mail address");
+      setErrorMessage("Désolé, ces informations d'identification existent déjà, veuillez trouver une autre adresse e-mail et un autre nom d'utilisateur");
 
        setLoading(false); 
   }
