@@ -177,7 +177,7 @@ export default function CreatePost() {
             </div>
             <div className="flex gap-4 items-center justify-between border-4 border-blue-500 border-dotted p-3">
                 <FileInput 
-                   helperText="Choisir une image correspondante à l'article à publier"
+                //    helperText="Choisir une image"
                    type='file' 
                    accept='image/*' 
                    onChange={(e)=>setFile(e.target.files[0])} />
