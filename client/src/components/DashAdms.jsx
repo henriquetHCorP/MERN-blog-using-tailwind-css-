@@ -5,27 +5,27 @@ import { useSelector } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import { FaCheck, FaTimes } from 'react-icons/fa'; 
 
-export default function DashUsers() {
+export default function DashAdms() {
   const { currentUser } = useSelector((state) => state.user);  
-  const [users, setUsers] = useState([]); 
+  const [adms, setAdms] = useState([]); 
   const [showMore, setShowMore ] = useState(true); 
   const [showModal, setShowModal] = useState(false); 
-  const [userIdToDelete, setUserIdToDelete] = useState(''); 
+  const [admIdToDelete, setAdmIdToDelete] = useState(''); 
 //   console.log(userPosts); 
 
   useEffect (() => {
-     const fetchUsers = async () => {
+     const fetchAdms = async () => {
         try {
               // Since this is a get request we don't need to add any method... 
-              const res = await fetch(`/api/user/getusers?`)
+              const res = await fetch(`/api/user/getadms?`)
               // here we convert the json file into data 
               const data = await res.json(); 
               // console.log(data); 
               if(res.ok){
                 //setUserPosts(data.posts) cfr post.controller.js res.status(200).json({posts, totalPosts,lastMonthPosts,  
-                setUsers(data.users); 
+                setAdms(data.adms); 
                 
-                if(data.users.length < 9){
+                if(data.adms.length < 9){
                   setShowMore(false); 
                 }
               }
@@ -35,18 +35,18 @@ export default function DashUsers() {
         }
      }; 
      if(currentUser.isAdmin) {
-      fetchUsers(); 
+      fetchAdms(); 
      }
    }, [currentUser._id])
    
    const handleShowMore = async () => {
-     const startIndex = users.length; 
+     const startIndex = adms.length; 
      try {
-        const res = await fetch(`/api/user/getusers?&startIndex=${startIndex}`); 
+        const res = await fetch(`/api/user/getadms?&startIndex=${startIndex}`); 
         const data = await res.json(); 
         if(res.ok) {
-          setUsers((prev) => [...prev, ...data.users]); 
-          if(data.users.length < 9) {
+          setAdms((prev) => [...prev, ...data.adms]); 
+          if(data.adms.length < 9) {
             setShowMore(false); 
           }
         }
@@ -78,27 +78,31 @@ export default function DashUsers() {
 //     }
 
 //    }; 
-const handleDeleteUser = async() => {
-    try {
-        const res = await fetch(`api/user/delete/${userIdToDelete}`, {
-            method:'DELETE', 
-        }); 
-        const data = await res.json(); 
-        if(res.ok) {
-            setUsers((prev) => prev.filter((user) => user._id!== userIdToDelete)); 
-            setShowModal(false); 
-        } else {
-            console.log(data.message); 
-        }
+// const handleDeleteAdm = async() => {
+//     try {
+//         const res = await fetch(`api/user/delete/${userIdToDelete}`, {
+//             method:'DELETE', 
+//         }); 
+//         const data = await res.json(); 
+//         if(res.ok) {
+//             setUsers((prev) => prev.filter((user) => user._id!== userIdToDelete)); 
+//             setShowModal(false); 
+//         } else {
+//             console.log(data.message); 
+//         }
 
-    } catch(error) {
-        console.log(error.message); 
-    }
+//     } catch(error) {
+//         console.log(error.message); 
+//     }
+
+// }
+
+const handleDeleteAdm = async() => {
 
 }
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
-     {currentUser.isAdmin && users.length > 0 ? (
+     {currentUser.isAdmin && adms.length > 0 ? (
         <>
         <Table hoverable className="shadow-md ">
            <Table.Head>
@@ -107,43 +111,44 @@ const handleDeleteUser = async() => {
             <Table.HeadCell>Nom d'utilisateur</Table.HeadCell>
             <Table.HeadCell>E-mail</Table.HeadCell>
             <Table.HeadCell>CellCom</Table.HeadCell>
-            <Table.HeadCell>Effacer</Table.HeadCell>
+            {/* <Table.HeadCell>Effacer</Table.HeadCell> */}
             
            </Table.Head>
-           {users.map((user) => (
-            <Table.Body className="divide-y" key={user._id}>
+           {adms.map((adm) => (
+            <Table.Body className="divide-y" key={adm._id}>
               <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell>
-                  {new Date(user.createdAt).toLocaleDateString('fr-FR')}
+                  {new Date(adm.createdAt).toLocaleDateString('fr-FR')}
                 </Table.Cell>
                 <Table.Cell>
                   {/* <Link to={`/post/${post.slug}`}> */}
                     <img 
-                      src={user.profilePicture}
-                      alt={user.userName}
+                      src={adm.profilePicture}
+                      alt={adm.username}
                       className=" w-10 h-10 object-cover bg-gray-500 rounded-full"
                     />
                   {/* </Link> */}
                 </Table.Cell>
                 <Table.Cell>
                    {/* <Link className="font-medium text-gray-900 dark:text-white" to={`/post/${post.slug}`}> */}
-                  {user.username}
+                  {adm.username}
                   
                 {/* </Link>  */}
                 </Table.Cell>
-                <Table.Cell>{user.email}</Table.Cell>
+                <Table.Cell>{adm.email}</Table.Cell>
                 {/* my idea was to handle this way : <Table.Cell>{user.isAdmin ? (<HiCheck />): (<span>No</span>)}</Table.Cell> */}
-                <Table.Cell>{user.isAdmin ? (<FaCheck className="text-green-500"/>) : (<FaTimes className="text-red-500"/>)}</Table.Cell>
+                <Table.Cell>{adm.isAdmin ? (<FaCheck className="text-green-500"/>) : (<FaTimes className="text-red-500"/>)}</Table.Cell>
                 <Table.Cell>
                   <span 
                     onClick={() => {
                       setShowModal(true);   
-                      setUserIdToDelete(user._id); 
+                      //check below the adm._id is it correct?? yes
+                      setAdmIdToDelete(adm._id); 
                     }}
                     // className="font-medium text-red-500 hover:underline">
                     className="font-medium text-red-500 hover:underline hover:cursor-pointer">
                     {/* Delete */}
-                    {user.isAdmin? null : "Effacer"}
+                    {adm.isAdmin? null : "Effacer"}
                     </span>
                 </Table.Cell>
                 {/* <Table.Cell>
@@ -165,7 +170,7 @@ const handleDeleteUser = async() => {
           )
         }
         </>
-     ):(<p>Vous n'avez pas encore d'utilisateurs</p>)}
+     ):(<p>Vous n'avez aucun membre des cellules de communication pour l'instant</p>)}
      <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
@@ -178,7 +183,7 @@ const handleDeleteUser = async() => {
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
             <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Etes-vous sur de vouloir effacer cet utilisateur?</h3>
              <div className="flex justify-center gap-4">
-              <Button color='failure' onClick={handleDeleteUser}>Oui, je suis sûr</Button>
+              <Button color='failure' onClick={handleDeleteAdm}>Oui, je suis sûr</Button>
               <Button color='gray' onClick={() => setShowModal(false)}>Non, annuler</Button>
              </div>
           </div>

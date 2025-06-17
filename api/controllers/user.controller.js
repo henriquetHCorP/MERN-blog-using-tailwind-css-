@@ -133,3 +133,46 @@ export const getUser = async (req, res, next) => {
     }
 
 }
+
+export const getAdms = async(req, res, next)=>{
+    if(!req.user.isAdmin) {
+        return next(errorHandler(403, 'You are not allowed to see all the cellcom members')); 
+    }
+   try {
+    const startIndex = parseInt(req.query.startIndex) || 0; 
+    const limit = parseInt(req.query.limit) || 9; 
+    const sortDirection = req.query.sort === 'asc' ? 1 : -1; 
+
+    const adms = await User.find({isAdmin:true})
+    .sort({ createdAt: sortDirection })
+    .skip(startIndex)
+    .limit(limit); 
+ 
+     const admsWithoutPassword = adms.map((adm) =>{
+        const { password, ...rest } = adm._doc; 
+        return rest; 
+     }); 
+
+     const TotalAdms = await User.countDocuments({isAdmin:true}); 
+
+     const now = new Date(); 
+
+     const oneMonthAgo = new Date(
+        now.getFullYear(), 
+        now.getMonth() - 1, 
+        now.getDate()
+     ); 
+
+     const lastMonthAdms = await User.countDocuments({
+        createdAt: {$gte: oneMonthAgo }, isAdmin:true,
+     }); 
+
+     res.status(200).json({
+        adms: admsWithoutPassword, 
+        TotalAdms, 
+        lastMonthAdms, 
+     }); 
+   } catch(error) {
+     next(error)
+   }
+}

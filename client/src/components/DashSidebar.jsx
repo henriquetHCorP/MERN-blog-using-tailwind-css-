@@ -6,7 +6,17 @@ import { Link, useLocation } from 'react-router-dom'
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useSelector } from 'react-redux'; 
 
+
 export default function DashSidebar() {
+
+    const armoiries = ()=>{
+        return (
+          <div className='justify-start'>
+            <img src ='/armoiries2.png' height='25px' width='25px'/>
+          </div>
+        )
+    } 
+
     const location = useLocation(); 
     const dispatch = useDispatch(); 
     const { currentUser } = useSelector(state => state.user); 
@@ -66,6 +76,19 @@ export default function DashSidebar() {
                     Profil
                 </Sidebar.Item>
                 </Link>
+                {currentUser.isAdmin && (
+                <Link to='/dashboard?tab=adms'>
+                    <Sidebar.Item
+                      active={tab === 'adms'}
+                      // icon={HiOutlineUserGroup}
+                      icon={armoiries}
+                      
+                      as='div'
+                    >
+                       Cellcoms (Tous)
+                    </Sidebar.Item>
+                </Link>
+                ) }
                 {currentUser.isAdmin && (
                 <Link to='/dashboard?tab=posts'>
                     <Sidebar.Item
