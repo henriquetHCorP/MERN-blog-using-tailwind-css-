@@ -81,7 +81,8 @@ export default function DashProfile() {
         setImageFileUploadProgress(progress.toFixed(0)); 
        }, 
        (error) => {
-         setImageFileUploadError('Could not upload image (File must be less than 2MB)'); 
+        //  setImageFileUploadError('Could not upload image (File must be less than 2MB)'); 
+         setImageFileUploadError("Echec lors du chargement de l'image (La taille du fichier ne devra pas surpasser 2MB)"); 
          setImageFileUploadProgress(null); 
          setImageFile(null);
          setImageFileUrl(null);
@@ -109,11 +110,13 @@ export default function DashProfile() {
         setUpdateUserError(null); 
         setUpdateUserSuccess(null); 
          if (Object.keys(formData).length === 0) {
-          setUpdateUserError('No changes made'); 
+          // setUpdateUserError('No changes made'); 
+          setUpdateUserError('Aucun changement effectué'); 
            return; 
          }
          if(imageFileUploading){
-          setUpdateUserError('Please wait for image to upload'); 
+          // setUpdateUserError('Please wait for image to upload'); 
+          setUpdateUserError("Veuillez patienter pendant le chargement de l'image"); 
           return; 
          }
 
@@ -132,7 +135,7 @@ export default function DashProfile() {
               setUpdateUserError(data.message)
              } else {
                 dispatch(updateSuccess(data)); 
-                setUpdateUserSuccess("User's profile updated successfuly"); 
+                setUpdateUserSuccess("Le profil de l'utilisateur a été mis à jour avec succès"); 
              }
          }catch(error){
           dispatch(updateFailure(error.message)); 

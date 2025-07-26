@@ -138,7 +138,7 @@ const handleDeleteAdm = async() => {
                 <Table.Cell>{adm.email}</Table.Cell>
                 {/* my idea was to handle this way : <Table.Cell>{user.isAdmin ? (<HiCheck />): (<span>No</span>)}</Table.Cell> */}
                 <Table.Cell>{adm.isAdmin ? (<FaCheck className="text-green-500"/>) : (<FaTimes className="text-red-500"/>)}</Table.Cell>
-                <Table.Cell>
+                {/* <Table.Cell>
                   <span 
                     onClick={() => {
                       setShowModal(true);   
@@ -147,10 +147,11 @@ const handleDeleteAdm = async() => {
                     }}
                     // className="font-medium text-red-500 hover:underline">
                     className="font-medium text-red-500 hover:underline hover:cursor-pointer">
-                    {/* Delete */}
+                    
                     {adm.isAdmin? null : "Effacer"}
                     </span>
-                </Table.Cell>
+                </Table.Cell> */}
+                
                 {/* <Table.Cell>
                   <Link className="text-teal-500 hover:underline" to={`/update-post/${post._id}`}>
                     <span>Edit</span>

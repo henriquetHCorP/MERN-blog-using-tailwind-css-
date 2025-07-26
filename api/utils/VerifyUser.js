@@ -3,11 +3,11 @@ import { errorHandler } from './error.js';
 export const verifyToken = (req, res, next) => {
     const token = req.cookies.access_token; 
     if(!token) {
-       return next (errorHandler(401, 'Unauthorized')); 
+       return next (errorHandler(401, 'Vérification de l’utilisateur connecté en cours... Reconnectez-vous avec une adresse E-mail et un mot de passe valides.')); 
     }
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
         if(err) {
-            return next(errorHandler(401, 'Unauthorized')); 
+            return next(errorHandler(401, 'Vérification de l’utilisateur connecté en cours... Reconnectez-vous avec une adresse E-mail et un mot de passe valides.')); 
         }
         req.user = user; 
         next(); 
