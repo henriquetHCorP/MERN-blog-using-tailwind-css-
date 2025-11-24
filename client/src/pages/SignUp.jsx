@@ -17,8 +17,13 @@ export default function SignUp() {
   // console.log(formData); 
  const handleSubmit = async (e) => {
   e.preventDefault(); 
-  if (!formData.username || !formData.email || !formData.password) {
+  
+  if (!formData.username || !formData.email || !formData.password || !formData.confirmPassword) {
       return setErrorMessage('Veuillez remplir tous les champs.'); 
+  }
+
+  if(formData.confirmPassword !== formData.password) {
+    return setErrorMessage('Les deux mots de passe saisis ne sont pas identiques')
   }
   try {
 
@@ -96,6 +101,10 @@ export default function SignUp() {
             <div>
               <Label value="Votre mot de passe" />
             <TextInput type='password' placeholder='Mot de passe' id='password' onChange={handleChange}/> 
+            </div>
+            <div>
+              <Label value="confirmer votre mot de passe" />
+            <TextInput type='password' placeholder='confirmer votre Mot de passe' id='confirmPassword' onChange={handleChange}/> 
             </div>
             <Button gradientDuoTone='purpleToBlue' type='submit' disabled={loading}>
               {
