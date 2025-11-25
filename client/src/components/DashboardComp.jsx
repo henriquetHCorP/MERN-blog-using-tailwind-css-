@@ -103,7 +103,8 @@ export default function DashboardComp() {
               <HiArrowNarrowUp /> 
               {lastMonthUsers}
             </span>
-            <div className="text-gray-500">Mois précédent </div>
+            {/* <div className="text-gray-500">Mois précédent </div> */}
+            <div className="text-gray-500">Mois en cours </div>
 
           </div>
      </div>
@@ -121,7 +122,7 @@ export default function DashboardComp() {
               <HiArrowNarrowUp /> 
               {lastMonthComments}
             </span>
-            <div className="text-gray-500">Mois précédent </div>
+            <div className="text-gray-500">Mois en cours </div>
 
           </div>
      </div>
@@ -139,7 +140,7 @@ export default function DashboardComp() {
               <HiArrowNarrowUp /> 
               {lastMonthPosts}
             </span>
-            <div className="text-gray-500">Mois précédent</div>
+            <div className="text-gray-500">Mois en cours</div>
           </div>
           </div>
          </div>

@@ -103,8 +103,8 @@ export default function SignUp() {
             <TextInput type='password' placeholder='Mot de passe' id='password' onChange={handleChange}/> 
             </div>
             <div>
-              <Label value="confirmer votre mot de passe" />
-            <TextInput type='password' placeholder='confirmer votre Mot de passe' id='confirmPassword' onChange={handleChange}/> 
+              <Label value="Confirmer votre mot de passe" />
+            <TextInput type='password' placeholder='Confirmer votre mot de passe' id='confirmPassword' onChange={handleChange}/> 
             </div>
             <Button gradientDuoTone='purpleToBlue' type='submit' disabled={loading}>
               {
