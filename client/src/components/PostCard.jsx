@@ -9,28 +9,30 @@ export default function PostCard({post}) {
   const postDate = new Date(post.createdAt)
   console.log(postDate.getMonth() + 1); 
   
-  if (now.getDate()=== 31 && postDate.getMonth()=== 0){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 31 && postDate.getMonth()=== 2){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 31 && postDate.getMonth()=== 4){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 31 && postDate.getMonth()=== 6){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 31 && postDate.getMonth()=== 7){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 31 && postDate.getMonth()=== 9){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 31 && postDate.getMonth()=== 11){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 31 && postDate.getMonth()=== 0){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 31 && postDate.getMonth()=== 2){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 31 && postDate.getMonth()=== 4){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 31 && postDate.getMonth()=== 6){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 31 && postDate.getMonth()=== 7){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 31 && postDate.getMonth()=== 9){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 31 && postDate.getMonth()=== 11){now.getMonth === postDate.getMonth}
 
 
-  if (now.getDate()=== 30 && postDate.getMonth()=== 3){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 30 && postDate.getMonth()=== 5){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 30 && postDate.getMonth()=== 8){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 30 && postDate.getMonth()=== 10){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 30 && postDate.getMonth()=== 3){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 30 && postDate.getMonth()=== 5){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 30 && postDate.getMonth()=== 8){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 30 && postDate.getMonth()=== 10){now.getMonth === postDate.getMonth}
+
+  // if (postDate.getDate() === 30 && postDate.getMonth() === 10){now.getMonth() === null}
   
-  if (now.getDate()=== 28 && postDate.getMonth()=== 1){now.getMonth === postDate.getMonth}
-  if (now.getDate()=== 29 && postDate.getMonth()=== 1){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 28 && postDate.getMonth()=== 1){now.getMonth === postDate.getMonth}
+  // if (now.getDate()=== 29 && postDate.getMonth()=== 1){now.getMonth === postDate.getMonth}
 
   return (
     <div className="group relative w-full border border-blue-500 hover:border-2 h-[400px] overflow-hidden rounded-lg sm:w-[430px] transition-all">
         
         {
-          postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() || postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() - 1 ? 
+          postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() || postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() - 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 30 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 31 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() - 1 && postDate.getDate() === 31 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 28 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 29? 
         // (<div>
         //   <img src="/new30.png" alt="new" className="h-20 w-52 absolute"/> 
         // </div>) : "" 
