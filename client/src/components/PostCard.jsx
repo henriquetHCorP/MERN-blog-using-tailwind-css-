@@ -39,9 +39,14 @@ export default function PostCard({post}) {
         (<div className="p-1 absolute">
           <Link to={`/post/${post.slug}`} className="pl-2 pr-2 bg-red-700 hover:bg-red-800 transition-all duration-700 text-white cursor-pointer text-md font-bold rounded-full shadow-lg hover:shadow-2xl">Nouveau</Link>
         </div>) : ("")
-        
         }
+            {
+              post.createdAt !== post.updatedAt ?
 
+              (<div className=" p-1 pl-20 absolute">
+          <Link to={`/post/${post.slug}`} className="pl-2 pr-2 bg-blue-700 hover:bg-blue-800 transition-all duration-700 text-white cursor-pointer text-md font-thin italic rounded-md shadow-lg hover:shadow-2xl">Cet article a été modifié par l'auteur</Link>
+        </div>) : ("")
+            }
 
         {/* sm: mobile size and above */}
         <Link to={`/post/${post.slug}`}>
