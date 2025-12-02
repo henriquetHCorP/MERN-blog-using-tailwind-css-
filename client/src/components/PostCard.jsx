@@ -43,7 +43,7 @@ export default function PostCard({post}) {
             {
               post.createdAt !== post.updatedAt ?
 
-              (<div className=" p-1 absolute">
+              (<div className="right-0 p-1 absolute">
           <Link to={`/post/${post.slug}`} className="pl-2 pr-2 bg-blue-700 hover:bg-blue-800 transition-all duration-700 text-white cursor-pointer text-sm font-thin italic rounded-md shadow-lg hover:shadow-2xl">Cet article a été modifié par l'auteur</Link>
         </div>) : ("")
             }
