@@ -219,6 +219,7 @@ export default function CreatePost() {
                theme="snow" 
                placeholder='Saisir un texte...' 
                className="h-72 mb-12" 
+               readOnly={imageUploadProgress}
                onChange={(value) => {
                 //this is the way we give the information from react quill 
                 setFormData({...formData, content: value}); 
