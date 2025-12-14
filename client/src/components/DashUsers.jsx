@@ -107,7 +107,7 @@ const handleDeleteUser = async() => {
             <Table.HeadCell>Nom d'utilisateur</Table.HeadCell>
             <Table.HeadCell>E-mail</Table.HeadCell>
             <Table.HeadCell>CellCom</Table.HeadCell>
-            <Table.HeadCell>Effacer</Table.HeadCell>
+            <Table.HeadCell>Supprimer</Table.HeadCell>
             
            </Table.Head>
            {users.map((user) => (
@@ -143,7 +143,7 @@ const handleDeleteUser = async() => {
                     // className="font-medium text-red-500 hover:underline">
                     className="font-medium text-red-500 hover:underline hover:cursor-pointer">
                     {/* Delete */}
-                    {user.isAdmin? null : "Effacer"}
+                    {user.isAdmin? null : "Supprimer"}
                     </span>
                 </Table.Cell>
                 {/* <Table.Cell>
@@ -176,7 +176,7 @@ const handleDeleteUser = async() => {
         <Modal.Body>
           <div className="text-center">
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
-            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Etes-vous sur de vouloir effacer cet utilisateur?</h3>
+            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Etes-vous sur de vouloir supprimer cet utilisateur?</h3>
              <div className="flex justify-center gap-4">
               <Button color='failure' onClick={handleDeleteUser}>Oui, je suis sûr</Button>
               <Button color='gray' onClick={() => setShowModal(false)}>Non, annuler</Button>
