@@ -46,7 +46,7 @@ export default function FooterCom() {
                       La Présidence
                     </Footer.Link>
                     <Footer.Link 
-                       href='https://assemblee-nationale.cd'
+                       href='https://assembleenationale.cd/'
                        target='_blank'
                        rel='noopener no referer'
                     >
