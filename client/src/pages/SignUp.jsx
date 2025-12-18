@@ -100,7 +100,7 @@ export default function SignUp() {
             </div>
             <div>
               <Label value="Votre mot de passe" />
-            <TextInput type='password' placeholder='Mot de passe' id='password' onChange={handleChange}/> 
+            <TextInput type='password' placeholder='Taper votre mot de passe' id='password' onChange={handleChange}/> 
             </div>
             <div>
               <Label value="Confirmer votre mot de passe" />

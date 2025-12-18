@@ -12,7 +12,13 @@ export const updateUser = async(req, res, next) => {
     if (req.user.id !== req.params.userId){
         return next(errorHandler(403, "Vous n'êtes pas autorisé à mettre à jour cet utilisateur"));
     }
+     if(req.body.username === "" || req.body.email === "" || req.body.password === "" || req.body.confirmPassword === ""){
+        return next(errorHandler(400, 'Veuillez remplir tous les champs.'))
+     }
 
+    if(req.body.password !== req.body.confirmPassword){
+            return next(errorHandler(400, "Les deux mots de passe saisis ne sont pas identiques"))  
+        }
     if (req.body.password){
         if(req.body.password.length < 6){
             return next(errorHandler(400, "Le mot de passe doit contenir au moins 6 caractères")); 
@@ -23,13 +29,23 @@ export const updateUser = async(req, res, next) => {
         if(req.body.username.length < 7 || req.body.username.length > 20){
             return next(errorHandler(400, "Le nom d'utilisateur doit comporter entre 7 et 20 caractères"));
         }
+        // if(req.body.username.includes(' ')){
+        //     return next(errorHandler(400, "Le nom d'utilisateur ne peut pas contenir d'espaces"));
+        // }
+
+        
         if(req.body.username.includes(' ')){
-            return next(errorHandler(400, "Le nom d'utilisateur ne peut pas contenir d'espaces"));
+            req.body.username = req.body.username.replace(/ /g, '_');
         }
-        if(req.body.username !== req.body.username.toLowerCase()){
-             return next(errorHandler(400, "Le nom d'utilisateur doit être en minuscules")); 
-        }
-        if (!req.body.username.match(/^[a-zA-Z0-9]+$/)){
+         // ===>> AT THIS LEVEL I'M FORCED TO REMOVE THE CONDITION BELOW TO UPDATE THE USERNAME USING UPPERCASE TOO.
+        // if(req.body.username !== req.body.username.toLowerCase()){
+        //      return next(errorHandler(400, "Le nom d'utilisateur doit être en minuscule")); 
+        // }
+        // if (!req.body.username.match(/^[a-zA-Z0-9]+$/)){
+        //     return next(errorHandler(400, "Le nom d'utilisateur ne peut contenir que des lettres et des chiffres")
+        // );
+        // }
+        if (!req.body.username.match(/^[a-zA-Z0-9_]+$/)){
             return next(errorHandler(400, "Le nom d'utilisateur ne peut contenir que des lettres et des chiffres")
         );
         }

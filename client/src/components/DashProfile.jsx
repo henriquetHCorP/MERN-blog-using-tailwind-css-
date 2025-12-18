@@ -217,6 +217,7 @@ export default function DashProfile() {
         className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${imageFileUploadProgress && imageFileUploadProgress < 100 && 'opacity-60'}`} onClick={()=>filePickerRef.current.click()} />
         </div>
         {imageFileUploadError && <Alert color='failure'>{imageFileUploadError}</Alert>}
+        <p>Voulez-vous modifier vos identifiants? </p>
         <TextInput 
           type="text" 
           id="username" 
@@ -230,7 +231,11 @@ export default function DashProfile() {
         <TextInput 
           type="password" 
           id="password"
-          placeholder="Mot de passe" onChange={handleChange} />
+          placeholder="Taper le nouveau mot de passe" onChange={handleChange} />
+        <TextInput 
+          type="password" 
+          id="confirmPassword"
+          placeholder="Confirmer le nouveau mot de passe" onChange={handleChange} />
           <Button 
              type="submit" 
              gradientDuoTone='purpleToBlue' 
