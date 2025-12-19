@@ -35,7 +35,7 @@ export const updateUser = async(req, res, next) => {
 
         
         if(req.body.username.includes(' ')){
-            req.body.username = req.body.username.replace(/ /g, '_');
+            req.body.username = req.body.username.replace(/ /g, '\u00A0');
         }
          // ===>> AT THIS LEVEL I'M FORCED TO REMOVE THE CONDITION BELOW TO UPDATE THE USERNAME USING UPPERCASE TOO.
         // if(req.body.username !== req.body.username.toLowerCase()){
@@ -45,7 +45,7 @@ export const updateUser = async(req, res, next) => {
         //     return next(errorHandler(400, "Le nom d'utilisateur ne peut contenir que des lettres et des chiffres")
         // );
         // }
-        if (!req.body.username.match(/^[a-zA-Z0-9_]+$/)){
+        if (!req.body.username.match(/^[a-zA-Z0-9\u00A0]+$/)){
             return next(errorHandler(400, "Le nom d'utilisateur ne peut contenir que des lettres et des chiffres")
         );
         }
