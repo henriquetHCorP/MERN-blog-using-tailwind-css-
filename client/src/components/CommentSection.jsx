@@ -1,9 +1,12 @@
 import { Alert, Button, Modal, Textarea } from 'flowbite-react';
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'; 
+import { useSelector, useDispatch } from 'react-redux'; 
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import { signoutSuccess } from '../redux/user/userSlice';
+
+
 
 export default function CommentSection({postId}) {
     const {currentUser} = useSelector((state) => state.user); 
@@ -17,7 +20,25 @@ export default function CommentSection({postId}) {
 
     const navigate = useNavigate(); 
     const location = useLocation(); 
-     
+    const dispatch = useDispatch(); 
+    
+
+    const handleSignout = async () => {
+        
+            try {
+                const res = await fetch('/api/user/signout', {
+                    method: 'POST', 
+                });
+                const data = await res.json(); 
+                if(!res.ok) {
+                    console.log(data.message); 
+                } else {
+                    dispatch(signoutSuccess()); 
+                }
+            } catch(error) {
+                console.log(error.message); 
+            }
+        }; 
 
     // console.log(comments); 
 
@@ -40,9 +61,52 @@ export default function CommentSection({postId}) {
             setCommentError(null); 
             setComments([data, ...comments]);     
               }
+
+              if(res.status === 401) {
+               
+                 setTimeout(() => {
+                 navigate('/sign-in');
+                  }, 10000);
+
+                  setTimeout(() => {
+                    handleSignout();
+                  }, 10001); 
+                    
+                   // Example of clearing a token
+        // Redirect to the sign-in page
+        // window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
+        
+
+            }  
+              if(!res.ok){
+                // handleSignout() && 
+                // return (
+                //     <Alert color="failure" className="mt-5">
+                //     VOTRE SESSION A EXPIRE
+                //       {commentError}
+                // </Alert>
+                //  ) &&
+                //  navigate('/sign-in');
+                  
+                throw new Error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse E-mail et un mot de passe valides.')
+                // await handleSignout()
+                //    navigate('/sign-in');
+                 
+// setTimeout(() => {
+// navigate('/sign-in');
+//  }, 5000);
+
+                }
+                 
+             
+                
+      
       } catch(error){
         setCommentError(error.message); 
+        
+        
       }
+      
     }; 
 
     useEffect(() => {
@@ -71,6 +135,23 @@ export default function CommentSection({postId}) {
                 method:'PUT', 
                 // nothing else like the content type ... because we get the id of the user through commentId
             }); 
+              
+            if (res.status === 401) {
+                
+                 await handleSignout();
+                
+        console.error('Session expired or unauthorized. Redirecting to sign-in page.');
+        // Log the user out (clear any local storage/cookies)
+        localStorage.removeItem('userToken'); // Example of clearing a token
+        // Redirect to the sign-in page
+        window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
+       
+        return; // Stop further processing
+    }
+    if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
             if(res.ok){
                 const data = await res.json(); 
                 setComments(comments.map((comment) => 
@@ -80,20 +161,29 @@ export default function CommentSection({postId}) {
                         numberOfLikes:data.likes.length, 
                     } 
                     : comment
+
+                    
             )
         );
     }
        }catch(error) {
-        console.log(error.message);
+        console.log(error.message)
+        
        }
-    }; 
+       
+    };
+     
     const handleEdit = async(comment, editedContent) => {
-        setComments(
+        
+           setComments(
             comments.map((c) =>
             c._id === comment._id ? {...c, content: editedContent } : c )
         )
+   
     }; 
-    
+ 
+     
+  
 
     const handleDelete= async (commentId) => {
         setShowModal(false); 
@@ -114,6 +204,19 @@ export default function CommentSection({postId}) {
                     }
                 // })
             //  }
+
+            if (res.status === 401) {
+                
+                 await handleSignout();
+                
+        console.error('Session expired or unauthorized. Redirecting to sign-in page.');
+        // Log the user out (clear any local storage/cookies)
+        localStorage.removeItem('userToken'); // Example of clearing a token
+        // Redirect to the sign-in page
+        window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
+       
+        return; // Stop further processing
+    }
         }catch(error){
 
         }
@@ -190,6 +293,7 @@ export default function CommentSection({postId}) {
                     {commentError}
 
                 </Alert>}
+                
             </form>
         )}
         {comments.length === 0 ? (
