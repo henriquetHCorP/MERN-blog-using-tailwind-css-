@@ -88,7 +88,7 @@ export default function CommentSection({postId}) {
                 //  ) &&
                 //  navigate('/sign-in');
                   
-                throw new Error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse E-mail et un mot de passe valides.')
+                throw new Error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
                 // await handleSignout()
                 //    navigate('/sign-in');
                  

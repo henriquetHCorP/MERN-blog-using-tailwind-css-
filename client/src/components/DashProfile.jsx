@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage';
 import { app } from '../firebase';  
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'react-circular-progressbar/dist/styles.css';
 import {
   updateStart, 
@@ -35,6 +35,10 @@ export default function DashProfile() {
   
   const filePickerRef = useRef(); 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate(); 
+
+  
 
      const handleImageChange = (e) => {
         const file = e.target.files[0];  
@@ -133,6 +137,15 @@ export default function DashProfile() {
              if (!res.ok){
               dispatch(updateFailure(data.message)); 
               setUpdateUserError(data.message)
+
+               setTimeout(() => {
+                 navigate('/sign-in');
+                  }, 10000);
+
+                  setTimeout(() => {
+                    handleSignout();
+                  }, 10001); 
+
              } else {
                 dispatch(updateSuccess(data)); 
                 setUpdateUserSuccess("Le profil de l'utilisateur a été mis à jour avec succès"); 
