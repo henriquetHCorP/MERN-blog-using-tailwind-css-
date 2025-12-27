@@ -137,6 +137,8 @@ export default function CommentSection({postId}) {
             }); 
               
             if (res.status === 401) {
+
+                alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
                 
                  await handleSignout();
                 
@@ -179,11 +181,65 @@ export default function CommentSection({postId}) {
             comments.map((c) =>
             c._id === comment._id ? {...c, content: editedContent } : c )
         )
+        
    
     }; 
  
      
   
+//     const handleEdit = async (comment, editedContent) => {
+//   try {
+//     // 1. Send the update request to the server
+//     const response = await fetch(`/api/comment/editComment/${comment._id}`, { // Replace with your actual API endpoint
+//       method: 'PUT', // Or 'PATCH', depending on your API
+//       headers: {
+//         'Content-Type': 'application/json',
+//         // Include your authorization token here, e.g.:
+        
+//       },
+//       body: JSON.stringify({ content: editedContent }),
+//     });
+
+//     // 2. Check the response status
+    
+//       if (response.status === 401) {
+//         // Handle 401 Unauthorized error
+//         // console.error("401 Unauthorized: User not authenticated or session expired.");
+//         //   throw new Error(response.message); 
+//           alert(response.message); 
+//         setTimeout(() => {
+//                  navigate('/sign-in');
+//                   }, 10000);
+
+//                   setTimeout(() => {
+//                     handleSignout();
+//                   }, 10001); 
+
+//                   alert('try')
+      
+//         // **ACTION:** Redirect to login page, prompt for re-authentication, or refresh token
+//         // Example: window.location.href = '/login'; 
+//         return; // Stop further execution
+//       }
+      
+
+//     // 3. Process successful response
+//     // Optional: get the updated data from the server response if needed
+//     // const updatedComment = await response.json(); 
+
+//     // 4. Update the local state only if the server update was successful
+//     setComments(
+//       comments.map((c) =>
+//         c._id === comment._id ? { ...c, content: editedContent } : c
+//       )
+//     );
+
+//   } catch (error) {
+//     // 5. Handle network errors or errors thrown in the try block
+//     console.error("Error updating comment:", error.message );
+//     // Display a user-friendly message (e.g., "Failed to update comment")
+//   }
+// };
 
     const handleDelete= async (commentId) => {
         setShowModal(false); 
@@ -206,7 +262,7 @@ export default function CommentSection({postId}) {
             //  }
 
             if (res.status === 401) {
-                
+                 alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
                  await handleSignout();
                 
         console.error('Session expired or unauthorized. Redirecting to sign-in page.');

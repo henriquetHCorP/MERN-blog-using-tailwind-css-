@@ -1,9 +1,11 @@
 import { Button, Modal, Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react'
 import { HiCheck, HiOutlineExclamationCircle } from 'react-icons/hi';
-import { useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
 // import { Link } from 'react-router-dom';
 import { FaCheck, FaTimes } from 'react-icons/fa'; 
+import { useNavigate } from 'react-router-dom';
+import { signoutSuccess } from '../redux/user/userSlice';
 
 export default function DashComments() {
   const { currentUser } = useSelector((state) => state.user);  
@@ -14,6 +16,25 @@ export default function DashComments() {
   const [commentIdToDelete, setCommentIdToDelete] = useState(''); 
   //   console.log(userPosts); 
   console.log(comments); 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();  
+
+   const handleSignout = async () => {
+            
+                try {
+                    const res = await fetch('/api/user/signout', {
+                        method: 'POST', 
+                    });
+                    const data = await res.json(); 
+                    if(!res.ok) {
+                        console.log(data.message); 
+                    } else {
+                        dispatch(signoutSuccess()); 
+                    }
+                } catch(error) {
+                    console.log(error.message); 
+                }
+            };  
   
   useEffect (() => {
      const fetchComments = async () => {
@@ -30,6 +51,24 @@ export default function DashComments() {
                   setShowMore(false); 
                 }
               }
+
+              if(res.status === 401){
+
+                 setTimeout(() => {
+                    handleSignout();
+                  }, 10000); 
+
+                setTimeout(() => {
+                 navigate('/sign-in');
+                  }, 10001);
+
+                  if(!res.ok){
+                    alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                   
+                  }
+                }
+
+              
 
         } catch(error) {
               console.log(error.message); 
@@ -110,7 +149,7 @@ const handleDeleteComment = async() => {
             <Table.HeadCell>PostId</Table.HeadCell>
             <Table.HeadCell>UserId</Table.HeadCell>
             {/* <Table.HeadCell>Username</Table.HeadCell> */}
-            <Table.HeadCell>Effacer</Table.HeadCell>
+            <Table.HeadCell>Supprimer</Table.HeadCell>
             
            </Table.Head>
            {comments.map((comment) => (
@@ -152,7 +191,7 @@ const handleDeleteComment = async() => {
                       setCommentIdToDelete(comment._id); 
                     }}
                     className="font-medium text-red-500 hover:underline">
-                    Effacer
+                    Supprimer
                     </span>
                 </Table.Cell>
                 {/* <Table.Cell>

@@ -116,7 +116,7 @@ export default function DashPosts() {
             <Table.HeadCell>Titre d'article</Table.HeadCell>
             {/* <Table.HeadCell>Category</Table.HeadCell> */}
             <Table.HeadCell>Categorie</Table.HeadCell>
-            <Table.HeadCell>Effacer</Table.HeadCell>
+            <Table.HeadCell>Supprimer</Table.HeadCell>
             {/* <Table.HeadCell>Post Like</Table.HeadCell> */}
             <Table.HeadCell>
               <span>Editer</span>
@@ -151,7 +151,7 @@ export default function DashPosts() {
                       setPostIdToDelete(post._id); 
                     }}
                     className="font-medium text-red-500 hover:underline hover:cursor-pointer">
-                    Effacer
+                   Supprimer
                     </span>
                 </Table.Cell>
                {/* <Table.Cell> */}
@@ -194,7 +194,7 @@ export default function DashPosts() {
         <Modal.Body>
           <div className="text-center">
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
-            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Etes-vous sur de vouloir effacer cet article?
+            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Etes-vous sur de vouloir supprimer cet article?
             </h3>
              <div className="flex justify-center gap-4">
               <Button color='failure' onClick={handleDeletePost}>Oui, je suis sûr</Button>

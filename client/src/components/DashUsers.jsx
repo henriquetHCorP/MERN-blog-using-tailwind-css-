@@ -1,9 +1,11 @@
 import { Button, Modal, Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react'
 import { HiCheck, HiOutlineExclamationCircle } from 'react-icons/hi';
-import { useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
 // import { Link } from 'react-router-dom';
 import { FaCheck, FaTimes } from 'react-icons/fa'; 
+import { useNavigate } from 'react-router-dom';
+import { signoutSuccess } from '../redux/user/userSlice';
 
 export default function DashUsers() {
   const { currentUser } = useSelector((state) => state.user);  
@@ -13,6 +15,26 @@ export default function DashUsers() {
   const [userIdToDelete, setUserIdToDelete] = useState(''); 
 //   console.log(userPosts); 
 
+  const navigate = useNavigate(); 
+  const dispatch = useDispatch(); 
+
+  const handleSignout = async () => {
+          
+              try {
+                  const res = await fetch('/api/user/signout', {
+                      method: 'POST', 
+                  });
+                  const data = await res.json(); 
+                  if(!res.ok) {
+                      console.log(data.message); 
+                  } else {
+                      dispatch(signoutSuccess()); 
+                  }
+              } catch(error) {
+                  console.log(error.message); 
+              }
+          };  
+
   useEffect (() => {
      const fetchUsers = async () => {
         try {
@@ -21,6 +43,24 @@ export default function DashUsers() {
               // here we convert the json file into data 
               const data = await res.json(); 
               // console.log(data); 
+              
+              if(res.status === 401){
+
+                 setTimeout(() => {
+                    handleSignout();
+                  }, 10000); 
+
+                setTimeout(() => {
+                 navigate('/sign-in');
+                  }, 10001);
+
+                  if(!res.ok){
+                    alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                   
+                  }
+                }
+
+
               if(res.ok){
                 //setUserPosts(data.posts) cfr post.controller.js res.status(200).json({posts, totalPosts,lastMonthPosts,  
                 setUsers(data.users); 

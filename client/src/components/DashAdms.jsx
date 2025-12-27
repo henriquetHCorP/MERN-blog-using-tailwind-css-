@@ -1,9 +1,12 @@
-import { Button, Modal, Table } from 'flowbite-react';
+import { Alert, Button, Modal, Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react'
 import { HiCheck, HiOutlineExclamationCircle } from 'react-icons/hi';
-import { useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
 // import { Link } from 'react-router-dom';
 import { FaCheck, FaTimes } from 'react-icons/fa'; 
+import { useNavigate } from 'react-router-dom';
+
+import { signoutSuccess } from '../redux/user/userSlice';
 
 export default function DashAdms() {
   const { currentUser } = useSelector((state) => state.user);  
@@ -11,7 +14,27 @@ export default function DashAdms() {
   const [showMore, setShowMore ] = useState(true); 
   const [showModal, setShowModal] = useState(false); 
   const [admIdToDelete, setAdmIdToDelete] = useState(''); 
+
+  const navigate = useNavigate(); 
+  const dispatch = useDispatch(); 
 //   console.log(userPosts); 
+
+const handleSignout = async () => {
+        
+            try {
+                const res = await fetch('/api/user/signout', {
+                    method: 'POST', 
+                });
+                const data = await res.json(); 
+                if(!res.ok) {
+                    console.log(data.message); 
+                } else {
+                    dispatch(signoutSuccess()); 
+                }
+            } catch(error) {
+                console.log(error.message); 
+            }
+        }; 
 
   useEffect (() => {
      const fetchAdms = async () => {
@@ -21,6 +44,7 @@ export default function DashAdms() {
               // here we convert the json file into data 
               const data = await res.json(); 
               // console.log(data); 
+               
               if(res.ok){
                 //setUserPosts(data.posts) cfr post.controller.js res.status(200).json({posts, totalPosts,lastMonthPosts,  
                 setAdms(data.adms); 
@@ -28,11 +52,29 @@ export default function DashAdms() {
                 if(data.adms.length < 9){
                   setShowMore(false); 
                 }
-              }
+              } 
+              if(res.status === 401){
 
+                 setTimeout(() => {
+                    handleSignout();
+                  }, 10000); 
+
+                setTimeout(() => {
+                 navigate('/sign-in');
+                  }, 10001);
+
+                  if(!res.ok){
+                    alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                   
+                  }
+              }
         } catch(error) {
               console.log(error.message); 
+              if(!res.ok){
+                alert(error.message)
+              }
         }
+        
      }; 
      if(currentUser.isAdmin) {
       fetchAdms(); 
