@@ -53,7 +53,7 @@ export default function CommentSection({postId}) {
         //const commentWithoutSpaces = comment.replace(/\s/g, '');
 
         if (urlPattern.test(comment)) {
-      setCommentError('Links are not allowed in comments.');
+      setCommentError('Les commentaires ne doivent pas contenir de liens.');
       return; // Stop the submission
     }
       try {
@@ -186,6 +186,14 @@ export default function CommentSection({postId}) {
      
     const handleEdit = async(comment, editedContent) => {
         
+        const urlPattern = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/[a-zA-Z0-9]+\.[^\s]{2,}|[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+        
+        //const commentWithoutSpaces = comment.replace(/\s/g, '');
+
+        if (urlPattern.test(editedContent)) {
+      alert('Les commentaires modifiés ne doivent pas contenir de liens.');
+      return;
+        }
            setComments(
             comments.map((c) =>
             c._id === comment._id ? {...c, content: editedContent } : c )
@@ -197,6 +205,24 @@ export default function CommentSection({postId}) {
      
   
 //     const handleEdit = async (comment, editedContent) => {
+        
+
+//         const urlPattern = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/[a-zA-Z0-9]+\.[^\s]{2,}|[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+        
+//         //const commentWithoutSpaces = comment.replace(/\s/g, '');
+
+        
+
+//         if (urlPattern.test(comment)) {
+//       setCommentError('Links are not allowed in comments.');
+//       return; // Stop the submission
+//     }
+//         if (urlPattern.test(editedContent)) {
+//       setCommentError('Links are not allowed in correcting comments.');
+//       return; // Stop the submission
+//     }
+
+//     if(!urlPattern.test(editedContent)) {
 //   try {
 //     // 1. Send the update request to the server
 //     const response = await fetch(`/api/comment/editComment/${comment._id}`, { // Replace with your actual API endpoint
@@ -249,6 +275,7 @@ export default function CommentSection({postId}) {
 //     // Display a user-friendly message (e.g., "Failed to update comment")
 //   }
 // };
+//     }
 
     const handleDelete= async (commentId) => {
         setShowModal(false); 

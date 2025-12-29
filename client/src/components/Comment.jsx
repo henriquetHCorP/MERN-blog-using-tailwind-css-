@@ -97,7 +97,13 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
          getUser(); 
     }, [comment]); 
 
-   
+  
+  const filterUrls = (text) => {
+    // Regex finds common URL patterns (http/https/ftp and www. or just text.domain)
+    const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+|[a-zA-Z0-9]+\.[^\s]+)/gi;
+    return text.replace(urlRegex, '[Lien retiré]');
+  };
+
   const handleEdit = () => {
     setIsEditing(true); 
     setEditedContent(comment.content); 
@@ -183,7 +189,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
             ) : ( 
               
           <>
-          <p className="text-gray-500 pb-2">{comment.content}</p>
+          <p className="text-gray-500 pb-2">{filterUrls(comment.content)}</p>
             <div className="flex items-center pt-2 text-xs border-t dark:border-gray-700 max-w-fit gap-2">
               <button 
                  type='button' 
