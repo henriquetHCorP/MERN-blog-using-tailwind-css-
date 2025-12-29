@@ -47,6 +47,15 @@ export default function CommentSection({postId}) {
         if(comment.length > 200) {
             return
         };
+
+        const urlPattern = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/[a-zA-Z0-9]+\.[^\s]{2,}|[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+        
+        //const commentWithoutSpaces = comment.replace(/\s/g, '');
+
+        if (urlPattern.test(comment)) {
+      setCommentError('Links are not allowed in comments.');
+      return; // Stop the submission
+    }
       try {
         const res = await fetch('/api/comment/create', {
             method: 'POST', 
