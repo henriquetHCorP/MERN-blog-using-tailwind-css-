@@ -5,7 +5,7 @@ export const create = async (req, res, next ) => {
     if (!req.user.isAdmin) {
         return next(errorHandler(403, 'Vous n’êtes pas autorisé à créer d’article'));
     }
-    if (!req.body.title || !req.body.content) {
+    if (!req.body.title || !req.body.content || !req.body.category || req.body.category === "...") {
         return next(errorHandler(400, 'Veuillez remplir tous les champs obligatoires'))
     }
     const slug = req.body.title
@@ -117,6 +117,11 @@ export const deletepost = async (req, res, next) => {
      if (!req.user.isAdmin || req.user.id !== req.params.userId) {
             return next(errorHandler(403, 'You are not allowed to update this post')); 
      }
+
+     if (!req.body.title || !req.body.content || !req.body.category || req.body.category === "...") {
+        return next(errorHandler(400, 'Veuillez remplir tous les champs obligatoires'))
+    }
+
      try {
          const updatedPost = await Post.findByIdAndUpdate(
           req.params.postId,
@@ -125,12 +130,13 @@ export const deletepost = async (req, res, next) => {
               title:req.body.title, 
               content:req.body.content, 
               category: req.body.category, 
-              image: req.body.image, 
+              image: req.body.image,
             },
           }, 
             { new: true } 
           );
           res.status(200).json(updatedPost)
+          console.log("image:", req.body.image);
           
      }catch(error){
       next(error); 

@@ -5,9 +5,9 @@ export default function About() {
     <div className="min-h-screen flex items-center justify-center">
      <div className="max-w-2xl mx-auto text-center">
       <div>
-        <h1 className="text-3xl p-2 font font-semibold text-center my-2"> A Propos de DRC Gov Social Media</h1>
-        <div className="text-md text-gray-500 flex flex-col gap-3 p-6">
-          <h1 className="text-2xl font font-semibold p-6 italic"> /*N.B.: Cette section est à rédiger par la cellule de communication de la Présidence de la RDC*/</h1>
+        <h1 className="text-3xl p-2 font font-semibold text-center my-2"> A Propos du média social DRC Gov </h1> <h1 className=" text-2xl p-1 font font-semibold text-center italic rounded-full border-2 border-blue-500 bg-blue-500 dark:bg-blue-600 dark:border-blue-600 transition-all duration-700 text-white dark:text-black ">Social Media</h1>
+        <div className="text-md text-gray-500 flex flex-col gap-3">
+          <h1 className="text-2xl font font-semibold italic"> /*N.B.: Cette section est à rédiger par la cellule de communication de la Présidence de la RDC*/</h1>
           {/* <p> */}
             {/* Sahand's Blog is a blog that I created to share my thoughts and ideas with the world. I am a software engineer and I love to write about my experiences and things that I have learned. 
             I hope you enjoy reading my blog.  */}
