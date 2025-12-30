@@ -116,7 +116,7 @@ export default function CreatePost() {
                     setFormData({...formData, category:e.target.value})
                 } 
                 >
-                    <option value="...">Selectioner la Présidence ou un Ministre correspondant à l'article</option>
+                    <option value="...">Sélectionner l'appartenance de votre cellule de communication</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
                     {currentUser._id ==="6658c9589144a8a1bf5f2015" && <option value="Présidence">Présidence</option>}
@@ -125,14 +125,14 @@ export default function CreatePost() {
                     {currentUser._id === "" &&<option value="Transport">VPM, Ministre des Transports et Voies de Communication et Désenclavement</option>}
                     {currentUser._id === "" &&<option value="Défense">VPM, Ministre de la Défense Nationale et Anciens Combattants</option>}
                     {currentUser._id === "" &&<option value="Economie">VPM, Ministre de l’Economie Nationale</option>}
-                    {currentUser._id === "" &&<option value="Fonction Publique">VPM, Ministre de la Fonction Publique et Modernisation de l’Administration et Innovation du Service Public</option>}
+                    {currentUser._id === "6924157d7e5e81010202ec46" &&<option value="Fonction Publique">VPM, Ministre de la Fonction Publique et Modernisation de l’Administration et Innovation du Service Public</option>}
                     {currentUser._id === "" &&<option value="Plan">VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</option>}
                     {currentUser._id === "" &&<option value="Agriculture">MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</option>}
                     {currentUser._id === "6800379a3210a81630a4af74" && <option value="Affaires Etrangères">MINETAT, Ministre des Affaires Etrangères, Coopération Internationale et Francophonie</option>}
                     {currentUser._id === "" &&<option value="Education Nationale">MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</option>}
                     {currentUser._id === "" &&<option value="Environnement">MINETAT, Ministre de l’Environnement et Développement Durable</option>}
                     {currentUser._id === "" &&<option value="Infrastructures">MINETAT, Ministre des Infrastructures et Travaux Publics</option>}
-                    {currentUser._id === "" &&<option value="Budget">MINETAT, Ministre du Budget</option>} 
+                    {currentUser._id === "6953f277308bf59062360b79" &&<option value="Budget">MINETAT, Ministre du Budget</option>} 
                     {currentUser._id === "" &&<option value="Affaires Foncières">MINETAT, Ministre des Affaires Foncières</option>}
                     {currentUser._id === "" &&<option value="Développement Rural">MINETAT, Ministre du Développement Rural</option>}
                     {currentUser._id === "" &&<option value="Aménagement du territoire">MINETAT, Ministre de l’Aménagement du Territoire</option>}
