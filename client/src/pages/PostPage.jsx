@@ -78,13 +78,13 @@ export default function PostPage() {
       {post.category === "Présidence" && (
         <div className="flex flex-row items-center">
           <img src="/presidence.jpg" alt="cellcom" height={100} width={100} className=""/>
-          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+          <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
         
         <p className="text-sm font-bold text-left uppercase font-serif">Présidence de la République</p></div>)}
       {post.category === "Premier Ministre" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
-          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+          <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
         
         <p className="text-sm font-bold text-left uppercase font-serif">La Primature</p></div>)}
       {post.category === "Interieur" && <p>VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</p>}
@@ -94,7 +94,7 @@ export default function PostPage() {
       {post.category === "Fonction Publique" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
-          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+          <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
         <p className="text-sm font-bold text-left uppercase font-serif"> Ministère de la Fonction Publique, Modernisation de l'Administration et Innovation du Service Public.</p>
         </div>)}
       {post.category === "Plan" && <p>VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</p>}
@@ -102,7 +102,7 @@ export default function PostPage() {
       {post.category === "Affaires Etrangères" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
-          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+          <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
           <p className="text-sm font-bold text-left uppercase font-serif"> Ministère des Affaires Etrangères, Coopération Internationale, Francophonie et Diaspora Congolaise</p>
           </div>)}
       {post.category === "Education Nationale" && <p>MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</p>}
@@ -111,12 +111,12 @@ export default function PostPage() {
       {post.category === "Budget" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
-          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+          <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
         <p className="text-sm font-bold text-left uppercase font-serif"> Ministère du Budget</p></div>)}
       {post.category === "Affaires Foncières" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
-          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+          <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
         <p className="text-sm font-bold text-left uppercase font-serif"> Ministère des Affaires Foncières</p></div>)}
       {post.category === "Développement Rural" && <p>MINETAT, Ministre du Développement Rural</p>}
       {post.category === "Aménagement du territoire" && <p>MINETAT, Ministre de l’Aménagement du Territoire</p>}
@@ -125,7 +125,7 @@ export default function PostPage() {
         
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
-          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+          <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
         <p className="text-sm font-bold text-left uppercase font-serif">Ministère des Finances</p></div>)}
       {/* {post.category === "Présidence" && <p>Présidence</p>}
       {post.category === "Présidence" && <p>Présidence</p>}
