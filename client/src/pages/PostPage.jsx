@@ -15,7 +15,7 @@ export default function PostPage() {
     const [post, setPost] = useState(null);  
     const [recentPosts, setRecentPosts] = useState(null); 
 
-    console.log(post); 
+    //---console.log(posto.postal.posta); 
 
     useEffect(() => {
         // console.log(postSlug)
@@ -70,8 +70,71 @@ export default function PostPage() {
         //  const handlePostLike = async (postId) => {
 
         //  }
+
+  
   return (
     <main className='items-center p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
+      
+      {post.category === "Présidence" && (
+        <div className="flex flex-row items-center">
+          <img src="/presidence.jpg" alt="cellcom" height={100} width={100} className=""/>
+          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+        
+        <p className="text-sm font-bold text-left uppercase font-serif">Présidence de la République</p></div>)}
+      {post.category === "Premier Ministre" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
+          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+        
+        <p className="text-sm font-bold text-left uppercase font-serif">La Primature</p></div>)}
+      {post.category === "Interieur" && <p>VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</p>}
+      {post.category === "Transport" && <p>VPM, Ministre des Transports et Voies de Communication et Désenclavement</p>}
+      {post.category === "Défense" && <p>VPM, Ministre de la Défense Nationale et Anciens Combattants</p>}
+      {post.category === "Economie" && <p>VPM, Ministre de l’Economie Nationale</p>}
+      {post.category === "Fonction Publique" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
+          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+        <p className="text-sm font-bold text-left uppercase font-serif"> Ministère de la Fonction Publique, Modernisation de l'Administration et Innovation du Service Public.</p>
+        </div>)}
+      {post.category === "Plan" && <p>VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</p>}
+      {post.category === "Agriculture" && <p>MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</p>}
+      {post.category === "Affaires Etrangères" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
+          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+          <p className="text-sm font-bold text-left uppercase font-serif"> Ministère des Affaires Etrangères, Coopération Internationale, Francophonie et Diaspora Congolaise</p>
+          </div>)}
+      {post.category === "Education Nationale" && <p>MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</p>}
+      {post.category === "Environnement" && <p>MINETAT, Ministre de l’Environnement et Développement Durable</p>}
+      {post.category === "Infrastructures" && <p>MINETAT, Ministre des Infrastructures et Travaux Publics</p>}
+      {post.category === "Budget" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
+          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+        <p className="text-sm font-bold text-left uppercase font-serif"> Ministère du Budget</p></div>)}
+      {post.category === "Affaires Foncières" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
+          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+        <p className="text-sm font-bold text-left uppercase font-serif"> Ministère des Affaires Foncières</p></div>)}
+      {post.category === "Développement Rural" && <p>MINETAT, Ministre du Développement Rural</p>}
+      {post.category === "Aménagement du territoire" && <p>MINETAT, Ministre de l’Aménagement du Territoire</p>}
+      {post.category === "Justice" && <p>MINETAT, Ministre de la Justice et Garde des Sceaux</p>}
+      {post.category === "Finances" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className=""/>
+          <img src="/line.png" alt="cellcom" height={30} width={30} className=""/>
+        <p className="text-sm font-bold text-left uppercase font-serif">Ministère des Finances</p></div>)}
+      {/* {post.category === "Présidence" && <p>Présidence</p>}
+      {post.category === "Présidence" && <p>Présidence</p>}
+      {post.category === "Présidence" && <p>Présidence</p>}
+      {post.category === "Présidence" && <p>Présidence</p>}
+      {post.category === "Présidence" && <p>Présidence</p>}
+      {post.category === "Présidence" && <p>Présidence</p>}
+      {post.category === "Présidence" && <p>Présidence</p>}  */}
+
       <h1 className="text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl">{post && post.title}</h1>
     <Link to={`/search?category=${post && post.category}`} className='self-center mt-5'>
         {/* in the line below, pill will make it round */}

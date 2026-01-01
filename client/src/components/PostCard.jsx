@@ -7,7 +7,7 @@ export default function PostCard({post}) {
   now.setDate(now.getDate()); 
 
   const postDate = new Date(post.createdAt)
-  console.log(postDate.getMonth() + 1); 
+   
   
   // if (now.getDate()=== 31 && postDate.getMonth()=== 0){now.getMonth === postDate.getMonth}
   // if (now.getDate()=== 31 && postDate.getMonth()=== 2){now.getMonth === postDate.getMonth}
@@ -32,7 +32,7 @@ export default function PostCard({post}) {
     <div className="group relative w-full border border-blue-500 hover:border-2 h-[400px] overflow-hidden rounded-lg sm:w-[430px] transition-all">
         
         {
-          postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() || postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() - 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 30 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 31 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() - 1 && postDate.getDate() === 31 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 28 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 29 && now.getDate() === 1 ? 
+          postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() || postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() - 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 30 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 31 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() - 1 && postDate.getDate() === 31 && now.getDate() === 1|| postDate.getDate() === 31 && postDate.getMonth() === 11 && now.getDate() === 1 && now.getMonth() === 0 && postDate.getFullYear() === now.getFullYear() - 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 28 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 29 && now.getDate() === 1 ? 
         // (<div>
         //   <img src="/new30.png" alt="new" className="h-20 w-52 absolute"/> 
         // </div>) : "" 
