@@ -81,14 +81,14 @@ export default function PostPage() {
           <img src="/darklogpr.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
         
-        <p className="text-sm font-bold text-left uppercase font-serif">Présidence de la République</p></div>)}
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Présidence de la République</p></div>)}
       {post.category === "Premier Ministre" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
         
-        <p className="text-sm font-bold text-left uppercase font-serif">La Primature</p></div>)}
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">La Primature</p></div>)}
       {post.category === "Interieur" && <p>VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</p>}
       {post.category === "Transport" && <p>VPM, Ministre des Transports et Voies de Communication et Désenclavement</p>}
       {post.category === "Défense" && <p>VPM, Ministre de la Défense Nationale et Anciens Combattants</p>}
@@ -98,7 +98,7 @@ export default function PostPage() {
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
-        <p className="text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de la Fonction Publique, <br/> Modernisation de l'Administration <br/> et Innovation du Service Public</p>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de la Fonction Publique, <br/> Modernisation de l'Administration <br/> et Innovation du Service Public</p>
         </div>)}
       {post.category === "Plan" && <p>VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</p>}
       {post.category === "Agriculture" && <p>MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</p>}
@@ -107,7 +107,7 @@ export default function PostPage() {
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
-          <p className="text-sm font-bold text-left uppercase font-serif"> Ministère <br/> des Affaires Etrangères, <br/> Coopération Internationale, <br/> Francophonie et Diaspora Congolaise</p>
+          <p className=" text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> des Affaires Etrangères, <br/> Coopération Internationale, <br/> Francophonie et Diaspora Congolaise</p>
           </div>)}
       {post.category === "Education Nationale" && <p>MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</p>}
       {post.category === "Environnement" && <p>MINETAT, Ministre de l’Environnement et Développement Durable</p>}
@@ -117,13 +117,13 @@ export default function PostPage() {
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
-        <p className="text-sm font-bold text-left uppercase font-serif"> Ministère <br/> du Budget</p></div>)}
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> du Budget</p></div>)}
       {post.category === "Affaires Foncières" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
-        <p className="text-sm font-bold text-left uppercase font-serif"> Ministère des <br/> Affaires Foncières</p></div>)}
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère des <br/> Affaires Foncières</p></div>)}
       {post.category === "Développement Rural" && <p>MINETAT, Ministre du Développement Rural</p>}
       {post.category === "Aménagement du territoire" && <p>MINETAT, Ministre de l’Aménagement du Territoire</p>}
       {post.category === "Justice" && <p>MINETAT, Ministre de la Justice et Garde des Sceaux</p>}
@@ -133,7 +133,7 @@ export default function PostPage() {
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={15} width={15} className=""/>
-        <p className="text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Finances</p></div>)}
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Finances</p></div>)}
       {/* {post.category === "Présidence" && <p>Présidence</p>}
       {post.category === "Présidence" && <p>Présidence</p>}
       {post.category === "Présidence" && <p>Présidence</p>}
