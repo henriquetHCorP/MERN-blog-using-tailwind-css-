@@ -12,7 +12,8 @@ import { app } from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css'; 
 import { useNavigate, useParams } from 'react-router-dom'; 
-import { useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
+import { signoutSuccess } from '../redux/user/userSlice';
 
 
 export default function UpdatePost() {
@@ -24,7 +25,27 @@ export default function UpdatePost() {
     const { postId } = useParams(); 
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
+    const handleSignout = async () => {
+                
+                    try {
+                        const res = await fetch('/api/user/signout', {
+                            method: 'POST', 
+                        });
+                        const data = await res.json(); 
+                        if(!res.ok) {
+                            console.log(data.message); 
+                        } else {
+                            dispatch(signoutSuccess()); 
+                        }
+                    } catch(error) {
+                        console.log(error.message); 
+                    }
+                }; 
+        
+    
+    
     const { currentUser } = useSelector((state) => state.user); 
     
     useEffect(() => {
@@ -104,6 +125,15 @@ export default function UpdatePost() {
                  const data = await res.json(); 
                  if(!res.ok) {
                     setPublishError(data.message)
+                    
+                    setTimeout(() =>{
+                        navigate('/sign-in'); 
+                    }, 10000); 
+                       
+                    setTimeout(() =>{
+                        handleSignout();
+                    }, 10001);
+
                     return; 
                  }
 

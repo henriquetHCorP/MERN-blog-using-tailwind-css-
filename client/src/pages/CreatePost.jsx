@@ -12,6 +12,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'; 
+import { signoutSuccess } from '../redux/user/userSlice';
 
 
 export default function CreatePost() {
@@ -27,6 +28,25 @@ export default function CreatePost() {
     // console.log('currentUser id:', currentUser._id); 
 
     const navigate = useNavigate(); 
+    const dispatch = useDispatch();
+
+    const handleSignout = async () => {
+            
+                try {
+                    const res = await fetch('/api/user/signout', {
+                        method: 'POST', 
+                    });
+                    const data = await res.json(); 
+                    if(!res.ok) {
+                        console.log(data.message); 
+                    } else {
+                        dispatch(signoutSuccess()); 
+                    }
+                } catch(error) {
+                    console.log(error.message); 
+                }
+            }; 
+    
 
 
     // console.log(formData); 
@@ -83,6 +103,15 @@ export default function CreatePost() {
                  const data = await res.json(); 
                  if(!res.ok) {
                     setPublishError(data.message)
+                    
+                    setTimeout(() =>{
+                        navigate('/sign-in'); 
+                    }, 10000); 
+                       
+                    setTimeout(() =>{
+                        handleSignout();
+                    }, 10001); 
+                    
                     return; 
                  }
 
