@@ -172,6 +172,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                   size='sm'
                   gradientDuoTone='purpleToBlue'
                   onClick={handleSave}
+                  disabled={editedContent === ""}
                 >
                     Enregister 
                 </Button>

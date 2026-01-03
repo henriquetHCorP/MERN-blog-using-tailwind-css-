@@ -384,6 +384,7 @@ export default function CommentSection({postId}) {
                        outline
                        gradientDuoTone='purpleToBlue'
                        type='submit'
+                       disabled={comment === ""}
                        >
                         Envoyer
                     </Button>
