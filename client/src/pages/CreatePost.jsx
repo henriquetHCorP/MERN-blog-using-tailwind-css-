@@ -103,14 +103,17 @@ export default function CreatePost() {
                  const data = await res.json(); 
                  if(!res.ok) {
                     setPublishError(data.message)
+
+                    if(res.status === 401){
+                        setTimeout(() =>{
+                            navigate('/sign-in'); 
+                        }, 10000); 
+                           
+                        setTimeout(() =>{
+                            handleSignout();
+                        }, 10001); 
+                    }
                     
-                    setTimeout(() =>{
-                        navigate('/sign-in'); 
-                    }, 10000); 
-                       
-                    setTimeout(() =>{
-                        handleSignout();
-                    }, 10001); 
                     
                     return; 
                  }

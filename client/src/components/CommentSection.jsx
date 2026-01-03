@@ -87,6 +87,14 @@ export default function CommentSection({postId}) {
         
 
             }  
+
+               if(res.status === 500) {
+                 throw new Error ("Insérer un commentaire au format valide et réessayer")
+               }
+
+               if(res.status === 401) {
+                  throw new Error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+               }
               if(!res.ok){
                 // handleSignout() && 
                 // return (
@@ -97,7 +105,7 @@ export default function CommentSection({postId}) {
                 //  ) &&
                 //  navigate('/sign-in');
                   
-                throw new Error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                throw new Error('une erreur est survenue.')
                 // await handleSignout()
                 //    navigate('/sign-in');
                  

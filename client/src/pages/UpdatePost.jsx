@@ -126,13 +126,15 @@ export default function UpdatePost() {
                  if(!res.ok) {
                     setPublishError(data.message)
                     
-                    setTimeout(() =>{
+                    if(res.status === 401){
+                        setTimeout(() =>{
                         navigate('/sign-in'); 
                     }, 10000); 
                        
                     setTimeout(() =>{
                         handleSignout();
                     }, 10001);
+                    }
 
                     return; 
                  }
