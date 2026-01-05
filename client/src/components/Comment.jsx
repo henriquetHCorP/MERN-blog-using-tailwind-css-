@@ -172,7 +172,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                   size='sm'
                   gradientDuoTone='purpleToBlue'
                   onClick={handleSave}
-                  disabled={editedContent === ""}
+                  disabled={editedContent === "" || editedContent.includes('AFC') || editedContent.includes('M23') || editedContent.includes('Afc') || editedContent.includes('afc') || editedContent.includes('M23') || editedContent.includes('M 2 3') || editedContent.includes('m 2 3') || editedContent.includes('m23') || editedContent.includes('KAGAME') || editedContent.includes('Kagame') || editedContent.includes('kagame') || editedContent.includes('NANGA') || editedContent.includes('Nanga') || editedContent.includes('NANGAA') || editedContent.includes('Nangaa') || editedContent.includes('nanga') || editedContent.includes('Willy Ngoma') || editedContent.includes('willy ngoma') || editedContent.includes('VISIT RWANDA') || editedContent.includes('Visit Rwanda') || editedContent.includes('Alliance Fleuve Congo') || editedContent.includes('alliance fleuve congo') || editedContent.includes('ALLIANCE FLEUVE CONGO') || editedContent.includes('M-23') || editedContent.includes('M/23') || editedContent.includes('m-23') || editedContent.includes('m/ 2 3') || editedContent.includes('M/ 2 3') || editedContent.includes('m/23') || editedContent.includes('Alliance fleuve congo') || editedContent.includes('Alliance Fleuve congo')}
                 >
                     Enregister 
                 </Button>

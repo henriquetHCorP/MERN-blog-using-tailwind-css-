@@ -6,6 +6,8 @@ import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { signoutSuccess } from '../redux/user/userSlice';
 
+import { BsFillSendFill } from 'react-icons/bs'
+import { BsSend } from 'react-icons/bs'
 
 
 export default function CommentSection({postId}) {
@@ -346,6 +348,7 @@ export default function CommentSection({postId}) {
 
     //     }
     // }
+    
   return (
       <div className="max-w-2xl mx-auto w-full p-3">
         {currentUser ? 
@@ -384,9 +387,13 @@ export default function CommentSection({postId}) {
                        outline
                        gradientDuoTone='purpleToBlue'
                        type='submit'
-                       disabled={comment === ""}
+                       disabled={ comment === "" || comment.includes('AFC') || comment.includes('M23') || comment.includes('Afc') || comment.includes('afc') || comment.includes('M23') || comment.includes('m23') || comment.includes('M 2 3') || comment.includes('m 2 3') || comment.includes('KAGAME') || comment.includes('Kagame') || comment.includes('kagame') || comment.includes('NANGA') || comment.includes('Nanga') || comment.includes('NANGAA') || comment.includes('Nangaa') || comment.includes('nanga') || comment.includes('Willy Ngoma') || comment.includes('VISIT RWANDA') || comment.includes('Visit Rwanda') || comment.includes('Alliance Fleuve Congo') || comment.includes('alliance fleuve congo') || comment.includes('Alliance Fleuve Congo') || comment.includes('ALLIANCE FLEUVE CONGO') || comment.includes('M-23') || comment.includes('M/23') || comment.includes('m-23') || comment.includes('m/ 2 3') || comment.includes('M/ 2 3') || comment.includes('m/23') || comment.includes('Alliance fleuve congo') || comment.includes('Alliance Fleuve congo') }
+                       iconOnly
+                      
                        >
-                        Envoyer
+                       {comment === "" || comment.includes('AFC') || comment.includes('M23') || comment.includes('Afc') || comment.includes('afc') || comment.includes('M23') || comment.includes('m23') || comment.includes('M 2 3') || comment.includes('m 2 3') || comment.includes('KAGAME') || comment.includes('Kagame') || comment.includes('kagame') || comment.includes('NANGA') || comment.includes('Nanga') || comment.includes('NANGAA') || comment.includes('Nangaa') || comment.includes('nanga') || comment.includes('Willy Ngoma') || comment.includes('VISIT RWANDA') || comment.includes('Visit Rwanda') || comment.includes('Alliance Fleuve Congo') || comment.includes('alliance fleuve congo') || comment.includes('Alliance Fleuve Congo') || comment.includes('ALLIANCE FLEUVE CONGO') || comment.includes('M-23') || comment.includes('M/23') || comment.includes('m-23') || comment.includes('m/ 2 3') || comment.includes('M/ 2 3') || comment.includes('m/23') || comment.includes('Alliance fleuve congo') || comment.includes('Alliance Fleuve congo')? <BsSend color="gray" className='h-5 w-5' /> : <BsFillSendFill color="blue" className='h-5 w-5' />}
+                        
+                        
                     </Button>
 
                 </div>
