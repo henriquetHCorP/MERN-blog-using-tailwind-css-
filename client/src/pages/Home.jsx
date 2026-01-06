@@ -27,11 +27,12 @@ export default function Home() {
             </span>
           Social Media 
         </div>
-            <p className="text-gray-500 text-xs sm:text-sm">
+            {/* <p className="text-gray-500 text-xs sm:text-sm"> */}
+            <p className="italic text-center text-lg font-serif text-gray-600 dark:text-white drop-shadow-lg" style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }}>
               {/* Here you'll find a variety of articles and tutorials on topic such as web development, software engineering, and programming languages.
               */}
              {/* Here you will find in real time, latest news and information related to the President Office and Government members.  */}
-              Trouvez, en temps réel, les dernières informations au sujet de la Présidence de la République Démocratique du Congo et des membres du Gouvernement.  
+              Trouvez, en temps réel, les dernières informations <br /> au sujet de la Présidence de la République Démocratique du Congo et des membres du Gouvernement.  
               </p>
       <Link to='/search' className="text-xs sm:text-sm text-black font-bold"> 
       <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">

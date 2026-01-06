@@ -9,7 +9,7 @@ export default function CallToAction() {
             {/* Want to learn more about the DRC?  */}
             Voulez-vous savoir plus sur la République Démocratique du Congo ? 
         </h2>
-        <p className="text-gray-500 my-2">
+        <p className="text-gray-500 my-2 dark:text-white">
             {/* Checkout these resources at the Office of the President of the Republic website */}
              Parcourez les variétés de ressources disponibles sur le site officiel de la Présidence de la République.
         </p>
