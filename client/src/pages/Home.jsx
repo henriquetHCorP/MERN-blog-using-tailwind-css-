@@ -53,10 +53,12 @@ export default function Home() {
        
       /> */}
       <img
-        className="opacity-50 hover:opacity-100 transition-all duration-700 shadow-2xl rounded-2xl h-1/2 w-1/2"
+        className="opacity-50 hover:opacity-100 transition-all duration-700 shadow-2xl rounded-2xl h-96 w-full"
         src="/drc-flag-animated.gif"
        
       />
+      {/* <img src="/gouv.jpeg" className="animate-bounce"/>
+      <img src="/students.jpg" className="animate-spin"/> */}
       
       {/* </Link> */}
       
