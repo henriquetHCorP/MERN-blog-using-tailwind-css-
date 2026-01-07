@@ -53,7 +53,7 @@ export default function CreatePost() {
     const handleUploadImage = async () => {
         try {
             if (!file) {
-                setImageUploadError('Please select an image'); 
+                setImageUploadError('Veuillez sélectionner une image'); 
                 return; 
             }
             setImageUploadError(null); 
@@ -69,7 +69,7 @@ export default function CreatePost() {
                 setImageUploadProgress(progress.toFixed(0)); 
                }, 
                (error) => {
-                  setImageUploadError('Image upload failed'); 
+                  setImageUploadError("Échec du chargement de l'image"); 
                   setImageUploadProgress(null); 
                },
                () => {
@@ -83,7 +83,7 @@ export default function CreatePost() {
             ); 
 
         } catch(error) {
-            setImageUploadError('Image upload failed'); 
+            setImageUploadError("Échec du chargement de l'image"); 
             setImageUploadProgress(null); 
             console.log(error)
         }
