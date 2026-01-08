@@ -22,7 +22,7 @@ export default function FooterCom() {
                      {/* <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Flag-map_of_the_Democratic_Republic_of_the_Congo.png" className="shadow-lg hover:shadow-md object-fit bg bg-none border border-2xl w-20 h-20"/>  */}
                      <img src="/drc-gov-social-media.png" className="shadow-lg hover:shadow-md object-fit bg bg-none w-20 h-20"/> 
         <Link to="/" className="pt-3 items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">
-        <div className="shadow-xl shadow-black dark:shadow-slate-200 pl-3 pr-3 rounded-r-full">
+        <div className="mt-4 shadow-xl shadow-black dark:shadow-slate-200 pl-3 pr-3 rounded-r-full">
            <span className="px-2 py-3 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
                   DRC Gov
             </span>

@@ -50,6 +50,7 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
       // history.back()? history.back() : navigate('/');
       
       navigate(-1, { preventScrollReset: true }) ;
+      window.location.reload();
         
      }
   } catch(error) {
