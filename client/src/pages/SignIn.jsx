@@ -49,8 +49,9 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
       // navigate('/'); 
       // history.back()? history.back() : navigate('/');
       
-      navigate(-1, { preventScrollReset: true }) ;
-      window.location.reload();
+      // navigate(-1, { preventScrollReset: true }) ;
+      navigate(-1); 
+      
         
      }
   } catch(error) {
