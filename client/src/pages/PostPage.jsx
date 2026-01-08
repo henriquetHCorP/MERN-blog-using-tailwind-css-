@@ -71,7 +71,15 @@ export default function PostPage() {
 
         //  }
 
-  
+  window.addEventListener("pageshow", function(event) {
+    var historyTraversal = event.persisted || 
+                           (typeof window.performance != "undefined" && 
+                            window.performance.navigation.type === 2);
+    if (historyTraversal) {
+      // Handle page restore (i.e., the user navigated back)
+      window.location.reload(); 
+    }
+  });
   return (
     <main className='items-center p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
       

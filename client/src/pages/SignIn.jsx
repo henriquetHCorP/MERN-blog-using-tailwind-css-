@@ -50,8 +50,8 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
       // history.back()? history.back() : navigate('/');
       
       // navigate(-1, { preventScrollReset: true }) ;
-        history.back();
-        location.reload(true)
+        // history.back();
+        history.back(); 
        
       
         
