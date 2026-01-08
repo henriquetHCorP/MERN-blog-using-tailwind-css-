@@ -45,7 +45,12 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
     //  setLoading(false); 
      if(res.ok) {
       dispatch(signInSuccess(data)); 
-      navigate('/'); 
+      // belo here, before it was just about navigating to the home page after sign success and i added the history condition.
+      // navigate('/'); 
+      // history.back()? history.back() : navigate('/');
+      
+      navigate(-1, { preventScrollReset: true }) ;
+        
      }
   } catch(error) {
       //  setErrorMessage(error.message); 

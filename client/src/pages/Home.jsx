@@ -21,12 +21,12 @@ export default function Home() {
             {/* <h1 className="text-center text-2xl font-bold lg:text-6xl">Welcome to the DRC Government <br/> Social Media </h1> */}
             <h1 className="text-center text-2xl font-bold lg:text-6xl">Bienvenue sur DRC Gov<br/> Social Media </h1>
             
-            <div className="items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">
+            {/* <div className="items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">
             <span className="px-2 py-3 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
                   DRC Gov
             </span>
           Social Media 
-        </div>
+        </div> */}
             {/* <p className="text-gray-500 text-xs sm:text-sm"> */}
             <p className="italic text-center text-lg font-serif text-gray-600 dark:text-white drop-shadow-lg" style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }}>
               {/* Here you'll find a variety of articles and tutorials on topic such as web development, software engineering, and programming languages.
