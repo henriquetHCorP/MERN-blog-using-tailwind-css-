@@ -41,6 +41,10 @@ export const signin = async (req, res, next) => {
             return next(errorHandler(404, 'Aucun utilisateur inscrit sous ce nom')); 
         }
         const validPassword = bcryptjs.compareSync(password, validUser.password); 
+        if((validUser.password).includes('bonjourami')){
+            return next(errorHandler(400,'Attention ! Ce compte a été désactivé')) 
+
+        }
         if (!validPassword) {
             // return next(errorHandler(400, 'Invalid password'));
             return next(errorHandler(400, 'Mot de passe incorrect'));
