@@ -62,6 +62,7 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
       dispatch(signInFailure(error.message));  
   }
  }
+ window.history.replaceState(null, '', '/')
   return (
     <div className="min-h-screen mt-20">
       <p className="text-center text-4xl text-pretty">Page de connexion</p>

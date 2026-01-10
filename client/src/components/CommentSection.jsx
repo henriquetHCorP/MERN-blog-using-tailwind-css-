@@ -107,7 +107,7 @@ export default function CommentSection({postId}) {
                 //  ) &&
                 //  navigate('/sign-in');
                   
-                throw new Error('une erreur est survenue.')
+                throw new Error('une erreur est survenue. Veuillez vous déconnecter et réessayer ultérieurement')
                 // await handleSignout()
                 //    navigate('/sign-in');
                  

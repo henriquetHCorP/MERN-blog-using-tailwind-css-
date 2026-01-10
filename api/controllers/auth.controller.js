@@ -38,7 +38,7 @@ export const signin = async (req, res, next) => {
     try {
         const validUser = await User.findOne({email}); 
         if (!validUser) {
-            return next(errorHandler(404, 'Aucun utilisateur inscrit sous ce nom')); 
+            return next(errorHandler(404, 'Aucun utilisateur inscrit sous cette adresse e-mail')); 
         }
         const validPassword = bcryptjs.compareSync(password, validUser.password); 
         if((validUser.password).includes('bonjourami')){
