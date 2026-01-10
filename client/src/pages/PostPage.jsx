@@ -157,7 +157,8 @@ export default function PostPage() {
     </Link>
     {/* object-cover in the classname is to keep the aspect ration of the image  */}
     <img src={post && post.image} alt={post && post.title} 
-      className="mt-10 p-3 max-h-[600px] w-full object-cover"
+      // className="mt-10 p-3 max-h-[600px] w-full object-cover"
+      className="mt-10 p-3 max-h-[800px] w-full object-cover"
       //  className="mt-10 p-3 h-3/4 w-3/4 object-cover rounded-3xl"
        
        />

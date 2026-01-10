@@ -101,6 +101,7 @@ export default function FooterCom() {
                 <Footer.Copyright 
                  href='#'
                  by="Sofware Engineering Facility"
+                 className="text-xs"
                  year={new Date().getFullYear()}
                 /> 
                 <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">
