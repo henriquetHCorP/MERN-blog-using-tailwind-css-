@@ -44,7 +44,7 @@ export default function SignUp() {
      }
      setLoading(false); 
      if(res.ok) {
-       window.alert("Félicitations pour votre inscription sur DRC Gov Social Media. Cliquez sur OK pour continuer.")
+       window.alert("Votre inscription sur DRC Gov Social Media a été effectuée avec succès. Cliquez sur OK pour continuer.")
       navigate('/sign-in');
      }
   } catch(error) {
