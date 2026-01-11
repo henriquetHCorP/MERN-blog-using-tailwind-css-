@@ -26,8 +26,8 @@ export const updateUser = async(req, res, next) => {
         req.body.password = bcryptjs.hashSync(req.body.password, 10); 
     }
     if (req.body.username){
-        if(req.body.username.length < 7 || req.body.username.length > 20){
-            return next(errorHandler(400, "Le nom d'utilisateur doit comporter entre 7 et 20 caractères"));
+        if(req.body.username.length < 3 || req.body.username.length > 20){
+            return next(errorHandler(400, "Le nom d'utilisateur doit comporter entre 3 et 20 caractères"));
         }
         // if(req.body.username.includes(' ')){
         //     return next(errorHandler(400, "Le nom d'utilisateur ne peut pas contenir d'espaces"));

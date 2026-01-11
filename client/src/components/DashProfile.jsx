@@ -138,17 +138,22 @@ export default function DashProfile() {
               dispatch(updateFailure(data.message)); 
               setUpdateUserError(data.message)
 
-               setTimeout(() => {
+             } else {
+                dispatch(updateSuccess(data)); 
+                setUpdateUserSuccess("Le profil de l'utilisateur a été mis à jour avec succès"); 
+             }
+             if(res.status === 401) {
+              
+              dispatch(updateFailure(data.message)); 
+              setUpdateUserError(data.message); 
+
+              setTimeout(() => {
                  navigate('/sign-in');
                   }, 10000);
 
                   setTimeout(() => {
                     handleSignout();
                   }, 10001); 
-
-             } else {
-                dispatch(updateSuccess(data)); 
-                setUpdateUserSuccess("Le profil de l'utilisateur a été mis à jour avec succès"); 
              }
          }catch(error){
           dispatch(updateFailure(error.message)); 
