@@ -15,7 +15,7 @@ export default function DashComments() {
   const [showModal, setShowModal] = useState(false); 
   const [commentIdToDelete, setCommentIdToDelete] = useState(''); 
   //   console.log(userPosts); 
-  console.log(comments); 
+  //console.log(comments); 
     const dispatch = useDispatch();
     const navigate = useNavigate();  
 

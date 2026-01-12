@@ -119,7 +119,12 @@ export default function PostPage() {
           </div>)}
       {post.category === "Education Nationale" && <p>MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</p>}
       {post.category === "Environnement" && <p>MINETAT, Ministre de l’Environnement et Développement Durable</p>}
-      {post.category === "Infrastructures" && <p>MINETAT, Ministre des Infrastructures et Travaux Publics</p>}
+      {post.category === "Infrastructures" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> des Infrastructures <br/> et Travaux Publics</p></div>)}
       {post.category === "Budget" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>

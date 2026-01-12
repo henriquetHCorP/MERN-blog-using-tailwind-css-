@@ -164,7 +164,7 @@ export default function CreatePost() {
                     {currentUser._id === "6800379a3210a81630a4af74" && <option value="Affaires Etrangères">MINETAT, Ministre des Affaires Etrangères, Coopération Internationale et Francophonie</option>}
                     {currentUser._id === "" &&<option value="Education Nationale">MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</option>}
                     {currentUser._id === "" &&<option value="Environnement">MINETAT, Ministre de l’Environnement et Développement Durable</option>}
-                    {currentUser._id === "" &&<option value="Infrastructures">MINETAT, Ministre des Infrastructures et Travaux Publics</option>}
+                    {currentUser._id === "6964bf57b15d50f0a19c1fcf" &&<option value="Infrastructures">MINETAT, Ministre des Infrastructures et Travaux Publics</option>}
                     {currentUser._id === "6953f277308bf59062360b79" &&<option value="Budget">MINETAT, Ministre du Budget</option>} 
                     {currentUser._id === "" &&<option value="Affaires Foncières">MINETAT, Ministre des Affaires Foncières</option>}
                     {currentUser._id === "" &&<option value="Développement Rural">MINETAT, Ministre du Développement Rural</option>}
