@@ -67,7 +67,7 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
     <div className="min-h-screen mt-20">
       <p className="text-center text-4xl text-pretty">Page de connexion</p>
       <div className="">
-      <p class="p-2 animate-slow-blink text-center text-md font-semibold text-green-500 dark:text-green-200">Veuillez saisir vos identifiants</p>
+      <p class="p-2 animate-slow-blink text-center text-md font-semibold text-green-800 dark:text-green-200">Veuillez saisir vos identifiants</p>
       </div>
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
         {/* left */}

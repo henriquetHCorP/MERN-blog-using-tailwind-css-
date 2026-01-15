@@ -216,8 +216,8 @@ export default function DashProfile() {
               strokeWidth={5}
               styles={{
                 root:{
-                  width:'100',
-                  height:'100', 
+                  width:'128',
+                  height:'128', 
                   position:'absolute',
                   top:0, 
                   left:0, 
