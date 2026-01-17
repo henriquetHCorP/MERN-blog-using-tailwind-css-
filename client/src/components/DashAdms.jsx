@@ -54,20 +54,18 @@ const handleSignout = async () => {
                 }
               } 
               if(res.status === 401){
-
-                 setTimeout(() => {
+                     window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
                     handleSignout();
-                  }, 10000); 
-
-                setTimeout(() => {
-                 navigate('/sign-in');
-                  }, 10001);
-
-                  if(!res.ok){
-                    alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
-                   
+                    navigate('/sign-in');
                   }
-              }
+
+                
+
+                  // if(!res.ok){
+                  //   alert('Une erreur est survenue.')
+                   
+                  // }
+              
         } catch(error) {
               console.log(error.message); 
               if(!res.ok){

@@ -2,8 +2,9 @@ import { current } from '@reduxjs/toolkit';
 import { Button, Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react'
 import { HiAnnotation, HiArrowNarrowUp, HiDocumentText, HiOutlineUserGroup, HiOutlineUserRemove } from 'react-icons/hi';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { signoutSuccess } from '../redux/user/userSlice';
 
 export default function DashboardComp() {
     const [users, setUsers] = useState([]); 
@@ -18,6 +19,26 @@ export default function DashboardComp() {
 
     const {currentUser} = useSelector((state) => state.user);  
 
+    const navigate = useNavigate(); 
+    const dispatch = useDispatch(); 
+
+    const handleSignout = async () => {
+            
+                try {
+                    const res = await fetch('/api/user/signout', {
+                        method: 'POST', 
+                    });
+                    const data = await res.json(); 
+                    if(!res.ok) {
+                        console.log(data.message); 
+                    } else {
+                        dispatch(signoutSuccess()); 
+                    }
+                } catch(error) {
+                    console.log(error.message); 
+                }
+            }; 
+
     useEffect(() => {
        
         const fetchUsers = async () => {
@@ -28,6 +49,12 @@ export default function DashboardComp() {
                   setUsers(data.users)
                   setTotalUsers(data.totalUsers)
                   setLastMonthUsers(data.lastMonthUsers)
+            }
+
+            if(res.status === 401) {
+                //window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                navigate('/sign-in'); 
+                handleSignout();  
             }
     
            }catch(error) {
@@ -72,6 +99,19 @@ export default function DashboardComp() {
                       setTotalComments(data.totalComments); 
                       setLastMonthComments(data.lastMonthComments);  
                     }
+
+                    // if(res.status === 401) {
+                    //   window.alert("Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.")
+                    // }
+
+                    if(res.status === 401){
+                      window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                        navigate('/sign-in'); 
+                        handleSignout();
+                    }; 
+                        
+                   
+                    
                    } catch(error){
                     console.log(error.message)
                    }
@@ -99,12 +139,12 @@ export default function DashboardComp() {
 
          </div>
           <div className="flex gap-2 text-sm">
-            <span className="text-blue-500 flex items-center">
+            {/* <span className="text-blue-500 flex items-center">
               <HiArrowNarrowUp /> 
               {lastMonthUsers}
-            </span>
+            </span> */}
             {/* <div className="text-gray-500">Mois précédent </div> */}
-            <div className="text-gray-500">Mois précédent </div>
+            {/* <div className="text-gray-500">Mois précédent </div> */}
 
           </div>
      </div>
@@ -119,10 +159,10 @@ export default function DashboardComp() {
          </div>
           <div className="flex gap-2 text-sm">
             <span className="text-blue-500 flex items-center">
-              <HiArrowNarrowUp /> 
-              {lastMonthComments}
+              {/* <HiArrowNarrowUp /> 
+              {lastMonthComments} */}
             </span>
-            <div className="text-gray-500">Mois précédent </div>
+            {/* <div className="text-gray-500">Mois précédent </div> */}
 
           </div>
      </div>
@@ -136,11 +176,11 @@ export default function DashboardComp() {
 
          </div>
           <div className="flex gap-2 text-sm">
-            <span className="text-blue-500 flex items-center">
+            {/* <span className="text-blue-500 flex items-center">
               <HiArrowNarrowUp /> 
               {lastMonthPosts}
-            </span>
-            <div className="text-gray-500">Mois précédent</div>
+            </span> */}
+            {/* <div className="text-gray-500">Mois précédent</div> */}
           </div>
           </div>
          </div>
