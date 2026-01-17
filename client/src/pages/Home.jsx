@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CallToAction from '../components/CallToAction'
 import PostCard from '../components/PostCard';
+import { Button } from 'flowbite-react';
 
 export default function Home() {
   const [posts, setPosts] = useState([]); 
@@ -35,9 +36,12 @@ export default function Home() {
              Trouvez, en temps réel, les dernières informations au sujet de la Présidence de la République Démocratique du Congo et des membres du Gouvernement.  
               </p>
       <Link to='/search' className="text-xs sm:text-sm text-black font-bold"> 
-      <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">
+      {/* <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">
       Voir tous les articles
-        </button>
+        </button> */}
+      <Button gradientDuoTone="purpleToBlue" className='rounded-full transition-all duration-1000 dark:!from-green-500 dark:!to-blue-500 dark:text-white-500 text-lg shadow-lg'>
+      Voir tous les articles
+        </Button>
       </Link>
       {/* drc congo wildlife image  */}
      
@@ -54,7 +58,7 @@ export default function Home() {
        
       /> */}
       <img
-        className="opacity-50 hover:opacity-100 transition-all duration-700 shadow-2xl rounded-2xl h-48 w-full md:h-72 md:w-full lg:h-96 lg:w-full"
+        className="opacity-95 hover:opacity-100 transition-all duration-700 shadow-2xl rounded-2xl h-48 w-full md:h-72 md:w-full lg:h-96 lg:w-full"
         src="/drc-flag-animated.gif"
        
       />
@@ -88,9 +92,15 @@ export default function Home() {
               </Link> */}
 
 <Link to='/search' className="text-xs sm:text-sm text-black font-bold text-center"> 
-<button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">
+{/* <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">
       Voir tous les articles
+        </button> */}
+        <button>
+        <Button gradientDuoTone="purpleToBlue" className='rounded-full transition-all duration-1000 dark:!from-green-500 dark:!to-blue-500 dark:text-white-500 text-lg shadow-lg'>
+      Voir tous les articles
+        </Button>
         </button>
+       
       </Link>
             </div>
           )

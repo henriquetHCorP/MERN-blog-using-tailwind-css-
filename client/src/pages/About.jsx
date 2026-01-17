@@ -7,7 +7,7 @@ export default function About() {
       <div>
         <h1 className="text-3xl p-2 font font-semibold text-center my-2"> A Propos du média social DRC Gov </h1> <h1 className=" text-2xl p-1 font font-semibold text-center italic rounded-full border-2 border-blue-500 bg-blue-500 dark:bg-blue-600 dark:border-blue-600 transition-all duration-700 text-white dark:text-black ">Social Media</h1>
         <div className="text-md text-gray-500 flex flex-col gap-3">
-          <h1 className="text-2xl font font-semibold italic"> /*N.B.: Cette section est à rédiger par la cellule de communication de la Présidence de la RDC*/</h1>
+          <h1 className="text-2xl font font-semibold italic"> /*N.B.: Cette section est à rediger en collaboration avec la cellule de communication de la Présidence de la RDC*/</h1>
           {/* <p> */}
             {/* Sahand's Blog is a blog that I created to share my thoughts and ideas with the world. I am a software engineer and I love to write about my experiences and things that I have learned. 
             I hope you enjoy reading my blog.  */}
@@ -25,6 +25,25 @@ export default function About() {
 
           {/* <p>We encourage you to leave comments on our posts and engage with other readers. You can like other people's comments and reply to them as well. we believe that a community of learners can help earch other grow and improve. </p> */}
           {/* <p>We encourage you to leave comments on posts and engage with other readers. You can "like" other people's comments and reply to them as well just like in common social medias. we believe that a community of active congolese through this social media, will surely encourage local authorities and government members to always do what has to be done.</p> */}
+          
+
+<p>Bienvenue sur DRC Gov Social Media. </p>
+
+<p>Ce média social a été conçu par Henriquet KAPEMA, Ingénieur Logiciel, Programmeur et Informaticien de nationalité congolaise résidant en République Démocratique du Congo, dans la ville de Kinshasa. </p>
+
+<p>Développeur passionné et doté d’une expérience en solutions informatiques de plus de 20 ans, il aime coder, travailler dans le domaine des technologies et tout ce qui s'y rapporte. </p>
+
+<p>Depuis janvier 2012, Henriquet est titulaire du diplôme universitaire de « Bachelor of Science in Computer science and Systems », un diplôme qui lui a été très utile durant toutes ces années. </p> 
+
+<p>Sur ce média social, vous trouverez des articles et des publications quotidiens et hebdomadaires concernant les dernières activités de la Présidence de la République Démocratique du Congo ainsi que des membres du Gouvernement de la République Démocratique du Congo. </p>
+  
+  <p>Nous vous encourageons à réagir aux publications et à interagir avec les autres internautes et lecteurs sous réserve du respect de la loi, de l’ordre public et des bonnes mœurs. </p>
+
+<p>Nous pensons que, grâce à ce média social, une communauté de congolais actifs, encouragera les autorités locales et les membres du Gouvernement à agir comme il se doit et dans la transparence tout en combattant les désinformations qui pullulent sur les média sociaux classiques. </p>
+
+
+
+
 
         </div>
 

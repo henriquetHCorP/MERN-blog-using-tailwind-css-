@@ -25,7 +25,10 @@ export default function FooterCom() {
                      <img src="/drc-gov-social-media.png" className="shadow-lg hover:shadow-md object-fit bg bg-none w-20 h-20"/> 
         <Link to="/" className="pt-3 items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">
         <div className="mt-4 shadow-xl shadow-black dark:shadow-slate-200 transition-all duration-1000 pl-3 pr-3 rounded-r-full">
-           <span className="px-2 py-3 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
+           {/* <span className="px-2 py-3 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
+                  DRC Gov
+            </span> */}
+           <span className="px-2 py-3 bg-gradient-to-r from-blue-800 via-blue-800 to-red-600 rounded-lg text-white">
                   DRC Gov
             </span>
           Social Media 

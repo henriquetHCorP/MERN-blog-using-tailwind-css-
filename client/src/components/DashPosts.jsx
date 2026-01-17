@@ -174,13 +174,22 @@ export default function DashPosts() {
            ))}
         </Table>
         {
-          showMore && (
-            <button onClick={handleShowMore} className="w-full text-blue-500 self-center text-sm py-7">
-              Voir plus
+          showMore && 
+          // (
+          //   <button onClick={handleShowMore} className="w-full text-blue-500 self-center text-sm py-7">
+          //     Voir plus
 
-            </button>
+          //   </button>
 
-          )
+          // )
+          <div className="p-4 flex items-center justify-center">
+                      <Button 
+                      onClick={handleShowMore} 
+                        gradientDuoTone="purpleToBlue" className='rounded-full transition-all duration-1000 dark:!from-green-500 dark:!to-blue-500 dark:text-white-500 text-lg shadow-lg'>
+                        Voir plus 
+          
+                      </Button>
+                      </div>
         }
         </>
      ):(<p>Vous n'avez aucune publication d'article pour l'instant</p>)}

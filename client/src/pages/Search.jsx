@@ -254,9 +254,23 @@ export default function Search() {
             {
               // showMore && <button onClick={handleShowMore} className="text-teal-500 text-lg hover:underline p-7 w-full">Show More</button>
               // showMore && <button onClick={handleShowMore} className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">Show More</button>
-              showMore && <button onClick={handleShowMore} className="text-gray-700 hover:text-blue-500 transition-all duration-700 text-lg hover:underline p-7 w-full dark:text-white">Voir plus</button>
+              //showMore && <button onClick={handleShowMore} className="text-gray-700 hover:text-blue-500 transition-all duration-700 text-lg hover:underline p-7 w-full dark:text-white">Voir plus</button>
+              // showMore && 
+              // <footer className="">
+              // <Button onClick={handleShowMore}  
+              // gradientDuoTone="purpleToBlue" className='rounded-full transition-all duration-1000 dark:!from-green-500 dark:!to-blue-500 dark:text-white-500 text-lg shadow-lg'>
+              //   Voir plus
+              //   </Button>
+              //   </footer>
             }
          </div>
+         { showMore && 
+              <div className="p-4 flex items-center justify-center">
+              <Button onClick={handleShowMore}  
+              gradientDuoTone="purpleToBlue" className='rounded-full transition-all duration-1000 dark:!from-green-500 dark:!to-blue-500 dark:text-white-500 text-lg shadow-lg'>
+                Voir plus
+                </Button>
+                </div>}
       </div>
 
     </div>
