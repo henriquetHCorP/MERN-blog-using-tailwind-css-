@@ -86,7 +86,7 @@ export default function DashProfile() {
        }, 
        (error) => {
         //  setImageFileUploadError('Could not upload image (File must be less than 2MB)'); 
-         setImageFileUploadError("Echec lors du chargement de l'image (La taille du fichier ne devra pas surpasser 2MB)"); 
+         setImageFileUploadError("Echec lors du chargement de l'image (Veuillez choisir un fichier image dont la taille ne devra pas surpasser 2MB)"); 
          setImageFileUploadProgress(null); 
          setImageFile(null);
          setImageFileUrl(null);
@@ -137,6 +137,7 @@ export default function DashProfile() {
              if (!res.ok){
               dispatch(updateFailure(data.message)); 
               setUpdateUserError(data.message)
+              
 
              } else {
                 dispatch(updateSuccess(data)); 
@@ -231,7 +232,7 @@ export default function DashProfile() {
               />
           )}
         <img src={imageFileUrl || currentUser.profilePicture} 
-        alt="Utilisateur"   
+        alt=""   
         className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${imageFileUploadProgress && imageFileUploadProgress < 100 && 'opacity-60'}`} onClick={()=>filePickerRef.current.click()} />
         </div>
         {imageFileUploadError && <Alert color='failure'>{imageFileUploadError}</Alert>}

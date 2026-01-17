@@ -53,7 +53,8 @@ export default function Header() {
     <Navbar className="border-b-1">
      {/* <Navbar className="bg-hcorp1 border-blue-500 border-b-1"> */}
             {/* <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Flag-map_of_the_Democratic_Republic_of_the_Congo.png" className="shadow-lg hover:shadow-md object-fit bg bg-none border border-2xl w-20 h-20"/>  */}
-            <img src="/drc-gov-social-media.png" className="shadow-lg hover:shadow-md object-fit bg bg-none w-20 h-20"/> 
+            {/* <img src="/drc-gov-social-media.png" className="shadow-lg hover:shadow-md object-fit bg bg-none w-20 h-20"/>  */}
+            <img src="/drc-gov-social-media.png" className="object-fit bg bg-none w-20 h-20 cursor-pointer" onClick={() => navigate('/')}/> 
         <Link to="/" className="items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white shadow-xl shadow-black dark:shadow-slate-200 transition-all duration-1000 pl-3 pr-3 rounded-r-full">
             {/* <span className="px-2 py-3 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
                   DRC Gov
