@@ -14,6 +14,49 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'; 
 import { signoutSuccess } from '../redux/user/userSlice';
 
+import { Quill } from 'react-quill';
+
+const Video = Quill.import('formats/video');
+const Link = Quill.import('formats/link');
+
+class CustomVideo extends Video {
+  static create(value) {
+    const node = super.create(value);
+    const video = document.createElement('video');
+    video.setAttribute('controls', true);
+    video.setAttribute('type', 'video/mp4');
+    video.setAttribute('style', 'height: 200px; width: 100%;');
+    video.setAttribute('src', this.sanitize(value));
+    node.appendChild(video);
+    return node;
+  }
+  static sanitize(url) {
+    return Link.sanitize(url);
+  }
+}
+
+CustomVideo.blotName = 'video';
+CustomVideo.className = 'ql-video';
+CustomVideo.tagName = 'DIV'; // Use a DIV wrapper if needed
+
+Quill.register('formats/video', CustomVideo);
+
+const modules = {
+  toolbar: [['video']],
+  VideoResize: {
+    // Optional: Customize handle or toolbar styles
+    handleStyles: {
+      backgroundColor: 'black',
+      border: 'none',
+      color: 'white'
+    },
+    modules: ['Resize', 'DisplaySize', 'Toolbar']
+  }
+};
+
+// const MyEditor = () => (
+//   <ReactQuill modules={modules} theme="snow" />
+// );
 
 export default function CreatePost() {
     const [file, setFile] = useState(null); 
@@ -127,7 +170,25 @@ export default function CreatePost() {
             }
 
     }
+
+    const modules = {
+  toolbar: [
+    [{ 'header': [1, 2, false] }],
+    ['bold', 'italic', 'underline','strike', 'blockquote'],
+    [{'list': 'ordered'}, {'list': 'bullet'}],
+    ['link', 'image', 'video'], // 'video' option is included
+    ['clean']
+  ],
+};
+
+const formats = [
+  'header',
+  'bold', 'italic', 'underline', 'strike', 'blockquote',
+  'list', 'bullet',
+  'link', 'image', 'video'
+];
     window.history.replaceState(null, '', '/')
+
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
         <h1 className="text-center text-3xl my-7 font-semibold">Créer un article</h1>
@@ -264,6 +325,8 @@ export default function CreatePost() {
                 //this is the way we give the information from react quill 
                 setFormData({...formData, content: value}); 
                }}
+               modules={modules} 
+      formats={formats} 
                />
             <Button type='submit' gradientDuoTone='purpleToBlue'>
                   Publier l'article

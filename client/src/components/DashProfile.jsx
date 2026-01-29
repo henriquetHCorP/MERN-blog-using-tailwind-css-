@@ -261,7 +261,7 @@ export default function DashProfile() {
              outline
              disabled={loading || imageFileUploading}
              >
-               {loading ? 'Chargement en cours...' : 'Mettre à jour le profil'}
+               {loading ? 'Chargement en cours...' : 'Mettre à jour mon profil'}
           </Button>
           {currentUser.isAdmin && (
             <Link to={'/create-post'}> 
@@ -274,7 +274,13 @@ export default function DashProfile() {
             </Button>
             </Link>
           )}
+         
       </form>
+      <div className="py-4">
+       <Button href={`/user/${currentUser._id}`} className="w-full" type='button' gradientDuoTone='greenToBlue'>
+  Commentaires et messages publics reçus
+</Button>
+</div>
       <div className="text-red-500 flex justify-between mt-5">
         <span onClick ={() => setShowModal(true)} className="cursor-pointer">Supprimer le compte</span>
         <span onClick={handleSignout} className="cursor-pointer">Se déconnecter</span> 

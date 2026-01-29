@@ -15,6 +15,35 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { signoutSuccess } from '../redux/user/userSlice';
 
+import { Quill } from 'react-quill';
+
+const Video = Quill.import('formats/video');
+const Link = Quill.import('formats/link');
+
+class CustomVideo extends Video {
+  static create(value) {
+    const node = super.create(value);
+    const video = document.createElement('video');
+    video.setAttribute('controls', true);
+    video.setAttribute('type', 'video/mp4');
+    video.setAttribute('style', 'height: 200px; width: 100%;');
+    video.setAttribute('src', this.sanitize(value));
+    node.appendChild(video);
+    return node;
+  }
+  static sanitize(url) {
+    return Link.sanitize(url);
+  }
+}
+
+CustomVideo.blotName = 'video';
+CustomVideo.className = 'ql-video';
+CustomVideo.tagName = 'DIV'; // Use a DIV wrapper if needed
+
+Quill.register('formats/video', CustomVideo);
+
+
+
 
 export default function UpdatePost() {
     const [file, setFile] = useState(null); 
@@ -148,6 +177,23 @@ export default function UpdatePost() {
             }
 
     }
+
+    const modules = {
+  toolbar: [
+    [{ 'header': [1, 2, false] }],
+    ['bold', 'italic', 'underline','strike', 'blockquote'],
+    [{'list': 'ordered'}, {'list': 'bullet'}],
+    ['link', 'image', 'video'], // 'video' option is included
+    ['clean']
+  ],
+};
+
+const formats = [
+  'header',
+  'bold', 'italic', 'underline', 'strike', 'blockquote',
+  'list', 'bullet',
+  'link', 'image', 'video'
+];
     window.history.replaceState(null, '', '/')
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
@@ -370,6 +416,8 @@ export default function UpdatePost() {
                 //this is the way we give the information from react quill 
                 setFormData({...formData, content: value}); 
                }}
+                modules={modules} 
+      formats={formats} 
                />
             <Button type='submit' gradientDuoTone='purpleToBlue'>
                  Publier l'article modifié 

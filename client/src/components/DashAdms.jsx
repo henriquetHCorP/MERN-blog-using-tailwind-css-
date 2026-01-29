@@ -165,7 +165,8 @@ const handleDeleteAdm = async() => {
                     <img 
                       src={adm.profilePicture}
                       alt={adm.username}
-                      className=" w-10 h-10 object-cover bg-gray-500 rounded-full"
+                      className=" w-10 h-10 object-cover bg-gray-500 rounded-full cursor-pointer"
+                      onClick={() => navigate(`/user/${adm._id}`)}
                     />
                   {/* </Link> */}
                 </Table.Cell>

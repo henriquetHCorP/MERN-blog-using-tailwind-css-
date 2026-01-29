@@ -10,7 +10,7 @@ import { BsFillSendFill } from 'react-icons/bs'
 import { BsSend } from 'react-icons/bs'
 
 
-export default function CommentSection({postId}) {
+export default function CommentSection({postId,content}) {
     const {currentUser} = useSelector((state) => state.user); 
     const [comment, setComment] = useState(''); 
     const [commentError, setCommentError] = useState(null); 
@@ -360,7 +360,7 @@ export default function CommentSection({postId}) {
         (
             <div className="flex items-center gap-1 my-5 text-gray-500">
                 <p>Connecté en tant que :</p>
-                <img className="h-5 w-5 object-cover rounded-full" src={currentUser.profilePicture}/>
+                <img className="h-10 w-10 object-cover rounded-full cursor-pointer" src={currentUser.profilePicture} onClick={() => navigate(`/user/${currentUser._id}`)}/>
                 <Link 
                   to={'/dashboard?tab=profile'}
                 //   className="text-xs text-cyan-600 hover:underline" 

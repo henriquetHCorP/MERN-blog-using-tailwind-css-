@@ -10,6 +10,13 @@ body{
     
 }
 
+.ql-video{
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9; /* Maintains 16:9 ratio */
+    max-width: 800px; /* Optional: keeps it from getting too large */
+}
+
 .post-content p{
     margin-bottom: 0.5rem; 
 }
@@ -47,4 +54,14 @@ body{
 .bg-hcorp1 {
     /* global 94%+ browsers support */
     background: linear-gradient(90deg, rgba(33, 150, 243, 1) 0%, rgba(249, 250, 255, 1) 100%);
+}
+
+/* Increase the space between individual <p> elements */
+.paragraph-spacing p {
+  margin-bottom: 1.5em; /* Adjust this value as needed */
+}
+
+/* Increase the line height (interline space) within a single <p> element */
+.line-height-increase {
+  line-height: 2.0; /* A unitless multiplier works well; 1.5 is standard, 2.0 is double spacing */
 }

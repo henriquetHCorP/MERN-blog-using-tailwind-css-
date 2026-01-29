@@ -16,6 +16,7 @@ import PostPage from './pages/PostPage';
 import ScrollToTop from './components/ScrollToTop';
 import Search from './pages/Search';
 import Privacy from './pages/Privacy';
+import UserInfo from './components/UserInfo';
 
 
 
@@ -35,6 +36,8 @@ export default function App() {
         <Route path="/sign-in" element ={<SignIn />}/>
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/search" element={<Search />} />
+        {/* <Route path="/userInfo" element={<UserInfo />} /> */}
+        <Route path="/user/:userId" element={<UserInfo />} />
         <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         </Route>

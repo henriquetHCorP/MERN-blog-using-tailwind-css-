@@ -161,7 +161,8 @@ const handleDeleteUser = async() => {
                     <img 
                       src={user.profilePicture}
                       alt={user.userName}
-                      className=" w-10 h-10 object-cover bg-gray-500 rounded-full"
+                      className=" w-10 h-10 object-cover bg-gray-500 rounded-full cursor-pointer"
+                      onClick={() => navigate(`/user/${user._id}`)}
                     />
                   {/* </Link> */}
                 </Table.Cell>

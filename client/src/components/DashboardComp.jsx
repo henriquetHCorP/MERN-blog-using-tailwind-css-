@@ -204,7 +204,8 @@ export default function DashboardComp() {
                             <img
                                src={user.profilePicture}
                                alt="user"
-                               className="w-10 h-10 rounded-full bg-gray-500"
+                               className="w-10 h-10 rounded-full bg-gray-500 cursor-pointer"
+                               onClick={() => navigate(`/user/${user._id}`)}
                             /> 
                           </Table.Cell>
                            <Table.Cell>{user.username}</Table.Cell>

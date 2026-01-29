@@ -7,7 +7,7 @@ import { Button, Textarea } from 'flowbite-react';
 import { FaThumbsUp} from 'react-icons/fa'; 
 import { useSelector } from 'react-redux';
 
-
+import { redirect, useNavigate } from 'react-router-dom'
 
 
 moment.locale('fr', {
@@ -131,7 +131,10 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
 
 
   }
-   
+
+  const navigate = useNavigate(); 
+  
+  //  console.log("user:", user); 
   return (
     <>
     {/* <div className="flex gap-1 justify-end">
@@ -145,9 +148,11 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
       
         <div className="flex-shrink-0 mr-3">
           
-            <img  className="w-10 h-10 rounded-full bg-gray-200" 
+            <img  className="w-10 h-10 rounded-full bg-gray-200 cursor-pointer" 
               src={user.profilePicture} 
-              alt={user.username} 
+              //alt={user.username}
+              alt="Photo" 
+              onClick={() => currentUser ? navigate(`/user/${user._id}`): navigate('/sign-in')}
               /> 
         </div>
         <div className="flex-1">

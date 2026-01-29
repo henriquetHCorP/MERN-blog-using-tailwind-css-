@@ -7,6 +7,7 @@ export default function PostCard({post}) {
   now.setDate(now.getDate()); 
 
   const postDate = new Date(post.createdAt)
+  const postTitle = post.title; 
    
   
   // if (now.getDate()=== 31 && postDate.getMonth()=== 0){now.getMonth === postDate.getMonth}
@@ -28,6 +29,8 @@ export default function PostCard({post}) {
   // if (now.getDate()=== 28 && postDate.getMonth()=== 1){now.getMonth === postDate.getMonth}
   // if (now.getDate()=== 29 && postDate.getMonth()=== 1){now.getMonth === postDate.getMonth}
 
+  console.log("post:", post); 
+
   return (
     <div className="group relative w-full border border-blue-500 hover:border-2 h-[400px] overflow-hidden rounded-lg sm:w-[430px] transition-all">
         
@@ -44,8 +47,16 @@ export default function PostCard({post}) {
               post.createdAt !== post.updatedAt ?
 
               (<div className="right-0 p-1 absolute">
-          <Link to={`/post/${post.slug}`} className="pl-2 pr-2 bg-blue-700 hover:bg-blue-800 transition-all duration-700 text-white cursor-pointer text-sm font-thin italic rounded-md shadow-lg hover:shadow-2xl">Cet article a été modifié par l'auteur</Link>
+          <Link to={`/post/${post.slug}`} className="pl-2 pr-2 bg-blue-700 hover:bg-blue-800 transition-all duration-700 text-white cursor-pointer text-sm font-thin italic rounded-md shadow-lg hover:shadow-2xl">Article modifié par l'auteur</Link>
         </div>) : ("")
+            }
+            {
+              postDate.toDateString() === now.toDateString() && postTitle.toLowerCase().includes('retransmission en direct')?
+              (<div className="right-0 py-7 pr-1 absolute">
+          <Link to={`/post/${post.slug}`} className="animate-slow-blink pl-2 pr-2 bg-red-700 hover:bg-red-800 transition-all duration-700 text-white cursor-pointer text-sm font-bold rounded-md shadow-lg hover:shadow-2xl uppercase">En direct</Link>
+        </div>)
+        
+        :"" 
             }
 
         {/* sm: mobile size and above */}
@@ -62,8 +73,11 @@ export default function PostCard({post}) {
                    since we are using absolute, we have to make the div that contain everthing to 'relative' 
                    left-0 right-0 to bring it completely in the center.    
                  */}
-                 Lire l'article
+                 {/* {post.title.toLowerCase().includes("vidéo") || post.title.toLowerCase().includes("retransmission") || post.title.toLowerCase().includes("direct")? "Suivre la Vidéo" : "Lire l'article"} */}
+                   {post.content.toLowerCase().includes("iframe")? "Suivre la Vidéo" : "Lire l'article"}
             </Link>
+
+
 
         </div>
        
