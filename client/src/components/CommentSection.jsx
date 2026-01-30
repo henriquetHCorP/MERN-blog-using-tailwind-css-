@@ -10,7 +10,7 @@ import { BsFillSendFill } from 'react-icons/bs'
 import { BsSend } from 'react-icons/bs'
 
 
-export default function CommentSection({postId,content}) {
+export default function CommentSection({postId}) {
     const {currentUser} = useSelector((state) => state.user); 
     const [comment, setComment] = useState(''); 
     const [commentError, setCommentError] = useState(null); 
