@@ -300,7 +300,7 @@ const formats = [
                     <option value="VM Affaires Coutumières">Vice-Ministre des Affaires Coutumières</option>
                       */}
                     
-                    <option value="...">Sélectionner l'appartenance de votre cellule de communication</option>
+                    <option value="...">Sélectionner l'appartenance de votre cellcom</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
                     {currentUser._id ==="6658c9589144a8a1bf5f2015" && <option value="Présidence">Présidence</option>}
@@ -420,7 +420,7 @@ const formats = [
       formats={formats} 
                />
             <Button type='submit' gradientDuoTone='purpleToBlue'>
-                 Publier l'article modifié 
+                 Publier les modifications
             </Button>
             {publishError && <Alert className="mt-5" color='failure'>{publishError}</Alert>}
         </form>

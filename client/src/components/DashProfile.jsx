@@ -171,6 +171,11 @@ export default function DashProfile() {
         const data = await res.json(); 
         if(!res.ok){
           dispatch(deleteUserFailure(data.message)); 
+          if(res.status === 401) {
+            window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+            handleSignout();
+            navigate('/sign-in');
+          }
         } else {
             dispatch(deleteUserSuccess(data)); 
         }
@@ -198,7 +203,8 @@ export default function DashProfile() {
      }
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
-      <h1 className="my-7 text-center font-semibold text-3xl">Profil</h1>
+      {/* <h1 className="my-7 text-center font-semibold text-3xl">Profil</h1> */}
+      <h1 className="my-7 text-center font-semibold text-3xl">Mon compte</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input 
         type="file" 
@@ -270,15 +276,15 @@ export default function DashProfile() {
               gradientDuoTone='purpleToBlue'
               className='w-full'
             >
-              Créer un article 
+              Créer un article ou une vidéo
             </Button>
             </Link>
           )}
          
       </form>
       <div className="py-4">
-       <Button href={`/user/${currentUser._id}`} className="w-full" type='button' gradientDuoTone='greenToBlue'>
-  Commentaires et messages publics reçus
+       <Button href={`/user/${currentUser._id}`} className="w-full dark:!from-green-500 dark:!to-blue-500 dark:text-white-500" type='button' gradientDuoTone='purpleToBlue'>
+  Voir mon profil
 </Button>
 </div>
       <div className="text-red-500 flex justify-between mt-5">

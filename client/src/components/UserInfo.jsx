@@ -60,8 +60,8 @@ const UserInfo = ({}) => {
       } */}
         </div>
         <div className="py-0 md:py-7">
-     {currentUser && <CommentSection postId={userId} content={currentUser._id}
-         />}
+     {/* {currentUser && <CommentSection postId={userId} content={currentUser._id}
+         />} */}
          {/* <CommentSection postId={currentUser._id} />  */}
       
          

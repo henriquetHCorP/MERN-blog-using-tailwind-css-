@@ -7,7 +7,7 @@ import { Button, Textarea } from 'flowbite-react';
 import { FaThumbsUp} from 'react-icons/fa'; 
 import { useSelector } from 'react-redux';
 
-import { redirect, useNavigate } from 'react-router-dom'
+import { redirect, useNavigate, useParams } from 'react-router-dom'
 
 
 moment.locale('fr', {
@@ -79,6 +79,16 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
     const [isEditing, setIsEditing] = useState(false); 
     const [editedContent, setEditedContent] = useState(comment.content); 
     const {currentUser} = useSelector((state) => (state.user)); 
+
+     const { userId } = useParams();
+
+     useEffect(() => {
+         // Use the ID to fetch full details
+             fetch(`/api/user/${userId}`)
+           .then(res => res.json())
+           .then(data => setUser(data));
+       }, [userId]); 
+         //  console.log('here:', user); 
 
     
     // console.log(user); 
@@ -203,13 +213,16 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                  className={`text-gray-400 hover:text-blue-500 ${currentUser && comment.likes.includes(currentUser._id) && '!text-blue-500'}`}>
                 <FaThumbsUp  className="text-sm"/> 
                 </button>
+                {/* <button className="cursor-pointer" onClick={() => currentUser ? navigate(`/user/${user._id}`): navigate('/sign-in')}>Répondre</button> */}
                 <p className="text-gray-400">
+                  
                   {
                     comment.numberOfLikes > 0 && comment.numberOfLikes + " " +(comment.numberOfLikes === 1 ? "like" : "likes")
                   }
                 </p>
+                {/* below here i added the delete and edit button to the user info page owner  */}
                 {
-                  currentUser && (currentUser._id === comment.userId || currentUser.isAdmin) && (
+                  currentUser && (currentUser._id === comment.userId || currentUser.isAdmin || currentUser._id === userId) && (
                     <>
                     <button
                       type='button'

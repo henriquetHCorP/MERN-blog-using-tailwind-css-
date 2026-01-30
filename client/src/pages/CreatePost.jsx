@@ -191,7 +191,7 @@ const formats = [
 
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
-        <h1 className="text-center text-3xl my-7 font-semibold">Créer un article</h1>
+        <h1 className="text-center text-xl my-7 font-semibold">Créer un article ou une vidéo</h1>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>  
             <div className="gap-4 sm:flex-row justify-between">
                 <TextInput 
@@ -210,7 +210,7 @@ const formats = [
                     setFormData({...formData, category:e.target.value})
                 } 
                 >
-                    <option value="...">Sélectionner l'appartenance de votre cellule de communication</option>
+                    <option value="...">Sélectionner l'appartenance de votre cellcom</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
                     {currentUser._id ==="6658c9589144a8a1bf5f2015" && <option value="Présidence">Présidence</option>}
@@ -328,8 +328,8 @@ const formats = [
                modules={modules} 
       formats={formats} 
                />
-            <Button type='submit' gradientDuoTone='purpleToBlue'>
-                  Publier l'article
+            <Button type='submit' gradientDuoTone='purpleToBlue' disabled={imageUploadProgress}>
+                   Publier
             </Button>
             {publishError && <Alert className="mt-5" color='failure'>{publishError}</Alert>}
         </form>

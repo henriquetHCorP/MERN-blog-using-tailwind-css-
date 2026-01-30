@@ -110,7 +110,8 @@ export default function Header() {
                             {currentUser.email}</span>
                     </Dropdown.Header>
                     <Link to={'/dashboard?tab=profile'}>
-                        <Dropdown.Item>Profil</Dropdown.Item>
+                        {/* <Dropdown.Item>Profil</Dropdown.Item> */}
+                        <Dropdown.Item>Mon compte</Dropdown.Item>
                     </Link>
                     <Dropdown.Divider /> 
                     <Dropdown.Item onClick={handleSignout}>Se déconnecter</Dropdown.Item>

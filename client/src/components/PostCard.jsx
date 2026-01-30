@@ -29,7 +29,7 @@ export default function PostCard({post}) {
   // if (now.getDate()=== 28 && postDate.getMonth()=== 1){now.getMonth === postDate.getMonth}
   // if (now.getDate()=== 29 && postDate.getMonth()=== 1){now.getMonth === postDate.getMonth}
 
-  console.log("post:", post); 
+  //console.log("post:", post); 
 
   return (
     <div className="group relative w-full border border-blue-500 hover:border-2 h-[400px] overflow-hidden rounded-lg sm:w-[430px] transition-all">

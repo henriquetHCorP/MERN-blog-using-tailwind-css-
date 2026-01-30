@@ -2,8 +2,9 @@ import { Button, Modal, Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react'
 import { FaThumbsUp } from 'react-icons/fa';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
-import { useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
 import { Link, useNavigate } from 'react-router-dom';
+import { signoutSuccess } from '../redux/user/userSlice';
 
 export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);  
@@ -15,6 +16,8 @@ export default function DashPosts() {
   //console.log(userPosts); 
  
   const navigate = useNavigate(); 
+  const dispatch = useDispatch(); 
+
   useEffect (() => {
      const fetchPosts = async () => {
         try {
@@ -68,6 +71,12 @@ export default function DashPosts() {
         const data = await res.json(); 
         if(!res.ok) {
           console.log(data.message); 
+          if(res.status === 401) {
+            window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+            handleSignout();
+            navigate('/sign-in');
+          }
+          
         } else { 
           setUserPosts((prev) => 
          prev.filter((post) => post._id !== postIdToDelete)
@@ -105,6 +114,23 @@ export default function DashPosts() {
   //   }
      
   //  }
+
+  const handleSignout = async () => {
+          
+              try {
+                  const res = await fetch('/api/user/signout', {
+                      method: 'POST', 
+                  });
+                  const data = await res.json(); 
+                  if(!res.ok) {
+                      console.log(data.message); 
+                  } else {
+                      dispatch(signoutSuccess()); 
+                  }
+              } catch(error) {
+                  console.log(error.message); 
+              }
+          }; 
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
      {currentUser.isAdmin && userPosts.length > 0 ? (
