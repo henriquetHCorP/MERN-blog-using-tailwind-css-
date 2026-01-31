@@ -211,7 +211,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                 </p>
                 {/* below here i added the delete and edit button to the user info page owner  */}
                 {
-                  currentUser && (currentUser._id === comment.userId || currentUser.isAdmin || currentUser._id === userId) && (
+                  currentUser && (currentUser._id === comment.userId || currentUser.isAdmin) && (
                     <>
                     <button
                       type='button'
