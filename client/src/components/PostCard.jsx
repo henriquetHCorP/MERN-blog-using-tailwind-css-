@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
- 
+
+
+
 export default function PostCard({post}) {
   const now =  new Date(); 
   now.setDate(now.getDate()); 
@@ -10,6 +12,32 @@ export default function PostCard({post}) {
   const postTitle = post.title; 
    
   
+  // Assume post.createdAt is a timestamp (e.g., ISO string or ms)
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const createdAt = new Date(post.createdAt).getTime();
+    const now = new Date().getTime();
+    const threeHours = 10800000 ;
+    const hideTime = createdAt + threeHours;
+
+    // If currently within the 3 hours window
+    if (now >= createdAt && now < hideTime) {
+      setIsVisible(true);
+      
+      // Set timer to hide it when the 3 hours end
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, hideTime - now);
+
+      // Cleanup timer if component unmounts
+      return () => clearTimeout(timer);
+    } else {
+      setIsVisible(false);
+    }
+  }, [post.createdAt]);
+
+
   // if (now.getDate()=== 31 && postDate.getMonth()=== 0){now.getMonth === postDate.getMonth}
   // if (now.getDate()=== 31 && postDate.getMonth()=== 2){now.getMonth === postDate.getMonth}
   // if (now.getDate()=== 31 && postDate.getMonth()=== 4){now.getMonth === postDate.getMonth}
@@ -50,8 +78,16 @@ export default function PostCard({post}) {
           <Link to={`/post/${post.slug}`} className="pl-2 pr-2 bg-blue-700 hover:bg-blue-800 transition-all duration-700 text-white cursor-pointer text-sm font-thin italic rounded-md shadow-lg hover:shadow-2xl">Contenu modifié par l'auteur</Link>
         </div>) : ("")
             }
+            {/* {
+               postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() && postTitle.toLowerCase().includes('en direct') ||_-->>there was a mistake in here <<--- postTitle.toLowerCase().includes('live') ?
+              (<div className="right-0 py-7 pr-1 absolute">
+          <Link to={`/post/${post.slug}`} className="animate-slow-blink pl-2 pr-2 bg-red-700 hover:bg-red-800 transition-all duration-700 text-white cursor-pointer text-sm font-bold rounded-md shadow-lg hover:shadow-2xl uppercase">En direct</Link>
+        </div>)
+        
+        :"" 
+            } */}
             {
-               postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() && postTitle.toLowerCase().includes('en direct') || postTitle.toLowerCase().includes('live') ?
+               isVisible && postTitle.toLowerCase().includes('en direct') || isVisible && postTitle.toLowerCase().includes('live') ?
               (<div className="right-0 py-7 pr-1 absolute">
           <Link to={`/post/${post.slug}`} className="animate-slow-blink pl-2 pr-2 bg-red-700 hover:bg-red-800 transition-all duration-700 text-white cursor-pointer text-sm font-bold rounded-md shadow-lg hover:shadow-2xl uppercase">En direct</Link>
         </div>)

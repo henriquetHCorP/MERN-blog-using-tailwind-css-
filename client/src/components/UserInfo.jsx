@@ -26,7 +26,7 @@ const UserInfo = ({}) => {
      
         <div className="p-0 gap-0 shadow-none py-4 rounded-2xl w-full h-auto flex flex-col md:flex-row justify-center border border-t-8 border-blue-500">
      {/* <div className="p-2 w-64 h-64"> */}
-     <div className="p-2 w-64 h-72">
+     <div className="p-2 w-64 h-72 overflow-hidden">
      <Card imgSrc= {user.profilePicture} class="p-1 w-64 h-auto md:w-72 lg:w-auto object-contain"/>
       </div>
        <div className="pl-1 md:pl-5 flex flex-col">

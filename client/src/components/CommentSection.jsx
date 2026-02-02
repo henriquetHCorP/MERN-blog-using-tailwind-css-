@@ -353,6 +353,18 @@ export default function CommentSection({postId}) {
 
     //     }
     // }
+
+     const handlePaste = async () => {
+    try {
+      const textFromClipboard = await navigator.clipboard.readText();
+      // Appending the pasted text to existing comment
+      setComment((prev) => prev + '@' + textFromClipboard + ' , ');
+    } catch (err) {
+      console.error("Failed to read clipboard!", err);
+      alert("Veuillez autoriser le presse-papiers à coller.");
+    }
+  };
+
     
   return (
       <div className="max-w-2xl mx-auto w-full p-3">
@@ -385,6 +397,8 @@ export default function CommentSection({postId}) {
                   maxLength='200'
                   onChange={(e) => setComment(e.target.value)}
                   value={comment}
+                  onDoubleClick={handlePaste}
+                   
                 /> 
                 <div className=" flex justify-between items-center mt-5">
                     <p className="text-gray-500 text-xs">{200-comment.length} caractères restants</p>

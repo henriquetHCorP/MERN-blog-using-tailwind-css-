@@ -65,3 +65,14 @@ body{
 .line-height-increase {
   line-height: 2.0; /* A unitless multiplier works well; 1.5 is standard, 2.0 is double spacing */
 }
+
+/* Change "Enter Video URL" placeholder */
+.ql-snow .ql-tooltip.ql-editing[data-mode="video"]::before {
+  content: "Insérer une vidéo (URL):" !important; /* Your language here */
+}
+
+/* Change "Save" button text */
+.ql-snow .ql-tooltip .ql-action::after {
+  content: " Enregistrer" !important;
+}
+

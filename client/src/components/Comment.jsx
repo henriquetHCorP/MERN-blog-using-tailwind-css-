@@ -134,6 +134,25 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
   const navigate = useNavigate(); 
   
   //  console.log("user:", user); 
+
+  const handleCopy = async () => {
+  try {
+    await navigator.clipboard.writeText('user' && user.username);
+    alert(`Réponse initialisée. Double-cliquez dans le champ de commentaires pour répondre à ${user.username}.`);
+  } catch (err) {
+    console.error("Failed to copy!", err);
+  }
+};
+  const handlePaste = async () => {
+    try {
+      const textFromClipboard = await navigator.clipboard.readText();
+      // Appending the pasted text to existing comment
+      setEditedContent((prev) => '@' + textFromClipboard + ' , '+ prev );
+    } catch (err) {
+      console.error("Failed to read clipboard!", err);
+      alert("Veuillez autoriser le presse-papiers à coller.");
+    }
+  };
   return (
     <>
     {/* <div className="flex gap-1 justify-end">
@@ -151,14 +170,14 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
               src={user.profilePicture} 
               //alt={user.username}
               alt="Photo" 
-              onClick={() => currentUser ? navigate(`/user/${user._id}`): navigate('/sign-in')}
+              onClick={() => currentUser ? navigate(`/user/${user._id}`): window.alert(`Vous devez être connecté pour consulter le profil de ${user.username}`)}
               /> 
         </div>
         <div className="flex-1">
             {/* <div > */}
             <div className ="flex items-center mb-1">
                 {/* below, anonymous user in case the user has been deleted  */}
-                <span className="font-bold mr-1 text-xs truncate">{user ? `@${user.username}` : 'Utilisateur supprimé'}</span>
+                <span onClick={() => currentUser? handleCopy() : window.alert(`Vous devez être connecté pour répondre à ${user.username}`)} className="font-bold mr-1 text-xs truncate cursor-pointer">{user ? `@${user.username}` : 'Utilisateur supprimé'}</span>
                 <span className="text-gray-500 text-xs">
                   
                   {moment(comment.createdAt).fromNow()}</span>
@@ -169,6 +188,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                className="mb-2"
                value={editedContent}
                onChange={(e) => setEditedContent(e.target.value)}
+               onDoubleClick={handlePaste}
               />
               <div className="flex justify-end gap-2 text-xs">
                 <Button
@@ -210,6 +230,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                   }
                 </p>
                 {/* below here i added the delete and edit button to the user info page owner  */}
+                {currentUser && <button className="text-gray-400 hover:text-blue-500" onClick={() =>handleCopy()}>Répondre</button>}
                 {
                   currentUser && (currentUser._id === comment.userId || currentUser.isAdmin) && (
                     <>
@@ -230,7 +251,9 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
                         Supprimer
                   </button>
                   </>
+                  
                   )
+                  
                 }
             </div>
           </>
