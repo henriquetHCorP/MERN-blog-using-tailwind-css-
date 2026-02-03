@@ -1,7 +1,24 @@
-import { errorHandler } from "../utils/error.js"
+ import { errorHandler } from "../utils/error.js"
 import  Post from '../models/post.model.js'
+import  User from '../models/user.model.js'
+import nodemailer from 'nodemailer';
 
 export const create = async (req, res, next ) => {
+     
+     
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER, // Your Gmail address
+    pass: process.env.EMAIL_PASS // The 16-character App Password, NOT your regular password
+  },
+  tls: {
+        rejectUnauthorized: false // <--- This line bypasses the error
+    }
+});
+
+
     if (!req.user.isAdmin) {
         return next(errorHandler(403, 'Vous n’êtes pas autorisé à créer d’article'));
     }
@@ -20,8 +37,33 @@ export const create = async (req, res, next ) => {
     }); 
     try {
          const savedPost = await newPost.save(); 
-          res.status(201).json(savedPost); 
+           
+          // 2. Fetch all user emails from the database
+    const users = await User.find({}, 'email'); // Get all users, only select email field
+    const userEmails = users.map(user => user.email).join(', '); // Format as comma-separated list
+     
+    // 3. Send notification emails
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      bcc: userEmails, // All recipient emails
+      subject: "Une nouvelle publication vient de paraître",
+      html: `<p>Titre de la publication: <strong>${newPost.title}</strong></p>
+              <p>Auteur:<strong>${newPost.category}(CellCom)</strong><p/>
+      `
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Email sending error:', error);
+      } else {
+        console.log('Emails sent successfully:', info.response);
+      }
+    });
+
+    //res.status(201).json({ message: 'Post created and notifications sent' });
+    res.status(201).json(savedPost);
         }catch(error){
+            res.status(500).json({ error: error.message });
         next(error); 
     }
 }; 

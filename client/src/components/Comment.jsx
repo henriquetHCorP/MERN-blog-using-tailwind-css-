@@ -153,6 +153,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
       alert("Veuillez autoriser le presse-papiers à coller.");
     }
   };
+  const startsWithVowelAndH = /^[aeiouyhàâéèêëîïôûù]/i.test(user.username);
   return (
     <>
     {/* <div className="flex gap-1 justify-end">
@@ -170,7 +171,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
               src={user.profilePicture} 
               //alt={user.username}
               alt="Photo" 
-              onClick={() => currentUser ? navigate(`/user/${user._id}`): window.alert(`Vous devez être connecté pour consulter le profil de ${user.username}`)}
+              onClick={() => currentUser ? navigate(`/user/${user._id}`): window.alert(`Vous devez être connecté pour consulter le profil ${startsWithVowelAndH ? "d'" : "de "}${user.username}`)}
               /> 
         </div>
         <div className="flex-1">
