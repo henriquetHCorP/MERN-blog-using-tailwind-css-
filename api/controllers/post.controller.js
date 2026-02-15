@@ -208,3 +208,53 @@ export const deletepost = async (req, res, next) => {
   //       next(error); 
   //    }
   // }
+
+  export const likepost = async (req, res) => {
+  try {
+    const postSlug = req.params.postSlug;
+const userId = req.body.userId;
+//let cleanedId = userId.replace("userId: ", "")
+//console.log("raw use id:", cleanedId); 
+// console.log(typeof req.body.userId); // Ensure it's a string
+// console.log(req.body.userId.length); //
+
+    // Use MongoDB's $inc operator for an atomic update
+    const post = await Post.findByIdAndUpdate(
+       postSlug, 
+    // { $inc: { numberOfLikes: 1 }, $addToSet: { likes: userId } },
+    //   { new: true, timestamps: false }, // Return the updated document
+    );
+
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+    if(!post.likes.includes(userId)){
+        const post = await Post.findByIdAndUpdate(
+      postSlug,
+      { 
+        $inc: { numberOfLikes: 1 }, 
+        $addToSet: { likes: userId } 
+      },
+      { new: true, timestamps: false }
+    );
+    // Send the new count back to the React client
+    res.status(200).json({ newLikesCount: post.likes.length });
+    } else {
+        const post = await Post.findByIdAndUpdate(
+      postSlug,
+      { 
+        $inc: { numberOfLikes: -1 }, 
+        $pull: { likes: userId } 
+      },
+      { new: true, timestamps: false }
+    );
+    // Send the new count back to the React client
+    res.status(200).json({ newLikesCount: post.likes.length });
+    }
+    
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+}

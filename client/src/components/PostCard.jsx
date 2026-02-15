@@ -87,7 +87,7 @@ export default function PostCard({post}) {
         :"" 
             } */}
             {
-               isVisible && postTitle.toLowerCase().includes('en direct') || isVisible && postTitle.toLowerCase().includes('live') ?
+               isVisible && postTitle.toLowerCase().includes('en direct') || isVisible && postTitle.toLowerCase().includes('(live)') ?
               (<div className="right-0 py-7 pr-1 absolute">
           <Link to={`/post/${post.slug}`} className="animate-slow-blink pl-2 pr-2 bg-red-700 hover:bg-red-800 transition-all duration-700 text-white cursor-pointer text-sm font-bold rounded-md shadow-lg hover:shadow-2xl uppercase">En direct</Link>
         </div>)

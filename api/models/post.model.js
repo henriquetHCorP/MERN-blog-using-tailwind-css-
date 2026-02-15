@@ -29,9 +29,10 @@ import mongoose from "mongoose";
     }, 
     // henriquet add
     likes: {
-      types: Array, 
-      default: [], 
-    },
+    type: [String], // Defines "likes" as an array of strings
+    default: []     // Ensures it initializes as an empty array
+  },
+
     numberOfLikes: {
         type: Number, 
         default:0,

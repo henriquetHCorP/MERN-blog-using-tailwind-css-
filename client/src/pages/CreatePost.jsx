@@ -247,7 +247,7 @@ const formats = [
                     {currentUser._id === "" &&<option value="Affaires sociales">Ministre des Affaires Sociales, Action Humanitaire et Solidarité Nationale</option>}
                     {currentUser._id === "" &&<option value="Commerce Extérieur"> Ministre du Commerce Extérieur</option>}
                     {currentUser._id === "" &&<option value="Intégration Régionale">Ministre de l’Intégration Régionale</option>}
-                    {currentUser._id === "" &&<option value="Communication">Ministre de la Communication, Médias et Porte-Parole du Gouvernement</option>}
+                    {currentUser._id === "699053053735f45c8bf42046" &&<option value="Communication">Ministre de la Communication, Médias et Porte-Parole du Gouvernement</option>}
                     {currentUser._id === "" &&<option value="Formation Professionnelle">Ministre de la Formation Professionnelle</option>}
                     {currentUser._id === "" &&<option value="Genre, Famille et Enfants">Ministre du Genre, Famille et Enfants</option>}
                     {currentUser._id === "" &&<option value="Pêche et Elevage">Ministre de la Pêche et Elevage</option>}

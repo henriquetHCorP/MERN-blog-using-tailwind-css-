@@ -5,9 +5,10 @@ import moment from 'moment';
 
 import { Button, Textarea } from 'flowbite-react';
 import { FaThumbsUp} from 'react-icons/fa'; 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { redirect, useNavigate, useParams } from 'react-router-dom'
+import { signoutSuccess } from '../redux/user/userSlice';
 
 
 moment.locale('fr', {
@@ -79,6 +80,25 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
     const [isEditing, setIsEditing] = useState(false); 
     const [editedContent, setEditedContent] = useState(comment.content); 
     const {currentUser} = useSelector((state) => (state.user)); 
+
+    const dispatch = useDispatch(); 
+
+    const handleSignout = async () => {
+            
+                try {
+                    const res = await fetch('/api/user/signout', {
+                        method: 'POST', 
+                    });
+                    const data = await res.json(); 
+                    if(!res.ok) {
+                        console.log(data.message); 
+                    } else {
+                        dispatch(signoutSuccess()); 
+                    }
+                } catch(error) {
+                    console.log(error.message); 
+                }
+            }; 
     
     // console.log(user); 
     useEffect(() => {
@@ -124,6 +144,20 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
         setIsEditing(false); 
         onEdit(comment, editedContent)
       } 
+      if (res.status === 401) {
+
+                alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                
+                 await handleSignout();
+                
+        console.error('Session expired or unauthorized. Redirecting to sign-in page.');
+        // Log the user out (clear any local storage/cookies)
+        localStorage.removeItem('userToken'); // Example of clearing a token
+        // Redirect to the sign-in page
+        window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
+       
+        return; // Stop further processing
+    }
     } catch(error) {
       console.log(error.message); 
     }

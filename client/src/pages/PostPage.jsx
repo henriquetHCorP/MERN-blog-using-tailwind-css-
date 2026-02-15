@@ -4,6 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
 import CommentSection from "../components/CommentSection";
 import PostCard from "../components/PostCard";
+import LikeButton from "../components/LikeButton";
+import { useSelector } from "react-redux";
+import { FaThumbsUp } from "react-icons/fa";
 
 
 export default function PostPage() {
@@ -14,6 +17,8 @@ export default function PostPage() {
     const [error, setError] = useState(false); 
     const [post, setPost] = useState(null);  
     const [recentPosts, setRecentPosts] = useState(null); 
+
+    const {currentUser} = useSelector((state) => (state.user)); 
 
     //---console.log(posto.postal.posta); 
 
@@ -47,7 +52,7 @@ export default function PostPage() {
     useEffect( () => {
     try { 
           const fetchRecentPosts = async () => {
-            const res = await fetch(`/api/post/getposts?limit=3`); 
+            const res = await fetch(`/api/post/getposts?limit=12`); 
             const data = await res.json(); 
             if(res.ok){
               setRecentPosts(data.posts); 
@@ -80,6 +85,9 @@ export default function PostPage() {
       window.location.reload(); 
     }
   });
+  const savedIsLiked = JSON.parse(localStorage.getItem('isLiked'));
+  const savedCurrentUserId = JSON.parse(localStorage.getItem('currentUser._id'));
+
   return (
     <main className='items-center p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
       
@@ -182,6 +190,20 @@ export default function PostPage() {
     {/* for the post-content className below, go to index.css for styling  */}
     <div className="p-3 max-w-2xl mx-auto w-full post-content" dangerouslySetInnerHTML={{__html:post && post.content}}>
     </div>
+    <div className="">
+      
+      {/* {post.numberOfLikes} */}
+       {currentUser ? <LikeButton postId={post._id} initialLikes={post.likes.length} post={post} userId={currentUser?._id} /> : 
+       <div className="flex flex-col items-center justify-center">
+       <button type='button' onClick={() => alert('Vous devez vous connecter pour aimer ou "liker" une publication')} className="dark:text-blue-500 text-sm">Vous devez vous connecter pour aimer ou "liker" une publication </button>
+          <Link className="text-gray-400 p-2 items-center" to={'/sign-in'}>
+        <FaThumbsUp />
+          </Link>
+          {!currentUser && <p className="text-gray-600 pb-2 italic">Cette publication a été aimée par:{' '}{post.likes.length} {post.likes.length > 1 ? 'internautes' : 'internaute'}</p>}
+          </div>
+        }
+    </div>
+  
     <div className="max-w-4xl mx-auto w-full"> 
         <CallToAction /> 
     </div>

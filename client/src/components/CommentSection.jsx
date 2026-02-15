@@ -159,6 +159,7 @@ export default function CommentSection({postId}) {
                 method:'PUT', 
                 // nothing else like the content type ... because we get the id of the user through commentId
             }); 
+            //console.log("reponse:", comment.numberOfLikes); 
               
             if (res.status === 401) {
 

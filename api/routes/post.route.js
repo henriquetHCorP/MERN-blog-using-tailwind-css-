@@ -1,6 +1,7 @@
 import express from 'express'; 
 import { verifyToken } from '../utils/VerifyUser.js'; 
-import { create, deletepost, getposts, updatepost } from '../controllers/post.controller.js';
+import { create, deletepost, getposts, likepost, updatepost } from '../controllers/post.controller.js';
+import Post from '../models/post.model.js';
 
 const router = express.Router(); 
 
@@ -13,5 +14,10 @@ router.delete('/deletepost/:postId/:userId', verifyToken, deletepost);
 router.put('/updatepost/:postId/:userId', verifyToken, updatepost); 
 // Henriquet add
 // router.put('/likePost/:postId', verifyToken, likePost); 
+
+router.put('/:postSlug/like', verifyToken, likepost); 
+
+
+
 
 export default router; 
