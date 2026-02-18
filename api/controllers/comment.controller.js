@@ -110,7 +110,10 @@ export const getcomments = async (req, res, next) => {
       const comments = await Comment.find()
         .sort({ createdAt: sortDirection })
         .skip(startIndex)
-        .limit(limit); 
+        .limit(limit)
+        .populate('userId', 'username')
+        .populate('postId', 'title');  
+        
         const totalComments = await Comment.countDocuments(); 
         const now = new Date(); 
         // const oneMonthAgo = new Date(now.getFullYear(), now.getMonth()-1, now.getDate()); 

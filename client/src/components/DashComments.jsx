@@ -40,7 +40,7 @@ export default function DashComments() {
      const fetchComments = async () => {
         try {
               // Since this is a get request we don't need to add any method... 
-              const res = await fetch(`/api/comment/getcomments?`)
+              const res = await fetch(`/api/comment/getcomments?sort=desc`)
               // here we convert the json file into data 
               const data = await res.json(); 
               // console.log(data); 
@@ -143,8 +143,10 @@ const handleDeleteComment = async() => {
             <Table.HeadCell>date de mise à jour</Table.HeadCell>
             <Table.HeadCell>Contenu du commentaire</Table.HeadCell>
             <Table.HeadCell>nombre de likes</Table.HeadCell>
-            <Table.HeadCell>PostId</Table.HeadCell>
-            <Table.HeadCell>UserId</Table.HeadCell>
+            {/* <Table.HeadCell>PostId</Table.HeadCell> */}
+            <Table.HeadCell>Titre de la publication</Table.HeadCell>
+            {/* <Table.HeadCell>UserId</Table.HeadCell> */}
+            <Table.HeadCell>Noms d'utilisateur</Table.HeadCell>
             {/* <Table.HeadCell>Username</Table.HeadCell> */}
             <Table.HeadCell>Supprimer</Table.HeadCell>
             
@@ -172,11 +174,14 @@ const handleDeleteComment = async() => {
                   
                 {/* </Link>  */}
                 </Table.Cell>
-                <Table.Cell>{comment.postId}</Table.Cell>
+                {/* <Table.Cell>{comment.postId}</Table.Cell> */}
+                <Table.Cell>{comment.postId?.title || <p className="italic">Cette publication a été supprimée </p>}</Table.Cell>
                 {/* my idea was to handle this way : <Table.Cell>{user.isAdmin ? (<HiCheck />): (<span>No</span>)}</Table.Cell> */}
                 <Table.Cell>
                     {/* {user.isAdmin ? (<FaCheck className="text-green-500"/>) : (<FaTimes className="text-red-500"/>)} */}
-                    {comment.userId}
+                    {/* {comment.userId} */}
+                     {/* below here I found it better to render the username instead of the userId then i modified the comment model by adding ref:User and .populate to the fetch comment query in comment controller */}
+                    {comment.userId?.username}
                     </Table.Cell>
                     {/* <Table.Cell>
                       {comment.username}
@@ -187,7 +192,7 @@ const handleDeleteComment = async() => {
                       setShowModal(true);   
                       setCommentIdToDelete(comment._id); 
                     }}
-                    className="font-medium text-red-500 hover:underline">
+                    className="font-medium text-red-500 hover:underline cursor-pointer">
                     Supprimer
                     </span>
                 </Table.Cell>

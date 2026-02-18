@@ -193,7 +193,9 @@ export default function PostPage() {
     <div className="">
       
       {/* {post.numberOfLikes} */}
-       {currentUser ? <LikeButton postId={post._id} initialLikes={post.likes.length} post={post} userId={currentUser?._id} /> : 
+      <>
+       {currentUser ? 
+       <LikeButton postId={post._id} initialLikes={post.likes.length} post={post} userId={currentUser?._id} /> : 
        <div className="flex flex-col items-center justify-center">
        <button type='button' onClick={() => alert('Vous devez vous connecter pour aimer ou "liker" une publication')} className="dark:text-blue-500 text-sm">Vous devez vous connecter pour aimer ou "liker" une publication </button>
           <Link className="text-gray-400 p-2 items-center" to={'/sign-in'}>
@@ -202,6 +204,7 @@ export default function PostPage() {
           {!currentUser && <p className="text-gray-600 pb-2 italic">Cette publication a été aimée par:{' '}{post.likes.length} {post.likes.length > 1 ? 'internautes' : 'internaute'}</p>}
           </div>
         }
+        </>
     </div>
   
     <div className="max-w-4xl mx-auto w-full"> 

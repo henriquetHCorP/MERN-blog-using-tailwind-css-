@@ -1,13 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaHeart, FaRegHeart, FaThumbsUp } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { signoutSuccess } from '../redux/user/userSlice';
+
 
 const LikeButton = ({ postId, initialLikes, post}) => {
     const {currentUser} = useSelector((state) => (state.user));
   const [likes, setLikes] = useState(initialLikes);
   const [isLiked, setIsLiked] = useState(false); // Track if user has liked during this session
   const [loading, setLoading] = useState(false); 
+
+  const dispatch = useDispatch(); 
+    
+
+    const handleSignout = async () => {
+        
+            try {
+                const res = await fetch('/api/user/signout', {
+                    method: 'POST', 
+                });
+                const data = await res.json(); 
+                if(!res.ok) {
+                    console.log(data.message); 
+                } else {
+                    dispatch(signoutSuccess()); 
+                }
+            } catch(error) {
+                console.log(error.message); 
+            }
+        }; 
   
      const userId = currentUser._id; 
     //  console.log("user id:", userId); 
@@ -26,18 +48,29 @@ const LikeButton = ({ postId, initialLikes, post}) => {
       // Update the local state with the new like count from the server response
       if(response.ok){
         setLoading(false); 
-
       }
-      
-      
       setLikes(response.data.newLikesCount);
       
       //window.location.reload(); 
       setIsLiked(true);
-
+      
       
       // console.log('response:', response); 
     } catch (error) {
+       if (error.status === 401) {
+
+                alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                
+                 await handleSignout();
+                
+        console.error('Session expired or unauthorized. Redirecting to sign-in page.');
+        // Log the user out (clear any local storage/cookies)
+        localStorage.removeItem('userToken'); // Example of clearing a token
+        // Redirect to the sign-in page
+        window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
+       
+        return; // Stop further processing
+    }
       console.error("Error liking the post:", error);
       // Optional: show an error message to the user
       
@@ -46,7 +79,6 @@ const LikeButton = ({ postId, initialLikes, post}) => {
     }
     
   };
-
   return (
     <div className="flex items-center p-1 gap-1">
        {/* <button  type='button' onClick={()=> handleLikeClick()} className={`text-gray-400 hover:text-blue-500 ${currentUser && post.likes.includes(currentUser._id) && '!text-blue-500'}`}> */}
