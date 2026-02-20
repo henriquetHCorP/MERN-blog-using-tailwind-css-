@@ -18,6 +18,8 @@ import {
 import { useDispatch } from 'react-redux';
 import {HiOutlineExclamationCircle} from 'react-icons/hi'
 
+import toast from 'react-hot-toast';
+
 export default function DashProfile() {
 
   
@@ -172,9 +174,16 @@ export default function DashProfile() {
         if(!res.ok){
           dispatch(deleteUserFailure(data.message)); 
           if(res.status === 401) {
-            window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
-            handleSignout();
-            navigate('/sign-in');
+            //window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+             toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous sur DRC Gov Social Media avec une adresse e-mail et un mot de passe valides.', {duration:10000})
+            //handleSignout();
+            setTimeout(() => {
+      handleSignout();
+    }, 10000)
+           // navigate('/sign-in');
+           setTimeout(() => {
+      window.location.href = '/sign-in';
+    }, 10000)
           }
         } else {
             dispatch(deleteUserSuccess(data)); 

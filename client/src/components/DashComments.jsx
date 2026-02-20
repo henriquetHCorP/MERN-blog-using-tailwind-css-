@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FaCheck, FaTimes } from 'react-icons/fa'; 
 import { useNavigate } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
+import toast from 'react-hot-toast';
 
 export default function DashComments() {
   const { currentUser } = useSelector((state) => state.user);  
@@ -55,8 +56,10 @@ export default function DashComments() {
               if(res.status === 401){
 
                  if(res.status === 401){
-                     window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
-                    handleSignout();
+            //        window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+            //         handleSignout();
+                      toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous sur DRC Gov Social Media avec une adresse e-mail et un mot de passe valides.', {duration:10000})
+                  handleSignout();
                     navigate('/sign-in');
                   }
                   // if(!res.ok){

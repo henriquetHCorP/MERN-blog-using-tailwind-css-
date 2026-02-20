@@ -8,6 +8,7 @@ import { signoutSuccess } from '../redux/user/userSlice';
 
 import { BsFillSendFill } from 'react-icons/bs'
 import { BsSend } from 'react-icons/bs'
+import toast from 'react-hot-toast';
 
 
 export default function CommentSection({postId}) {
@@ -163,16 +164,19 @@ export default function CommentSection({postId}) {
               
             if (res.status === 401) {
 
-                alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
-                
+                //alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous sur DRC Gov Social Media avec une adresse e-mail et un mot de passe valides.', {duration:10000})
                  await handleSignout();
+                 
                 
         console.error('Session expired or unauthorized. Redirecting to sign-in page.');
         // Log the user out (clear any local storage/cookies)
         localStorage.removeItem('userToken'); // Example of clearing a token
         // Redirect to the sign-in page
-        window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
-       
+       // window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
+       setTimeout(() => {
+      window.location.href = '/sign-in';
+    }, 10000)
         return; // Stop further processing
     }
     if (!res.ok) {
@@ -314,15 +318,17 @@ export default function CommentSection({postId}) {
             //  }
 
             if (res.status === 401) {
-                 alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                 toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous sur DRC Gov Social Media avec une adresse e-mail et un mot de passe valides.', {duration:10000})
                  await handleSignout();
-                
+
         console.error('Session expired or unauthorized. Redirecting to sign-in page.');
         // Log the user out (clear any local storage/cookies)
         localStorage.removeItem('userToken'); // Example of clearing a token
         // Redirect to the sign-in page
-        window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
-       
+        //window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
+       setTimeout(() => {
+      window.location.href = '/sign-in';
+    }, 10000)
         return; // Stop further processing
     }
         }catch(error){
@@ -362,7 +368,8 @@ export default function CommentSection({postId}) {
       setComment((prev) => prev + '@' + textFromClipboard + ' , ');
     } catch (err) {
       console.error("Failed to read clipboard!", err);
-      alert("Veuillez autoriser le presse-papiers à coller.");
+    //   alert("Veuillez autoriser le presse-papiers à coller.");
+        toast.error('Veuillez autoriser le presse-papiers à coller.')
     }
   };
 

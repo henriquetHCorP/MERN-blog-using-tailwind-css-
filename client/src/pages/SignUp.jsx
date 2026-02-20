@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import {Alert, Button, Label, Spinner, TextInput} from 'flowbite-react'
 import OAuth from '../components/OAuth';
+import toast from 'react-hot-toast';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -44,8 +45,11 @@ export default function SignUp() {
      }
      setLoading(false); 
      if(res.ok) {
-       window.alert("Votre inscription sur DRC Gov Social Media a été effectuée avec succès. Cliquez sur OK pour continuer.")
-      navigate('/sign-in');
+       //window.alert("Votre inscription sur DRC Gov Social Media a été effectuée avec succès. Cliquez sur OK pour continuer.")
+       toast.success('Votre inscription sur DRC Gov Social Media a été effectuée avec succès.', {duration:6000})
+       setTimeout(() => {
+    navigate('/sign-in');
+  }, 2000);
      }
   } catch(error) {
       //  setErrorMessage(error.message);

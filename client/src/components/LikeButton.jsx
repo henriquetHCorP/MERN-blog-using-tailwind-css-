@@ -4,6 +4,7 @@ import { FaHeart, FaRegHeart, FaThumbsUp } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { signoutSuccess } from '../redux/user/userSlice';
 
+import toast from 'react-hot-toast';
 
 const LikeButton = ({ postId, initialLikes, post}) => {
     const {currentUser} = useSelector((state) => (state.user));
@@ -59,16 +60,18 @@ const LikeButton = ({ postId, initialLikes, post}) => {
     } catch (error) {
        if (error.status === 401) {
 
-                alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
-                
-                 await handleSignout();
+                // alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous sur DRC Gov Social Media avec une adresse e-mail et un mot de passe valides.', { duration: 10000 });
+                await handleSignout();
                 
         console.error('Session expired or unauthorized. Redirecting to sign-in page.');
         // Log the user out (clear any local storage/cookies)
         localStorage.removeItem('userToken'); // Example of clearing a token
         // Redirect to the sign-in page
-        window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
-       
+        // window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
+       setTimeout(() => {
+      window.location.href = '/sign-in';
+    }, 10001)
         return; // Stop further processing
     }
       console.error("Error liking the post:", error);

@@ -1,15 +1,17 @@
 import { Button, Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
 import CommentSection from "../components/CommentSection";
 import PostCard from "../components/PostCard";
 import LikeButton from "../components/LikeButton";
 import { useSelector } from "react-redux";
 import { FaThumbsUp } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 
 export default function PostPage() {
+  const navigate = useNavigate(); 
 
    //in the line below, postSlug is the rename of what you get by using getparams; 
     const {postSlug} = useParams(); 
@@ -87,7 +89,14 @@ export default function PostPage() {
   });
   const savedIsLiked = JSON.parse(localStorage.getItem('isLiked'));
   const savedCurrentUserId = JSON.parse(localStorage.getItem('currentUser._id'));
-
+  
+  
+  const handleLikeButton = () => {
+     toast('Vous devez vous connecter pour aimer ou "liker" une publication', {icon:'⚠️', duration:5000})
+      setTimeout(() => {
+      navigate('/sign-in');
+    }, 2000); 
+    }
   return (
     <main className='items-center p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
       
@@ -197,8 +206,11 @@ export default function PostPage() {
        {currentUser ? 
        <LikeButton postId={post._id} initialLikes={post.likes.length} post={post} userId={currentUser?._id} /> : 
        <div className="flex flex-col items-center justify-center">
-       <button type='button' onClick={() => alert('Vous devez vous connecter pour aimer ou "liker" une publication')} className="dark:text-blue-500 text-sm">Vous devez vous connecter pour aimer ou "liker" une publication </button>
-          <Link className="text-gray-400 p-2 items-center" to={'/sign-in'}>
+       <button type='button' 
+      //  onClick={() => toast('Vous devez vous connecter pour aimer ou "liker" une publication', {icon:'⚠️', duration:5000})}
+          onClick ={() => toast('Vous devez vous connecter pour aimer ou "liker" une publication', {icon:'⚠️', duration:5000})} 
+       className="dark:text-blue-500 text-sm">Vous devez vous connecter pour aimer ou "liker" une publication </button>
+          <Link className="text-gray-400 p-2 items-center" onClick={()=>handleLikeButton()}>
         <FaThumbsUp />
           </Link>
           {!currentUser && <p className="text-gray-600 pb-2 italic">Cette publication a été aimée par:{' '}{post.likes.length} {post.likes.length > 1 ? 'internautes' : 'internaute'}</p>}

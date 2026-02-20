@@ -18,6 +18,8 @@ import Search from './pages/Search';
 import Privacy from './pages/Privacy';
 import UserInfo from './components/UserInfo';
 
+import { Toaster } from 'react-hot-toast';
+
 
 
 export default function App() {
@@ -27,6 +29,7 @@ export default function App() {
     // </div>
     // <div className="bg-hcorp1">
     <BrowserRouter>
+    <Toaster />
     <ScrollToTop />
     <Header />
       <Routes>

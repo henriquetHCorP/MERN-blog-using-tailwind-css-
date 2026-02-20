@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { redirect, useNavigate, useParams } from 'react-router-dom'
 import { signoutSuccess } from '../redux/user/userSlice';
+import toast from 'react-hot-toast';
 
 
 moment.locale('fr', {
@@ -146,16 +147,18 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
       } 
       if (res.status === 401) {
 
-                alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
-                
+                //alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
+                 toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous sur DRC Gov Social Media avec une adresse e-mail et un mot de passe valides.', {duration:10000})
                  await handleSignout();
                 
         console.error('Session expired or unauthorized. Redirecting to sign-in page.');
         // Log the user out (clear any local storage/cookies)
         localStorage.removeItem('userToken'); // Example of clearing a token
         // Redirect to the sign-in page
-        window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
-       
+       // window.location.href = '/sign-in'; // Replace '/signin' with your actual sign-in route
+       setTimeout(() => {
+      window.location.href = '/sign-in';
+    }, 10000)
         return; // Stop further processing
     }
     } catch(error) {
@@ -172,7 +175,8 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
   const handleCopy = async () => {
   try {
     await navigator.clipboard.writeText('user' && user.username);
-    alert(`Réponse initialisée. Double-cliquez dans le champ de commentaires pour répondre à ${user.username}.`);
+    //alert(`Réponse initialisée. Double-cliquez dans le champ de commentaires pour répondre à ${user.username}.`);
+    toast.success(`Réponse initialisée. Double-cliquez dans le champ de commentaires pour répondre à ${user.username}.`, {duration:6000});
   } catch (err) {
     console.error("Failed to copy!", err);
   }
@@ -184,7 +188,8 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
       setEditedContent((prev) => '@' + textFromClipboard + ' , '+ prev );
     } catch (err) {
       console.error("Failed to read clipboard!", err);
-      alert("Veuillez autoriser le presse-papiers à coller.");
+      // alert("Veuillez autoriser le presse-papiers à coller.");
+      toast.error('Veuillez autoriser le presse-papiers à coller');
     }
   };
   const startsWithVowelAndH = /^[aeiouyhàâéèêëîïôûù]/i.test(user.username);
