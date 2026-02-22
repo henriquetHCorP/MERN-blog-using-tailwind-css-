@@ -153,7 +153,10 @@ export default function CommentSection({postId}) {
     const handleLike = async (commentId) => {
        try {
             if(!currentUser) {
-                navigate('/sign-in');
+                toast('Vous devez être connecté pour aimer ou "liker" un commentaire.',{icon:'⚠️', duration:6000})
+                setTimeout(()=>{
+                   navigate('/sign-in');
+                },1000)
                 return;  
             }
             const res = await fetch(`/api/comment/likeComment/${commentId}`, {

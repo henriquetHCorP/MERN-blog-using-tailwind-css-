@@ -109,8 +109,8 @@ export default function Header() {
 //     icon: theme === 'light' ? <FaMoon/> : '☀️',
 //   })
 //             },1000)}
-           onMouseEnter={handleMouseEnter}
-           onMouseLeave={handleMouseLeave}
+           onPointerEnter={handleMouseEnter}
+           onPointerLeave={handleMouseLeave}
             
             color='gray' 
             pill

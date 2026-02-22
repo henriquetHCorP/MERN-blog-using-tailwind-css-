@@ -210,14 +210,16 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
               src={user.profilePicture} 
               //alt={user.username}
               alt="Photo" 
-              onClick={() => currentUser ? navigate(`/user/${user._id}`): window.alert(`Vous devez être connecté pour consulter le profil ${startsWithVowelAndH ? "d'" : "de "}${user.username}`)}
+              // onClick={() => currentUser ? navigate(`/user/${user._id}`): window.alert(`Vous devez être connecté pour consulter le profil ${startsWithVowelAndH ? "d'" : "de "}${user.username}`)}
+              onClick={() => currentUser ? navigate(`/user/${user._id}`): toast(`Vous devez être connecté pour consulter le profil ${startsWithVowelAndH ? "d'" : "de "}${user.username}`, {icon:'⚠️', duration: 7000})}
               /> 
         </div>
         <div className="flex-1">
             {/* <div > */}
             <div className ="flex items-center mb-1">
                 {/* below, anonymous user in case the user has been deleted  */}
-                <span onClick={() => currentUser? handleCopy() : window.alert(`Vous devez être connecté pour répondre à ${user.username}`)} className="font-bold mr-1 text-xs truncate cursor-pointer">{user ? `@${user.username}` : 'Utilisateur supprimé'}</span>
+                {/* <span onClick={() => currentUser? handleCopy() : window.alert(`Vous devez être connecté pour répondre à ${user.username}`)} className="font-bold mr-1 text-xs truncate cursor-pointer">{user ? `@${user.username}` : 'Utilisateur supprimé'}</span> */}
+                 <span onClick={() => currentUser? handleCopy() : toast(`Vous devez être connecté pour répondre à ${user.username}`, {icon:'⚠️', duration:7000})} className="font-bold mr-1 text-xs truncate cursor-pointer">{user ? `@${user.username}` : 'Utilisateur supprimé'}</span>
                 <span className="text-gray-500 text-xs">
                   
                   {moment(comment.createdAt).fromNow()}</span>
