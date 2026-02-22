@@ -6,6 +6,7 @@ import { app } from '../firebase';
 import { useDispatch } from 'react-redux'; 
 import { signInSuccess } from '../redux/user/userSlice'; 
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast';
 export default function OAuth() {
     const auth = getAuth(app); 
     const dispatch = useDispatch(); 
@@ -31,6 +32,7 @@ export default function OAuth() {
           const data = await res.json()
           if (res.ok) {
             dispatch(signInSuccess(data))
+            toast.success(`Bienvenue ${data.username}, votre connexion à DRC Gov Social Media a été effectuée avec succès.`, {duration: 15000})
             // navigate('/') 
               history.back();
           }

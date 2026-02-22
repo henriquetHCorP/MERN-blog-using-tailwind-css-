@@ -1,5 +1,5 @@
 import { Alert, Button, Modal, Textarea } from 'flowbite-react';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'; 
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Comment from './Comment';
@@ -373,6 +373,21 @@ export default function CommentSection({postId}) {
     }
   };
 
+  const timerRef = useRef(null);
+     const handleMouseEnter = () => {
+    timerRef.current = setTimeout(() => {
+      toast('Se Connecter', {
+//     duration: 1500,
+//     icon: theme === 'light' ? <FaMoon/> : '☀️',
+//   }), {
+        duration: 1500,
+        icon:'➜]' ,
+      });
+    }, 500);
+  };
+  const handleMouseLeave = () => {
+    clearTimeout(timerRef.current);
+  };
     
   return (
       <div className="max-w-2xl mx-auto w-full p-3">
@@ -390,11 +405,35 @@ export default function CommentSection({postId}) {
                 </Link> 
             </div>
         ) : (
-            <div className="text-sm text-blue-500 my-5 flex gap-1">
-                Vous devez être connecté pour commenter.
-                <Link className="text-blue-500 hover:underline" to ={'/sign-in'}>
-                    Se connecter 
-                </Link>
+            // <div className="text-sm text-blue-500 my-5 flex gap-1 items-center">
+            <div className="text-sm my-5 flex gap-1 items-center">
+                <button className="flex flex-row"onClick={()=> toast('Vous devez être connecté pour commenter', {icon:'⚠️', duration:6000}) && setTimeout(()=>{
+                       navigate('/sign-in')
+                    },2000)}>
+                    <a className="text-3xl" onClick={()=> setTimeout(()=>{
+                       navigate('/sign-in')
+                    },2000)}>💬</a>
+                    <p className="text-xs">Vous devez être connecté pour commenter.</p>
+                    </button>
+                
+                <Link className="text-blue-500 hover:underline hidden md:block" to ={'/sign-in'}>
+                <Button gradientDuoTone="purpleToBlue" outline className="">
+                                        <p className="">Se connecter</p> 
+                                    </Button>
+                                    </Link>
+                                    
+                                    <Link className="text-blue-500 hover:underline block md:hidden" to={'/sign-in'}>
+                                      <Button 
+                                      onMouseEnter={handleMouseEnter}  
+                                      onMouseLeave={handleMouseLeave}
+                                      
+                                      className='text-blue-500' outline gradientDuoTone="purpleToBlue">
+                                         ➜]
+                                      </Button>
+                                    </Link>
+                                    
+                     
+                
             </div>
         )}
         {currentUser && (

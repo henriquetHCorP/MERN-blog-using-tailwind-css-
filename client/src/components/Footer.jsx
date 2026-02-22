@@ -12,7 +12,8 @@ export default function FooterCom() {
    {/* <Footer container className="border border-t-8 border-blue-500 bg-hcorp1"> */}
         <div className="w-full max-w-7xl mx-auto">
             <div className="grid w-full justify-between sm:flex md:grid-cols-1">
-                <div className="flex flex-1 gap-12">
+                {/* <div className="flex flex-1 gap-12"> */}
+                  <div className="flex flex-1 gap-6"> 
                     {/* <Link
                       to='/'
                       className="self-center whitespace-nowrap text-lg sm:text-xl font-semibold dark:text-white"
@@ -38,7 +39,7 @@ export default function FooterCom() {
             
         </Link>
                 </div>
-                <div className="pt-6 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-2 sm:gap-6">
+                <div className=" pt-3 sm:pt-10 md:pt-6 lg:pt-4 grid grid-cols-2 gap-8 mt-4 sm:grid-cols-2 sm:gap-6">
                    <div>
                    <Footer.Title title='Institutions'/>
                    <Footer.LinkGroup col>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useRef, useState } from 'react'; 
 import { Avatar, Button, Dropdown, Navbar, NavbarLink, TextInput } from 'flowbite-react'
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import {AiOutlineSearch} from 'react-icons/ai'; 
@@ -6,6 +6,7 @@ import { FaMoon, FaSun } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../redux/theme/themeSlice';  
 import { signoutSuccess } from '../redux/user/userSlice';
+import toast from 'react-hot-toast';
  
 export default function Header() {
     const path =useLocation().pathname; 
@@ -35,6 +36,8 @@ export default function Header() {
                 console.log(data.message); 
             } else {
                 dispatch(signoutSuccess()); 
+                console.log("data info:", data); 
+                toast.success('Votre déconnexion à DRC Gov Social Media a été effectuée avec succès.', {duration:7000})
             }
         } catch(error) {
             console.log(error.message); 
@@ -49,6 +52,21 @@ export default function Header() {
         // the searchTerm is the we find inside the value inside the form below 
 
     }
+     const timerRef = useRef(null);
+     const handleMouseEnter = () => {
+    timerRef.current = setTimeout(() => {
+      toast.success(theme === 'light'?'Passer au mode nuit': 'Passer au mode jour', {
+//     duration: 1500,
+//     icon: theme === 'light' ? <FaMoon/> : '☀️',
+//   }), {
+        duration: 1500,
+        icon: theme === 'light' ? <FaMoon/> : '☀️',
+      });
+    }, 500);
+  };
+  const handleMouseLeave = () => {
+    clearTimeout(timerRef.current);
+  };
   return (
     <Navbar className="border-b-1">
      {/* <Navbar className="bg-hcorp1 border-blue-500 border-b-1"> */}
@@ -85,12 +103,21 @@ export default function Header() {
             <Button 
             className="w-12 h-10 sm:inline"
             // className="w-12 h-10 hidden sm:inline"
+//             onMouseEnter={()=> setTimeout(()=>{
+//                 toast(theme === 'light'?'Passer au mode nuit': 'Passer au mode jour', {
+//     duration: 1500,
+//     icon: theme === 'light' ? <FaMoon/> : '☀️',
+//   })
+//             },1000)}
+           onMouseEnter={handleMouseEnter}
+           onMouseLeave={handleMouseLeave}
             
             color='gray' 
             pill
             onClick ={()=>dispatch(toggleTheme())}
             >
-                {theme === 'light' ? <FaMoon /> : <FaSun /> }
+                {/* {theme === 'light' ? <FaMoon /> : <FaSun /> } */}
+                {theme === 'light' ? <FaMoon /> :'☀️'}
             </Button>
             {currentUser ? (
                 <Dropdown

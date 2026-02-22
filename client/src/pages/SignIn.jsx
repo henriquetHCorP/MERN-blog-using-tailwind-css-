@@ -4,6 +4,7 @@ import {Alert, Button, Label, Spinner, TextInput} from 'flowbite-react';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { signInStart, signInFailure, signInSuccess } from '../redux/user/userSlice'
 import OAuth from '../components/OAuth';
+import toast from 'react-hot-toast';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -24,7 +25,8 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
   e.preventDefault(); 
   if (!formData.email || !formData.password) {
       // 
-      return dispatch(signInFailure('Veuillez remplir tous les champs')); 
+      toast.error('Veuillez remplir tous les champs.');
+      return dispatch(signInFailure('Veuillez remplir tous les champs.')); 
   }
   try {
     // setLoading(true); 
@@ -40,11 +42,14 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
 
      if (data.success === false) {
       // return setErrorMessage(data.message); 
+      toast.error(data.message); 
       dispatch(signInFailure(data.message));
      }
     //  setLoading(false); 
      if(res.ok) {
       dispatch(signInSuccess(data)); 
+      // console.log("data info:", data)
+      toast.success(`Bienvenue ${data.username}, votre connexion à DRC Gov Social Media a été effectuée avec succès.`, {duration: 12000})
       // belo here, before it was just about navigating to the home page after sign success and i added the history condition.
       // navigate('/'); 
       // history.back()? history.back() : navigate('/');

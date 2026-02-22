@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom'
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useSelector } from 'react-redux'; 
+import toast from 'react-hot-toast';
 
 
 export default function DashSidebar() {
@@ -39,6 +40,7 @@ export default function DashSidebar() {
                 console.log(data.message); 
             } else {
                 dispatch(signoutSuccess()); 
+                toast.success('Votre déconnexion à DRC Gov Social Media a été effectuée avec succès.', {duration:7000})
             }
         } catch(error) {
             console.log(error.message); 

@@ -20,10 +20,12 @@ export default function SignUp() {
   e.preventDefault(); 
   
   if (!formData.username || !formData.email || !formData.password || !formData.confirmPassword) {
+      toast.error("Veuillez remplir tous les champs.", {duration:6000})
       return setErrorMessage('Veuillez remplir tous les champs.'); 
   }
 
   if(formData.confirmPassword !== formData.password) {
+    toast.error("Les deux mots de passe saisis ne sont pas identiques.", {duration:6000})
     return setErrorMessage('Les deux mots de passe saisis ne sont pas identiques')
   }
   try {
@@ -41,12 +43,13 @@ export default function SignUp() {
      if (data.success === false) {
       // return setErrorMessage(data.message); 
       setLoading(false);
+      toast.error("Désolé, ces informations d'identification existent déjà, veuillez trouver une autre adresse e-mail et un autre nom d'utilisateur.", {duration:10000})
       return setErrorMessage("Désolé, ces informations d'identification existent déjà, veuillez trouver une autre adresse e-mail et un autre nom d'utilisateur"); 
      }
      setLoading(false); 
      if(res.ok) {
        //window.alert("Votre inscription sur DRC Gov Social Media a été effectuée avec succès. Cliquez sur OK pour continuer.")
-       toast.success('Votre inscription sur DRC Gov Social Media a été effectuée avec succès.', {duration:6000})
+       toast.success('Votre inscription sur DRC Gov Social Media a été effectuée avec succès.', {duration:12000})
        setTimeout(() => {
     navigate('/sign-in');
   }, 2000);

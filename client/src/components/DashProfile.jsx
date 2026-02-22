@@ -117,11 +117,13 @@ export default function DashProfile() {
         setUpdateUserSuccess(null); 
          if (Object.keys(formData).length === 0) {
           // setUpdateUserError('No changes made'); 
-          setUpdateUserError('Aucun changement effectué'); 
+          toast.error("Aucun changement effectué.")
+          setUpdateUserError('Aucun changement effectué.'); 
            return; 
          }
          if(imageFileUploading){
           // setUpdateUserError('Please wait for image to upload'); 
+          toast("Veuillez patienter pendant le chargement de l'image", {icon:'⚠️'})
           setUpdateUserError("Veuillez patienter pendant le chargement de l'image"); 
           return; 
          }
@@ -137,26 +139,27 @@ export default function DashProfile() {
              });
              const data = await res.json(); 
              if (!res.ok){
+               toast.error(data.message, {duration:6000})
               dispatch(updateFailure(data.message)); 
               setUpdateUserError(data.message)
               
 
              } else {
                 dispatch(updateSuccess(data)); 
-                setUpdateUserSuccess("Le profil de l'utilisateur a été mis à jour avec succès"); 
+                toast.success("Le profil de l'utilisateur a été mis à jour avec succès.", {duration:6000})
+                setUpdateUserSuccess("Le profil de l'utilisateur a été mis à jour avec succès."); 
              }
              if(res.status === 401) {
-              
               dispatch(updateFailure(data.message)); 
               setUpdateUserError(data.message); 
 
               setTimeout(() => {
                  navigate('/sign-in');
-                  }, 10000);
+                  }, 1000);
 
                   setTimeout(() => {
                     handleSignout();
-                  }, 10001); 
+                  }, 1000); 
              }
          }catch(error){
           dispatch(updateFailure(error.message)); 
@@ -204,6 +207,7 @@ export default function DashProfile() {
           console.log(data.message); 
         } else { 
           dispatch(signoutSuccess()); 
+          toast.success('Votre déconnexion à DRC Gov Social Media a été effectuée avec succès.', {duration:7000})
         }
        }catch(error){
         console.log(error.message); 

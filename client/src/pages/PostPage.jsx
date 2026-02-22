@@ -213,7 +213,7 @@ export default function PostPage() {
           <Link className="text-gray-400 p-2 items-center" onClick={()=>handleLikeButton()}>
         <FaThumbsUp />
           </Link>
-          {!currentUser && <p className="text-gray-600 pb-2 italic">Cette publication a été aimée par:{' '}{post.likes.length} {post.likes.length > 1 ? 'internautes' : 'internaute'}</p>}
+          {!currentUser && <p className="text-gray-600 pb-2 italic dark:text-white">Cette publication a été aimée par:{' '}{post.likes.length} {post.likes.length > 1 ? 'internautes' : 'internaute'}</p>}
           </div>
         }
         </>

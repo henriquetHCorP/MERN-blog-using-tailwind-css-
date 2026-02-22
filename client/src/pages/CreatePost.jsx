@@ -15,6 +15,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { signoutSuccess } from '../redux/user/userSlice';
 
 import { Quill } from 'react-quill';
+import toast from 'react-hot-toast';
 
 const Video = Quill.import('formats/video');
 const Link = Quill.import('formats/link');
@@ -163,6 +164,7 @@ export default function CreatePost() {
 
                  if(res.ok){
                     setPublishError(null) 
+                    toast.success('Votre publication a été effectuée avec succès.', {duration:5000})
                     navigate(`/post/${data.slug}`)
                  }
             }catch(error){
