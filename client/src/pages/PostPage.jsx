@@ -199,7 +199,7 @@ export default function PostPage() {
     {/* for the post-content className below, go to index.css for styling  */}
     <div className="p-3 max-w-2xl mx-auto w-full post-content" dangerouslySetInnerHTML={{__html:post && post.content}}>
     </div>
-    <div className="">
+    <div className="border-t dark:border-gray-600">
       
       {/* {post.numberOfLikes} */}
       <>
@@ -208,8 +208,8 @@ export default function PostPage() {
        <div className="flex flex-col items-center justify-center">
        <button type='button' 
       //  onClick={() => toast('Vous devez vous connecter pour aimer ou "liker" une publication', {icon:'⚠️', duration:5000})}
-          onClick ={() => toast('Vous devez vous connecter pour aimer ou "liker" une publication', {icon:'⚠️', duration:5000})} 
-       className="dark:text-blue-500 text-sm">Vous devez vous connecter pour aimer ou "liker" une publication </button>
+          onClick ={() => toast('Vous devez vous connecter pour aimer ou "liker" une publication', {icon:'⚠️', duration:6000}) && setTimeout(()=>{navigate('/sign-in')}, 2000)} 
+       className="dark:text-blue-500 text-sm flex flex-row items-center"> <p className="animate-slow-blink">🔔</p>Vous devez vous connecter pour aimer ou "liker" une publication </button>
           <Link className="text-gray-400 p-2 items-center" onClick={()=>handleLikeButton()}>
         <FaThumbsUp />
           </Link>

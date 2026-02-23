@@ -415,7 +415,7 @@ export default function CommentSection({postId}) {
                     },2000)}>
                     <a className="text-3xl" onClick={()=> setTimeout(()=>{
                        navigate('/sign-in')
-                    },2000)}>💬</a>
+                    },2000)}><p className="text-sm animate-slow-blink -mt-1">🔔</p></a>
                     <p className="text-xs">Vous devez être connecté pour commenter.</p>
                     </button>
                 
@@ -427,8 +427,8 @@ export default function CommentSection({postId}) {
                                     
                                     <Link className="text-blue-500 hover:underline block md:hidden" to={'/sign-in'}>
                                       <Button 
-                                      onMouseEnter={handleMouseEnter}  
-                                      onMouseLeave={handleMouseLeave}
+                                      onPointerEnter={handleMouseEnter}  
+                                      onPointerLeave={handleMouseLeave}
                                       
                                       className='text-blue-500' outline gradientDuoTone="purpleToBlue">
                                          ➜]
@@ -478,8 +478,9 @@ export default function CommentSection({postId}) {
         ) : (
             <>
             <div className="tex-sm my-5 flex items-center gap-1">
-                <p>Commentaires</p>
-                <div className="border border-gray-400 py-1 px-2 rounded-sm">
+                <p>💬Commentaires</p>
+                {/* <div className="border border-gray-400 py-1 px-2 rounded-sm"> */}
+                <div className="border border-blue-500 border-t-4 py-1 px-2 rounded-sm -mt-1 rounded-tl-md rounded-br-md">
                     <p>{comments.length}</p>
                 </div>
             </div>
