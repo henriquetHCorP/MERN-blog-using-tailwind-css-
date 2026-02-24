@@ -33,7 +33,7 @@ const UserInfo = ({}) => {
         {/* <Table hoverable className="shadow-md p-10"> */}
           <div className="p-12 pb-3 pl-2 md:p-2">
             {/* <Table.Head> */}
-                        <h1 className='text-xl uppercase font-semibold'>identifiants:</h1>
+                        <h1 className='-mt-10 md:-mt-0 text-xl uppercase font-semibold'>identifiants:</h1>
             {/* </Table.Head> */}
             </div>
         

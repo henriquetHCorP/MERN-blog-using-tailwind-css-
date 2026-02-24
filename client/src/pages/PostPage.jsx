@@ -217,11 +217,11 @@ export default function PostPage() {
        <button type='button' 
       //  onClick={() => toast('Vous devez vous connecter pour aimer ou "liker" une publication', {icon:'⚠️', duration:5000})}
           onClick ={() => toast('Vous devez vous connecter pour aimer ou "liker" une publication', {icon:'⚠️', duration:6000}) && setTimeout(()=>{navigate('/sign-in')}, 2000)} 
-       className="dark:text-blue-500 text-sm flex flex-row items-center"> <p className="animate-slow-blink">🔔</p>Vous devez vous connecter pour aimer ou "liker" une publication </button>
+       className="dark:text-blue-500 text-xs flex flex-row items-center"> <p className="animate-slow-blink">🔔</p>Connectez-vous pour aimer ou "liker" une publication</button>
           <Link className="text-gray-400 p-2 items-center" onClick={()=>handleLikeButton()}>
         <FaThumbsUp />
           </Link>
-          {!currentUser && <p className="text-gray-600 pb-2 italic dark:text-white">Cette publication a été aimée par:{' '}{post.likes.length} {post.likes.length > 1 ? 'internautes' : 'internaute'}</p>}
+          {!currentUser && <p className="text-gray-600 pb-2 italic dark:text-white text-sm">Cette publication a été aimée par:{' '}{post.likes.length} {post.likes.length > 1 ? 'internautes' : 'internaute'}</p>}
           </div>
         }
         </>

@@ -416,7 +416,7 @@ export default function CommentSection({postId}) {
                     <a className="text-3xl" onClick={()=> setTimeout(()=>{
                        navigate('/sign-in')
                     },2000)}><p className="text-sm animate-slow-blink -mt-1">🔔</p></a>
-                    <p className="text-xs">Vous devez être connecté pour commenter.</p>
+                    <p className="text-xs">Connectez-vous pour commenter.</p>
                     </button>
                 
                 <Link className="text-blue-500 hover:underline hidden md:block" to ={'/sign-in'}>
