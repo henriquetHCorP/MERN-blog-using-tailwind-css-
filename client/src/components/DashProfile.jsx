@@ -146,8 +146,8 @@ export default function DashProfile() {
 
              } else {
                 dispatch(updateSuccess(data)); 
-                toast.success("Le profil de l'utilisateur a été mis à jour avec succès.", {duration:6000})
-                setUpdateUserSuccess("Le profil de l'utilisateur a été mis à jour avec succès."); 
+                toast.success("Votre profil d'utilisateur a été mis à jour avec succès.", {duration:6000})
+                setUpdateUserSuccess("Votre profil d'utilisateur a été mis à jour avec succès."); 
              }
              if(res.status === 401) {
               dispatch(updateFailure(data.message)); 
@@ -289,7 +289,7 @@ export default function DashProfile() {
               gradientDuoTone='purpleToBlue'
               className='w-full'
             >
-              Créer un article ou une vidéo
+              Créer un article et/ou une vidéo
             </Button>
             </Link>
           )}

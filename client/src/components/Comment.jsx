@@ -193,6 +193,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
     }
   };
   const startsWithVowelAndH = /^[aeiouyhàâéèêëîïôûù]/i.test(user.username);
+  
   return (
     <>
     {/* <div className="flex gap-1 justify-end">

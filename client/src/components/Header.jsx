@@ -67,8 +67,17 @@ export default function Header() {
   const handleMouseLeave = () => {
     clearTimeout(timerRef.current);
   };
+
+  const customTheme = {
+  link: {
+    active: {
+      on: "bg-blue-700 text-white dark:text-white md:bg-transparent md:text-blue-700 rounded-2xl",
+      off: "border-b border-gray-100 text-gray-700 rounded-2xl hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
+    }
+  }
+};
   return (
-    <Navbar className="border-b-1">
+    <Navbar theme={customTheme} className="border-b-1">
      {/* <Navbar className="bg-hcorp1 border-blue-500 border-b-1"> */}
             {/* <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Flag-map_of_the_Democratic_Republic_of_the_Congo.png" className="shadow-lg hover:shadow-md object-fit bg bg-none border border-2xl w-20 h-20"/>  */}
             {/* <img src="/drc-gov-social-media.png" className="shadow-lg hover:shadow-md object-fit bg bg-none w-20 h-20"/>  */}
@@ -140,6 +149,10 @@ export default function Header() {
                         {/* <Dropdown.Item>Profil</Dropdown.Item> */}
                         <Dropdown.Item>Mon compte</Dropdown.Item>
                     </Link>
+                    <Link to={`/user/${currentUser._id}`}>
+                        {/* <Dropdown.Item>Profil</Dropdown.Item> */}
+                        <Dropdown.Item>Mon profil</Dropdown.Item>
+                    </Link>
                     <Dropdown.Divider /> 
                     <Dropdown.Item onClick={handleSignout}>Se déconnecter</Dropdown.Item>
 
@@ -156,22 +169,27 @@ export default function Header() {
             <Navbar.Toggle /> 
         </div>
             <Navbar.Collapse>
-                
+                <Link to='/'>
                 <Navbar.Link active={path === "/"} as={'div'}>
                     <Link to='/'>
                         Acceuil
                     </Link>
                 </Navbar.Link >
+                </Link>
+                <Link to='/about'>
                 <Navbar.Link active={path === "/about"} as={'div'}>
                     <Link to='/about'>
                         A propos
                     </Link>
                 </Navbar.Link>
+                </Link>
+                <Link to='/projects'>
                 <Navbar.Link active={path === "/projects"}as={'div'}>
                     <Link to='/projects'>
                        Actualités 
                     </Link>
                 </Navbar.Link>
+                </Link>
                 
             </Navbar.Collapse>
      </Navbar>

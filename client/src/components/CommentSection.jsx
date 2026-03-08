@@ -62,6 +62,7 @@ export default function CommentSection({postId}) {
 
         if (urlPattern.test(comment)) {
       setCommentError('Les commentaires ne doivent pas contenir de liens.');
+      toast.error('Les commentaires ne doivent pas contenir de liens.');
       return; // Stop the submission
     }
       try {
@@ -80,7 +81,7 @@ export default function CommentSection({postId}) {
               }
 
               if(res.status === 401) {
-               
+                 toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.', {duration:15000})
                  setTimeout(() => {
                  navigate('/sign-in');
                   }, 10000);
@@ -102,7 +103,7 @@ export default function CommentSection({postId}) {
 
                if(res.status === 401) {
                   throw new Error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
-               }
+                }
               if(!res.ok){
                 // handleSignout() && 
                 // return (
@@ -214,7 +215,8 @@ export default function CommentSection({postId}) {
         //const commentWithoutSpaces = comment.replace(/\s/g, '');
 
         if (urlPattern.test(editedContent)) {
-      alert('Les commentaires modifiés ne doivent pas contenir de liens.');
+      //alert('Les commentaires modifiés ne doivent pas contenir de liens.');
+        toast.error('Les commentaires modifiés ne doivent pas contenir de liens.')
       return;
         }
            setComments(
@@ -468,7 +470,6 @@ export default function CommentSection({postId}) {
                 </div>
                 {commentError && <Alert color="failure" className="mt-5">
                     {commentError}
-
                 </Alert>}
                 
             </form>

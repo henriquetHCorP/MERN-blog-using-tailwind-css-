@@ -193,7 +193,7 @@ const formats = [
 
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
-        <h1 className="text-center text-xl my-7 font-semibold">Créer un article ou une vidéo</h1>
+        <h1 className="text-center text-xl my-7 font-semibold">Créer un article et/ou une vidéo</h1>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>  
             <div className="gap-4 sm:flex-row justify-between">
                 <TextInput 
