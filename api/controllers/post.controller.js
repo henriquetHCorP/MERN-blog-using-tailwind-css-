@@ -19,9 +19,15 @@ const transporter = nodemailer.createTransport({
 });
 
 
-    if (!req.user.isAdmin) {
-        return next(errorHandler(403, 'Vous n’êtes pas autorisé à créer d’article'));
-    }
+    // if (!req.user.isAdmin) {
+    //     return next(errorHandler(403, 'Vous n’êtes pas autorisé à créer d’article'));
+    // }
+    const currentUser = await User.findById(req.user.id);
+  
+  if (!currentUser || !currentUser.isAdmin) {
+    return next(errorHandler(403, 'Vous n’êtes plus autorisé à créer d’article'));
+    
+  }
     if (!req.body.title || !req.body.content || !req.body.category || req.body.category === "...") {
         return next(errorHandler(400, 'Veuillez remplir tous les champs obligatoires'))
     }

@@ -7,6 +7,8 @@ import DashUsers from '../components/DashUsers';
 import DashAdms from '../components/DashAdms';
 import DashComments from '../components/DashComments';
 import DashboardComp from '../components/DashboardComp';
+import UserManagement from './UserManagement';
+import UserInfo from '../components/UserInfo';
 
 export default function Dashboard() {
   const location = useLocation(); 
@@ -31,6 +33,8 @@ export default function Dashboard() {
      {tab === 'profile' && <DashProfile /> }
      {/* posts... */}
      {tab === 'posts' && <DashPosts />}
+     {/* Settings */}
+      {tab === 'toggle-admin' && <UserManagement />}
      {/* adms */}
      {tab === 'adms' && <DashAdms />}
      {/* users  */}

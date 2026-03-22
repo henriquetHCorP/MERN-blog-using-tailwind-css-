@@ -83,6 +83,7 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
     const {currentUser} = useSelector((state) => (state.user)); 
 
     const dispatch = useDispatch(); 
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const handleSignout = async () => {
             
@@ -212,8 +213,33 @@ export default function Comment({comment, onLike, onEdit, onDelete}) {
               //alt={user.username}
               alt="Photo" 
               // onClick={() => currentUser ? navigate(`/user/${user._id}`): window.alert(`Vous devez être connecté pour consulter le profil ${startsWithVowelAndH ? "d'" : "de "}${user.username}`)}
-              onClick={() => currentUser ? navigate(`/user/${user._id}`): toast(`Vous devez être connecté pour consulter le profil ${startsWithVowelAndH ? "d'" : "de "}${user.username}`, {icon:'⚠️', duration: 7000})}
+              // onClick={() => currentUser ? navigate(`/user/${user._id}`)
+              //onClick={() => currentUser ? window.open(`/user/${user._id}`, '_blank', 'noopener,noreferrer') 
+              onClick={() => currentUser? setSelectedImage(user.profilePicture) 
+              : toast(`Vous devez être connecté pour consulter le profil ${startsWithVowelAndH ? "d'" : "de "}${user.username}`, {icon:'⚠️', duration: 7000})}
               /> 
+
+               {/* Modal Overlay */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedImage(null)} // Close on background click
+        >
+          <div className="relative max-w-2xl max-h-full">
+            <img 
+              src={selectedImage} 
+              alt={user.username} 
+              className="max-w-full max-h-[80vh] rounded-lg"
+            />
+            <button 
+              className="absolute top-2 right-2 text-white text-2xl font-bold bg-gray-800 rounded-full w-8 h-8 flex items-center justify-center"
+              onClick={() => setSelectedImage(null)}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
         </div>
         <div className="flex-1">
             {/* <div > */}

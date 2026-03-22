@@ -155,7 +155,7 @@ export default function UpdatePost() {
                  const data = await res.json(); 
                  if(!res.ok) {
                     setPublishError(data.message)
-                    
+                    toast.error(data.message, {duration:10000}); 
                     if(res.status === 401){
                         setTimeout(() =>{
                         navigate('/sign-in'); 
@@ -302,10 +302,11 @@ const formats = [
                     <option value="VM Affaires Coutumières">Vice-Ministre des Affaires Coutumières</option>
                       */}
                     
-                    <option value="...">Sélectionner l'appartenance de votre cellcom</option>
+                    {/* <option value="...">Sélectionner l'appartenance de votre cellcom</option> */}
+                    <option value="...">Confirmer l'appartenance de votre cellcom</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
-                    {currentUser._id ==="6658c9589144a8a1bf5f2015" && <option value="Présidence">Présidence</option>}
+                    {currentUser._id === import.meta.env.VITE_PR_ID && <option value="Présidence">Présidence</option>}
                     {currentUser._id === "6681d7a57be22de25eb96b82" && <option value="Premier Ministre">Premier Ministre</option>}
                     {currentUser._id === "" && <option value="Interieur">VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</option>}
                     {currentUser._id === "" &&<option value="Transport">VPM, Ministre des Transports et Voies de Communication et Désenclavement</option>}
@@ -326,7 +327,7 @@ const formats = [
                     {currentUser._id === "66d6235d399aa8313d458d16" && <option value="Finances">Ministre des Finances</option>}
                     {currentUser._id === "" &&<option value="Industrie et developpement des PME">Ministre de l’Industrie et developpement des Petites et Moyennes Entreprises</option>}
                     {currentUser._id === "" &&<option value="Ressources Hydroliques et Electricité"> Ministre des Ressources Hydroliques et Electricité</option>}
-                    {currentUser._id === "" &&<option value="Mines">Ministre des Mines</option>}
+                    {currentUser.email.includes(import.meta.env.VITE_MINMIN_IN) &&<option value="Mines">Ministre des Mines</option>}
                     {currentUser._id === "" &&<option value="Hydrocarbures"> Ministre des Hydrocarbures</option>}
                     {currentUser._id === "" &&<option value="Emploi et Travail">Ministre de l’Emploi et Travail</option>}
                     {currentUser._id === "" &&<option value="Urbanisme et Habitat">Ministre de l’Urbanisme et Habitat</option>}

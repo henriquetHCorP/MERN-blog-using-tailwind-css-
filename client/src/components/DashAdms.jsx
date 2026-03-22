@@ -20,6 +20,8 @@ export default function DashAdms() {
   const dispatch = useDispatch(); 
 //   console.log(userPosts); 
 
+const [selectedImage, setSelectedImage] = useState(null);
+
 const handleSignout = async () => {
         
             try {
@@ -172,8 +174,34 @@ const handleDeleteAdm = async() => {
                       src={adm.profilePicture}
                       alt={adm.username}
                       className=" w-10 h-10 object-cover bg-gray-500 rounded-full cursor-pointer"
-                      onClick={() => navigate(`/user/${adm._id}`)}
+                      // onClick={() => navigate(`/user/${adm._id}`)}
+                     // onClick={() => window.open(`/user/${adm._id}`, '_blank', 'noopener,noreferrer')} 
+                      onClick={() => setSelectedImage(adm.profilePicture)} 
                     />
+                   
+                    {/* Modal Overlay */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedImage(null)} // Close on background click
+        >
+          
+          <div className="relative max-w-2xl max-h-full">
+            <img 
+              src={selectedImage} 
+              alt={adm.username} 
+              className="max-w-full max-h-[80vh] rounded-lg"
+            />
+            <button 
+              className="absolute top-2 right-2 text-white text-2xl font-bold bg-gray-800 rounded-full w-8 h-8 flex items-center justify-center"
+              onClick={() => setSelectedImage(null)}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
+
                   {/* </Link> */}
                 </Table.Cell>
                 <Table.Cell>

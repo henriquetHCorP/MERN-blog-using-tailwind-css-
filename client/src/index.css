@@ -75,3 +75,74 @@ body{
 .ql-snow .ql-tooltip .ql-action::after {
   content: " Enregistrer" !important;
 }
+
+.no-hover-button:hover {
+  background-color: #2563eb !important; /* Use your button's normal color */
+  /* Add !important for any other properties you want to disable on hover */
+  transform: none !important;
+  opacity: 1 !important;
+  cursor: default !important;
+}
+.no-hover-button2:hover {
+  background-color: #057A55 !important; /* Use your button's normal color */
+  /* Add !important for any other properties you want to disable on hover */
+  transform: none !important;
+  opacity: 1 !important;
+  cursor: default !important;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.modal-layout {
+  display: flex;
+  gap: 20px; /* Space between image and details */
+}
+
+.modal-image-container {
+  flex: 1; /* Takes half the space */
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.modal-details-container {
+  flex: 1; /* Takes the other half */
+}
+
+.modal-title {
+  margin-top: 0;
+}

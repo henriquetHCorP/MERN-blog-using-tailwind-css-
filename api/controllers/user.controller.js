@@ -192,3 +192,21 @@ export const getAdms = async(req, res, next)=>{
      next(error)
    }
 }
+
+export const toggleCellCom = async (req, res) => {
+    if(!req.user.isAdmin) {
+        return next(errorHandler(403, 'You are not allowed to perform cellCom activities')); 
+    }
+    try {
+    const user = await User.findById(req.params.id);
+    if (user) {
+        user.isAdmin = !user.isAdmin; // Toggle value
+        await user.save();
+        res.json({ message: 'Status updated', user });
+    } else {
+        res.status(404).json({ message: 'User not found' });
+    }
+} catch(error){
+    next(error)
+}
+}

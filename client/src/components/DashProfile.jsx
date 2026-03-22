@@ -296,7 +296,11 @@ export default function DashProfile() {
          
       </form>
       <div className="py-4">
-       <Button href={`/user/${currentUser._id}`} className="w-full dark:!from-green-500 dark:!to-blue-500 dark:text-white-500" type='button' gradientDuoTone='purpleToBlue'>
+       <Button 
+          href={`/user/${currentUser._id}`} 
+       //onClick={() => window.open(`/user/${currentUser._id}`, '_blank', 'noopener,noreferrer')} 
+       
+       className="w-full dark:!from-green-500 dark:!to-blue-500 dark:text-white-500" type='button' gradientDuoTone='purpleToBlue'>
   Voir mon profil
 </Button>
 </div>

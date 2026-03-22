@@ -19,6 +19,7 @@ import Privacy from './pages/Privacy';
 import UserInfo from './components/UserInfo';
 
 import { Toaster } from 'react-hot-toast';
+import UserManagement from './pages/UserManagement';
 
 
 
@@ -47,6 +48,7 @@ export default function App() {
         <Route element={<OnlyAdminPrivateRoute />}>
         <Route path="/create-post" element={<CreatePost />} />
         <Route path="/update-post/:postId" element={<UpdatePost />} />
+        <Route path="/toggle-admin" element={<UserManagement />} />
         </Route>
         <Route path="/projects" element={<Projects />} />
         <Route path="/post/:postSlug" element={<PostPage />} />

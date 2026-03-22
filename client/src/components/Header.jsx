@@ -36,7 +36,7 @@ export default function Header() {
                 console.log(data.message); 
             } else {
                 dispatch(signoutSuccess()); 
-                console.log("data info:", data); 
+                // console.log("data info:", data); 
                 toast.success('Votre déconnexion à DRC Gov Social Media a été effectuée avec succès.', {duration:7000})
             }
         } catch(error) {

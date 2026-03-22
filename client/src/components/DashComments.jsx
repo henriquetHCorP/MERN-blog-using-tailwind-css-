@@ -1,5 +1,5 @@
-import { Button, Modal, Table } from 'flowbite-react';
-import React, { useEffect, useState } from 'react'
+import { Button, Modal, Table, TextInput } from 'flowbite-react';
+import React, { useEffect, useMemo, useState } from 'react'
 import { HiCheck, HiOutlineExclamationCircle } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux'; 
 // import { Link } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
 import toast from 'react-hot-toast';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 export default function DashComments() {
   const { currentUser } = useSelector((state) => state.user);  
@@ -41,7 +42,7 @@ export default function DashComments() {
      const fetchComments = async () => {
         try {
               // Since this is a get request we don't need to add any method... 
-              const res = await fetch(`/api/comment/getcomments?sort=desc`)
+              const res = await fetch(`/api/comment/getcomments?limit=99999999999999999999&sort=desc`)
               // here we convert the json file into data 
               const data = await res.json(); 
               // console.log(data); 
@@ -49,6 +50,9 @@ export default function DashComments() {
                 //setUserPosts(data.posts) cfr post.controller.js res.status(200).json({posts, totalPosts,lastMonthPosts,  
                 setComments(data.comments); 
                 if(data.comments.length < 9){
+                  setShowMore(false); 
+                }
+                if(data.comments.length > 10){
                   setShowMore(false); 
                 }
               }
@@ -137,10 +141,34 @@ const handleDeleteComment = async() => {
     }
 
 }
+const [searchTerm, setSearchTerm] = useState('');
+const handleSearch = (event) => {
+  setSearchTerm(event.target.value);
+};
+const filteredData = useMemo(() => {
+    return comments.filter((comment) =>
+      Object.values(comment).some((val) =>
+        String(val).toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+  }, [searchTerm, comments]);
+
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
      {currentUser.isAdmin && comments.length > 0 ? (
         <>
+        <div className="max-w-lg mx-auto p-4">
+                        <TextInput
+                                   id="table-search"
+                                   type='text'
+                                   placeholder='Rechercher un commentaire'
+                                   rightIcon={AiOutlineSearch}
+                                   className=""
+                                   value={searchTerm}
+                                   onChange={(e)=>setSearchTerm(e.target.value) }
+                                  />
+                       </div>
+                
         <Table hoverable className="shadow-md ">
            <Table.Head>
             <Table.HeadCell>date de mise à jour</Table.HeadCell>
@@ -154,7 +182,7 @@ const handleDeleteComment = async() => {
             <Table.HeadCell>Supprimer</Table.HeadCell>
             
            </Table.Head>
-           {comments.map((comment) => (
+           {filteredData.map((comment) => (
             
             <Table.Body className="divide-y" key={comment._id}>
               <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">

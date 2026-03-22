@@ -7,6 +7,8 @@ import { signoutSuccess } from '../redux/user/userSlice';
 import { useSelector } from 'react-redux'; 
 import toast from 'react-hot-toast';
 
+import { FaUsersCog } from "react-icons/fa";
+
 
 export default function DashSidebar() {
 
@@ -78,6 +80,7 @@ export default function DashSidebar() {
                     Profil
                 </Sidebar.Item>
                 </Link>
+                {/* currentUser.isAdmin && (....find details below ...) */}
                 {currentUser.isAdmin && (
                 <Link to='/dashboard?tab=adms'>
                     <Sidebar.Item
@@ -92,13 +95,25 @@ export default function DashSidebar() {
                 </Link>
                 ) }
                 {currentUser.isAdmin && (
-                <Link to='/dashboard?tab=posts'>
+                    <Link to='/dashboard?tab=posts'>
                     <Sidebar.Item
                       active={tab === 'posts'}
                       icon={HiDocumentText}
                       as='div'
                     >
                       Articles
+                    </Sidebar.Item>
+                </Link>
+                )}
+                {currentUser.isAdmin && currentUser._id === import.meta.env.VITE_PR_ID && (
+                <Link to='/dashboard?tab=toggle-admin'>
+                    <Sidebar.Item
+                      active={tab === 'toggle-admin'}
+                      // icon={() => <img src="/admsetting.jpg" alt="" className='h-7 w-7' />}
+                      icon={FaUsersCog}
+                      as='div'
+                    >
+                      Paramètres
                     </Sidebar.Item>
                 </Link>
                 ) }
@@ -116,10 +131,6 @@ export default function DashSidebar() {
                     </Sidebar.Item>
                  </Link>
 
-
-
-                   
-                 
 
 
                  <Link to='/dashboard?tab=comments'>
