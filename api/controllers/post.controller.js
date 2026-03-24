@@ -25,7 +25,7 @@ const transporter = nodemailer.createTransport({
     const currentUser = await User.findById(req.user.id);
   
   if (!currentUser || !currentUser.isAdmin) {
-    return next(errorHandler(403, 'Vous n’êtes plus autorisé à créer d’article'));
+    return next(errorHandler(403, "Vous n'êtes plus autorisé(e) à publier sur ce réseau social."));
     
   }
     if (!req.body.title || !req.body.content || !req.body.category || req.body.category === "...") {
@@ -79,7 +79,7 @@ export const getposts = async (req, res, next ) => {
         //parseInt will convert to integer and if there's no start index or number use 0; 
        const startIndex = parseInt(req.query.startIndex) || 0 ;
        //parseInt will convert the req.query.limit to an integer and if there's no integer limit use 9;
-       const limit = parseInt(req.query.limit) || 9; 
+       const limit = parseInt(req.query.limit) || 99999999999; 
        //sort direction , 1 is for ascending order and -1 is for descending order;
        const sortDirection = req.query.order === 'asc'? 1 : -1; 
        const posts = await Post.find({

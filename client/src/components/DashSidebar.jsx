@@ -101,7 +101,7 @@ export default function DashSidebar() {
                       icon={HiDocumentText}
                       as='div'
                     >
-                      Articles
+                      {currentUser._id === import.meta.env.VITE_PR_ID ? "Publications (Toutes)" :"Mes publications"}
                     </Sidebar.Item>
                 </Link>
                 )}

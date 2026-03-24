@@ -158,7 +158,7 @@ export default function CreatePost() {
                         }, 10001); 
                     }
                     if(res.status === 403){
-                        toast.error('Vous n’êtes pas autorisé à créer d’article');
+                        toast.error("Vous n'êtes plus autorisé(e) à publier sur ce réseau social.");
                     }
 
                     if(res.status === 400){

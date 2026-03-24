@@ -1,11 +1,12 @@
-import { Button, Modal, Table } from 'flowbite-react';
-import React, { useEffect, useState } from 'react'
+import { Button, Label, Modal, Table, TextInput } from 'flowbite-react';
+import React, { useEffect, useMemo, useState } from 'react'
 import { FaThumbsUp } from 'react-icons/fa';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { Link, useNavigate } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
 import toast from 'react-hot-toast';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);  
@@ -15,22 +16,33 @@ export default function DashPosts() {
   const [showModal, setShowModal] = useState(false); 
   const [postIdToDelete, setPostIdToDelete] = useState(''); 
   //console.log(userPosts); 
- 
+   
+  const [loading, setLoading] = useState(false); 
+
   const navigate = useNavigate(); 
   const dispatch = useDispatch(); 
 
   useEffect (() => {
+    // 1. Define the base URL
+const url = currentUser._id === import.meta.env.VITE_PR_ID 
+    ? `/api/post/getposts` 
+    : `/api/post/getposts?userId=${currentUser._id}`;
      const fetchPosts = async () => {
         try {
               // Since this is a get request we don't need to add any method... 
-              const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`)
+              //const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`)
               // here we convert the json file into data 
+              // 2. Perform a single fetch call
+              const res = await fetch(url);
               const data = await res.json(); 
               // console.log(data); 
               if(res.ok){
                 //setUserPosts(data.posts) cfr post.controller.js res.status(200).json({posts, totalPosts,lastMonthPosts,  
                 setUserPosts(data.posts); 
                 if(data.posts.length < 9){
+                  setShowMore(false); 
+                }
+                if(data.posts.length > 9){
                   setShowMore(false); 
                 }
               }
@@ -135,11 +147,50 @@ export default function DashPosts() {
                   console.log(error.message); 
               }
           }; 
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+  const filteredData = useMemo(() => {
+      return userPosts.filter((post) =>
+        Object.values(post).some((val) =>
+          String(val).toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    }, [searchTerm, userPosts]);
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
      {currentUser.isAdmin && userPosts.length > 0 ? (
         <>
-        <Table hoverable className="shadow-md">
+        {/* <Table hoverable className="shadow-md"> */}
+           <div className="mb-4">
+                <Label htmlFor="table-search" value="Search items:" className="sr-only" />
+                {/* <TextInput
+                  id="table-search"
+                  type="text"
+                  placeholder="Search by name or email"
+                  value={searchTerm}
+                   onChange={(e) => setSearchTerm(e.target.value)}
+                /> */}
+                 <div className="max-w-lg mx-auto p-4">
+                  <TextInput
+                             id="table-search"
+                             type='text'
+                             placeholder='Rechercher une publication'
+                             rightIcon={AiOutlineSearch}
+                             className=""
+                             value={searchTerm}
+                             onChange={(e)=>setSearchTerm(e.target.value) }
+                            />
+                 </div>
+              </div>
+               <div>
+                {searchTerm && filteredData && filteredData.length === 1  && <p className="p-1 text-gray-500 text-md dark:text-white">{filteredData.length} résultat trouvé :</p>}
+                {searchTerm && filteredData && filteredData.length > 1  && <p className="p-1 text-gray-500 text-md dark:text-white">{filteredData.length} résultats trouvés :</p>}
+               </div> 
+                  {loading && <p>Chargement en cours...</p>}
+                      {filteredData && filteredData.length >= 1? (<Table hoverable className="shadow-md">
            <Table.Head>
             <Table.HeadCell>date de mise à jour</Table.HeadCell>
             <Table.HeadCell>Image d'article</Table.HeadCell>
@@ -153,7 +204,8 @@ export default function DashPosts() {
               <span>Editer</span>
             </Table.HeadCell>
            </Table.Head>
-           {userPosts.map((post) => (
+           {/* {userPosts.map((post) => ( */}
+           {filteredData.map((post) => (
             <Table.Body className="divide-y">
               <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell>
@@ -205,6 +257,8 @@ export default function DashPosts() {
             </Table.Body>
            ))}
         </Table>
+        ) : !loading && <p className="text-gray-500 text-md dark:text-white"> Aucun résultat trouvé sur DRC Gov Social Media</p>}
+            
         {
           showMore && 
           // (

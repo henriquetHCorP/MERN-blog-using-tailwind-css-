@@ -63,7 +63,7 @@ function UserManagement() {
                   setLoading(false);
                     setShowMore(false); 
                 }
-             // console.log('users:', users)
+             //console.log('users:', users)
 
     
            }catch(error) {
@@ -292,7 +292,7 @@ const filteredData = useMemo(() => {
                             
                             // onClick={() => toggleAdmin(user._id)} 
                         
-                            className="no-hover-button2 cursor-default rounded-md bg-green-600 dark:bg-green-500 mr-5 text-white flex flex-row items-center p-1 gap-1 font-bold">CellCom <FaCheck className="mr-1 text-white"/></Button> 
+                            className="no-hover-button2 cursor-default rounded-md bg-green-600 dark:bg-green-500 mr-5 text-white flex flex-row items-center p-1 gap-1 font-bold">CellCom <FaCheck className="mr-1 ml-1 text-white text-base"/></Button> 
                             : <Button size="xs" 
                             
                             // onClick={() => toggleAdmin(user._id)}  
@@ -309,11 +309,13 @@ const filteredData = useMemo(() => {
                                 </Button>
                             </Table.Cell> */}
 
-                            <Table.Cell> <ToggleSwitch 
+                            <Table.Cell> 
+                            {user && user._id !== import.meta.env.VITE_PR_ID && <ToggleSwitch 
                   checked={user.isAdmin}  
                    color='green'
                   onChange={() => handleToggleClick(user)} 
-                /></Table.Cell>
+                  disabled={user._id === import.meta.env.VITE_PR_ID}
+                />} </Table.Cell>
                             <Table.Cell>
                                               <span 
                                                 onClick={() => {

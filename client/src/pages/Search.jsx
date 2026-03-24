@@ -134,7 +134,7 @@ export default function Search() {
           </div>
           <div className="flex items-center gap-2">
             {/* <label className="font-semibold"> Category:</label> */}
-            <label className="font-semibold"> Categorie:</label>
+            <label className="font-semibold"> Catégorie:</label>
             <Select
               onChange={handleChange}
               value={sidebarData.category}
@@ -241,10 +241,10 @@ export default function Search() {
         </form>
       </div>
       <div className="w-full">
-        <h1 className="text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5">Résultats d’articles:</h1>
+        <h1 className="text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5">{posts && posts.length > 1 ? "Résultats de la recherche:" : "Résultat de la recherche"}</h1>
          <div className="p-7 flex flex-wrap gap-4">
              {!loading && posts.length === 0 && (
-              <p className="text-xl text-gray-500">Aucun article trouvé. </p>
+              <p className="text-xl text-gray-500">Aucune publication trouvée. </p>
             )}
             {loading && <p className="text-xl text-gray-500">Chargement en cours ...</p> && <Spinner />}
             {!loading && posts && posts.map((post ) => (
