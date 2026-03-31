@@ -242,7 +242,9 @@ const formats = [
                 {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
                      
-                    {/* <option value="...">Selectioner la Présidence ou un Ministre correspondant à l'article</option>
+                    { currentUser._id === import.meta.env.VITE_PR_ID  && 
+                    <>
+                    (<option value="...">Selectioner la Présidence ou un Ministre correspondant à la publication</option>
                     
                     <option value="Présidence">Présidence</option>
                     <option value="Premier Ministre">Premier Ministre</option>
@@ -299,14 +301,14 @@ const formats = [
                     <option value="VM Éducation Nationale">Vice-Ministre de l’Éducation Nationale et Nouvelle Citoyenneté</option>
                     <option value="VM Mines">Vice-Ministre des Mines</option>
                     <option value="VM Hydrocarbures">Vice-Ministre des Hydrocarbures</option>
-                    <option value="VM Affaires Coutumières">Vice-Ministre des Affaires Coutumières</option>
-                      */}
+                    <option value="VM Affaires Coutumières">Vice-Ministre des Affaires Coutumières</option>)</>}
+                    
                     
                     {/* <option value="...">Sélectionner l'appartenance de votre cellcom</option> */}
-                    <option value="...">Confirmer l'appartenance de votre cellcom</option>
+                   {currentUser._id !== import.meta.env.VITE_PR_ID  && <option value="...">Confirmer l'appartenance de votre cellcom</option>}
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
-                    {currentUser._id === import.meta.env.VITE_PR_ID && <option value="Présidence">Présidence</option>}
+                    {currentUser._id === "" && <option value="Présidence">Présidence</option>}
                     {currentUser._id === "6681d7a57be22de25eb96b82" && <option value="Premier Ministre">Premier Ministre</option>}
                     {currentUser._id === "" && <option value="Interieur">VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</option>}
                     {currentUser._id === "" &&<option value="Transport">VPM, Ministre des Transports et Voies de Communication et Désenclavement</option>}

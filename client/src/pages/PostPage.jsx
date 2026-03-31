@@ -1,5 +1,5 @@
 import { Button, Spinner } from "flowbite-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
 import CommentSection from "../components/CommentSection";
@@ -8,10 +8,18 @@ import LikeButton from "../components/LikeButton";
 import { useSelector } from "react-redux";
 import { FaThumbsUp } from "react-icons/fa";
 import toast from "react-hot-toast";
+import DOMPurify from 'dompurify';
 
 
 export default function PostPage() {
   const navigate = useNavigate(); 
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const contentRef = useRef(null);
+   //console.log("contentRef:", contentRef); 
+
+ 
+  const toggleExpand = () => setIsExpanded(!isExpanded);
 
    //in the line below, postSlug is the rename of what you get by using getparams; 
     const {postSlug} = useParams(); 
@@ -23,6 +31,7 @@ export default function PostPage() {
     const {currentUser} = useSelector((state) => (state.user)); 
 
     //---console.log(posto.postal.posta); 
+    //console.log("post length:", post?.content.length); 
 
     useEffect(() => {
         // console.log(postSlug)
@@ -43,6 +52,7 @@ export default function PostPage() {
                 setError(false);
                 // for the above line, cfr getposts of the post controller
               }
+              //console.log("length:", post.content.length)
             } catch(error) {
                 setError(true); 
                 setLoading(false); 
@@ -50,6 +60,13 @@ export default function PostPage() {
         }
         fetchPost(); 
     }, [postSlug]); 
+      
+     useEffect(() => {
+    // Check if content exceeds the collapsed height (e.g., 150px)
+    if (contentRef.current && contentRef.current.scrollHeight > 150) {
+      setShowButton(true);
+    }
+  },[post]);
 
     useEffect( () => {
     try { 
@@ -97,6 +114,16 @@ export default function PostPage() {
       navigate('/sign-in');
     }, 2000); 
     }
+
+    const cleanContent = DOMPurify.sanitize(post.content, {
+  FORBID_TAGS: ['iframe']
+});
+
+// Check if content is solely an iframe
+  const isOnlyIframe = post.content.trim().startsWith('<iframe') && 
+                      post.content.trim().endsWith('</iframe>');
+
+  
   return (
     <main className='items-center p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
       
@@ -212,7 +239,20 @@ export default function PostPage() {
         <span className="italic">{post && (post.content.length /1000).toFixed(0)} min de lecture</span>
     </div>
     {/* for the post-content className below, go to index.css for styling  */}
-    <div className="p-3 max-w-2xl mx-auto w-full post-content" dangerouslySetInnerHTML={{__html:post && post.content}}>
+    <div ref={contentRef} className={`p-3 max-w-2xl mx-auto w-full post-content ${isExpanded ? 'expanded' : 'clamped'} dark:p-3 dark:max-w-2xl`} dangerouslySetInnerHTML={{__html:post && post.content}}>
+    </div>
+    {/* <div
+  ref={contentRef}
+  className={`p-3 max-w-2xl mx-auto w-full ${isExpanded ? 'expanded' : 'clamped'} post-content dark:post-content`}
+  dangerouslySetInnerHTML={{ __html: post?.content }}
+/> */}
+    <div className="mr-96">
+       {showButton && post.content.length > 800 && (
+        <button onClick={toggleExpand} className="see-more-btn dark:text-blue-500 text-sm italic">
+          {isExpanded ? 'Lire moins' : 'Lire plus'}
+        </button> 
+      )}
+       
     </div>
     <div className="border-t dark:border-gray-600">
       
