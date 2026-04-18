@@ -21,9 +21,18 @@ function UserManagement() {
 
      const [showModal, setShowModal] = useState(false); 
        const [userIdToDelete, setUserIdToDelete] = useState(''); 
-
+         const [userToDelete, setUserToDelete] = useState(''); 
        const [openModal, setOpenModal] = useState(false);
   const [userToToggle, setUserToToggle] = useState(null);
+
+  const [openModalReset, setOpenModalReset] = useState(false); 
+  const [userToReset, setUserToReset] = useState(null); 
+
+  const handleReset = (user) => {
+    setUserToReset(user); 
+    setOpenModalReset(true); 
+
+  }
 
   const handleToggleClick = (user) => {
     setUserToToggle(user);
@@ -97,6 +106,7 @@ function UserManagement() {
             const { data } = await axios.put(`/api/user/${userId}/toggle-admin`);
             // Update UI
             setUsers(users.map(user => user._id === userId ? data.user : user));
+          //  console.log(data); 
             
         } catch (error) {
             console.error(error);
@@ -104,7 +114,8 @@ function UserManagement() {
     setOpenModal(false);
     };
 const handleDeleteUser = async() => {
-    try {
+    try { 
+         //console.log("user to udelete", userToDelete); 
         const res = await fetch(`api/user/delete/${userIdToDelete}`, {
             method:'DELETE', 
         }); 
@@ -152,7 +163,34 @@ const filteredData = useMemo(() => {
                }
            }; 
    window.history.replaceState(null, '', '/')
-   
+   const userReset = async({userId})=> {
+      try {
+            const { data } = await axios.put(`/api/user/${userId}/reset-password`);
+            // Update UI
+            setUsers(users.map(user => user._id === userId ? data.user : user));
+            //console.log(data); 
+            
+        } catch (error) {
+            console.error(error);
+        }
+   }
+
+   const handleResetPassword = async (userId) => {
+    // if (window.confirm('Are you sure you want to set password to 123456?')) {
+      try {
+        await axios.patch(`/api/user/reset-user-password/${userId}`, {}, {
+          headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+        });
+        toast.success(`le mot de passe ${startsWithVowelAndH ? "d'" : "de "} ${userToReset?.username} a été réinitialisé avec succès'`, {duration:5000});
+      } catch (err) {
+        console.error(err); 
+        toast.error('Erreur lors de la réinitialisation du mot de passe', {duration:5000});
+      }
+      setOpenModalReset(false); 
+    //}
+  };
+  const startsWithVowelAndH = /^[aeiouyhàâéèêëîïôûù]/i.test(userToReset?.username);
+  const startsWithVowelAndH2 = /^[aeiouyhàâéèêëîïôûù]/i.test(userToDelete?.username);
     return (
         <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
             {/* <h1>Gestionnaire des utilisateurs</h1>  */}
@@ -243,7 +281,8 @@ const filteredData = useMemo(() => {
                         <Table.HeadCell>E-mail</Table.HeadCell>
                         {/* <Table.HeadCell>Admin Status</Table.HeadCell> */}
                         <Table.HeadCell>Type de Compte</Table.HeadCell>
-                        <Table.HeadCell>Action</Table.HeadCell>
+                        <Table.HeadCell>Action </Table.HeadCell>
+                        <Table.HeadCell>Réinitialiser</Table.HeadCell>
                         <Table.HeadCell>Supprimer</Table.HeadCell>
                         
                     
@@ -308,6 +347,7 @@ const filteredData = useMemo(() => {
                                     Changer
                                 </Button>
                             </Table.Cell> */}
+                             
 
                             <Table.Cell> 
                             {user && user._id !== import.meta.env.VITE_PR_ID && <ToggleSwitch 
@@ -316,11 +356,27 @@ const filteredData = useMemo(() => {
                   onChange={() => handleToggleClick(user)} 
                   disabled={user._id === import.meta.env.VITE_PR_ID}
                 />} </Table.Cell>
+
+                <Table.Cell>
+                                {user && user._id !== import.meta.env.VITE_PR_ID && user && !user.profilePicture.includes('lh3.googleusercontent.com') && <Button
+                                 size="xs"
+                                  gradientDuoTone="purpleToBlue" className='rounded-full transition-all duration-1000 dark:!from-green-500 dark:!to-blue-500 dark:text-white-500 text-lg shadow-lg'
+                                // onClick={() => userReset(user._id)}
+                                // onClick={() => handleResetPassword(user._id)}
+                                onClick={()=>  handleReset(user)}
+                                
+                                >
+                                    
+                                   Réinitialiser
+                                </Button>
+}
+                            </Table.Cell> 
                             <Table.Cell>
                                               <span 
                                                 onClick={() => {
                                                   setShowModal(true);   
                                                   setUserIdToDelete(user._id); 
+                                                  setUserToDelete(user); 
                                                 }}
                                                 // className="font-medium text-red-500 hover:underline">
                                                 className="font-medium text-red-500 hover:underline hover:cursor-pointer">
@@ -373,7 +429,7 @@ const filteredData = useMemo(() => {
                 <Modal.Body>
                   <div className="text-center">
                     <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
-                    <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Êtes-vous sûr de vouloir supprimer cet utilisateur?</h3>
+                    <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400"> Êtes-vous sûr de vouloir supprimer le compte {startsWithVowelAndH2 ? "d'" : "de "} {userToDelete.username}?</h3>
                      <div className="flex justify-center gap-4">
                       <Button color='failure' onClick={handleDeleteUser}>Oui, je suis sûr</Button>
                       <Button color='gray' onClick={() => setShowModal(false)}>Non, annuler</Button>
@@ -388,7 +444,7 @@ const filteredData = useMemo(() => {
         <Modal.Header />
         <Modal.Body>
           <div className="text-center">
-            <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
+            <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200 animate-blink" />
             {/* <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
               Are you sure you want to {userToToggle?.isAdmin ? 'remove' : 'grant'} admin rights for {userToToggle?.name}?
             </h3> */}
@@ -400,6 +456,31 @@ const filteredData = useMemo(() => {
                 Oui, je suis sûr
               </Button>
               <Button color="gray" onClick={() => setOpenModal(false)}>
+                Non, annuler
+              </Button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={openModalReset} size="md" onClose={() => setOpenModalReset(false)} popup>
+        <Modal.Header />
+        <Modal.Body>
+          <div className="text-center">
+            <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-red-500 dark:text-gray-200 animate-blink" />
+            {/* <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+              Are you sure you want to {userToToggle?.isAdmin ? 'remove' : 'grant'} admin rights for {userToToggle?.name}?
+            </h3> */}
+            <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+               {/* Êtes-vous sûr de vouloir {userToToggle?.isAdmin ? 'retirer' : 'attribuer'}  les privilèges réservés aux types de compte "Cellcom" à {userToToggle?.username}? */}
+                Êtes-vous sûr de vouloir réinitialiser et définir 123456 comme mot de passe par défaut du compte {startsWithVowelAndH ? "d'" : "de "} {userToReset?.username}?
+                <p className="italic text-sm font-bold text-red-500 animate-blink">Attention: Cette opération est irréversible.</p>
+            </h3>
+            <div className="flex justify-center gap-4">
+              <Button color="failure" onClick={() => handleResetPassword(userToReset._id)}>
+                Oui, je suis sûr
+              </Button>
+              <Button color="gray" onClick={() => setOpenModalReset(false)}>
                 Non, annuler
               </Button>
             </div>

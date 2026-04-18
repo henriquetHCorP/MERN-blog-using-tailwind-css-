@@ -246,7 +246,7 @@ export default function PostPage() {
   className={`p-3 max-w-2xl mx-auto w-full ${isExpanded ? 'expanded' : 'clamped'} post-content dark:post-content`}
   dangerouslySetInnerHTML={{ __html: post?.content }}
 /> */}
-    <div className="mr-96">
+    <div className="mr-56 md:mr-96">
        {showButton && post.content.length > 800 && (
         <button onClick={toggleExpand} className="see-more-btn dark:text-blue-500 text-sm italic">
           {isExpanded ? 'Lire moins' : 'Lire plus'}

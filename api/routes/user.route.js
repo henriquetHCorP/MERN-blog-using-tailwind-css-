@@ -1,5 +1,5 @@
 import express from 'express'; 
-import { deleteUser, getAdms, getUser, getUsers, signout, test, toggleCellCom, updateUser } from '../controllers/user.controller.js';
+import { deleteUser, getAdms, getUser, getUsers, signout, test, toggleCellCom, updateUser, userReset } from '../controllers/user.controller.js';
 import { verifyToken } from '../utils/VerifyUser.js';
 
 
@@ -15,6 +15,8 @@ router.get('/:userId', getUser);
 
 // Toggle isAdmin status
 router.put('/:id/toggle-admin', verifyToken, toggleCellCom);
+// Admin API to reset any user's password
+router.patch('/reset-user-password/:id', verifyToken, userReset); 
 
 
 

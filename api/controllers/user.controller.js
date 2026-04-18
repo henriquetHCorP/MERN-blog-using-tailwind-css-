@@ -210,3 +210,28 @@ export const toggleCellCom = async (req, res) => {
     next(error)
 }
 }
+
+export const userReset = async (req, res) => {
+     try {
+    const { id } = req.params;
+    const defaultPassword = '123456';
+    
+    // Hash the default password
+    const salt = await bcryptjs.genSalt(10);
+    const hashedPassword = await bcryptjs.hash(defaultPassword, salt);
+
+    // Update user
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      { password: hashedPassword },
+      { new: true }
+    );
+
+    if (!updatedUser) return res.status(404).json({ msg: 'User not found' });
+    res.json({ msg: 'Password reset to 123456', user: updatedUser });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+
+
+}
