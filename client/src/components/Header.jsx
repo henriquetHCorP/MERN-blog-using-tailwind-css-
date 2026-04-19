@@ -149,6 +149,7 @@ export default function Header() {
                         {/* <Dropdown.Item>Profil</Dropdown.Item> */}
                         <Dropdown.Item>Mon compte</Dropdown.Item>
                     </Link>
+                    <Dropdown.Divider />
                     <Link to={`/user/${currentUser._id}`}>
                         {/* <Dropdown.Item>Profil</Dropdown.Item> */}
                         <Dropdown.Item>Mon profil</Dropdown.Item>

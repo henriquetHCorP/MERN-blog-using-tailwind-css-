@@ -1,10 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
-import {Button, Label, Modal, Table, TextInput, ToggleSwitch} from 'flowbite-react'
+import {Button, Label, Modal, Table, TextInput, ToggleSwitch, Dropdown} from 'flowbite-react'
 import { useNavigate } from 'react-router-dom';
 import { FaCheck, FaUser, FaUserCircle } from 'react-icons/fa';
-import { HiOutlineExclamationCircle, HiOutlineUser } from 'react-icons/hi';
+import { BsMenuButtonWideFill } from "react-icons/bs";
+import { IoMenu } from "react-icons/io5";
+import { HiDotsVertical, HiOutlineExclamationCircle, HiOutlineEye, HiOutlinePencilAlt, HiOutlineTrash, HiOutlineUser } from 'react-icons/hi';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { MdLockReset } from "react-icons/md";
+import { GrUserAdmin } from "react-icons/gr";
 import { CiUser } from "react-icons/ci";
 import toast from 'react-hot-toast';
 import { signoutSuccess } from '../redux/user/userSlice';
@@ -281,9 +285,10 @@ const filteredData = useMemo(() => {
                         <Table.HeadCell>E-mail</Table.HeadCell>
                         {/* <Table.HeadCell>Admin Status</Table.HeadCell> */}
                         <Table.HeadCell>Type de Compte</Table.HeadCell>
-                        <Table.HeadCell>Action </Table.HeadCell>
+                        <Table.HeadCell>Action</Table.HeadCell>
+                        {/* <Table.HeadCell>Action2 </Table.HeadCell>
                         <Table.HeadCell>Réinitialiser</Table.HeadCell>
-                        <Table.HeadCell>Supprimer</Table.HeadCell>
+                        <Table.HeadCell>Supprimer</Table.HeadCell> */}
                         
                     
         
@@ -348,16 +353,54 @@ const filteredData = useMemo(() => {
                                 </Button>
                             </Table.Cell> */}
                              
+                             {/* <Table.Cell>
+            <div className="flex flex-wrap gap-2">
+              <Button size="xs" color="info"><HiOutlineEye className="h-4 w-4" /></Button>
+              <Button size="xs" color="warning"><HiOutlinePencilAlt className="h-4 w-4" /></Button>
+              <Button size="xs" color="failure"><HiOutlineTrash className="h-4 w-4" /></Button>
+            </div>
+          </Table.Cell> */}
+           <Table.Cell>
+              <Dropdown 
+              //label={<HiDotsVertical />} 
+              label={<IoMenu className='w-6 h-6' />} 
+              
+              arrowIcon={false} inline>
+                <Dropdown.Item onClick={() => handleToggleClick(user)} className="items-center gap-1">
+                  <GrUserAdmin />  
+                 {user.isAdmin ? 'Retirer les privilèges "CellCom" ' : 'Attribuer les privilèges "CellCom"' } 
+                </Dropdown.Item>
+                <Dropdown.Divider />
+               {user && user._id !== import.meta.env.VITE_PR_ID && user && !user.profilePicture.includes('lh3.googleusercontent.com') &&  <Dropdown.Item className="items-center gap-1" onClick={()=>  handleReset(user)}>
+                   <MdLockReset />
+                  Réinitialiser le compte
+                </Dropdown.Item>
+}
+                <Dropdown.Divider />
+                {!user.isAdmin && <Dropdown.Item 
+                 onClick={() => {
+                                                  setShowModal(true);   
+                                                  setUserIdToDelete(user._id); 
+                                                  setUserToDelete(user); 
+                                                }}
+                  className="text-red-600 items-center dark:text-red-500 gap-1"
+                >
 
-                            <Table.Cell> 
+                 <HiOutlineTrash className="h-4 w-4" /> 
+                 Supprimer le compte
+                </Dropdown.Item>
+}
+              </Dropdown>
+            </Table.Cell>
+                            {/* <Table.Cell> 
                             {user && user._id !== import.meta.env.VITE_PR_ID && <ToggleSwitch 
                   checked={user.isAdmin}  
                    color='green'
                   onChange={() => handleToggleClick(user)} 
                   disabled={user._id === import.meta.env.VITE_PR_ID}
-                />} </Table.Cell>
+                />} </Table.Cell> */}
 
-                <Table.Cell>
+                {/* <Table.Cell>
                                 {user && user._id !== import.meta.env.VITE_PR_ID && user && !user.profilePicture.includes('lh3.googleusercontent.com') && <Button
                                  size="xs"
                                   gradientDuoTone="purpleToBlue" className='rounded-full transition-all duration-1000 dark:!from-green-500 dark:!to-blue-500 dark:text-white-500 text-lg shadow-lg'
@@ -370,20 +413,20 @@ const filteredData = useMemo(() => {
                                    Réinitialiser
                                 </Button>
 }
-                            </Table.Cell> 
-                            <Table.Cell>
+                            </Table.Cell>  */}
+                            {/* <Table.Cell>
                                               <span 
                                                 onClick={() => {
                                                   setShowModal(true);   
                                                   setUserIdToDelete(user._id); 
                                                   setUserToDelete(user); 
                                                 }}
-                                                // className="font-medium text-red-500 hover:underline">
+                                                //  className="font-medium text-red-500 hover:underline">
                                                 className="font-medium text-red-500 hover:underline hover:cursor-pointer">
-                                                {/* Delete */}
+                                                
                                                 {user.isAdmin? null : "Supprimer"}
                                                 </span>
-                                            </Table.Cell>
+                                            </Table.Cell> */}
                                             {/* <Table.Cell> <ToggleSwitch 
                   checked={user.isAdmin} 
                   onChange={() => handleToggleClick(user)} 
