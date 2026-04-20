@@ -368,15 +368,16 @@ const filteredData = useMemo(() => {
               arrowIcon={false} inline>
                 <Dropdown.Item onClick={() => handleToggleClick(user)} className="items-center gap-1">
                   <GrUserAdmin />  
-                 {user.isAdmin ? 'Retirer les privilèges "CellCom" ' : 'Attribuer les privilèges "CellCom"' } 
+                 {/* {user.isAdmin ? <p className="shadow-md">Retirer les privilèges "CellCom" </p> : <p className="shadow-md">Attribuer les privilèges "CellCom"</p> }  */}
+                 {user.isAdmin ? <p className="shadow-md">Retirer des "CellCom" </p> : <p className="shadow-md">Ajouter aux "CellCom"</p> } 
                 </Dropdown.Item>
-                <Dropdown.Divider />
+                {/* <Dropdown.Divider /> */}
                {user && user._id !== import.meta.env.VITE_PR_ID && user && !user.profilePicture.includes('lh3.googleusercontent.com') &&  <Dropdown.Item className="items-center gap-1" onClick={()=>  handleReset(user)}>
                    <MdLockReset />
-                  Réinitialiser le compte
+                  <p className="shadow-md">Réinitialiser le compte</p>
                 </Dropdown.Item>
 }
-                <Dropdown.Divider />
+                {/* <Dropdown.Divider /> */}
                 {!user.isAdmin && <Dropdown.Item 
                  onClick={() => {
                                                   setShowModal(true);   
@@ -387,7 +388,7 @@ const filteredData = useMemo(() => {
                 >
 
                  <HiOutlineTrash className="h-4 w-4" /> 
-                 Supprimer le compte
+                 <p className="shadow-md">Supprimer le compte</p>
                 </Dropdown.Item>
 }
               </Dropdown>
