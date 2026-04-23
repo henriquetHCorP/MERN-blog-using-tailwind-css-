@@ -28,6 +28,10 @@ const transporter = nodemailer.createTransport({
     return next(errorHandler(403, "Vous n'êtes plus autorisé(e) à publier sur ce réseau social."));
     
   }
+  if (currentUser && currentUser.isBlocked === true) {
+    return next(errorHandler(403, "Vous n'êtes plus autorisé(e) à publier sur ce réseau social."));
+    
+  }
     if (!req.body.title || !req.body.content || !req.body.category || req.body.category === "...") {
         return next(errorHandler(400, 'Veuillez remplir tous les champs obligatoires'))
     }

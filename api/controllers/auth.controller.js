@@ -68,7 +68,11 @@ export const google = async (req, res, next) => {
      const {email, name, googlePhotoUrl } = req.body; 
      try { 
         const user = await User.findOne({email}); 
-        if(user){
+         if(user && user.isBlocked === true){
+           next(errorHandler(403, 'Désolé, ce compte a été suspendu.'))
+        }
+       
+        if(user && user.isBlocked === false){
             const token = jwt.sign({id: user._id, isAdmin:user.isAdmin}, process.env.JWT_SECRET); 
             const {password, ...rest} = user._doc; 
             res.status(200).cookie('access_token', token, {

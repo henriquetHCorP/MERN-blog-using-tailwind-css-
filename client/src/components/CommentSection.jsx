@@ -104,6 +104,10 @@ export default function CommentSection({postId}) {
                if(res.status === 401) {
                   throw new Error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
                 }
+                if(res.status === 403) {
+                    toast.error("Vous n'êtes plus autorisé(e) à publier de commentaire sur ce réseau social.", {duration:5000})
+                    throw new Error("Vous n'êtes plus autorisé(e) à publier de commentaire sur ce réseau social.")
+                }
               if(!res.ok){
                 // handleSignout() && 
                 // return (

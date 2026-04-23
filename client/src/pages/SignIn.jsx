@@ -46,6 +46,15 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
       dispatch(signInFailure(data.message));
      }
     //  setLoading(false); 
+     if (data.isBlocked === true) {
+        toast.error("Désolé, ce compte a été suspendu.");
+        dispatch(signInFailure(data.message));
+        return;
+      }
+      if(res.status === 403) {
+        toast.error("Désolé, ce compte a été suspendu.");
+        dispatch(signInFailure(data.message));
+      }
      if(res.ok) {
       dispatch(signInSuccess(data)); 
       // console.log("data info:", data)

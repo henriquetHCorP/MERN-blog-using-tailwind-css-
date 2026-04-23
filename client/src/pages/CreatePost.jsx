@@ -309,7 +309,8 @@ const formats = [
                     {currentUser._id === "" &&<option value="Industrie et developpement des PME">Ministre de l’Industrie et developpement des Petites et Moyennes Entreprises</option>}
                     {currentUser._id === "" &&<option value="Ressources Hydroliques et Electricité"> Ministre des Ressources Hydroliques et Electricité</option>}
                     {/* {currentUser._id === "" &&<option value="Mines">Ministre des Mines</option>} */}
-                    {currentUser.email.includes(import.meta.env.VITE_MINMIN_IN) && <option value="Mines">Ministre des Mines</option>}
+                    {/* {currentUser.email.includes(import.meta.env.VITE_MINMIN_IN) && <option value="Mines">Ministre des Mines</option>} */}
+                    {currentUser._id === "69ea1609247cb1850188f2b1" && <option value="Mines">Ministre des Mines</option>}
                     {currentUser._id === "" &&<option value="Hydrocarbures"> Ministre des Hydrocarbures</option>}
                     {currentUser._id === "" &&<option value="Emploi et Travail">Ministre de l’Emploi et Travail</option>}
                     {currentUser._id === "" &&<option value="Urbanisme et Habitat">Ministre de l’Urbanisme et Habitat</option>}

@@ -1,8 +1,16 @@
 import Comment from "../models/comment.model.js";
+import User from "../models/user.model.js";
 import { errorHandler } from "../utils/error.js";
 
 //  import  Comment  from "/models/comment.model.js"
 export const createComment = async (req, res, next) => {
+
+  const currentUser = await User.findById(req.user.id);
+  
+  if (!currentUser || currentUser.isBlocked === true) {
+    return next(errorHandler(403, "Vous n'êtes plus autorisé(e) à publier sur ce réseau social."));
+    
+  }
     try {
       const { content, postId, userId} = req.body; 
          // ibelow, f the userId is not the same as the one inside the cookie, "you'are not allow to comment"

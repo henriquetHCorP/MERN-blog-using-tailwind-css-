@@ -2,6 +2,18 @@
 import { errorHandler } from '../utils/error.js';
 import User from '../models/user.model.js';
 
+const FORBIDDEN_USER_IDS= [
+  "6681d7a57be22de25eb96b82",
+  "6924157d7e5e81010202ec46",
+  "6800379a3210a81630a4af74",
+  "6964bf57b15d50f0a19c1fcf",
+  "6953f277308bf59062360b79",
+  "66d6235d399aa8313d458d16",
+  "699053053735f45c8bf42046",
+  "69ea1609247cb1850188f2b1",
+
+ ]
+
 export const test = (req, res) => {
     res.json({ message: 'API is working!'}); 
 }; 
@@ -67,6 +79,9 @@ export const updateUser = async(req, res, next) => {
         }
     };
 export const deleteUser = async(req, res, next) => {
+    if (FORBIDDEN_USER_IDS.includes(req.params.userId)) {
+    return next(errorHandler(403, "This user is a cellcom member he cannot be deleted." ));
+  }
     if(!req.user.isAdmin && req.user.id !== req.params.userId){
        return next(errorHandler(403, "Vous n'êtes pas autorisé à supprimer cet utilisateur"));     
     }
@@ -233,5 +248,18 @@ export const userReset = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 
-
 }
+
+export const toggleBlockUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    user.isBlocked = !user.isBlocked; // Toggle status
+    await user.save();
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

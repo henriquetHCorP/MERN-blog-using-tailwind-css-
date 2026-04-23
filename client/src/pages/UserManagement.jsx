@@ -6,7 +6,13 @@ import { FaCheck, FaUser, FaUserCircle } from 'react-icons/fa';
 import { BsMenuButtonWideFill } from "react-icons/bs";
 import { IoMenu } from "react-icons/io5";
 import { HiDotsVertical, HiOutlineExclamationCircle, HiOutlineEye, HiOutlinePencilAlt, HiOutlineTrash, HiOutlineUser } from 'react-icons/hi';
+import { RiDeleteBin7Fill } from "react-icons/ri";
+import { FaTimesCircle } from 'react-icons/fa';
+import { FiXCircle } from 'react-icons/fi';
+import { MdCancel } from 'react-icons/md';
+import { FaLockOpen } from "react-icons/fa6";
 import { AiOutlineSearch } from 'react-icons/ai';
+import { MdBlockFlipped } from "react-icons/md";
 import { MdLockReset } from "react-icons/md";
 import { GrUserAdmin } from "react-icons/gr";
 import { CiUser } from "react-icons/ci";
@@ -63,10 +69,11 @@ function UserManagement() {
               setLoading(false); 
                toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous sur DRC Gov Social Media avec une adresse e-mail et un mot de passe valides.', {duration:10000})
                  await handleSignout();
-                 setTimeout(() => {
-      window.location.href = '/sign-in';
-    }, 10000)
+    //              setTimeout(() => {
+    //   window.location.href = '/sign-in';
+    // }, 10000)
             }
+           
             if(data.users.length < 9){
               setLoading(false)
                   setShowMore(false); 
@@ -124,16 +131,27 @@ const handleDeleteUser = async() => {
             method:'DELETE', 
         }); 
         const data = await res.json(); 
+
+         if(res.status === 403){ 
+              toast.error('Le compte de cet utilisateur ne peut être supprimé.', {duration:10000})
+  //              setTimeout(() => {
+  //    toast.error('User cannot be deleted.', {duration:4000})
+  //  }, 10000)
+              
+                
+            }
         
         if(res.ok) {
             setUsers((prev) => prev.filter((user) => user._id!== userIdToDelete)); 
             setShowModal(false); 
         } else {
             console.log(data.message); 
+            setShowModal(false)
         }
 
     } catch(error) {
         console.log(error.message); 
+        setShowModal(false); 
     }
 
 }
@@ -195,6 +213,29 @@ const filteredData = useMemo(() => {
   };
   const startsWithVowelAndH = /^[aeiouyhàâéèêëîïôûù]/i.test(userToReset?.username);
   const startsWithVowelAndH2 = /^[aeiouyhàâéèêëîïôûù]/i.test(userToDelete?.username);
+
+  const handleToggleBlock = async (id) => {
+  try {
+    const res = await axios.put(`/api/user/block/${id}`);
+    //console.log("response:", res)
+    toast.success(`${res.data.username} a été ${res.data.isBlocked ? 'bloqué(e)' : 'débloqué(e)'} avec succès.`, {duration: 5000});
+    // Refresh user list
+    setUsers(users.map(user => user._id === id ? res.data : user));
+  } catch (error) {
+    toast.error('Failed to update status');
+  }
+};
+
+//  const FORBIDDEN_USER_IDS= [
+//   "6681d7a57be22de25eb96b82",
+//   "6924157d7e5e81010202ec46",
+//   "6800379a3210a81630a4af74",
+//   "6964bf57b15d50f0a19c1fcf",
+//   "6953f277308bf59062360b79",
+//   "66d6235d399aa8313d458d16",
+//   "699053053735f45c8bf42046",
+
+//  ]
     return (
         <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
             {/* <h1>Gestionnaire des utilisateurs</h1>  */}
@@ -283,6 +324,7 @@ const filteredData = useMemo(() => {
                         <Table.HeadCell>Image</Table.HeadCell>
                         <Table.HeadCell>Noms</Table.HeadCell>
                         <Table.HeadCell>E-mail</Table.HeadCell>
+                        {/* <Table.HeadCell>block unblock</Table.HeadCell> */}
                         {/* <Table.HeadCell>Admin Status</Table.HeadCell> */}
                         <Table.HeadCell>Type de Compte</Table.HeadCell>
                         <Table.HeadCell>Action</Table.HeadCell>
@@ -300,6 +342,7 @@ const filteredData = useMemo(() => {
                             <Table.Cell> {new Date(user.createdAt).toLocaleDateString('fr-FR')}</Table.Cell>
 
                             <Table.Cell>
+                              <div className="relative inline-block">
                                <img 
                       src={user.profilePicture}
                       alt={user.userName}
@@ -308,6 +351,21 @@ const filteredData = useMemo(() => {
                       //onClick={() => window.open(`/user/${user._id}`, '_blank', 'noopener,noreferrer')} 
                        onClick={() => setSelectedImage(user.profilePicture)} 
                     />
+                    {user.isBlocked && (
+      <>
+        {/* Diagonal Line 1 */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full h-0.5 bg-blue-600 rotate-45 transform origin-center"></div>
+        </div>
+        {/* Diagonal Line 2 */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full h-0.5 bg-blue-600 -rotate-45 transform origin-center"></div>
+        </div>
+        {/* Optional: Add a subtle overlay to dim the picture */}
+        <div className="absolute inset-0 bg-black/10 rounded-full"></div>
+      </>
+    )}
+    </div>
                            {/* Modal Overlay */}
       {selectedImage && (
         <div 
@@ -361,22 +419,28 @@ const filteredData = useMemo(() => {
             </div>
           </Table.Cell> */}
            <Table.Cell>
-              <Dropdown 
+             {user && user._id !== import.meta.env.VITE_PR_ID && <Dropdown 
               //label={<HiDotsVertical />} 
               label={<IoMenu className='w-6 h-6' />} 
               
               arrowIcon={false} inline>
-                <Dropdown.Item onClick={() => handleToggleClick(user)} className="items-center gap-1">
+                <Dropdown.Item onClick={() => handleToggleClick(user)} className="items-center gap-3">
                   <GrUserAdmin />  
                  {/* {user.isAdmin ? <p className="shadow-md">Retirer les privilèges "CellCom" </p> : <p className="shadow-md">Attribuer les privilèges "CellCom"</p> }  */}
                  {user.isAdmin ? <p className="shadow-md">Retirer des "CellCom" </p> : <p className="shadow-md">Ajouter aux "CellCom"</p> } 
                 </Dropdown.Item>
                 {/* <Dropdown.Divider /> */}
-               {user && user._id !== import.meta.env.VITE_PR_ID && user && !user.profilePicture.includes('lh3.googleusercontent.com') &&  <Dropdown.Item className="items-center gap-1" onClick={()=>  handleReset(user)}>
+               {user && user._id !== import.meta.env.VITE_PR_ID && user && !user.profilePicture.includes('lh3.googleusercontent.com') &&  <Dropdown.Item className="items-center gap-3" onClick={()=>  handleReset(user)}>
                    <MdLockReset />
                   <p className="shadow-md">Réinitialiser le compte</p>
                 </Dropdown.Item>
+                
 }
+
+<Dropdown.Item className="items-center gap-3" onClick={() => handleToggleBlock(user._id)}>
+                  { !user.isBlocked ? <FaTimesCircle className="text-blue-500"/> : <FaLockOpen className="text-blue-500"/>}
+                  <p className="shadow-md">{user.isBlocked === true ? 'Débloquer le compte' :'Bloquer le compte'}</p>
+                </Dropdown.Item>
                 {/* <Dropdown.Divider /> */}
                 {!user.isAdmin && <Dropdown.Item 
                  onClick={() => {
@@ -384,15 +448,25 @@ const filteredData = useMemo(() => {
                                                   setUserIdToDelete(user._id); 
                                                   setUserToDelete(user); 
                                                 }}
-                  className="text-red-600 items-center dark:text-red-500 gap-1"
+                  className="text-red-600 items-center dark:text-red-500 gap-3"
                 >
 
-                 <HiOutlineTrash className="h-4 w-4" /> 
+                 {/* <HiOutlineTrash className="h-4 w-4" />  */}
+                 <RiDeleteBin7Fill className="h-4 w-4" /> 
                  <p className="shadow-md">Supprimer le compte</p>
                 </Dropdown.Item>
 }
               </Dropdown>
+}
             </Table.Cell>
+            {/* <Table.Cell>
+  <Button 
+    color={user.isBlocked ? "success" : "failure"} 
+    onClick={() => handleToggleBlock(user._id)}
+  >
+    {user.isBlocked ? "Unblock" : "Block"}
+  </Button>
+</Table.Cell> */}
                             {/* <Table.Cell> 
                             {user && user._id !== import.meta.env.VITE_PR_ID && <ToggleSwitch 
                   checked={user.isAdmin}  

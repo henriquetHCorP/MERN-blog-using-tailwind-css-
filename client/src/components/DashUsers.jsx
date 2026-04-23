@@ -208,6 +208,7 @@ const filteredData = useMemo(() => {
                 </Table.Cell>
                 <Table.Cell>
                   {/* <Link to={`/post/${post.slug}`}> */}
+                  <div className="relative inline-block">
                     <img 
                       src={user.profilePicture}
                       alt={user.userName}
@@ -216,6 +217,21 @@ const filteredData = useMemo(() => {
                       //onClick={() => window.open(`/user/${user._id}`, '_blank', 'noopener,noreferrer')} 
                      onClick={() => setSelectedImage(user.profilePicture)} 
                     />
+                    {user.isBlocked && (
+      <>
+        {/* Diagonal Line 1 */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full h-0.5 bg-blue-600 rotate-45 transform origin-center"></div>
+        </div>
+        {/* Diagonal Line 2 */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full h-0.5 bg-blue-600 -rotate-45 transform origin-center"></div>
+        </div>
+        {/* Optional: Add a subtle overlay to dim the picture */}
+        <div className="absolute inset-0 bg-black/10 rounded-full"></div>
+      </>
+      )}
+    </div>
                     {/* Modal Overlay */}
       {selectedImage && (
         <div 
