@@ -1,6 +1,8 @@
 import { Button, Modal, Table, TextInput } from 'flowbite-react';
 import React, { useEffect, useMemo, useState } from 'react'
 import { HiCheck, HiOutlineExclamationCircle } from 'react-icons/hi';
+import { FaRegUser } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux'; 
 // import { Link } from 'react-router-dom';
 import { FaCheck, FaTimes } from 'react-icons/fa'; 
@@ -191,7 +193,8 @@ const filteredData = useMemo(() => {
             <Table.HeadCell>Image d'utilisateur</Table.HeadCell>
             <Table.HeadCell>Nom d'utilisateur</Table.HeadCell>
             <Table.HeadCell>E-mail</Table.HeadCell>
-            <Table.HeadCell>CellCom</Table.HeadCell>
+            {/* <Table.HeadCell>CellCom</Table.HeadCell> */}
+            <Table.HeadCell>Compte</Table.HeadCell>
             <Table.HeadCell>Supprimer</Table.HeadCell>
             
            </Table.Head>
@@ -217,6 +220,12 @@ const filteredData = useMemo(() => {
                       //onClick={() => window.open(`/user/${user._id}`, '_blank', 'noopener,noreferrer')} 
                      onClick={() => setSelectedImage(user.profilePicture)} 
                     />
+      {/* Admin Checkmark Badge */}
+      {user.isAdmin === true && (
+        <span className="absolute -top-2 -right-3.5 flex h-5 w-5 items-center justify-center rounded-full bg-green-500 border-2 border-white text-white text-xs font-bold shadow-md">
+          ✓
+        </span>
+      )}
                     {user.isBlocked && (
       <>
         {/* Diagonal Line 1 */}
@@ -263,7 +272,13 @@ const filteredData = useMemo(() => {
                 </Table.Cell>
                 <Table.Cell>{user.email}</Table.Cell>
                 {/* my idea was to handle this way : <Table.Cell>{user.isAdmin ? (<HiCheck />): (<span>No</span>)}</Table.Cell> */}
-                <Table.Cell>{user.isAdmin ? (<FaCheck className="text-green-500"/>) : (<FaTimes className="text-red-500"/>)}</Table.Cell>
+                {/* <Table.Cell>{user.isAdmin ? (<FaCheck className="text-green-500"/>) : (<FaUserAlt className="text-blue-500"/>)}</Table.Cell> */}
+                <Table.Cell>{user.isAdmin ? <div className="flex flex-row items-center">
+                                 <FaCheck className="text-green-500"/> <p className="text-green-500 text-sm px-1">CellCom</p></div> 
+                                  : <div className="flex flex-row items-center">
+                                    <FaUserAlt className="text-blue-500"/>
+                                    <p className="text-blue-500 text-sm px-1">Utilisateur</p>
+                                  </div>}</Table.Cell>
                 <Table.Cell>
                   <span 
                     onClick={() => {

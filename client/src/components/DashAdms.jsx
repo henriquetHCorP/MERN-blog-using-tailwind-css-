@@ -170,6 +170,7 @@ const handleDeleteAdm = async() => {
                 </Table.Cell>
                 <Table.Cell>
                   {/* <Link to={`/post/${post.slug}`}> */}
+                  <div className='relative inline-block'>
                     <img 
                       src={adm.profilePicture}
                       alt={adm.username}
@@ -178,6 +179,28 @@ const handleDeleteAdm = async() => {
                      // onClick={() => window.open(`/user/${adm._id}`, '_blank', 'noopener,noreferrer')} 
                       onClick={() => setSelectedImage(adm.profilePicture)} 
                     />
+{/* Admin Checkmark Badge */}
+      {adm.isAdmin === true && (
+        <span className="absolute -top-2 -right-3.5 flex h-5 w-5 items-center justify-center rounded-full bg-green-500 border-2 border-white text-white text-xs font-bold shadow-md">
+          ✓
+        </span>
+      )}
+                    {adm.isBlocked && (
+      <>
+        {/* Diagonal Line 1 */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full h-0.5 bg-blue-600 rotate-45 transform origin-center"></div>
+        </div>
+        {/* Diagonal Line 2 */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full h-0.5 bg-blue-600 -rotate-45 transform origin-center"></div>
+        </div>
+        {/* Optional: Add a subtle overlay to dim the picture */}
+        <div className="absolute inset-0 bg-black/10 rounded-full"></div>
+      </>
+    )}
+                    </div>
+
                    
                     {/* Modal Overlay */}
       {selectedImage && (

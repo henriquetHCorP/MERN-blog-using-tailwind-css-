@@ -351,6 +351,12 @@ const filteredData = useMemo(() => {
                       //onClick={() => window.open(`/user/${user._id}`, '_blank', 'noopener,noreferrer')} 
                        onClick={() => setSelectedImage(user.profilePicture)} 
                     />
+                    {/* Admin Checkmark Badge */}
+      {user.isAdmin === true && (
+        <span className="absolute -top-2 -right-3.5 flex h-5 w-5 items-center justify-center rounded-full bg-green-500 border-2 border-white text-white text-xs font-bold shadow-md">
+          ✓
+        </span>
+      )}
                     {user.isBlocked && (
       <>
         {/* Diagonal Line 1 */}
