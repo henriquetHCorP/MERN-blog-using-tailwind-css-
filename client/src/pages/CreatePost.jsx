@@ -195,7 +195,7 @@ const formats = [
   'list', 'bullet',
   'link', 'image', 'video'
 ];
-    window.history.replaceState(null, '', '/')
+    //window.history.replaceState(null, '', '/')
 
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">

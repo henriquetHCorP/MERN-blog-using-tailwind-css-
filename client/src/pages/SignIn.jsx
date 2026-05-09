@@ -64,8 +64,12 @@ const {loading, error:errorMessage} = useSelector(state => state.user);
       // history.back()? history.back() : navigate('/');
       
       // navigate(-1, { preventScrollReset: true }) ;
-        // history.back();
-        history.back(); 
+        history.back();
+       // data.users === undefined ? navigate('/') : history.back();
+        
+        ; 
+        console.log("data:", data); 
+         
        
       
         

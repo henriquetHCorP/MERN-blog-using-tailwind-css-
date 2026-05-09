@@ -28,6 +28,7 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
     ? `/api/post/getposts` 
     : `/api/post/getposts?userId=${currentUser._id}`;
      const fetchPosts = async () => {
+           
         try {
               // Since this is a get request we don't need to add any method... 
               //const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`)

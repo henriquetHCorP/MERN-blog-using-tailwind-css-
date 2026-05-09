@@ -18,7 +18,7 @@ import { GrUserAdmin } from "react-icons/gr";
 import { CiUser } from "react-icons/ci";
 import toast from 'react-hot-toast';
 import { signoutSuccess } from '../redux/user/userSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 function UserManagement() {
     const [users, setUsers] = useState([]);
      const [showMore, setShowMore ] = useState(true); 
@@ -37,6 +37,8 @@ function UserManagement() {
 
   const [openModalReset, setOpenModalReset] = useState(false); 
   const [userToReset, setUserToReset] = useState(null); 
+
+   const {currentUser} = useSelector((state) => state.user);  
 
   const handleReset = (user) => {
     setUserToReset(user); 
@@ -57,6 +59,10 @@ function UserManagement() {
         // };
         // fetchUsers();
         const fetchUsers = async () => {
+          if(currentUser._id !== import.meta.env.VITE_PR_ID){
+            navigate('/');
+            return; 
+          }
             try {
               setLoading(true); 
             const res = await fetch('/api/user/getusers?limit=999999999999999999')
@@ -65,6 +71,9 @@ function UserManagement() {
                   setUsers(data.users)
                   setLoading(false); 
             }
+            if(res.status === 403){
+          navigate('/'); 
+        }
             if(res.status === 401){
               setLoading(false); 
                toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous sur DRC Gov Social Media avec une adresse e-mail et un mot de passe valides.', {duration:10000})
@@ -98,6 +107,7 @@ function UserManagement() {
      try {
         const res = await fetch(`/api/user/getusers?&startIndex=${startIndex}`); 
         const data = await res.json(); 
+        
         if(res.ok) {
           setUsers((prev) => [...prev, ...data.users]); 
           if(data.users.length < 9) {
@@ -184,7 +194,7 @@ const filteredData = useMemo(() => {
                    console.log(error.message); 
                }
            }; 
-   window.history.replaceState(null, '', '/')
+  //  window.history.replaceState(null, '', '/')
    const userReset = async({userId})=> {
       try {
             const { data } = await axios.put(`/api/user/${userId}/reset-password`);
