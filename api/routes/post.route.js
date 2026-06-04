@@ -1,6 +1,6 @@
 import express from 'express'; 
 import { verifyToken } from '../utils/VerifyUser.js'; 
-import { create, deletepost, getposts, likepost, updatepost } from '../controllers/post.controller.js';
+import { create, deletepost, getposts, getRecentArticles, likepost, updatepost } from '../controllers/post.controller.js';
 import Post from '../models/post.model.js';
 
 const router = express.Router(); 
@@ -17,6 +17,8 @@ router.put('/updatepost/:postId/:userId', verifyToken, updatepost);
 
 router.put('/:postSlug/like', verifyToken, likepost); 
 
+// GET /api/articles/recent
+router.get('/recent', getRecentArticles);
 
 
 

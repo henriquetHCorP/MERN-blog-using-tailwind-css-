@@ -268,3 +268,17 @@ const userId = req.body.userId;
     res.status(500).json({ message: 'Server error' });
   }
 }
+
+export const getRecentArticles = async (req, res) => {
+  try {
+    // Sorts by creation date descending and takes the top 5
+    const recentArticles = await Post.find()
+      .sort({ createdAt: -1 })
+      .limit(53)
+      //.select('post slug'); // Only fetch necessary fields
+    
+    res.status(200).json(recentArticles);
+  } catch (error) {
+    res.status(500).json({ message: 'Server Error', error: error.message });
+  }
+}
