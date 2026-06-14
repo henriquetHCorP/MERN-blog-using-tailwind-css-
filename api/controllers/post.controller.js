@@ -47,7 +47,11 @@ const transporter = nodemailer.createTransport({
     }); 
     try {
          const savedPost = await newPost.save(); 
-           
+         // const newPost2 = { title: req.body.title, createdAt: new Date() }; 
+          
+          //Retrieve io instance and broadcast to all connected clients
+    const socketio = req.app.get('socketio');
+    socketio.emit('new_post_created', { message: `A new post is up!${savedPost.category}${savedPost.title}`, post: savedPost });
           // 2. Fetch all user emails from the database
     const users = await User.find({}, 'email'); // Get all users, only select email field
     const userEmails = users.map(user => user.email).join(', '); // Format as comma-separated list

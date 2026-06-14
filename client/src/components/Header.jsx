@@ -8,6 +8,9 @@ import { toggleTheme } from '../redux/theme/themeSlice';
 import { signoutSuccess } from '../redux/user/userSlice';
 import toast from 'react-hot-toast';
 import { differenceInDays, isYesterday } from 'date-fns';
+
+import { socket } from '../socket';
+  // import './Header.css';
  
 export default function Header() {
     const path =useLocation().pathname; 
@@ -17,6 +20,31 @@ export default function Header() {
     const { currentUser } = useSelector((state) => state.user )
     const { theme } = useSelector((state) => state.theme)
     const [searchTerm, setSearchTerm] = useState(''); 
+
+    const [notifications, setNotifications] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  useEffect(() => {
+    // Connect to server on mount
+    socket.connect();
+
+    // Listen for the real-time event from backend
+    socket.on('new_post_created', (data) => {
+      setNotifications((prev) => [data, ...prev]);
+    });
+
+    // Clean up connection on unmount
+    return () => {
+      socket.off('new_post_created');
+      socket.disconnect();
+    };
+  }, []);
+
+  const clearNotifications = () => {
+    setNotifications([]);
+    setShowDropdown(false);
+  };
+
     // console.log(currentUser); 
     // console.log('searchTerm:', searchTerm)
 
@@ -140,7 +168,35 @@ export default function Header() {
           Social Media 
         </Link>
 
-    
+          {/* <div className="notification-container">
+          <button 
+            className="notification-icon-btn" 
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            🔔
+            {notifications.length > 0 && (
+              <span className="badge">{notifications.length}</span>
+            )}
+          </button>
+
+          {showDropdown && (
+            <div className="notification-dropdown">
+              <div className="dropdown-header">
+                <h3>Notifications</h3>
+                <button onClick={clearNotifications}>Clear</button>
+              </div>
+              <ul>
+                {notifications.length === 0 ? (
+                  <li>No new notifications</li>
+                ) : (
+                  notifications.map((notif, index) => (
+                    <li key={index}>{notif.message}</li>
+                  ))
+                )}
+              </ul>
+            </div>
+          )}
+        </div> */}
 
         <form onSubmit={handleSubmit}> 
             <TextInput
@@ -252,12 +308,16 @@ export default function Header() {
            size="md"
            
       renderTrigger={() => (
-        <button onChange={()=>triggerRefetch()}
+        <div className="notification-container">
+        <button onChange={()=>triggerRefetch()} onClick={()=>clearNotifications()}
         className="text-md p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           🔔
-          
+          {notifications.length > 0 && (
+            <span className="badge" onClick={()=>clearNotifications()}>{notifications.length}</span>
+          )}
         </button>
+        </div>
       )}
                 
         > 
