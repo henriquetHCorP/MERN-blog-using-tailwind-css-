@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Avatar, Button, Dropdown, DropdownItem, Navbar, NavbarLink, TextInput } from 'flowbite-react'
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import {AiOutlineSearch} from 'react-icons/ai'; 
-import { FaMoon, FaSun } from 'react-icons/fa'; 
+import { FaBell, FaMoon, FaSun } from 'react-icons/fa'; 
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../redux/theme/themeSlice';  
 import { signoutSuccess } from '../redux/user/userSlice';
@@ -22,6 +22,7 @@ export default function Header() {
     const [searchTerm, setSearchTerm] = useState(''); 
 
     const [notifications, setNotifications] = useState([]);
+    const [unreadCount, setUnreadCount] = useState(0);
   const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
@@ -29,13 +30,14 @@ export default function Header() {
     socket.connect();
 
     // Listen for the real-time event from backend
-    socket.on('new_post_created', (data) => {
+    socket.on('newPostNotification', (data) => {
       setNotifications((prev) => [data, ...prev]);
+      setUnreadCount((prev) => prev + 1);
     });
 
     // Clean up connection on unmount
     return () => {
-      socket.off('new_post_created');
+      socket.off('newPostNotification');
       socket.disconnect();
     };
   }, []);
@@ -43,6 +45,7 @@ export default function Header() {
   const clearNotifications = () => {
     setNotifications([]);
     setShowDropdown(false);
+    setUnreadCount(0);
   };
 
     // console.log(currentUser); 
@@ -197,6 +200,14 @@ export default function Header() {
             </div>
           )}
         </div> */}
+
+        <div className="notification-icon" onClick={()=>clearNotifications()}>
+        <FaBell size={24} />
+        {unreadCount > 0 && (
+          <span className="badge">{unreadCount}</span>
+        )}
+      </div>
+
 
         <form onSubmit={handleSubmit}> 
             <TextInput

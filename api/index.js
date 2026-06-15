@@ -10,6 +10,7 @@ import path from 'path';
 
 import http from 'http';
 import { Server } from 'socket.io';
+import { createServer } from "http";
 
 
 dotenv.config(); 
@@ -31,32 +32,35 @@ const app = express();
 //const { Server } = require('socket.io');
 
 
+const httpServer = createServer(app);
+// Allow both localhost and your production Render URL
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.CLIENT_URL // Set this environment variable in Render dashboard
+];
 
-const server = http.createServer(app);
-
-// Initialize Socket.io with CORS configured for your frontend
-const io = new Server(server, {
+const io = new Server(httpServer, {
   cors: {
-    origin: [
-            // "https://drc-gov-social-media.onrender.com",
-    "http://localhost:5173"
-    ], // Your frontend URL
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
     credentials: true
   }
 });
 
-app.set('socketio', io);
-
-io.on('connection', (socket) => {
+io.on("connection", (socket) => {
   console.log(`User connected: ${socket.id}`);
-  socket.on('disconnect', () => console.log('User disconnected'));
+  
+  socket.on("disconnect", () => {
+    console.log("User disconnected");
+  });
 });
 
-server.listen(5000, () => {
-  console.log("Socket Server running on port 5000");
-});
+// Export io to use inside your Post controllers
+export { io };
 
+const PORT = process.env.PORT || 5000;
+httpServer.listen(PORT, () => console.log(`Socket Server running on port ${PORT}`));
+ 
 app.use(express.json()); 
 app.use(cookieParser());
 app.listen(3000, () => {
