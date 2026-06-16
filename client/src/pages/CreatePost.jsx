@@ -318,7 +318,8 @@ const formats = [
                     {currentUser._id === "" &&<option value="Santé Publique">Ministre de la Santé Publique, Hygiène et Prévoyance Sociale</option>}
                     {currentUser._id === "" &&<option value="Enseignement Supérieur">Ministre de l’Enseignement Supérieur et Universitaire</option>}
                     {currentUser._id === "" &&<option value="Recherche Scientifique">Ministre de la Recherche Scientifique et Innovation Technologique</option>}
-                    {currentUser._id === "" &&<option value="Postes, Télécommunications et Numérique">Ministre des Postes, Télécommunications et Numérique</option>}
+                                {/* {currentUser._id === "" &&<option value="Postes, Télécommunications et Numérique">Ministre des Postes, Télécommunications et Numérique</option>} */}
+                     {currentUser._id === "6a31408d5dba104e25135b5d" &&<option value="Postes, Télécommunications et Numérique">Ministre des Postes, Télécommunications et Numérique</option>}
                     {currentUser._id === "" &&<option value="Portefeuille">Ministre du Portefeuille</option>}
                     {currentUser._id === "" &&<option value="Affaires sociales">Ministre des Affaires Sociales, Action Humanitaire et Solidarité Nationale</option>}
                     {currentUser._id === "" &&<option value="Commerce Extérieur"> Ministre du Commerce Extérieur</option>}

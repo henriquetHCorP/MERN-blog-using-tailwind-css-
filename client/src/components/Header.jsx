@@ -201,12 +201,12 @@ export default function Header() {
           )}
         </div> */}
 
-        <div className="notification-icon" onClick={()=>clearNotifications()}>
-        <FaBell size={24} />
-        {unreadCount > 0 && (
-          <span className="badge">{unreadCount}</span>
-        )}
-      </div>
+          {/* <div className="notification-icon" onClick={()=>clearNotifications()}>
+          <FaBell size={24} />
+          {unreadCount > 0 && (
+            <span className="badge">{unreadCount}</span>
+          )}
+        </div> */}
 
 
         <form onSubmit={handleSubmit}> 

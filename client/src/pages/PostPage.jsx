@@ -206,6 +206,13 @@ export default function PostPage() {
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
         <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>des Mines</p></div>
       )}
+      {post.category === "Postes, Télécommunications et Numérique" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>des Postes, <br/>Télécommunications, <br/> et Numérique</p></div>
+      )}
       {/* {post.category === "Présidence" && <p>Présidence</p>}
       {post.category === "Présidence" && <p>Présidence</p>}
       {post.category === "Présidence" && <p>Présidence</p>}
