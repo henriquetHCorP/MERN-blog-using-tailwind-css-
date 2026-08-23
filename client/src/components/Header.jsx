@@ -152,7 +152,7 @@ export default function Header() {
   }
 };
   return (
-    <Navbar theme={customTheme} className="border-b-1">
+    <Navbar theme={customTheme} className="sticky top-0 z-50 bg-white shadow-md w-full border-b-1">
      {/* <Navbar className="bg-hcorp1 border-blue-500 border-b-1"> */}
             {/* <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Flag-map_of_the_Democratic_Republic_of_the_Congo.png" className="shadow-lg hover:shadow-md object-fit bg bg-none border border-2xl w-20 h-20"/>  */}
             {/* <img src="/drc-gov-social-media.png" className="shadow-lg hover:shadow-md object-fit bg bg-none w-20 h-20"/>  */}
@@ -356,9 +356,9 @@ export default function Header() {
   <p className="text-xs pl-2 pr-2 bg-green-700 hover:bg-green-800 transition-all duration-700 text-white cursor-pointer text-md font-bold rounded-full shadow-lg hover:shadow-2xl">Hier</p>
 )}
       {/* {console.log("diff:", differenceInDays(new Date(), new Date(post.createdAt)))} */}
-    {differenceInDays(new Date(), new Date(post.createdAt)) === 1 && (
-    <p className="text-xs pl-2 pr-2 bg-yellow-400 hover:bg-yellow-500 transition-all duration-700 text-white cursor-pointer text-md font-bold rounded-full shadow-lg hover:shadow-2xl">Il y a 1 jour</p>
-  )}
+      {/* {differenceInDays(new Date(), new Date(post.createdAt)) === 1 && (
+      <p className="text-xs pl-2 pr-2 bg-yellow-400 hover:bg-yellow-500 transition-all duration-700 text-white cursor-pointer text-md font-bold rounded-full shadow-lg hover:shadow-2xl">Il y a 1 jour</p>
+    )} */}
   {differenceInDays(new Date(), new Date(post.createdAt)) === 2 && (
     <p className="text-xs pl-2 pr-2 bg-yellow-400 hover:bg-yellow-500 transition-all duration-700 text-white cursor-pointer text-md font-bold rounded-full shadow-lg hover:shadow-2xl">Il y a 2 jours</p>
   )}
