@@ -21,7 +21,7 @@ export default function Home() {
   },[])
   return (
     <div>
-      <div className="items-center flex flex-col gap-6 lg:p-28 px-3 max-w-7xl mx-auto">
+      <div className="items-center flex flex-col gap-6 lg:p-3 px-3 max-w-7xl mx-auto">
         <img src="/pp2.png" alt="cellcom" height={500} width={500} className="shadow-2xl rounded-md opacity-100 dark:opacity-50 transition-opacity duration-700"/>
             {/* <h1 className="text-center text-2xl font-bold lg:text-6xl">Welcome to the DRC Government <br/> Social Media </h1> */}
             {/* <h1 className="text-center text-2xl font-bold lg:text-6xl">Bienvenue sur DRC Gov<br/> Social Media </h1> */}
@@ -38,10 +38,15 @@ export default function Home() {
               */}
              {/* Here you will find in real time, latest news and information related to the President Office and Government members.  */}
              {/* Trouvez, en temps réel, les dernières informations au sujet de la Présidence de la République Démocratique du Congo et des membres du Gouvernement.   */}
-              Plus qu'un réseau : toute l'actualité officielle de la République Démocratique du Congo en un clic.
-              </p>
+              {/* Plus qu'un réseau : toute l'actualité officielle de la République Démocratique du Congo en un clic. */}
               
-  <div className="flex items-center gap-6 flex-col md:flex-row">
+              {/* L'information vraie, claire et vérifiée sur la République Démocratique du Congo, loin des rumeurs :  */}
+              {/* Restez connectés au cœur de l'action en République Démocratique du Congo. Notre média vous apporte l'actualité officielle et vérifiée, directement issue de la Présidence et du Gouvernement. Face à la désinformation, nous combattons les fausses nouvelles pour vous offrir des faits clairs, transparents et 100 % fiables. */}
+              Au cœur de la République Démocratique du Congo, votre source officielle et vérifiée. Nous diffusons l'actualité authentique de la Présidence et du Gouvernement, tout en combattant chaque jour la désinformation pour vous offrir la vérité en toute transparence.
+              </p>
+              {/* <p className="italic text-center text-lg font-serif text-gray-600 dark:text-white drop-shadow-lg" style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }}>Votre voix, votre pays, la vraie réalité en direct.</p> */}
+              
+  <div className="flex items-center md:gap-6 sm:gap-1 flex-col md:flex-row">
       <Link to='/search' className="text-xs sm:text-sm text-black font-bold"> 
       {/* <button className=" pl-4 pr-4 bg-blue-300 hover:bg-blue-500 hover:text-black-800 dark:bg-blue-800 dark:text-white transition-all duration-700 text-lg rounded-full shadow-lg hover:underline">
       Voir tous les articles

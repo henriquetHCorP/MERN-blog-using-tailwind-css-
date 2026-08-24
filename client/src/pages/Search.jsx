@@ -165,7 +165,7 @@ export default function Search() {
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
                      
-                     <option value="...">Selectioner la Présidence ou un Ministre correspondant à l'article</option>
+                     <option value="...">Selectioner la Présidence ou un Ministre</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
                     <option value="Présidence">Présidence</option>
