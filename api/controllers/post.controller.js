@@ -110,7 +110,7 @@ export const getposts = async (req, res, next ) => {
                 { content: { $regex: req.query.searchTerm, $options: 'i'} },  
             ],
         }),
-    }).sort({ updatedAt: sortDirection })
+    }).populate('userId','username').sort({ updatedAt: sortDirection })
       .skip(startIndex)
       .limit(limit);
     

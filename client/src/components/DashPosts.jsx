@@ -198,6 +198,7 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
             <Table.HeadCell>Titre d'article</Table.HeadCell>
             {/* <Table.HeadCell>Category</Table.HeadCell> */}
             <Table.HeadCell>Categorie</Table.HeadCell>
+            <Table.HeadCell>Auteur</Table.HeadCell>
             <Table.HeadCell>Nombre de likes</Table.HeadCell>
             <Table.HeadCell>Supprimer</Table.HeadCell>
             {/* <Table.HeadCell>Post Like</Table.HeadCell> */}
@@ -228,6 +229,7 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
                   <Link className="font-medium text-gray-900 dark:text-white" to={`/post/${post.slug}`}>{post.title}</Link>
                 </Table.Cell>
                 <Table.Cell>{post.category}</Table.Cell>
+                  <Table.Cell>  Publié par: {post.userId?.username || 'Unknown User'}</Table.Cell>
                 <Table.Cell>{post.likes.length}</Table.Cell>
                 <Table.Cell>
                   <span 

@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div>
       <div className="items-center flex flex-col gap-6 lg:p-3 px-3 max-w-7xl mx-auto">
-        <img src="/pp2.png" alt="cellcom" height={500} width={500} className="shadow-2xl rounded-md opacity-100 dark:opacity-50 transition-opacity duration-700"/>
+        <img src="/pp9.jpg" alt="cellcom" className="w-full h-[20%] shadow-2xl rounded-md opacity-100 dark:opacity-50 transition-opacity duration-700"/>
             {/* <h1 className="text-center text-2xl font-bold lg:text-6xl">Welcome to the DRC Government <br/> Social Media </h1> */}
             {/* <h1 className="text-center text-2xl font-bold lg:text-6xl">Bienvenue sur DRC Gov<br/> Social Media </h1> */}
             
@@ -33,7 +33,7 @@ export default function Home() {
           Social Media 
         </div> */}
             {/* <p className="text-gray-500 text-xs sm:text-sm"> */}
-            <p className="italic text-center text-lg font-serif text-gray-600 dark:text-white drop-shadow-lg" style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }}>
+            <p className="italic text-center text-base font-serif text-gray-600 dark:text-white drop-shadow-lg" style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }}>
               {/* Here you'll find a variety of articles and tutorials on topic such as web development, software engineering, and programming languages.
               */}
              {/* Here you will find in real time, latest news and information related to the President Office and Government members.  */}
@@ -42,7 +42,8 @@ export default function Home() {
               
               {/* L'information vraie, claire et vérifiée sur la République Démocratique du Congo, loin des rumeurs :  */}
               {/* Restez connectés au cœur de l'action en République Démocratique du Congo. Notre média vous apporte l'actualité officielle et vérifiée, directement issue de la Présidence et du Gouvernement. Face à la désinformation, nous combattons les fausses nouvelles pour vous offrir des faits clairs, transparents et 100 % fiables. */}
-              Au cœur de la République Démocratique du Congo, votre source officielle et vérifiée. Nous diffusons l'actualité authentique de la Présidence et du Gouvernement, tout en combattant chaque jour la désinformation pour vous offrir la vérité en toute transparence.
+                {/* Au cœur de la République Démocratique du Congo, votre source officielle et vérifiée. Nous diffusons l'actualité authentique de la Présidence et du Gouvernement, tout en combattant chaque jour la désinformation pour vous offrir la vérité en toute transparence. */}
+                Le réseau officiel de la communication publique en République Démocratique du Congo pour un cyberespace sécurisé.
               </p>
               {/* <p className="italic text-center text-lg font-serif text-gray-600 dark:text-white drop-shadow-lg" style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }}>Votre voix, votre pays, la vraie réalité en direct.</p> */}
               
@@ -103,10 +104,11 @@ export default function Home() {
         {
           posts && posts.length > 0 && (
             <div className="flex flex-col gap-6">    
-              <h2 className="text-2xl font-semibold text-center">
-                  Articles récents   
- 
+              <h2 className="text-2xl font-semibold text-left">
+                  A la une :
+                  <div class="h-1 w-24 bg-blue-500"></div>
               </h2>
+              
               {/* <div className="flex flex-wrap gap-4"> */}
               <div className="flex flex-wrap gap-5 mt-5 justify-center">
                 {posts.map((post) => (
