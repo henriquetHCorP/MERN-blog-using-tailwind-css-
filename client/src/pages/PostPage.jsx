@@ -285,8 +285,20 @@ export default function PostPage() {
         <CallToAction /> 
     </div>
     <CommentSection postId={post._id} /> 
-    <div className="flex flex-col justify-center items-center mb-5"> 
-    <h1 className="text-xl mt-5">Articles récents</h1>
+      {/* <div className="flex flex-col justify-center items-center mb-5">  */}
+    <div className="flex flex-col justify-left items-left mb-5"> 
+      {/* <h1 className="text-xl mt-5">Articles récents</h1> */}
+      <h2 className="text-2xl font-semibold text-left">
+                  A la une :
+                    {/* <div class="h-1 w-24 bg-blue-500"></div> */}
+                    {/* <div class="h-1 w-24 bg-gradient-to-r from-blue-500 via-red-500 to-yellow-500"></div> */}
+                      {/* <div class="h-1 w-full bg-gradient-to-r from-blue-500 from-33% via-red-500 via-33% via-66% to-yellow-500 to-66%"></div> */}
+                      <div class="flex h-0.5 w-24">
+  <div class="bg-blue-500 flex-1"></div>
+  <div class="bg-red-500 flex-1"></div>
+  <div class="bg-yellow-300 flex-1"></div>
+</div>
+              </h2>
     <div className="flex flex-wrap gap-5 mt-5 justify-center">
       {/* flex-wrap has the benefit of automatically changing the number of column  */}
       {

@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div>
       <div className="items-center flex flex-col gap-6 lg:p-3 px-3 max-w-7xl mx-auto">
-        <img src="/pp12.jpg" alt="cellcom" className="w-full h-[20%] shadow-2xl rounded-md opacity-100 dark:opacity-50 transition-opacity duration-700"/>
+        <img src="/pp12.jpg" alt="cellcom" className="w-full h-[20%] shadow-2xl rounded-md opacity-100 dark:opacity-95 transition-opacity duration-1000"/>
             {/* <h1 className="text-center text-2xl font-bold lg:text-6xl">Welcome to the DRC Government <br/> Social Media </h1> */}
             {/* <h1 className="text-center text-2xl font-bold lg:text-6xl">Bienvenue sur DRC Gov<br/> Social Media </h1> */}
             
