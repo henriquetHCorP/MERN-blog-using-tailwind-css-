@@ -311,7 +311,7 @@ export default function Header() {
                 
             </Navbar.Collapse>
             {currentUser && <Dropdown 
-            className="max-h-60 overflow-y-auto"
+            className="max-h-96 overflow-y-auto"
               // {currentUser && postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() || postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() - 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 30 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 31 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() - 1 && postDate.getDate() === 31 && now.getDate() === 1|| postDate.getDate() === 31 && postDate.getMonth() === 11 && now.getDate() === 1 && now.getMonth() === 0 && postDate.getFullYear() === now.getFullYear() - 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 28 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 29 && now.getDate() === 1 &&  <Dropdown
           // className="" size="xs" label='🔔' outline gradientDuoTone='purpleToBlue'
           // theme={{
