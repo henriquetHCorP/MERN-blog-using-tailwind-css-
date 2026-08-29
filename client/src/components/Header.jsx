@@ -311,6 +311,7 @@ export default function Header() {
                 
             </Navbar.Collapse>
             {currentUser && <Dropdown 
+            className="max-h-60 overflow-y-auto"
               // {currentUser && postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() || postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === now.getDate() - 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 30 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 31 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() - 1 && postDate.getDate() === 31 && now.getDate() === 1|| postDate.getDate() === 31 && postDate.getMonth() === 11 && now.getDate() === 1 && now.getMonth() === 0 && postDate.getFullYear() === now.getFullYear() - 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 28 && now.getDate() === 1 || postDate.getMonth() === now.getMonth() - 1 && postDate.getFullYear() === now.getFullYear() && postDate.getDate() === 29 && now.getDate() === 1 &&  <Dropdown
           // className="" size="xs" label='🔔' outline gradientDuoTone='purpleToBlue'
           // theme={{
@@ -464,7 +465,7 @@ export default function Header() {
   {differenceInDays(new Date(), new Date(post.createdAt)) >= 180 && differenceInDays(new Date(), new Date(post.createdAt)) < 210 && (
     <p className="text-xs pl-2 pr-2 bg-blue-700 hover:bg-blue-800 transition-all duration-700 text-white cursor-pointer text-md font-bold rounded-full shadow-lg hover:shadow-2xl"> Il y a six mois</p>
   )}
-  {differenceInDays(new Date(), new Date(post.createdAt)) >= 210 && differenceInDays(new Date(), new Date(post.createdAt)) <= 240 && (
+  {differenceInDays(new Date(), new Date(post.createdAt)) >= 210 && differenceInDays(new Date(), new Date(post.createdAt)) < 240 && (
     <p className="text-xs pl-2 pr-2 bg-blue-700 hover:bg-blue-800 transition-all duration-700 text-white cursor-pointer text-md font-bold rounded-full shadow-lg hover:shadow-2xl"> Il y a sept mois</p>
   )}
   {differenceInDays(new Date(), new Date(post.createdAt)) >= 240 && differenceInDays(new Date(), new Date(post.createdAt)) <  270 && (
