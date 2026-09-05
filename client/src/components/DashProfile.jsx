@@ -243,20 +243,21 @@ export default function DashProfile() {
         type="file" 
         accept='image/*' 
         onChange={handleImageChange} 
+        onInput={handleImageChange} // Swapping or adding alongside onChange
         ref={filePickerRef}
         //hidden
-    //       style={{
-    //   position: 'absolute',
-    //   width: '1px',
-    //   height: '1px',
-    //   padding: '0',
-    //   margin: '-1px',
-    //   overflow: 'hidden',
-    //   clip: 'rect(0, 0, 0, 0)',
-    //   whiteSpace: 'nowrap',
-    //   border: '0',
-    //   opacity: 0,
-    // }}
+            style={{
+        position: 'absolute',
+        width: '1px',
+        height: '1px',
+        padding: '0',
+        margin: '-1px',
+        overflow: 'hidden',
+        clip: 'rect(0, 0, 0, 0)',
+        whiteSpace: 'nowrap',
+        border: '0',
+        opacity: 0,
+      }}
         /> 
         <div className="relative w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full"
           onClick={() => filePickerRef.current.click()}
