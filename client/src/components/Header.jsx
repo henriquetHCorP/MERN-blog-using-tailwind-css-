@@ -90,7 +90,7 @@ export default function Header() {
     };
 
     fetchRecentArticles();
-  } , [[refreshTrigger]]);
+  } , [refreshTrigger]);
 
 
       useEffect(() => {
@@ -321,7 +321,14 @@ export default function Header() {
            
       renderTrigger={() => (
         <div className="notification-container">
-        <button onChange={()=>triggerRefetch()} onClick={()=>clearNotifications()}
+        <button onChange={()=>triggerRefetch()} 
+          // onClick={()=>clearNotifications()
+            
+          // }
+          onClick={() => {
+    triggerRefetch();
+    clearNotifications();
+  }}
         className="text-md p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           🔔

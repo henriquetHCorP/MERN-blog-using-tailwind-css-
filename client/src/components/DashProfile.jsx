@@ -42,12 +42,31 @@ export default function DashProfile() {
 
   
 
-     const handleImageChange = (e) => {
-        const file = e.target.files[0];  
-        if (file) {
+     const handleImageChange = async(e) => {
+        let file = e.target.files[0];  
+        
+          // if (file ) {
+          //     setImageFile(file); 
+          //     setImageFileUrl(URL.createObjectURL(file));   
+          // }
+          if((file && (file.type === "image/heic" || file.name.toLowerCase().endsWith(".heic")))){
+               try{
+                  // Convert HEIC blob to JPEG blob
+      const convertedBlob = await heic2any({
+        blob: file,
+        toType: "image/jpeg",
+        quality: 0.8
+      });
+      
+      file = new File([convertedBlob], file.name.replace(/\.[^/.]+$/, ".jpg"), {
+        type: "image/jpeg",
+      });
+               } catch(error){
+                   console.error("HEIC conversion failed", error);
+               }
+          }
             setImageFile(file); 
-            setImageFileUrl(URL.createObjectURL(file));   
-        }
+            setImageFileUrl(URL.createObjectURL(file));
         // console.log(imageFile,"image Url:", imageFileUrl); 
      }; 
 
