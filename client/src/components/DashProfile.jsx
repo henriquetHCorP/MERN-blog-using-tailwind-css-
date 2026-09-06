@@ -306,7 +306,7 @@ export default function DashProfile() {
         <input 
         placeholder="Choisir une photo de profil..." 
   // below test class="w-full max-w-xs"
-  class="w-full px-4  py-1 bg-white text-slate-700 placeholder-slate-400 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-200"
+  class="w-full px-4 py-1 bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600 text-slate-700 placeholder-slate-400 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-200"
         type="file" 
         accept='image/*' 
         onChange={handleImageChange} 
