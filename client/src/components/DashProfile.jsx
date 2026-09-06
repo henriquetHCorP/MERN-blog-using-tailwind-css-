@@ -239,25 +239,34 @@ export default function DashProfile() {
       {/* <h1 className="my-7 text-center font-semibold text-3xl">Profil</h1> */}
       <h1 className="my-7 text-center font-semibold text-3xl">Mon compte</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input 
-        type="file" 
-        accept='image/*' 
-        onChange={handleImageChange} 
-        onInput={handleImageChange} // Swapping or adding alongside onChange
-        ref={filePickerRef}
+            <input 
+            placeholder="Choisir une photo de profil..." 
+      class="w-full max-w-xs px-4 py-2 bg-white text-slate-700 placeholder-slate-400 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-200"
+            type="file" 
+            accept='image/*' 
+            onChange={handleImageChange} 
+            onInput={handleImageChange} // Swapping or adding alongside onChange
+            ref={filePickerRef}
+            hidden
+
+
+
+
+
+
         //hidden
-                style={{
-            position: 'absolute',
-            width: '1px',
-            height: '1px',
-            padding: '0',
-            margin: '-1px',
-            overflow: 'hidden',
-            clip: 'rect(0, 0, 0, 0)',
-            whiteSpace: 'nowrap',
-            border: '0',
-            opacity: 0,
-          }}
+            //       style={{
+            //   position: 'absolute',
+            //   width: '1px',
+            //   height: '1px',
+            //   padding: '0',
+            //   margin: '-1px',
+            //   overflow: 'hidden',
+            //   clip: 'rect(0, 0, 0, 0)',
+            //   whiteSpace: 'nowrap',
+            //   border: '0',
+            //   opacity: 0,
+            // }}
         /> 
         <div className="relative w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full"
           onClick={() => filePickerRef.current.click()}
@@ -289,24 +298,76 @@ export default function DashProfile() {
         </div>
         {imageFileUploadError && <Alert color='failure'>{imageFileUploadError}</Alert>}
         <p>Voulez-vous modifier vos identifiants? </p>
+
+
+
+      <div className="w-full flex flex-row gap-3 justify-start items-center">
+         <p className="text-sm">Avatar:</p>
+        <input 
+        placeholder="Choisir une photo de profil..." 
+  // below test class="w-full max-w-xs"
+  class="w-full px-4  py-1 bg-white text-slate-700 placeholder-slate-400 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-200"
+        type="file" 
+        accept='image/*' 
+        onChange={handleImageChange} 
+        onInput={handleImageChange} // Swapping or adding alongside onChange
+        ref={filePickerRef}
+        //hidden
+            //       style={{
+            //   position: 'absolute',
+            //   width: '1px',
+            //   height: '1px',
+            //   padding: '0',
+            //   margin: '-1px',
+            //   overflow: 'hidden',
+            //   clip: 'rect(0, 0, 0, 0)',
+            //   whiteSpace: 'nowrap',
+            //   border: '0',
+            //   opacity: 0,
+            // }}
+        /> 
+
+
+      </div>
+
+
+        <div className="w-full flex flex-row gap-3 justify-start items-center">
+           <p className="text-sm">Noms:</p>
         <TextInput 
           type="text" 
           id="username" 
           placeholder="Nom d'utilisateur" 
+          className='w-full'
           defaultValue={currentUser.username} onChange={handleChange} />
+        </div>
+          <div className="w-full flex flex-row gap-3 justify-start items-center">
+            <p className="text-sm">Email:</p>
         <TextInput 
           type="email" 
           id="email" 
           placeholder="e-mail" 
+          className='w-full'
           defaultValue={currentUser.email} onChange={handleChange} />
+          </div>
+          <div className="w-full flex flex-row gap-3 justify-start items-center">
+             <p className="text-sm">Code:</p>
         <TextInput 
           type="password" 
           id="password"
+          className='w-full'
           placeholder="Taper le nouveau mot de passe" onChange={handleChange} />
+          
+          </div>
+          <div className="w-full flex flex-row gap-3 justify-start items-center">
+            <p className="text-sm">Code:</p>
         <TextInput 
           type="password" 
           id="confirmPassword"
+          className='w-full'
           placeholder="Confirmer le nouveau mot de passe" onChange={handleChange} />
+
+          </div>
+          
           <Button 
              type="submit" 
              gradientDuoTone='purpleToBlue' 
