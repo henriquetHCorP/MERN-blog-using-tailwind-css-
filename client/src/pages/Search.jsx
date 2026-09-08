@@ -168,7 +168,7 @@ export default function Search() {
                      <option value="...">Selectioner la Présidence ou un Ministre</option>
                     {/* <option value="javascript">JavaScript</option>
                     <option value="reactjs">React.js</option> */}
-                     {<option value="...">Selectioner la Présidence ou un Ministre correspondant à la publication</option>}
+                      {/* {<option value="...">Selectioner la Présidence ou un Ministre correspondant à la publication</option>} */}
                     {<option value="Présidence">Présidence</option>}
                     {<option value="Premier Ministre">Premier Ministre</option>}
                     {<option value="Interieur">VPM, Ministre de l'Intérieur, Sécurité, Décentralisation et Affaires coutumières</option>}
