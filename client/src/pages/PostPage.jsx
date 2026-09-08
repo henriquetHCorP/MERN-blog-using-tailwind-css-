@@ -140,29 +140,122 @@ export default function PostPage() {
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
         
-        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">La Primature</p></div>)}
-      {post.category === "Interieur" && <p>VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</p>}
-      {post.category === "Transport" && <p>VPM, Ministre des Transports et Voies de Communication et Désenclavement</p>}
-      {post.category === "Défense" && <p>VPM, Ministre de la Défense Nationale et Anciens Combattants</p>}
-      {post.category === "Economie" && <p>VPM, Ministre de l’Economie Nationale</p>}
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">La Primature</p>
+        
+        </div>
+      
+      )}
+      {post.category === "Interieur" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de l'Intérieur et Sécurité, <br/> Décentralisation et Affaires coutumières</p>
+        </div>
+          // <p>VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</p>
+        
+        )}
+      {post.category === "Transport" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> des Transports, <br/> Voies de Communication <br/>et Désenclavement </p>
+        </div>
+        
+          // <p>VPM, Ministre des Transports et Voies de Communication et Désenclavement</p>
+        )}
+      {post.category === "Défense" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de la Défense Nationale, <br/> et Anciens Combattants</p>
+        </div>
+          // <p>VPM, Ministre de la Défense Nationale et Anciens Combattants</p>
+      
+    )}
+      {post.category === "Economie" && (
+        
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de l’Economie Nationale </p>
+        </div>
+          // <p>VPM, Ministre de l’Economie Nationale</p>
+    
+    
+    )}
       {post.category === "Fonction Publique" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
         <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de la Fonction Publique, <br/> Modernisation de l'Administration <br/> et Innovation du Service Public</p>
-        </div>)}
-      {post.category === "Plan" && <p>VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</p>}
-      {post.category === "Agriculture" && <p>MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</p>}
+        </div>
+      
+      )}
+      {post.category === "Plan" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère du Plan <br/> et de la Coordination de l’Aide, <br/> au Développement </p>
+        </div>
+        
+          // <p>VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</p>
+    
+    
+    )}
+      {post.category === "Agriculture" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère de l’Agriculture <br/> et Sécurité Alimentaire, <br/> au Développement </p>
+        </div>
+          // <p>MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</p>
+    
+    )}
       {post.category === "Affaires Etrangères" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
           <p className=" text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> des Affaires Etrangères, <br/> Coopération Internationale, <br/> Francophonie et Diaspora Congolaise</p>
-          </div>)}
-      {post.category === "Education Nationale" && <p>MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</p>}
-      {post.category === "Environnement" && <p>MINETAT, Ministre de l’Environnement et Développement Durable</p>}
+          </div>
+        
+        )}
+      {post.category === "Education Nationale" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+          <p className=" text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de l’Education Nationale <br/> et Nouvelle Citoyenneté</p>
+          </div>
+          // <p>MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</p>
+      
+      
+      )
+      
+      
+      }
+      {post.category === "Environnement" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+          <p className=" text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère de l’Environnement, <br/>Développement Durable <br/> et Nouvelle Economie du Climat</p>
+          </div>
+    
+          // <p>MINETAT, Ministre de l’Environnement et Développement Durable</p>
+    
+    
+    )}
       {post.category === "Infrastructures" && (
         <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
@@ -180,10 +273,45 @@ export default function PostPage() {
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
-        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère des <br/> Affaires Foncières</p></div>)}
-      {post.category === "Développement Rural" && <p>MINETAT, Ministre du Développement Rural</p>}
-      {post.category === "Aménagement du territoire" && <p>MINETAT, Ministre de l’Aménagement du Territoire</p>}
-      {post.category === "Justice" && <p>MINETAT, Ministre de la Justice et Garde des Sceaux</p>}
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère des <br/> Affaires Foncières</p>
+        </div>
+      
+      )}
+      {post.category === "Développement Rural" && (
+
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère<br/> du Développement Rural</p>
+        </div>
+          // <p>MINETAT, Ministre du Développement Rural</p>
+        
+        )}
+      {post.category === "Aménagement du territoire" && (
+
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère de l’Aménagement<br/>du Territoire</p>
+        </div>
+        
+          // <p>MINETAT, Ministre de l’Aménagement du Territoire</p>
+        
+        )}
+      {post.category === "Justice" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère<br/>de la Justice</p>
+        </div>
+          // <p>MINETAT, Ministre de la Justice et Garde des Sceaux</p>
+    
+    
+    )}
       {post.category === "Finances" && (
         
         <div className="flex flex-row items-center">
@@ -206,12 +334,278 @@ export default function PostPage() {
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
         <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>des Mines</p></div>
       )}
-      {post.category === "Postes, Télécommunications et Numérique" && (
+      {post.category === "Postes et Télécommunications" && (
          <div className="flex flex-row items-center">
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
-        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>des Postes, <br/>Télécommunications, <br/> et Numérique</p></div>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère des Postes <br/>et Télécommunications</p></div>
+      )}
+      {post.category === "Economie Numérique" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>de l'Economie <br/>Numérique </p></div>
+      )}
+      {post.category === "Industrie" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>de l’Industrie </p></div>
+      )}
+      {post.category === "Sociales" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère des Affaires Sociales, <br/> Actions Humanitaires <br/>et Solidarité Nationale </p></div>
+      )}
+      {post.category === "Hydrocarbures" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère des Hydrocarbures</p></div>
+      )}
+      {post.category === "Education Nationale" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de l’Education Nationale <br/> et Nouvelle Citoyenneté</p></div>
+      )}
+      {post.category === "Formation Professionelle" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de la Formation <br/> Professionnelle</p></div>
+      )}
+      {post.category === "Urbanisme et Habitat" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de l'Urbanisme <br/> et Habitat</p></div>
+      )}
+      {post.category === "Développement Rural" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> du Développement <br/>Rural</p></div>
+      )}
+      {post.category === "Relations avec le Parlement" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère des Relations  <br/> avec le Parlement</p></div>
+      )}
+      {post.category === "Santé Publique" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de la Santé Publique, <br/> Hygiène et Prévoyance Sociale </p></div>
+      )}
+      {post.category === "Commerce Extérieur" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> du Commerce <br/>Extérieur </p></div>
+      )}
+      {post.category === "Environnement" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de l’Environnement, <br/> Développement Durable <br/>et Nouvelle Economie du Climat </p></div>
+      )}
+      {post.category === "Enseignement Supérieur, Recherche et Innovation" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère Enseignement Supérieur, <br/> Universitaire, Recherche Scientifique <br/>et Innovations </p></div>
+      )}
+      {post.category === "Emploi et Travail" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de l'Emploi <br/> et Travail</p></div>
+      )}
+      {post.category === "Ressources Hydroliques et Electricité" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Ressources Hydroliques <br/> et Electricité</p></div>
+      )}
+      {post.category === "Entrepreneuriat et PME" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de Entrepreneuriat <br/> et Développement des Petites <br/> et Moyennes Entreprises</p></div>
+      )}
+      {post.category === "Aménagement du territoire" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de l'Aménagement <br/> du territoire </p></div>
+      )}
+      {post.category === "Tourisme" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> du Tourisme </p></div>
+      )}
+      {post.category === "Pêche et Elevage" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de la Pêche et Elevage </p></div>
+      )}
+      {post.category === "Culture, Arts et Patrimoine" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de la Culture, <br/> Arts et Patrimoine</p></div>
+      )}
+      {post.category === "Droits Humains" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Droits Humains </p></div>
+      )}
+      {post.category === "Intégration Régionale" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de l’Intégration <br/> Régionale </p></div>
+      )}
+      {post.category === "Affaires Foncières" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Affaires Foncières</p></div>
+      )}
+      {post.category === "Sports" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Sports <br/> et Loisirs</p></div>
+      )}
+      {post.category === "Portefeuille" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>du Portefeuille</p></div>
+      )}
+      {post.category === "Genre, Famille et Enfants" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère du Genre, <br/>Famille et Enfants</p></div>
+      )}
+      {post.category === "Jeunesse" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de la Jeunesse</p></div>
+      )}
+      {post.category === "MD Affaires Etrangères:Francophonie et Diaspora Congolaise" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre des Affaires Etrangères <br/> en charge de la Francophonie et de la Diaspora Congolaise</p></div>
+      )}
+      {post.category === "MD Environnement et Développement Durable" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre de l’Environnement et Développement Durable <br/> en charge de la Nouvelle Economie du Climat</p></div>
+      )}
+      {post.category === "MD Urbanisme et Habitat" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre de l’Urbanisme et Habitat <br/> en charge de la Politique de la Ville</p></div>
+      )}
+      {post.category === "MD Affaires Sociales" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre des Affaires Sociales <br/> en charge des Personnes vivant avec Handicap</p></div>
+      )}
+      {post.category === "MD Défense Nationale" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre de la Défense Nationale <br/> en Charge des Anciens Combattants</p></div>
+      )}
+      {post.category === "VM Budget" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> du Budget</p></div>
+      )}
+      {post.category === "VM Intérieur, Sécurité, Décentralisation" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre de l’Intérieur, <br/> Sécurité, Décentralisation<br/></p></div>
+      )}
+      {post.category === "VM Affaires Etrangères" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> des Affaires Etrangères</p></div>
+      )}
+      {post.category === "VM Finances" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> des Finances</p></div>
+      )}
+      {post.category === "VM Éducation Nationale" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> de l’Éducation Nationale <br/>et Nouvelle Citoyenneté</p></div>
+      )}
+      {post.category === "VM Affaires Coutumières" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> des Affaires <br/> Coutumières</p></div>
       )}
       {/* {post.category === "Présidence" && <p>Présidence</p>}
       {post.category === "Présidence" && <p>Présidence</p>}

@@ -289,63 +289,61 @@ const formats = [
                     <option value="...">Confirmer l'appartenance de votre cellcom</option>
                     {currentUser._id === import.meta.env.VITE_PR_ID && <option value="Présidence">Présidence</option>}
                     {currentUser._id === "6681d7a57be22de25eb96b82" && <option value="Premier Ministre">Premier Ministre</option>}
-                    {currentUser._id === "" && <option value="Interieur">VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</option>}
-                    {currentUser._id === "" &&<option value="Transport">VPM, Ministre des Transports et Voies de Communication et Désenclavement</option>}
-                    {currentUser._id === "" &&<option value="Défense">VPM, Ministre de la Défense Nationale et Anciens Combattants</option>}
-                    {currentUser._id === "" &&<option value="Economie">VPM, Ministre de l’Economie Nationale</option>}
-                    {currentUser._id === "6924157d7e5e81010202ec46" &&<option value="Fonction Publique">VPM, Ministre de la Fonction Publique et Modernisation de l’Administration et Innovation du Service Public</option>}
-                    {currentUser._id === "" &&<option value="Plan">VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</option>}
-                    {currentUser._id === "" &&<option value="Agriculture">MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</option>}
-                    {currentUser._id === "6800379a3210a81630a4af74" && <option value="Affaires Etrangères">MINETAT, Ministre des Affaires Etrangères, Coopération Internationale et Francophonie</option>}
-                    {currentUser._id === "" &&<option value="Education Nationale">MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</option>}
-                    {currentUser._id === "" &&<option value="Environnement">MINETAT, Ministre de l’Environnement et Développement Durable</option>}
-                    {currentUser._id === "6964bf57b15d50f0a19c1fcf" &&<option value="Infrastructures">MINETAT, Ministre des Infrastructures et Travaux Publics</option>}
-                    {currentUser._id === "6953f277308bf59062360b79" &&<option value="Budget">MINETAT, Ministre du Budget</option>} 
-                    {currentUser._id === "" &&<option value="Affaires Foncières">MINETAT, Ministre des Affaires Foncières</option>}
-                    {currentUser._id === "" &&<option value="Développement Rural">MINETAT, Ministre du Développement Rural</option>}
-                    {currentUser._id === "" &&<option value="Aménagement du territoire">MINETAT, Ministre de l’Aménagement du Territoire</option>}
-                    {currentUser._id === "" &&<option value="Justice">MINETAT, Ministre de la Justice et Garde des Sceaux</option>}
+                    {currentUser._id === "6a9fdb617768387b859908da" && <option value="Interieur">VPM, Ministre de l'Intérieur, Sécurité, Décentralisation et Affaires coutumières</option>}
+                    {currentUser._id === "6a9fdf567768387b859908f8" &&<option value="Transport">VPM, Ministre de Transports, Voies de Communication et Désenclavement</option>}
+                    {currentUser._id === "6a9fe0267768387b859908fa" &&<option value="Défense">VPM, Ministre de la Défense Nationale et Anciens Combattants</option>}
+                    {currentUser._id === "6a9fe1ad7768387b85990913" &&<option value="Economie">VPM, Ministre de l’Economie Nationale</option>}
+                    {currentUser._id === "6953f277308bf59062360b79" &&<option value="Budget">VPM, Ministre du Budget</option>}
+                    {currentUser._id === "6924157d7e5e81010202ec46" &&<option value="Fonction Publique">VPM, Ministre de la Fonction Publique, Modernisation de l’Administration et Innovation du Service Public</option>}
+                    {currentUser._id === "6a9fe2a37768387b8599091b" &&<option value="Plan">MINETAT, Ministre du Plan et de la Coordination de l’Aide au Développement</option>}
+                    {currentUser._id === "6800379a3210a81630a4af74" && <option value="Affaires Etrangères">MINETAT, Ministre des Affaires Etrangères, Coopération Internationale, Francophonie et Diaspora Congolaise</option>}
+                    {currentUser._id === "6a9fe31f7768387b8599091d" &&<option value="Agriculture">MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</option>}
+                    {currentUser._id === "6a9fe4027768387b8599091f" &&<option value="Industrie">MINETAT, Ministre de l’Industrie</option>}
+                    {currentUser._id === "6a9fe49e7768387b85990921" &&<option value="Sociales">MINETAT, Ministre des Affaires Sociales, Actions Humanitaires et Solidarité Nationale</option>}  
+                    {currentUser._id === "6a9fe53e7768387b85990923" &&<option value="Justice">MINETAT, Ministre de la Justice et Garde des Sceaux</option>}
+                    {currentUser._id === "6a9fe5ce7768387b85990925" &&<option value="Hydrocarbures">MINETAT, Ministre des Hydrocarbures</option>} 
+                    {currentUser._id === "6a9fe6567768387b85990927" &&<option value="Education Nationale">MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</option>}
+                    {currentUser._id === "6a9fe71e7768387b8599092e" &&<option value="Formation Professionelle">MINETAT, Ministre de la Formation Professionnelle</option>} 
+                    {currentUser._id === "6a9fe78c7768387b85990930" &&<option value="Urbanisme et Habitat">MINETAT, Ministre de l'Urbanisme et Habitat</option>} 
+                    {currentUser._id === "6a9fe82e7768387b85990932" &&<option value="Développement Rural">MINETAT, Ministre du Développement Rural</option>}
+                    {currentUser._id === "6a9fe8af7768387b85990934" &&<option value="Relations avec le Parlement">MINETAT, Ministre des Relations avec le Parlement</option>}
                     {currentUser._id === "66d6235d399aa8313d458d16" && <option value="Finances">Ministre des Finances</option>}
-                    {currentUser._id === "" &&<option value="Industrie et developpement des PME">Ministre de l’Industrie et developpement des Petites et Moyennes Entreprises</option>}
-                    {currentUser._id === "" &&<option value="Ressources Hydroliques et Electricité"> Ministre des Ressources Hydroliques et Electricité</option>}
-                    {/* {currentUser._id === "" &&<option value="Mines">Ministre des Mines</option>} */}
-                    {/* {currentUser.email.includes(import.meta.env.VITE_MINMIN_IN) && <option value="Mines">Ministre des Mines</option>} */}
+                    {currentUser._id === "6a9fe95b7768387b85990936" && <option value="Santé Publique">Ministre de la Santé Publique, Hygiène et Prévoyance Sociale</option>}
+                    {currentUser._id === "6a9fe9f47768387b85990938" && <option value="Commerce Extérieur">Ministre du Commerce Extérieur</option>} 
+                    {currentUser._id === "6a9fea977768387b8599093a" &&<option value="Environnement">Ministre de l’Environnement, Développement Durable et Nouvelle Economie du Climat</option>}
+                    {currentUser._id === "6964bf57b15d50f0a19c1fcf" &&<option value="Infrastructures">Ministre des Infrastructures et Travaux Publics</option>}
+                    {currentUser._id === "6a9febd57768387b85990941" &&<option value="Enseignement Supérieur, Recherche et Innovation">Ministre de l'Enseignement Supérieur, Universitaire, Recherche Scientifique et Innovations</option>}
+                    {currentUser._id === "6a9fec8c7768387b85990943" &&<option value="Emploi et Travail">Ministre de l’Emploi et Travail</option>}
+                    {currentUser._id === "6a9feda77768387b85990945" &&<option value="Postes et Télécommunications">Ministre des Postes et Télécommunications</option>}
+                    {currentUser._id === "6a31408d5dba104e25135b5d" &&<option value="Economie Numérique">Ministre de l'Economie Numérique</option>}
                     {currentUser._id === "69ea1609247cb1850188f2b1" && <option value="Mines">Ministre des Mines</option>}
-                    {currentUser._id === "" &&<option value="Hydrocarbures"> Ministre des Hydrocarbures</option>}
-                    {currentUser._id === "" &&<option value="Emploi et Travail">Ministre de l’Emploi et Travail</option>}
-                    {currentUser._id === "" &&<option value="Urbanisme et Habitat">Ministre de l’Urbanisme et Habitat</option>}
-                    {currentUser._id === "" &&<option value="Droits Humains">Ministre des Droits Humains</option>}
-                    {currentUser._id === "" &&<option value="Santé Publique">Ministre de la Santé Publique, Hygiène et Prévoyance Sociale</option>}
-                    {currentUser._id === "" &&<option value="Enseignement Supérieur">Ministre de l’Enseignement Supérieur et Universitaire</option>}
-                    {currentUser._id === "" &&<option value="Recherche Scientifique">Ministre de la Recherche Scientifique et Innovation Technologique</option>}
-                                {/* {currentUser._id === "" &&<option value="Postes, Télécommunications et Numérique">Ministre des Postes, Télécommunications et Numérique</option>} */}
-                     {currentUser._id === "6a31408d5dba104e25135b5d" &&<option value="Postes, Télécommunications et Numérique">Ministre des Postes, Télécommunications et Numérique</option>}
-                    {currentUser._id === "" &&<option value="Portefeuille">Ministre du Portefeuille</option>}
-                    {currentUser._id === "" &&<option value="Affaires sociales">Ministre des Affaires Sociales, Action Humanitaire et Solidarité Nationale</option>}
-                    {currentUser._id === "" &&<option value="Commerce Extérieur"> Ministre du Commerce Extérieur</option>}
-                    {currentUser._id === "" &&<option value="Intégration Régionale">Ministre de l’Intégration Régionale</option>}
+                    {currentUser._id === "6a9fef327768387b85990947" &&<option value="Ressources Hydroliques et Electricité"> Ministre des Ressources Hydroliques et Electricité</option>}
                     {currentUser._id === "699053053735f45c8bf42046" &&<option value="Communication">Ministre de la Communication, Médias et Porte-Parole du Gouvernement</option>}
-                    {currentUser._id === "" &&<option value="Formation Professionnelle">Ministre de la Formation Professionnelle</option>}
-                    {currentUser._id === "" &&<option value="Genre, Famille et Enfants">Ministre du Genre, Famille et Enfants</option>}
-                    {currentUser._id === "" &&<option value="Pêche et Elevage">Ministre de la Pêche et Elevage</option>}
-                    {currentUser._id === "" &&<option value="Culture, Arts et Patrimoine">Ministre de la Culture, Arts et Patrimoine</option>}
-                    {currentUser._id === "" &&<option value="Tourisme">Ministre du Tourisme</option>}
-                    {currentUser._id === "" &&<option value="Sports">Ministre des Sports et Loisirs</option>}
-                    {currentUser._id === "" &&<option value="Jeunesse">Ministre de la Jeunesse et Eveil Patriotique</option>}
-                    {currentUser._id === "" &&<option value="MD Affaires Etrangères:Coopération Internationale et Francophonie">Ministre Délégué près le Ministre des Affaires Etrangères en charge de la Coopération Internationale et Francophonie</option>}
-                    {currentUser._id === "" &&<option value="MD Urbanisme et Habitat:Politique de la Ville">Ministre Délégué près le Ministre de l’Urbanisme et Habitat en charge de la Politique de la Ville</option>}
-                    {currentUser._id === "" &&<option value="MD Environnement et Développement Durable:Nouvelle Economie du Climat">Ministre Délégué près le Ministre de l’Environnement et Développement Durable en charge de la Nouvelle Economie du Climat</option>}
-                    {currentUser._id === "" &&<option value="MD Affaires Sociales:Personnes vivant avec Handicap">Ministre Délégué près le Ministre des Affaires Sociales en charge des Personnes vivant avec Handicap</option>}
-                    {currentUser._id === "" &&<option value="VM Intérieur, Sécurité, Décentralisation">Vice-Ministre de l’Intérieur, Sécurité, Décentralisation</option>}
-                    {currentUser._id === "" &&<option value="VM Affaires Etrangères">Vice-Ministre des Affaires Etrangères</option>}
-                    {currentUser._id === "" &&<option value="VM Justice et Contentieux International">Vice-Ministre de la Justice et Contentieux International</option>}
-                    {currentUser._id === "" &&<option value="VM Budget">Vice-Ministre du Budget</option>}
-                    {currentUser._id === "" &&<option value="VM Finances">Vice-Ministre des Finances</option>}
-                    {currentUser._id === "" &&<option value="VM Défense Nationale">Vice-Ministre de la Défense Nationale et Anciens Combattants</option>}
-                    {currentUser._id === "" &&<option value="VM Éducation Nationale">Vice-Ministre de l’Éducation Nationale et Nouvelle Citoyenneté</option>}
-                    {currentUser._id === "" &&<option value="VM Mines">Vice-Ministre des Mines</option>}
-                    {currentUser._id === "" &&<option value="VM Hydrocarbures">Vice-Ministre des Hydrocarbures</option>}
-                    {currentUser._id === "" &&<option value="VM Affaires Coutumières">Vice-Ministre des Affaires Coutumières</option>}
+                    {currentUser._id === "6a9ff06a7768387b85990949" &&<option value="Entrepreneuriat et PME">Ministre de Entrepreneuriat et Développement des Petites et Moyennes Entreprises</option>}
+                    {currentUser._id === "6a9ff1817768387b8599094b" &&<option value="Aménagement du Territoire">Ministre de l’Aménagement du Territoire</option>}
+                    {currentUser._id === "6a9ff2137768387b8599094d" &&<option value="Tourisme">Ministre du Tourisme</option>}
+                    {currentUser._id === "6a9ff2c87768387b8599094f" &&<option value="Pêche et Elevage">Ministre de la Pêche et Elevage</option>}
+                    {currentUser._id === "6a9ff3677768387b85990951" &&<option value="Culture, Arts et Patrimoine">Ministre de la Culture, Arts et Patrimoine</option>}
+                    {currentUser._id === "6a9ff41b7768387b85990953" &&<option value="Droits Humains">Ministre des Droits Humains</option>}
+                    {currentUser._id === "6a9ff4b47768387b85990955" &&<option value="Intégration Régionale">Ministre de l’Intégration Régionale</option>}
+                    {currentUser._id === "6a9ff6e37768387b85990957" &&<option value="Affaires Foncières">Ministre des Affaires Foncières</option>}
+                    {currentUser._id === "6a9ff7f17768387b85990960" &&<option value="Sports">Ministre des Sports et Loisirs</option>}
+                    {currentUser._id === "6a9ff8717768387b85990962" &&<option value="Portefeuille">Ministre du Portefeuille</option>}
+                    {currentUser._id === "6a9ff9277768387b85990964" &&<option value="Genre, Famille et Enfants">Ministre du Genre, Famille et Enfants</option>}
+                    {currentUser._id === "6a9ffa247768387b85990966" &&<option value="Jeunesse">Ministre de la Jeunesse</option>}
+                    
+                    {currentUser._id === "6a9ffb657768387b85990968" &&<option value="MD Affaires Etrangères:Francophonie et Diaspora Congolaise">Ministre Délégué près le Ministre des Affaires Etrangères en charge de la Francophonie et de la Diaspora Congolaise</option>} 
+                    {currentUser._id === "6a9ffbfd7768387b8599096a" &&<option value="MD Environnement et Développement Durable">Ministre Délégué près le Ministre de l’Environnement et Développement Durable en charge de la Nouvelle Economie du Climat</option>}
+                    {currentUser._id === "6a9ffcd77768387b8599096c" &&<option value="MD Urbanisme et Habitat">Ministre Délégué près le Ministre de l’Urbanisme et Habitat en charge de la Politique de la Ville</option>}         
+                    {currentUser._id === "6a9ffdd87768387b8599096e" &&<option value="MD Affaires Sociales">Ministre Délégué près le Ministre des Affaires Sociales en charge des Personnes vivant avec Handicap</option>}
+                    {currentUser._id === "6a9ffeb57768387b85990970" &&<option value="MD Défense Nationale">Ministre Délégué près le Ministre de la Défense Nationale en Charge des Anciens Combattants</option>}
+
+                    {currentUser._id === "6aa000147768387b85990972" &&<option value="VM Budget">Vice-Ministre du Budget</option>}
+                    {currentUser._id === "6aa0010e7768387b85990974" &&<option value="VM Intérieur, Sécurité, Décentralisation">Vice-Ministre de l’Intérieur, Sécurité, Décentralisation</option>}
+                    {currentUser._id === "6aa001fc7768387b85990976" &&<option value="VM Affaires Etrangères">Vice-Ministre des Affaires Etrangères</option>}
+                    {currentUser._id === "6aa0027e7768387b85990978" &&<option value="VM Finances">Vice-Ministre des Finances</option>}
+                    {currentUser._id === "6aa003c77768387b8599097a" &&<option value="VM Éducation Nationale">Vice-Ministre de l’Éducation Nationale et Nouvelle Citoyenneté</option>}
+                    {currentUser._id === "6aa004c97768387b8599097c" &&<option value="VM Affaires Coutumières">Vice-Ministre des Affaires Coutumières</option>}
                     </>)}
 
                     {currentUser._id === import.meta.env.VITE_PR_ID && (
@@ -353,62 +351,62 @@ const formats = [
                         <option value="...">Sélectionner la Présidence ou un Ministre au sujet de la publication</option>
                     {<option value="Présidence">Présidence</option>}
                     {<option value="Premier Ministre">Premier Ministre</option>}
-                    {<option value="Interieur">VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</option>}
-                    {<option value="Transport">VPM, Ministre des Transports et Voies de Communication et Désenclavement</option>}
+                    { <option value="Interieur">VPM, Ministre de l'Intérieur, Sécurité, Décentralisation et Affaires coutumières</option>}
+                    {<option value="Transport">VPM, Ministre de Transports, Voies de Communication et Désenclavement</option>}
                     {<option value="Défense">VPM, Ministre de la Défense Nationale et Anciens Combattants</option>}
                     {<option value="Economie">VPM, Ministre de l’Economie Nationale</option>}
-                    {<option value="Fonction Publique">VPM, Ministre de la Fonction Publique et Modernisation de l’Administration et Innovation du Service Public</option>}
-                    {<option value="Plan">VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</option>}
+                    {<option value="Budget">VPM, Ministre du Budget</option>}
+                    {<option value="Fonction Publique">VPM, Ministre de la Fonction Publique, Modernisation de l’Administration et Innovation du Service Public</option>}
+                    {<option value="Plan">MINETAT, Ministre du Plan et de la Coordination de l’Aide au Développement</option>}
+                    {<option value="Affaires Etrangères">MINETAT, Ministre des Affaires Etrangères, Coopération Internationale, Francophonie et Diaspora Congolaise</option>}
                     {<option value="Agriculture">MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</option>}
-                    {<option value="Affaires Etrangères">MINETAT, Ministre des Affaires Etrangères, Coopération Internationale et Francophonie</option>}
-                    {<option value="Education Nationale">MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</option>}
-                    {<option value="Environnement">MINETAT, Ministre de l’Environnement et Développement Durable</option>}
-                    {<option value="Infrastructures">MINETAT, Ministre des Infrastructures et Travaux Publics</option>}
-                    {<option value="Budget">MINETAT, Ministre du Budget</option>} 
-                    {<option value="Affaires Foncières">MINETAT, Ministre des Affaires Foncières</option>}
-                    {<option value="Développement Rural">MINETAT, Ministre du Développement Rural</option>}
-                    {<option value="Aménagement du territoire">MINETAT, Ministre de l’Aménagement du Territoire</option>}
+                    {<option value="Industrie">MINETAT, Ministre de l’Industrie</option>}
+                    {<option value="Sociales">MINETAT, Ministre des Affaires Sociales, Actions Humanitaires et Solidarité Nationale</option>}  
                     {<option value="Justice">MINETAT, Ministre de la Justice et Garde des Sceaux</option>}
+                    {<option value="Hydrocarbures">MINETAT, Ministre des Hydrocarbures</option>} 
+                    {<option value="Education Nationale">MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</option>}
+                    {<option value="Formation Professionelle">MINETAT, Ministre de la Formation Professionnelle</option>} 
+                    {<option value="Urbanisme et Habitat">MINETAT, Ministre de l'Urbanisme et Habitat</option>} 
+                    {<option value="Développement Rural">MINETAT, Ministre du Développement Rural</option>}
+                    {<option value="Relations avec le Parlement">MINETAT, Ministre des Relations avec le Parlement</option>}
                     {<option value="Finances">Ministre des Finances</option>}
-                    {<option value="Industrie et developpement des PME">Ministre de l’Industrie et developpement des Petites et Moyennes Entreprises</option>}
-                    {<option value="Ressources Hydroliques et Electricité"> Ministre des Ressources Hydroliques et Electricité</option>}
-                    {/* {currentUser._id === "" &&<option value="Mines">Ministre des Mines</option>} */}
-                    {<option value="Mines">Ministre des Mines</option>}
-                    {<option value="Hydrocarbures"> Ministre des Hydrocarbures</option>}
-                    {<option value="Emploi et Travail">Ministre de l’Emploi et Travail</option>}
-                    {<option value="Urbanisme et Habitat">Ministre de l’Urbanisme et Habitat</option>}
-                    {<option value="Droits Humains">Ministre des Droits Humains</option>}
                     {<option value="Santé Publique">Ministre de la Santé Publique, Hygiène et Prévoyance Sociale</option>}
-                    {<option value="Enseignement Supérieur">Ministre de l’Enseignement Supérieur et Universitaire</option>}
-                    {<option value="Recherche Scientifique">Ministre de la Recherche Scientifique et Innovation Technologique</option>}
-                    {<option value="Postes, Télécommunications et Numérique">Ministre des Postes, Télécommunications et Numérique</option>}
-                    {<option value="Portefeuille">Ministre du Portefeuille</option>}
-                    {<option value="Affaires sociales">Ministre des Affaires Sociales, Action Humanitaire et Solidarité Nationale</option>}
-                    {<option value="Commerce Extérieur"> Ministre du Commerce Extérieur</option>}
-                    {<option value="Intégration Régionale">Ministre de l’Intégration Régionale</option>}
+                    {<option value="Commerce Extérieur">Ministre du Commerce Extérieur</option>} 
+                    {<option value="Environnement">Ministre de l’Environnement, Développement Durable et Nouvelle Economie du Climat</option>}
+                    {<option value="Infrastructures">Ministre des Infrastructures et Travaux Publics</option>}
+                    {<option value="Enseignement Supérieur, Recherche et Innovation">Ministre de l'Enseignement Supérieur, Universitaire, Recherche Scientifique et Innovations</option>}
+                    {<option value="Emploi et Travail">Ministre de l’Emploi et Travail</option>}
+                    {<option value="Postes et Télécommunications">Ministre des Postes et Télécommunications</option>}
+                    {<option value="Economie Numérique">Ministre de l'Economie Numérique</option>}
+                    {<option value="Mines">Ministre des Mines</option>}
+                    {<option value="Ressources Hydroliques et Electricité"> Ministre des Ressources Hydroliques et Electricité</option>}
                     {<option value="Communication">Ministre de la Communication, Médias et Porte-Parole du Gouvernement</option>}
-                    {<option value="Formation Professionnelle">Ministre de la Formation Professionnelle</option>}
-                    {<option value="Genre, Famille et Enfants">Ministre du Genre, Famille et Enfants</option>}
+                    {<option value="Entrepreneuriat et PME">Ministre de Entrepreneuriat et Développement des Petites et Moyennes Entreprises</option>}
+                    {<option value="Aménagement du territoire">Ministre de l’Aménagement du Territoire</option>}
+                    {<option value="Tourisme">Ministre du Tourisme</option>}
                     {<option value="Pêche et Elevage">Ministre de la Pêche et Elevage</option>}
                     {<option value="Culture, Arts et Patrimoine">Ministre de la Culture, Arts et Patrimoine</option>}
-                    {<option value="Tourisme">Ministre du Tourisme</option>}
+                    {<option value="Droits Humains">Ministre des Droits Humains</option>}
+                    {<option value="Intégration Régionale">Ministre de l’Intégration Régionale</option>}
+                    {<option value="Affaires Foncières">Ministre des Affaires Foncières</option>}
                     {<option value="Sports">Ministre des Sports et Loisirs</option>}
-                    {<option value="Jeunesse">Ministre de la Jeunesse et Eveil Patriotique</option>}
-                    {<option value="MD Affaires Etrangères:Coopération Internationale et Francophonie">Ministre Délégué près le Ministre des Affaires Etrangères en charge de la Coopération Internationale et Francophonie</option>}
-                    {<option value="MD Urbanisme et Habitat:Politique de la Ville">Ministre Délégué près le Ministre de l’Urbanisme et Habitat en charge de la Politique de la Ville</option>}
-                    {<option value="MD Environnement et Développement Durable:Nouvelle Economie du Climat">Ministre Délégué près le Ministre de l’Environnement et Développement Durable en charge de la Nouvelle Economie du Climat</option>}
-                    {<option value="MD Affaires Sociales:Personnes vivant avec Handicap">Ministre Délégué près le Ministre des Affaires Sociales en charge des Personnes vivant avec Handicap</option>}
+                    {<option value="Portefeuille">Ministre du Portefeuille</option>}
+                    {<option value="Genre, Famille et Enfants">Ministre du Genre, Famille et Enfants</option>}
+                    {<option value="Jeunesse">Ministre de la Jeunesse</option>}
+                    
+                    {<option value="MD Affaires Etrangères:Francophonie et Diaspora Congolaise">Ministre Délégué près le Ministre des Affaires Etrangères en charge de la Francophonie et de la Diaspora Congolaise</option>} 
+                    {<option value="MD Environnement et Développement Durable">Ministre Délégué près le Ministre de l’Environnement et Développement Durable en charge de la Nouvelle Economie du Climat</option>}
+                    {<option value="MD Urbanisme et Habitat">Ministre Délégué près le Ministre de l’Urbanisme et Habitat en charge de la Politique de la Ville</option>}         
+                    {<option value="MD Affaires Sociales">Ministre Délégué près le Ministre des Affaires Sociales en charge des Personnes vivant avec Handicap</option>}
+                    {<option value="MD Défense Nationale">Ministre Délégué près le Ministre de la Défense Nationale en Charge des Anciens Combattants</option>}
+
+                    {<option value="VM Budget">Vice-Ministre du Budget</option>}
                     {<option value="VM Intérieur, Sécurité, Décentralisation">Vice-Ministre de l’Intérieur, Sécurité, Décentralisation</option>}
                     {<option value="VM Affaires Etrangères">Vice-Ministre des Affaires Etrangères</option>}
-                    {<option value="VM Justice et Contentieux International">Vice-Ministre de la Justice et Contentieux International</option>}
-                    {<option value="VM Budget">Vice-Ministre du Budget</option>}
                     {<option value="VM Finances">Vice-Ministre des Finances</option>}
-                    {<option value="VM Défense Nationale">Vice-Ministre de la Défense Nationale et Anciens Combattants</option>}
                     {<option value="VM Éducation Nationale">Vice-Ministre de l’Éducation Nationale et Nouvelle Citoyenneté</option>}
-                    {<option value="VM Mines">Vice-Ministre des Mines</option>}
-                    {<option value="VM Hydrocarbures">Vice-Ministre des Hydrocarbures</option>}
                     {<option value="VM Affaires Coutumières">Vice-Ministre des Affaires Coutumières</option>}
-                    </>)}
+                        </>)}
                 </Select>
             </div>
             <div className="flex gap-4 items-center justify-between border-4 border-blue-500 border-dotted p-3">
