@@ -92,7 +92,7 @@ export default function UpdatePost() {
                 setPublishError(null); 
                 setFormData(data.posts[0]); 
            }
-           console.log("formData is:", formData); 
+           //console.log("formData is:", formData); 
         }; 
         fetchPost(); 
          } catch(error) {

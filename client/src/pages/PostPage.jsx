@@ -203,7 +203,7 @@ export default function PostPage() {
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
-        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère du Plan <br/> et de la Coordination de l’Aide, <br/> au Développement </p>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère du Plan <br/> et de la Coordination de l’Aide <br/> au Développement </p>
         </div>
         
           // <p>VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</p>
@@ -215,7 +215,7 @@ export default function PostPage() {
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
-        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère de l’Agriculture <br/> et Sécurité Alimentaire, <br/> au Développement </p>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère  <br/>de l’Agriculture et <br/> Sécurité Alimentaire </p>
         </div>
           // <p>MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</p>
     
