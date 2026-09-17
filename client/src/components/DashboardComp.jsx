@@ -171,7 +171,7 @@ export default function DashboardComp() {
      <div className="flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 w-full rounded-md shadow-md">
          <div className="flex justify-between">
            <div className="">
-              <h3 className="text-gray-500 text-md uppercase">Nombre total d'articles</h3>
+              <h3 className="text-gray-500 text-md uppercase">Nombre total de publications</h3>
               <p className="text-2xl">{totalPosts}</p>
           </div>
               <HiDocumentText className="bg-lime-600 text-white rounded-full text-5xl p-3 shadow-lg" /> 

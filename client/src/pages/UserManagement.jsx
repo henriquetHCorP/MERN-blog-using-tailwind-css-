@@ -607,7 +607,7 @@ const filteredData = useMemo(() => {
             </h3> */}
             <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
                {/* Êtes-vous sûr de vouloir {userToToggle?.isAdmin ? 'retirer' : 'attribuer'}  les privilèges réservés aux types de compte "Cellcom" à {userToToggle?.username}? */}
-                Êtes-vous sûr de vouloir réinitialiser et définir 123456 comme mot de passe par défaut du compte {startsWithVowelAndH ? "d'" : "de "} {userToReset?.username}?
+                Êtes-vous sûr de vouloir réinitialiser le mot de passe du compte {startsWithVowelAndH ? "d'" : "de "} {userToReset?.username}?
                 <p className="italic text-sm font-bold text-red-500 animate-blink">Attention: Cette opération est irréversible.</p>
             </h3>
             <div className="flex justify-center gap-4">
