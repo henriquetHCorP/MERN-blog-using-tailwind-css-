@@ -201,13 +201,13 @@ window.history.replaceState(null, '', '/')
 //if (!formData.image || !formData.title || !formData.category || !formData.content) return <div>Loading post data...</div>;
 if (!formData.image || !formData.title || !formData.category || !formData.content) return (
     
-    <div class="relative flex items-center justify-center gap-1">
+    <div class="min-h-screen relative flex items-center justify-center gap-1">
         <p className="text-sm animate-slow-blink">Chargement en cours...</p>
     {/* <!-- Outer glowing blur (Adds the "beautiful" premium effect) --> */}
   <div class="absolute h-12 w-12 animate-pulse rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 opacity-30 blur-md dark:from-purple-400 dark:to-cyan-400 dark:opacity-40"></div>
   
     {/* <!-- Main spinning ring --> */}
-  <div class="h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-indigo-600 dark:border-gray-700 dark:border-t-purple-400"></div>
+  <div class="h-20 w-20 animate-spin rounded-full border-4 border-gray-200 border-t-indigo-600 dark:border-gray-700 dark:border-t-purple-400"></div>
 </div>
 );
   return (

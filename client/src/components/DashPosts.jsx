@@ -1,3 +1,4 @@
+//  NEW VERSION OF DASH POSTS WITH BEAUTIFUL LOADING EFFECT 
 import { Button, Label, Modal, Table, TextInput } from 'flowbite-react';
 import React, { useEffect, useMemo, useState } from 'react'
 import { FaThumbsUp } from 'react-icons/fa';
@@ -18,6 +19,7 @@ export default function DashPosts() {
   //console.log(userPosts); 
    
   const [loading, setLoading] = useState(false); 
+  const [noPosts, setNoPosts] = useState(false); 
 
   const navigate = useNavigate(); 
   const dispatch = useDispatch(); 
@@ -28,7 +30,7 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
     ? `/api/post/getposts` 
     : `/api/post/getposts?userId=${currentUser._id}`;
      const fetchPosts = async () => {
-           
+           setLoading(true); 
         try {
               // Since this is a get request we don't need to add any method... 
               //const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`)
@@ -40,16 +42,20 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
               if(res.ok){
                 //setUserPosts(data.posts) cfr post.controller.js res.status(200).json({posts, totalPosts,lastMonthPosts,  
                 setUserPosts(data.posts); 
+                setLoading(false); 
                 if(data.posts.length < 9){
                   setShowMore(false); 
                 }
-                if(data.posts.length > 9){
-                  setShowMore(false); 
+                console.log("nbre of posts:", data.posts.length)
+                if(userPosts.length === 0){
+                  setLoading(false); 
+                  setNoPosts(true); 
                 }
               }
 
         } catch(error) {
               console.log(error.message); 
+              setLoading(false); 
         }
      }; 
      if(currentUser.isAdmin) {
@@ -162,7 +168,7 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
     }, [searchTerm, userPosts]);
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
-     {currentUser.isAdmin && userPosts.length > 0 ? (
+     {currentUser.isAdmin && userPosts.length > 0 && userPosts.length !==0 ? (
         <>
         {/* <Table hoverable className="shadow-md"> */}
            <div className="mb-4">
@@ -281,7 +287,22 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
                       </div>
         }
         </>
-     ):(<p>Vous n'avez aucune publication d'article pour l'instant</p>)}
+     ):(
+         <>
+     {loading && <div class="min-h-screen relative flex items-center justify-center gap-1">
+       <p className="text-sm animate-slow-blink">Chargement en cours...</p>
+  {/* <!-- Outer glowing blur (Adds the "beautiful" premium effect) --> */}
+<div class="absolute h-12 w-12 animate-pulse rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 opacity-30 blur-md dark:from-purple-400 dark:to-cyan-400 dark:opacity-40"></div>
+
+  {/* <!-- Main spinning ring --> */}
+<div class="h-20 w-20 animate-spin rounded-full border-4 border-gray-200 border-t-indigo-600 dark:border-gray-700 dark:border-t-purple-400"></div>
+</div>}
+     {noPosts && <p>Vous n'avez aucune publication d'article pour l'instant</p>}
+
+     </>
+     
+     
+     )}
      <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
@@ -306,3 +327,5 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
     </div>
   )
 }
+
+
