@@ -283,7 +283,7 @@ const handleDeleteAdm = async() => {
         </>
      ):(
       <>
-     <div class="min-h-screen relative flex items-center justify-center gap-1">
+     <div class="min-h-10 relative flex items-center justify-center gap-1">
         <p className="text-sm animate-slow-blink">Chargement en cours...</p>
     {/* <!-- Outer glowing blur (Adds the "beautiful" premium effect) --> */}
   <div class="absolute h-12 w-12 animate-pulse rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 opacity-30 blur-md dark:from-purple-400 dark:to-cyan-400 dark:opacity-40"></div>

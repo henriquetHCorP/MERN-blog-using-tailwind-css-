@@ -289,7 +289,7 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
         </>
      ):(
          <>
-     {loading && <div class="min-h-screen relative flex items-center justify-center gap-1">
+     {loading && <div class="min-h-10 relative flex items-center justify-center gap-1">
        <p className="text-sm animate-slow-blink">Chargement en cours...</p>
   {/* <!-- Outer glowing blur (Adds the "beautiful" premium effect) --> */}
 <div class="absolute h-12 w-12 animate-pulse rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 opacity-30 blur-md dark:from-purple-400 dark:to-cyan-400 dark:opacity-40"></div>
@@ -297,7 +297,7 @@ const url = currentUser._id === import.meta.env.VITE_PR_ID
   {/* <!-- Main spinning ring --> */}
 <div class="h-20 w-20 animate-spin rounded-full border-4 border-gray-200 border-t-indigo-600 dark:border-gray-700 dark:border-t-purple-400"></div>
 </div>}
-     {noPosts && <p>Vous n'avez aucune publication d'article pour l'instant</p>}
+     {noPosts && <p>Vous n'avez aucune publication pour l'instant</p>}
 
      </>
      
