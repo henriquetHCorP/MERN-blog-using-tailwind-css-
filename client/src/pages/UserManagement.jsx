@@ -325,7 +325,15 @@ const filteredData = useMemo(() => {
       {searchTerm && filteredData && filteredData.length === 1  && <p className="p-1 text-gray-500 text-md dark:text-white">{filteredData.length} résultat trouvé :</p>}
       {searchTerm && filteredData && filteredData.length > 1  && <p className="p-1 text-gray-500 text-md dark:text-white">{filteredData.length} résultats trouvés :</p>}
      </div> 
-        {loading && <p>Chargement en cours...</p>}
+          {/* {loading && <p>Chargement en cours...</p>} */}
+          {loading && <div class="min-h-10 relative flex items-center justify-center gap-1">
+       <p className="text-sm animate-slow-blink">Chargement en cours...</p>
+  {/* <!-- Outer glowing blur (Adds the "beautiful" premium effect) --> */}
+<div class="absolute h-12 w-12 animate-pulse rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 opacity-30 blur-md dark:from-purple-400 dark:to-cyan-400 dark:opacity-40"></div>
+
+  {/* <!-- Main spinning ring --> */}
+<div class="h-20 w-20 animate-spin rounded-full border-4 border-gray-200 border-t-indigo-600 dark:border-gray-700 dark:border-t-purple-400"></div>
+</div>}
             {filteredData && filteredData.length >= 1? (<Table hoverable className="shadow-md">
                 <Table.Head>
                 
@@ -544,6 +552,7 @@ const filteredData = useMemo(() => {
                         <div className="p-4 flex items-center justify-center">
                         <Button 
                         onClick={handleShowMore} 
+                        disabled={loading}
                           gradientDuoTone="purpleToBlue" className='rounded-full transition-all duration-1000 dark:!from-green-500 dark:!to-blue-500 dark:text-white-500 text-lg shadow-lg'>
                           Voir plus 
             

@@ -16,6 +16,8 @@ export default function DashComments() {
   const [showMore, setShowMore ] = useState(true); 
   const [showModal, setShowModal] = useState(false); 
   const [commentIdToDelete, setCommentIdToDelete] = useState(''); 
+  const [loading, setLoading] = useState(false); 
+  const [noComments, setNoComments] = useState(false); 
   //   console.log(userPosts); 
   //console.log(comments); 
     const dispatch = useDispatch();
@@ -33,6 +35,7 @@ export default function DashComments() {
                     } else {
                         dispatch(signoutSuccess()); 
                     }
+                    
                 } catch(error) {
                     console.log(error.message); 
                 }
@@ -40,6 +43,7 @@ export default function DashComments() {
   
   useEffect (() => {
      const fetchComments = async () => {
+      setLoading(true); 
         try {
               // Since this is a get request we don't need to add any method... 
               const res = await fetch(`/api/comment/getcomments?limit=99999999999999999999&sort=desc`)
@@ -48,6 +52,7 @@ export default function DashComments() {
               // console.log(data); 
               if(res.ok){
                 //setUserPosts(data.posts) cfr post.controller.js res.status(200).json({posts, totalPosts,lastMonthPosts,  
+                setLoading(false); 
                 setComments(data.comments); 
                 if(data.comments.length < 9){
                   setShowMore(false); 
@@ -55,11 +60,16 @@ export default function DashComments() {
                 if(data.comments.length > 10){
                   setShowMore(false); 
                 }
+                if(data.comments.length === 0){
+                  setLoading(false); 
+                  setNoComments(true); 
+                }
               }
 
               if(res.status === 401){
 
                  if(res.status === 401){
+                    setLoading(false)
             //        window.alert('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous avec une adresse e-mail et un mot de passe valides.')
             //         handleSignout();
                       toast.error('Vérification de l’utilisateur connecté en cours... Votre session a expiré. Reconnectez-vous sur DRC Gov Social Media avec une adresse e-mail et un mot de passe valides.', {duration:10000})
@@ -71,10 +81,11 @@ export default function DashComments() {
                    
                   // }
                 }
-
+                  
               
 
         } catch(error) {
+               setLoading(false); 
               console.log(error.message); 
         }
      }; 
@@ -155,7 +166,7 @@ const filteredData = useMemo(() => {
 
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
-     {currentUser.isAdmin && comments.length > 0 ? (
+     {currentUser.isAdmin && comments.length > 0 && comments.length !==0 ? (
         <>
         <div className="max-w-lg mx-auto p-4">
                         <TextInput
@@ -168,8 +179,11 @@ const filteredData = useMemo(() => {
                                    onChange={(e)=>setSearchTerm(e.target.value) }
                                   />
                        </div>
-                
-        <Table hoverable className="shadow-md ">
+         <div>
+                {searchTerm && filteredData && filteredData.length === 1  && <p className="p-1 text-gray-500 text-md dark:text-white">{filteredData.length} résultat trouvé :</p>}
+                {searchTerm && filteredData && filteredData.length > 1  && <p className="p-1 text-gray-500 text-md dark:text-white">{filteredData.length} résultats trouvés :</p>}
+               </div>       
+        {filteredData && filteredData.length >= 1? (<Table hoverable className="shadow-md ">
            <Table.Head>
             <Table.HeadCell>date de mise à jour</Table.HeadCell>
             <Table.HeadCell>Contenu du commentaire</Table.HeadCell>
@@ -182,7 +196,8 @@ const filteredData = useMemo(() => {
             <Table.HeadCell>Supprimer</Table.HeadCell>
             
            </Table.Head>
-           {filteredData.map((comment) => (
+          
+          {filteredData.map((comment) => (
             
             <Table.Body className="divide-y" key={comment._id}>
               <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -235,7 +250,7 @@ const filteredData = useMemo(() => {
               </Table.Row>
             </Table.Body>
            ))}
-        </Table>
+        </Table>) : (<p>Aucun résultat trouvé sur DRC Gov Social Media</p>)}
         {
           showMore && 
           // (
@@ -255,7 +270,24 @@ const filteredData = useMemo(() => {
                       </div>
         }
         </>
-     ):(<p>Vous n'avez pas encore de commentaires</p>)}
+     ):(
+          // <p>Vous n'avez pas encore de commentaires</p>
+          
+     <>
+      
+     {loading && <div class="min-h-10 relative flex items-center justify-center gap-1">
+       <p className="text-sm animate-slow-blink">Chargement en cours...</p>
+  {/* <!-- Outer glowing blur (Adds the "beautiful" premium effect) --> */}
+<div class="absolute h-12 w-12 animate-pulse rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 opacity-30 blur-md dark:from-purple-400 dark:to-cyan-400 dark:opacity-40"></div>
+
+  {/* <!-- Main spinning ring --> */}
+<div class="h-20 w-20 animate-spin rounded-full border-4 border-gray-200 border-t-indigo-600 dark:border-gray-700 dark:border-t-purple-400"></div>
+</div>}
+     {noComments && <p>Vous n'avez pas encore de commentaires</p>}
+
+     </>
+     
+     )}
      <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
