@@ -395,7 +395,7 @@ if (!formData.image || !formData.title || !formData.category || !formData.conten
             </div>
             <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
                 <FileInput 
-                   helperText="Choisir une image correspondante à l'article à publier"
+                   helperText="Choisir une image correspondante à la publication"
                    type='file' 
                    accept='image/*' 
                    onChange={(e)=>setFile(e.target.files[0])} />

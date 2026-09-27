@@ -448,11 +448,67 @@ const filteredData = useMemo(() => {
               label={<IoMenu className='w-6 h-6' />} 
               
               arrowIcon={false} inline>
-                <Dropdown.Item onClick={() => handleToggleClick(user)} className="items-center gap-3">
-                  <GrUserAdmin />  
-                 {/* {user.isAdmin ? <p className="shadow-md">Retirer les privilèges "CellCom" </p> : <p className="shadow-md">Attribuer les privilèges "CellCom"</p> }  */}
-                 {user.isAdmin ? <p className="shadow-md">Retirer des "CellCom" </p> : <p className="shadow-md">Ajouter aux "CellCom"</p> } 
-                </Dropdown.Item>
+                  { 
+                     user._id === "6681d7a57be22de25eb96b82" ||
+                     user._id === "6a9fdb617768387b859908da" ||
+                     user._id === "6a9fdf567768387b859908f8" ||
+                     user._id === "6a9fe0267768387b859908fa" ||
+                     user._id === "6a9fe1ad7768387b85990913" ||
+                     user._id === "6953f277308bf59062360b79" ||
+                     user._id === "6924157d7e5e81010202ec46" ||
+                     user._id === "6a9fe2a37768387b8599091b" ||
+                     user._id === "6800379a3210a81630a4af74" ||
+                     user._id === "6a9fe31f7768387b8599091d" ||
+                     user._id === "6a9fe4027768387b8599091f" ||
+                     user._id === "6a9fe49e7768387b85990921" ||
+                     user._id === "6a9fe53e7768387b85990923" ||
+                     user._id === "6a9fe5ce7768387b85990925" ||
+                     user._id === "6a9fe6567768387b85990927" ||
+                     user._id === "6a9fe71e7768387b8599092e" ||
+                     user._id === "6a9fe78c7768387b85990930" ||
+                     user._id === "6a9fe82e7768387b85990932" ||
+                     user._id === "6a9fe8af7768387b85990934" ||
+                     user._id === "66d6235d399aa8313d458d16" ||
+                     user._id === "6a9fe95b7768387b85990936" ||
+                     user._id === "6a9fe9f47768387b85990938" ||
+                     user._id === "6a9fea977768387b8599093a" ||
+                     user._id === "6964bf57b15d50f0a19c1fcf" ||
+                     user._id === "6a9febd57768387b85990941" ||
+                     user._id === "6a9fec8c7768387b85990943" ||
+                     user._id === "6a9feda77768387b85990945" ||
+                     user._id === "6a31408d5dba104e25135b5d" ||
+                     user._id === "69ea1609247cb1850188f2b1" ||
+                     user._id === "6a9fef327768387b85990947" ||
+                     user._id === "699053053735f45c8bf42046" ||
+                     user._id === "6a9ff06a7768387b85990949" ||
+                     user._id === "6a9ff1817768387b8599094b" ||
+                     user._id === "6a9ff2137768387b8599094d" ||
+                     user._id === "6a9ff2c87768387b8599094f" ||
+                     user._id === "6a9ff3677768387b85990951" ||
+                     user._id === "6a9ff41b7768387b85990953" ||
+                     user._id === "6a9ff4b47768387b85990955" ||
+                     user._id === "6a9ff6e37768387b85990957" ||
+                     user._id === "6a9ff7f17768387b85990960" ||
+                     user._id === "6a9ff8717768387b85990962" ||
+                     user._id === "6a9ff9277768387b85990964" ||
+                     user._id === "6a9ffa247768387b85990966" ||
+                     user._id === "6a9ffb657768387b85990968" ||
+                     user._id === "6a9ffbfd7768387b8599096a" ||
+                     user._id === "6a9ffcd77768387b8599096c" ||
+                     user._id === "6a9ffdd87768387b8599096e" ||
+                     user._id === "6a9ffeb57768387b85990970" ||
+                     user._id === "6aa000147768387b85990972" ||
+                     user._id === "6aa0010e7768387b85990974" ||
+                     user._id === "6aa001fc7768387b85990976" ||
+                     user._id === "6aa0027e7768387b85990978" ||
+                     user._id === "6aa003c77768387b8599097a" ||
+                     user._id === "6aa004c97768387b8599097c"  ?
+                    <Dropdown.Item onClick={() => handleToggleClick(user)} className="items-center gap-3">
+                    <GrUserAdmin />  
+                  {/* {user.isAdmin ? <p className="shadow-md">Retirer les privilèges "CellCom" </p> : <p className="shadow-md">Attribuer les privilèges "CellCom"</p> }  */}
+                  {user.isAdmin ? <p className="shadow-md">Retirer des "CellCom" </p> : <p className="shadow-md">Ajouter aux "CellCom"</p> } 
+                  </Dropdown.Item> : null 
+                  }
                 {/* <Dropdown.Divider /> */}
                {user && user._id !== import.meta.env.VITE_PR_ID && user && !user.profilePicture.includes('lh3.googleusercontent.com') &&  <Dropdown.Item className="items-center gap-3" onClick={()=>  handleReset(user)}>
                    <MdLockReset />
