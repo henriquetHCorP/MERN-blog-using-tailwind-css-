@@ -243,35 +243,42 @@ export default function Header() {
                 {theme === 'light' ? <FaMoon /> :'☀️'}
             </Button>
             {currentUser ? (
-                <Dropdown
-                  arrowIcon={false}
-                  inline
-                  label={
-                    <Avatar 
-                      alt="IMG"
-                      img={currentUser.profilePicture}
-                      rounded
-                    />  
-                  }
-                >
-                    <Dropdown.Header>
-                        <span className="block text-sm">@{currentUser.username}</span>
-                        <span className="block text-sm font-medium truncate">
-                            {currentUser.email}</span>
-                    </Dropdown.Header>
-                    <Link to={'/dashboard?tab=profile'}>
-                        {/* <Dropdown.Item>Profil</Dropdown.Item> */}
-                        <Dropdown.Item>Mon compte</Dropdown.Item>
-                    </Link>
-                    <Dropdown.Divider />
-                    <Link to={`/user/${currentUser._id}`}>
-                        {/* <Dropdown.Item>Profil</Dropdown.Item> */}
-                        <Dropdown.Item>Mon profil</Dropdown.Item>
-                    </Link>
-                    <Dropdown.Divider /> 
-                    <Dropdown.Item onClick={handleSignout}>Se déconnecter</Dropdown.Item>
+                  <Dropdown
+                    arrowIcon={false}
+                    inline
+                    label={
+                          <div className="relative">
+                      <Avatar 
+                        alt="IMG"
+                        img={currentUser.profilePicture}
+                        rounded
+                      />  
+                      {/* Render the badge cleanly on top if admin */}
+        {currentUser.isAdmin && (
+          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-500 border-2 border-white text-white text-[10px] font-bold shadow-md z-10">
+            ✓
+          </span>)}
+                      
+                    </div>}
+                  >
+                      <Dropdown.Header>
+                          <span className="block text-sm">@{currentUser.username}</span>
+                          <span className="block text-sm font-medium truncate">
+                              {currentUser.email}</span>
+                      </Dropdown.Header>
+                      <Link to={'/dashboard?tab=profile'}>
+                          {/* <Dropdown.Item>Profil</Dropdown.Item> */}
+                          <Dropdown.Item>Mon compte</Dropdown.Item>
+                      </Link>
+                      <Dropdown.Divider />
+                      <Link to={`/user/${currentUser._id}`}>
+                          {/* <Dropdown.Item>Profil</Dropdown.Item> */}
+                          <Dropdown.Item>Mon profil</Dropdown.Item>
+                      </Link>
+                      <Dropdown.Divider /> 
+                      <Dropdown.Item onClick={handleSignout}>Se déconnecter</Dropdown.Item>
 
-                </Dropdown>
+                  </Dropdown>
              ) : 
             (
                 <Link to='/sign-in'>

@@ -237,7 +237,12 @@ export default function DashProfile() {
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
       {/* <h1 className="my-7 text-center font-semibold text-3xl">Profil</h1> */}
+      <div className="flex items-center justify-center flex-row">
       <h1 className="my-7 text-center font-semibold text-3xl">Mon compte</h1>
+    { currentUser.isAdmin &&  <span className=" flex h-8 w-8 items-center justify-center rounded-full bg-green-500 border-2 border-white text-white text-[25px] font-bold shadow-md z-10">
+            ✓
+          </span>}
+      </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input 
             placeholder="Choisir une photo de profil..." 
@@ -292,9 +297,12 @@ export default function DashProfile() {
               }}
               />
           )}
-        <img src={imageFileUrl || currentUser.profilePicture} 
+       { currentUser.isAdmin ? <img src={imageFileUrl || currentUser.profilePicture} 
         alt=""   
-        className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${imageFileUploadProgress && imageFileUploadProgress < 100 && 'opacity-60'}`} onClick={()=>filePickerRef.current.click()} />
+        className={`rounded-full w-full h-full object-cover border-8 border-[#0E9F6E] ${imageFileUploadProgress && imageFileUploadProgress < 100 && 'opacity-60'}`} onClick={()=>filePickerRef.current.click()}  />
+        : <img src={imageFileUrl || currentUser.profilePicture} 
+        alt=""   
+        className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${imageFileUploadProgress && imageFileUploadProgress < 100 && 'opacity-60'}`} onClick={()=>filePickerRef.current.click()} />}
         </div>
         {imageFileUploadError && <Alert color='failure'>{imageFileUploadError}</Alert>}
         <p>Voulez-vous modifier vos identifiants? </p>
