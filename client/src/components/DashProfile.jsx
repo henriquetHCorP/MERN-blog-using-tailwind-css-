@@ -238,7 +238,488 @@ export default function DashProfile() {
     <div className="max-w-lg mx-auto p-3 w-full">
       {/* <h1 className="my-7 text-center font-semibold text-3xl">Profil</h1> */}
       <div className="flex items-center justify-center flex-row">
-      <h1 className="my-7 text-center font-semibold text-3xl">Mon compte</h1>
+      {currentUser.isAdmin === false && <h1 className="my-7 text-center font-semibold text-3xl">Mon compte</h1>}
+      {currentUser._id === import.meta.env.VITE_PR_ID && (
+        <div className="flex flex-row items-center">
+          <img src="/presidence.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklogpr.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Présidence de la République</p></div>)}
+      {currentUser._id === "6681d7a57be22de25eb96b82" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">La Primature</p>
+        
+        </div>
+      
+      )}
+      {currentUser._id === "6a9fdb617768387b859908da" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de l'Intérieur et Sécurité, <br/> Décentralisation et Affaires coutumières</p>
+        </div>
+          // <p>VPM, Ministre de l'Intérieur et Sécurité, Décentralisation et Affaires coutumières</p>
+        
+        )}
+      {currentUser._id === "6a9fdf567768387b859908f8" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> des Transports, <br/> Voies de Communication <br/>et Désenclavement </p>
+        </div>
+        
+          // <p>VPM, Ministre des Transports et Voies de Communication et Désenclavement</p>
+        )}
+      {currentUser._id === "6a9fe0267768387b859908fa" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de la Défense Nationale, <br/> et Anciens Combattants</p>
+        </div>
+          // <p>VPM, Ministre de la Défense Nationale et Anciens Combattants</p>
+      
+    )}
+      {currentUser._id === "6a9fe1ad7768387b85990913" && (
+        
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de l’Economie Nationale </p>
+        </div>
+          // <p>VPM, Ministre de l’Economie Nationale</p>
+    
+    
+    )}
+      {currentUser._id === "6924157d7e5e81010202ec46" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de la Fonction Publique, <br/> Modernisation de l'Administration <br/> et Innovation du Service Public</p>
+        </div>
+      
+      )}
+      {currentUser._id === "6a9fe2a37768387b8599091b" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère du Plan <br/> et de la Coordination de l’Aide <br/> au Développement </p>
+        </div>
+        
+          // <p>VPM, Ministre du Plan et de la Coordination de l’Aide au Développement</p>
+    
+    
+    )}
+      {currentUser._id === "6a9fe31f7768387b8599091d" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère  <br/>de l’Agriculture et <br/> Sécurité Alimentaire </p>
+        </div>
+          // <p>MINETAT, Ministre de l’Agriculture et Sécurité Alimentaire</p>
+    
+    )}
+      {currentUser._id === "6800379a3210a81630a4af74" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+          <p className=" text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> des Affaires Etrangères, <br/> Coopération Internationale, <br/> Francophonie et Diaspora Congolaise</p>
+          </div>
+        
+        )}
+      {currentUser._id === "6a9fe6567768387b85990927" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+          <p className=" text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> de l’Education Nationale <br/> et Nouvelle Citoyenneté</p>
+          </div>
+          // <p>MINETAT, Ministre de l’Education Nationale et Nouvelle Citoyenneté</p>
+      
+      
+      )
+      
+      
+      }
+      {currentUser._id === "6a9fea977768387b8599093a" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+          <p className=" text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère de l’Environnement, <br/>Développement Durable <br/> et Nouvelle Economie du Climat</p>
+          </div>
+    
+          // <p>MINETAT, Ministre de l’Environnement et Développement Durable</p>
+    
+    
+    )}
+      {currentUser._id === "6964bf57b15d50f0a19c1fcf" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> des Infrastructures <br/> et Travaux Publics</p></div>)}
+      {currentUser._id === "6953f277308bf59062360b79" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère <br/> du Budget</p></div>)}
+      {currentUser._id === "6a9ff6e37768387b85990957" && (
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère des <br/> Affaires Foncières</p>
+        </div>
+      
+      )}
+      {currentUser._id === "6a9fe82e7768387b85990932" && (
+
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère<br/> du Développement Rural</p>
+        </div>
+          // <p>MINETAT, Ministre du Développement Rural</p>
+        
+        )}
+      {currentUser._id === "6a9ff1817768387b8599094b" && (
+
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère de l’Aménagement<br/>du Territoire</p>
+        </div>
+        
+          // <p>MINETAT, Ministre de l’Aménagement du Territoire</p>
+        
+        )}
+      {currentUser._id === "6a9fe53e7768387b85990923" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif"> Ministère<br/>de la Justice</p>
+        </div>
+          // <p>MINETAT, Ministre de la Justice et Garde des Sceaux</p>
+    
+    
+    )}
+      {currentUser._id === "66d6235d399aa8313d458d16" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Finances</p></div>)}
+      
+      {currentUser._id === "699053053735f45c8bf42046" && (
+        
+        <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>de la Communication <br/> et Médias</p></div>)}
+      {currentUser._id === "69ea1609247cb1850188f2b1" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>des Mines</p></div>
+      )}
+      {currentUser._id === "6a9feda77768387b85990945" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Postes et <br/> Télécommunications</p></div>
+      )}
+      {currentUser._id === "6a31408d5dba104e25135b5d" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>de l'Economie <br/>Numérique </p></div>
+      )}
+      {currentUser._id === "6a9fe4027768387b8599091f" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>de l’Industrie </p></div>
+      )}
+      {currentUser._id === "6a9fe49e7768387b85990921" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère des Affaires Sociales, <br/> Actions Humanitaires <br/>et Solidarité Nationale </p></div>
+      )}
+      {currentUser._id === "6a9fe5ce7768387b85990925" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère des Hydrocarbures</p></div>
+      )}
+      {currentUser._id === "6a9fe6567768387b85990927" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de l’Education Nationale <br/> et Nouvelle Citoyenneté</p></div>
+      )}
+      {currentUser._id === "6a9fe71e7768387b8599092e" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de la Formation <br/> Professionnelle</p></div>
+      )}
+      {currentUser._id === "6a9fe78c7768387b85990930" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de l'Urbanisme <br/> et Habitat</p></div>
+      )}
+      {currentUser._id === "6a9fe82e7768387b85990932" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> du Développement <br/>Rural</p></div>
+      )}
+      {currentUser._id === "6a9fe8af7768387b85990934" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère des Relations  <br/> avec le Parlement</p></div>
+      )}
+      {currentUser._id === "6a9fe95b7768387b85990936" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de la Santé Publique, <br/> Hygiène et Prévoyance Sociale </p></div>
+      )}
+      {currentUser._id === "6a9fe9f47768387b85990938" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> du Commerce <br/>Extérieur </p></div>
+      )}
+      {currentUser._id === "6a9fea977768387b8599093a" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de l’Environnement, <br/> Développement Durable <br/>et Nouvelle Economie du Climat </p></div>
+      )}
+      {currentUser._id === "6a9febd57768387b85990941" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère Enseignement Supérieur, <br/> Universitaire, Recherche Scientifique <br/>et Innovations </p></div>
+      )}
+      {currentUser._id === "6a9fec8c7768387b85990943" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de l'Emploi <br/> et Travail</p></div>
+      )}
+      {currentUser._id === "6a9fef327768387b85990947" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Ressources Hydroliques <br/> et Electricité</p></div>
+      )}
+      {currentUser._id === "6a9ff06a7768387b85990949" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de Entrepreneuriat <br/> et Développement des Petites <br/> et Moyennes Entreprises</p></div>
+      )}
+      {currentUser._id === "6a9ff1817768387b8599094b" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de l'Aménagement <br/> du territoire </p></div>
+      )}
+      {currentUser._id === "6a9ff2137768387b8599094d" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> du Tourisme </p></div>
+      )}
+      {currentUser._id === "6a9ff2c87768387b8599094f" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de la Pêche et Elevage </p></div>
+      )}
+      {currentUser._id === "6a9ff3677768387b85990951" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de la Culture, <br/> Arts et Patrimoine</p></div>
+      )}
+      {currentUser._id === "6a9ff41b7768387b85990953" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Droits Humains </p></div>
+      )}
+      {currentUser._id === "6a9ff4b47768387b85990955" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de l’Intégration <br/> Régionale </p></div>
+      )}
+      {currentUser._id === "6a9ff6e37768387b85990957" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Affaires Foncières</p></div>
+      )}
+      {currentUser._id === "6a9ff7f17768387b85990960" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> des Sports <br/> et Loisirs</p></div>
+      )}
+      {currentUser._id === "6a9ff8717768387b85990962" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/>du Portefeuille</p></div>
+      )}
+      {currentUser._id === "6a9ff9277768387b85990964" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère du Genre, <br/>Famille et Enfants</p></div>
+      )}
+      {currentUser._id === "6a9ffa247768387b85990966" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de la Jeunesse</p></div>
+      )}
+      {currentUser._id === "6a9ffb657768387b85990968" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre des Affaires Etrangères <br/> en charge de la Francophonie et de la Diaspora Congolaise</p></div>
+      )}
+      {currentUser._id === "6a9ffbfd7768387b8599096a" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre de l’Environnement et Développement Durable <br/> en charge de la Nouvelle Economie du Climat</p></div>
+      )}
+      {currentUser._id === "6a9ffcd77768387b8599096c" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre de l’Urbanisme et Habitat <br/> en charge de la Politique de la Ville</p></div>
+      )}
+      {currentUser._id === "6a9ffdd87768387b8599096e" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre des Affaires Sociales <br/> en charge des Personnes vivant avec Handicap</p></div>
+      )}
+      {currentUser._id === "6a9ffeb57768387b85990970" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministre Délégué <br/> près le Ministre de la Défense Nationale <br/> en Charge des Anciens Combattants</p></div>
+      )}
+      {currentUser._id === "6aa000147768387b85990972" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> du Budget</p></div>
+      )}
+      {currentUser._id === "6aa0010e7768387b85990974" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre de l’Intérieur, <br/> Sécurité, Décentralisation<br/></p></div>
+      )}
+      {currentUser._id === "6aa001fc7768387b85990976" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> des Affaires Etrangères</p></div>
+      )}
+      {currentUser._id === "6aa0027e7768387b85990978" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> des Finances</p></div>
+      )}
+      {currentUser._id === "6aa003c77768387b8599097a" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> de l’Éducation Nationale <br/>et Nouvelle Citoyenneté</p></div>
+      )}
+      {currentUser._id === "6aa004c97768387b8599097c" && (
+         <div className="flex flex-row items-center">
+          <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
+          <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
+          <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Vice-Ministre <br/> des Affaires <br/> Coutumières</p></div>
+      )}
+
     { currentUser.isAdmin &&  <span className=" flex h-8 w-8 items-center justify-center rounded-full bg-green-500 border-2 border-white text-white text-[25px] font-bold shadow-md z-10">
             ✓
           </span>}
