@@ -28,9 +28,9 @@ export default function Search() {
     if (searchTermFromUrl || sortFromUrl || categoryFromUrl){
       setSidebarData({
         ...sidebarData, 
-        searchTerm:searchTermFromUrl,
+        searchTerm:searchTermFromUrl || "",
         order:sortFromUrl,
-        category:categoryFromUrl,  
+        category:categoryFromUrl === "..." ? "" : categoryFromUrl,  
       })
     }; 
     const fetchPosts = async() => {
@@ -79,7 +79,15 @@ export default function Search() {
     urlParams.set('searchTerm', sidebarData.searchTerm); 
     urlParams.set('order', sidebarData.order); 
     urlParams.set('category', sidebarData.category);
-    const searchQuery = urlParams.toString(); 
+
+    //const searchQuery = urlParams.toString(); 
+    let searchQuery = urlParams.toString();
+    if (searchQuery.includes('...')) {
+    searchQuery = searchQuery.replaceAll('...', '');
+  }
+        if (searchQuery.includes('null')) {
+        searchQuery = searchQuery.replaceAll('null', '');
+      }
     navigate(`/search?${searchQuery}`); 
   }; 
   const handleShowMore = async() => {

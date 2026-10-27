@@ -640,7 +640,7 @@ export default function DashProfile() {
           <img src="/gouvernement.jpg" alt="cellcom" height={90} width={90} className="dark:hidden"/>
           <img src="/darklog-.png"  alt="cellcom" height={90} width={90} className="hidden dark:block"/>
           <img src="/line.png" alt="cellcom" height={11} width={11} className=""/>
-        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère de la Jeunesse</p></div>
+        <p className="text-xs md:text-sm font-bold text-left uppercase font-serif">Ministère <br/> de la Jeunesse</p></div>
       )}
       {currentUser._id === "6a9ffb657768387b85990968" && (
          <div className="flex flex-row items-center">
